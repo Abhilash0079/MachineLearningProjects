@@ -1,2 +1,5 @@
 sales_forecasting/data/*.csv
 
+# Environment files anywhere in the project
+**/.env
+
