@@ -85,7 +85,7 @@ if st.button("Recommend Movies"):
 
         st.dataframe(
             recommendations,
-            width=True
+            use_container_width=True
         )
 
     else:
