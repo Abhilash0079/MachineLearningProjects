@@ -314,24 +314,6 @@ streamlit run app/app.py
 🎬 Netflix Recommendation System
 ```
 
-### Recommendation Output
-
-```text
-Movie Selected:
-Inception
-
-Top Recommendations:
-
-1. Interstellar
-2. The Prestige
-3. Tenet
-4. Batman Begins
-5. Memento
-...
-```
-
----
-
 ## 📈 Future Enhancements
 
 ### Planned Improvements
@@ -402,7 +384,7 @@ Aspiring Data Scientist and Machine Learning Engineer passionate about solving r
 
 ### Connect With Me
 
-- LinkedIn: [Add Your LinkedIn URL]
-- GitHub: [Add Your GitHub URL]
+- LinkedIn: (https://www.linkedin.com/in/abhilash-kumar-824042166/)
+- GitHub: (https://github.com/Abhilash0079)
 
 ---
