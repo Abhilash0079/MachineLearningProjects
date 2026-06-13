@@ -1,3 +1,23 @@
+#====================================
+#STEP 4 — Create India-Specific ML Dataset
+#====================================
+
+"""
+India Dataset Creation
+
+Based on the EDA findings, India was selected for country-level forecasting due to its long reporting history, large population, and clearly identifiable COVID-19 waves.
+
+Why India?
+    Consistent reporting across time
+    Multiple outbreak waves
+    Sufficient observations for forecasting
+    Reduced noise compared to global modeling
+
+Outcome
+
+A country-specific dataset was created to support time-series forecasting and machine learning model development.
+"""
+
 import pandas as pd
 import os
 
