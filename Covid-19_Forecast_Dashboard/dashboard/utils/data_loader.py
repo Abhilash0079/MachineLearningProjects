@@ -1,7 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv(
-    "data/processed/covid_ml_dataset.csv"
-)
-
-last_date = df["date"].max()
+def load_india_data():
+    df = pd.read_csv("data/processed/india_ml_dataset.csv")
+    df["date"] = pd.to_datetime(df["date"])
+    return df

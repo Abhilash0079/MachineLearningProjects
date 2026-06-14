@@ -3,25 +3,26 @@ from dash import html
 import dash_bootstrap_components as dbc
 from dash_iconify import DashIconify
 
-from utils.data_loader import last_date
+from utils.data_loader import load_india_data
 
 # ==========================================
 # LOAD DATA
 # ==========================================
 
-df = pd.read_csv("data/processed/covid_ML_dataset.csv")
+df = load_india_data()
+df['date'] = pd.to_datetime(df['date'])
 
-latest_country_data = (
-    df.sort_values("date")
-      .groupby("location")
-      .tail(1)
-)
+# =====================================================
+# LATEST RECORD
+# =====================================================
 
-total_cases = int(latest_country_data["total_cases"].sum())
-total_deaths = int(latest_country_data["total_deaths"].sum())
-
-avg_vaccination = round(df['vaccination_rate'].mean(),2)
-avg_mortality = round(df['mortality_rate'].mean(),2)
+last_valid_row = df[df["total_cases"] > 0].iloc[-1]
+total_cases = int(last_valid_row["total_cases"])
+total_deaths = int(last_valid_row["total_deaths"])
+new_cases = int(last_valid_row['new_cases'])
+vaccination_rate = round(df['vaccination_rate'].iloc[-1],2)
+mortality_rate = round((total_deaths /total_cases) * 100,2)
+last_date = pd.to_datetime(last_valid_row["date"]).strftime("%d %B %Y")
 
 # ==========================================
 # LAYOUT
@@ -40,13 +41,13 @@ overview_layout = dbc.Container([
                         icon="mdi:virus",
                         width=40
                     ),
-                    html.H5("Total Cases"),
+                    html.H5("Total Cases",className="mt-2"),
                     html.H3(f"{total_cases:,}")
                 ]),
                 color="primary",
                 inverse=True
             ),
-            width=3
+            width=2
         ),
         dbc.Col(
             dbc.Card(
@@ -55,13 +56,28 @@ overview_layout = dbc.Container([
                         icon="mdi:skull",
                         width=40
                     ),
-                    html.H5("Total Deaths"),
+                    html.H5("Total Deaths",className="mt-2"),
                     html.H3(f"{total_deaths:,}")
                 ]),
                 color="danger",
                 inverse=True
             ),
-            width=3
+            width=2
+        ),
+        dbc.Col(
+            dbc.Card(
+                dbc.CardBody([
+                    DashIconify(
+                        icon="mdi:chart-line",
+                        width=40
+                    ),
+                    html.H5("New Cases",className="mt-2"),
+                    html.H3(f"{new_cases:,}")
+                ]),
+                color="info",
+                inverse=True
+            ),
+            width=2
         ),
         dbc.Col(
             dbc.Card(
@@ -70,8 +86,8 @@ overview_layout = dbc.Container([
                         icon="mdi:syringe",
                         width=40
                     ),
-                    html.H5("Avg Vaccination Rate"),
-                    html.H3(f"{avg_vaccination:.2f}%")
+                    html.H5("Vaccination Rate", className="mt-2"),
+                    html.H3(f"{vaccination_rate:.2f}%")
                 ]),
                 color="success",
                 inverse=True
@@ -85,8 +101,8 @@ overview_layout = dbc.Container([
                         icon="mdi:heart-pulse",
                         width=40
                     ),
-                    html.H5("Avg Mortality Rate"),
-                    html.H3(f"{avg_mortality:.2f}%")
+                    html.H5("Mortality Rate", className="mt-2"),
+                    html.H3(f"{mortality_rate:.2f}%")
                 ]),
                 color="warning",
                 inverse=True
