@@ -3,7 +3,13 @@ sales_forecasting/data/*.csv
 # Environment files anywhere in the project
 **/.env
 
+# Covid Dashboard
 
+India_Covid-19_AnalyticsDashboard/data/raw/
+India_Covid-19_AnalyticsDashboard/data/processed/covid_ML_dataset.csv
+India_Covid-19_AnalyticsDashboard/src/ingestion.py
+
+India_Covid-19_AnalyticsDashboard/venv/
 
 # Python
 __pycache__/
