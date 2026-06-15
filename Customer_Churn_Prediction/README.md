@@ -178,7 +178,7 @@ Customer_Churn_Prediction/
 
 ✅ Project Initialization
 
-⬜ Data Preprocessing
+✅ Data Preprocessing
 
 ⬜ Exploratory Data Analysis
 
