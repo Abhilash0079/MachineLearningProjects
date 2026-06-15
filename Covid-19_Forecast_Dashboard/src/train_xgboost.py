@@ -1,3 +1,7 @@
+#====================================================
+# STEP 5 — Lag Feature Engineering & Model Training - XGBOOST
+#====================================================
+
 import pandas as pd
 import numpy as np
 import os
@@ -15,7 +19,7 @@ from sklearn.metrics import (
 #========================================
 
 df = pd.read_csv("data/processed/india_ml_dataset.csv")
-df['date'] = pd.to_datetime(df['date'])
+print("Original Shape:", df.shape)
 
 #========================================
 # LAG FEATURES
@@ -24,12 +28,12 @@ df['date'] = pd.to_datetime(df['date'])
 df['lag_1'] = df['new_cases'].shift(1)
 df['lag_7'] = df['new_cases'].shift(7)
 df['lag_14'] = df['new_cases'].shift(14)
-
+print("Shape After Lag Creation:",df.shape)
 # =====================================================
 # REMOVE NULLS
 # =====================================================
 
-df = df.dropna()
+df = df.dropna().copy()
 
 # =====================================================
 # FEATURES
@@ -53,19 +57,19 @@ X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42
 )
 
+print("\nTrain Shape:",X_train.shape)
+print("\nTest Shape:",X_test.shape)
 # =====================================================
 # MODEL
 # =====================================================
 
 model = XGBRegressor(
-    n_estimators=500,
+    n_estimators=300,
     learning_rate=0.05,
     max_depth=6,
-    subsample=0.8,
-    colsample_bytree=0.8,
     random_state=42
 )
-
+print("\nTraining XGBoost Model...")
 model.fit(X_train, y_train)
 
 # =====================================================
@@ -106,6 +110,15 @@ print(importance)
 # =====================================================
 
 os.makedirs("models", exist_ok=True)
-
 joblib.dump(model,"models/xgboost_model.pkl")
-print("\nModel Saved Successfully.")
+# =====================================
+# SAVE TEST PREDICTIONS
+# =====================================
+
+os.makedirs("data/predictions",exist_ok=True)
+
+pred_df = pd.DataFrame({"actual_cases":y_test.values,"predicted_cases":preds})
+pred_df.to_csv("data/predictions/test_predictions.csv",index=False)
+print("\nTest Predictions Saved.")
+
+print("Model Saved Successfully.")

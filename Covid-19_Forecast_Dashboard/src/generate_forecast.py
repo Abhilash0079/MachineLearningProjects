@@ -25,39 +25,47 @@ df = df.dropna().copy()
 # LAST AVAILABLE DATE
 # ==========================================
 
-last_date = pd.to_datetime(df['date']).max()
+valid_df = df[df["total_cases"] > 0].copy()
+last_date = pd.to_datetime(valid_df["date"]).max()
+history = (valid_df["new_cases"].tail(14).tolist())
 
 # ==========================================
 # CREATE FORECAST INPUT
 # ==========================================
 
-latest = df.iloc[-1].copy()
 future_rows = []
-
-for i in range(1,31):
-    forecast_date = (last_date + pd.Timedelta(days=i))
-    row = latest.copy()
-
-    row['date'] = forecast_date
+for i in range(1, 31):
+    forecast_date = (last_date +pd.Timedelta(days=i))
+    
+    lag_1 = history[-1]
+    lag_7 = history[-7]
+    lag_14 = history[-14]
+    
+    cases_7d_avg = np.mean(history[-7:])
+    cases_14d_avg = np.mean(history[-14:])
 
     input_df = pd.DataFrame({
-        "lag_1": [row["lag_1"]],
-        "lag_7": [row["lag_7"]],
-        "lag_14": [row["lag_14"]],
-        "cases_7d_avg": [row["cases_7d_avg"]],
-        "cases_14d_avg": [row["cases_14d_avg"]],
-        "vaccination_rate": [row["vaccination_rate"]],
-        "mortality_rate": [row["mortality_rate"]],
+        "lag_1": [lag_1],
+        "lag_7": [lag_7],
+        "lag_14": [lag_14],
+        "cases_7d_avg": [cases_7d_avg],
+        "cases_14d_avg": [cases_14d_avg],
+        "vaccination_rate": [valid_df["vaccination_rate"].iloc[-1]],
+        "mortality_rate": [valid_df["mortality_rate"].iloc[-1]],
         "month": [forecast_date.month],
         "weekday": [forecast_date.weekday()]
     })
 
     prediction = model.predict(input_df)[0]
+    prediction = max(prediction,0)
 
     future_rows.append({
-        'date': forecast_date,
-        'predicted_cases': max(prediction,0)
+        "date": forecast_date,
+        "predicted_cases": round(prediction)
     })
+
+    history.append(prediction)
+    history = history[-14:]
 
 forecast_df = pd.DataFrame(future_rows)
 

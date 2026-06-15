@@ -1,6 +1,6 @@
-#=====================================
-# STEP 5 — Lag Feature Engineering & Model Training
-#=====================================
+#======================================================
+# STEP 4 — Lag Feature Engineering & Model Training - Random Forest
+#======================================================
 
 import pandas as pd
 import numpy as np
@@ -21,7 +21,6 @@ from sklearn.metrics import (
 
 df = pd.read_csv('data/processed/india_ml_dataset.csv')
 
-df['date'] = pd.to_datetime(df['date'])
 print(f"Original Shape: {df.shape}")
 
 #=====================================
@@ -36,7 +35,7 @@ df['lag_14'] = df['new_cases'].shift(14)
 # REMOVE MULES CREATED BY LAGS
 #=====================================
 
-df.dropna()
+df = df.dropna().copy()
 print(f"Shape After Lag Creation: {df.shape}")
 
 #=====================================
@@ -79,12 +78,13 @@ print("\nTest Shape:", X_test.shape)
 #=====================================
 
 rf = RandomForestRegressor(
-    n_estimators=300,
-    max_depth=15,
+    n_estimators=200,
+    max_depth=10,
     random_state=42,
     n_jobs=-1
 )
 
+print("\nTraining Model...")
 rf.fit(X_train, y_train)
 
 #=====================================
@@ -126,14 +126,8 @@ print(importance)
 # SAVE MODEL
 #=====================================
 
-os.makedirs(
-    "models",
-    exist_ok=True
-)
+os.makedirs("models",exist_ok=True)
 
-joblib.dump(
-    rf,
-    "models/random_forest.pkl"
-)
+joblib.dump(rf,"models/random_forest.pkl")
 
 print("\nModel Saved Successfully.")

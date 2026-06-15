@@ -1,3 +1,7 @@
+#=======================================
+# STEP 1 : RAW DATA
+#=======================================
+
 import os
 import logging
 import requests

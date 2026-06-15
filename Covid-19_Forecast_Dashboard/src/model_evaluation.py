@@ -17,8 +17,6 @@ print("Loading India dataset...")
 
 df = pd.read_csv("data/processed/india_ml_dataset.csv")
 
-df["date"] = pd.to_datetime(df["date"])
-
 print("Dataset Shape:", df.shape)
 
 # =====================================================

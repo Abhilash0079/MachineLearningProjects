@@ -1,0 +1,93 @@
+body{
+    background:#F8FAFC;
+    font-family:Segoe UI, sans-serif;
+}
+
+/* Header */
+h1{
+    font-weight:bold;
+}
+
+h2{
+    font-weight:bold;
+    color:#0d6efd;
+}
+
+h3{
+    font-weight:bold;
+    color:#343a40;
+}
+h5{
+    font-weight:bold;
+    color:#ffffff;
+}
+
+.header-container{
+    text-align:center;
+    margin-top:20px;
+    margin-bottom:25px;
+}
+
+.dashboard-title{
+    color:#1E3A8A;
+    font-weight:700;
+}
+
+.dashboard-subtitle{
+    color:#64748B;
+    font-size:18px;
+}
+
+/* Cards */
+
+.card{
+    background:white;
+    border:none;
+    border-radius:16px;
+    padding:10px;
+    box-shadow:0px 4px 12px rgba(0,0,0,0.08);
+    transition:all 0.3s ease;
+    text-align: center;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0px 10px 25px rgba(0,0,0,0.15);
+}
+.card-body{
+    padding: 16px 10px;
+}
+
+/* Tabs */
+
+.tab{
+    font-size:18px;
+    font-weight:bold;}
+
+/* Plotly Graphs */
+
+/* .js-plotly-plot{
+    background:white;
+    border-radius:15px;
+    padding:10px;
+} */
+
+/* Footer */
+
+.footer{
+    text-align:center;
+    color:gray;
+    padding:20px;
+    font-size:14px;
+}
+
+/* =========================
+   Graph Container
+========================= */
+
+.graph-container{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0px 2px 10px rgba(0,0,0,0.15);
+}
