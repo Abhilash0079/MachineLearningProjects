@@ -155,11 +155,13 @@ Customer_Churn_Prediction/
 │   └── processed/
 │
 ├── notebooks/
+│   ├── EDA.ipynb
 │
 ├── models/
 │
 ├── src/
-│   ├── check_dataset.py
+│   ├── check_dataset.
+│   ├── data_preprocessing.py
 │
 ├── dashboard/
 │   ├── pages/
@@ -180,7 +182,7 @@ Customer_Churn_Prediction/
 
 ✅ Data Preprocessing
 
-⬜ Exploratory Data Analysis
+✅ Exploratory Data Analysis
 
 ⬜ Feature Engineering
 
