@@ -162,6 +162,7 @@ Customer_Churn_Prediction/
 ├── src/
 │   ├── check_dataset.
 │   ├── data_preprocessing.py
+│   ├── feature_engineering.py
 │
 ├── dashboard/
 │   ├── pages/
@@ -184,7 +185,7 @@ Customer_Churn_Prediction/
 
 ✅ Exploratory Data Analysis
 
-⬜ Feature Engineering
+✅ Feature Engineering
 
 ⬜ Machine Learning Models
 
