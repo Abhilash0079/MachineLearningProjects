@@ -160,7 +160,7 @@ Customer_Churn_Prediction/
 ├── models/
 │
 ├── src/
-│   ├── check_dataset.
+│   ├── check_dataset.py
 │   ├── data_preprocessing.py
 │   ├── feature_engineering.py
 │   ├── model_preparation.py
@@ -185,8 +185,11 @@ Customer_Churn_Prediction/
 ✅ Exploratory Data Analysis
 ✅ Feature Engineering
 ✅ Model Preparation
-⬜ Machine Learning Models
-⬜ Explainable AI
+✅ Machine Learning Models
+   ✅ Logistic Regression Model
+   ✅ RandomForest Model
+   ✅ XGBoost Model
+✅ Business Insights
 ⬜ Dashboard Development
 ⬜ Deployment
 
