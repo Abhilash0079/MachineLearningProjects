@@ -163,6 +163,7 @@ Customer_Churn_Prediction/
 │   ├── check_dataset.
 │   ├── data_preprocessing.py
 │   ├── feature_engineering.py
+│   ├── model_preparation.py
 │
 ├── dashboard/
 │   ├── pages/
@@ -180,19 +181,13 @@ Customer_Churn_Prediction/
 ## Current Status
 
 ✅ Project Initialization
-
 ✅ Data Preprocessing
-
 ✅ Exploratory Data Analysis
-
 ✅ Feature Engineering
-
+✅ Model Preparation
 ⬜ Machine Learning Models
-
 ⬜ Explainable AI
-
 ⬜ Dashboard Development
-
 ⬜ Deployment
 
 ---
