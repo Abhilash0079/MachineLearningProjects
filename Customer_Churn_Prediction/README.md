@@ -193,7 +193,10 @@ Customer_Churn_Prediction/
 ✅ Explainable AI
 🟦 Dashboard Development
    ✅ Overview
-   🟦 Customer Analysis
+   ✅ Customer Analysis
+   🟦 Model Performance
+   🟦 Explainable AI
+   🟦 Churn Prediction Tool
 ⬜ Deployment
 
 ---

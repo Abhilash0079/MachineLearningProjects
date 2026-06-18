@@ -3,6 +3,7 @@ from dash import html, dcc
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 from pages.overview import overview_layout
+from pages.customer_analysis import customer_analyis_layout
 
 #====================================
 # APP
@@ -38,6 +39,12 @@ app.layout = dbc.Container([
                 value="overview", 
                 className="custom-tab", 
                 selected_className="custom-tab--selected"
+            ),
+            dcc.Tab(
+                label="Customer Analysis", 
+                value="customer_analysis", 
+                className="custom-tab", 
+                selected_className="custom-tab--selected"
             )
         ]
     ),
@@ -57,7 +64,8 @@ app.layout = dbc.Container([
 def render_page(tab):
     if tab == "overview":
         return overview_layout
-    return html.Div("Page not found")
+    elif tab == 'customer_analysis':
+        return customer_analyis_layout
 
 #====================================
 # RUN
