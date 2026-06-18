@@ -23,19 +23,38 @@ app.title=("Customer Churn Analytics Dashboard")
 # ====================================
 register_prediction_callback(app)
 
+# ====================================
+# HERO BANNER
+# ====================================
+hero_banner = dbc.Card(
+    dbc.CardBody([
+        html.Div([
+            html.Img(
+                src="/assets/telecom_icon.png",
+                height="90px",
+                className="me-4"
+            ),
+            html.Div([
+                html.H1(
+                    "Customer Churn Analytics Platform",
+                    className="hero-title"
+                ),
+                html.P(
+                    "Predict churn, analyze customer behavior and drive retention strategies using Machine Learning.",
+                    className="hero-subtitle"
+                )
+            ])
+        ],
+        className="d-flex align-items-center")
+    ]),
+    className="hero-banner shadow"
+)
 #====================================
 # LAYOUT
 #====================================
 app.layout = dbc.Container([
+    hero_banner,
     html.Br(),
-    html.Div([
-        html.Img(src="assets/telecom_icon.png", height="80px", alt="TelecomImage"),
-        html.H1(
-            "Customer Churn Analytics Platform", 
-            className="fw-bold text-primary text-center"
-        )
-    ], className="text-center"),
-    html.Hr(),
     dcc.Tabs(
         id="tabs",
         value="overview",
@@ -73,9 +92,14 @@ app.layout = dbc.Container([
             )
         ]
     ),
-    
     html.Br(),
-    html.Div(id="page-content")
+    html.Div(id="page-content"),
+    html.Br(),
+    html.Hr(),
+    html.P(
+        "Built with Python, Scikit-Learn, XGBoost, SHAP, Plotly Dash and Explainable AI",
+        className="footer-text"
+    )
 ], fluid=True)
 
 #====================================

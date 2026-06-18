@@ -1,10 +1,184 @@
+/* ==========================================
+   HERO BANNER
+========================================== */
+
+.hero-banner {
+    background-image:
+        linear-gradient(
+            rgba(0,0,0,0.55),
+            rgba(0,0,0,0.55)
+        ),
+        url("/assets/dashboard_banner.jpg");
+    background-size: cover;
+    background-position: center;
+    border-radius: 25px !important;
+    border: none !important;
+    color: white;
+    padding: 15px;
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+}
+
+.hero-title {
+    font-size: 2.3rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.hero-subtitle {
+    font-size: 1rem;
+    opacity: .95;
+}
+
+/* ==========================================
+   TABS
+========================================== */
+.custom-tabs {
+    background: transparent !important;
+    border: none !important;
+}
+.custom-tab {
+    background: white !important;
+    border-radius: 12px !important;
+    margin-right: 8px !important;
+    padding: 12px !important;
+    font-weight: 600 !important;
+    border: none !important;
+    box-shadow:0 2px 8px rgba(0,0,0,.05);
+}
+.custom-tab--selected {
+    background:linear-gradient(135deg,#0d6efd,#4f8cff) !important;
+    color: white !important;
+    border: none !important;
+    box-shadow:0 8px 20px rgba(13,110,253,.25);
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+.footer-text {
+    text-align: center;
+    color: #6c757d;
+    font-size: .95rem;
+    margin-bottom: 20px;
+}
+
+/* ==========================================
+   PAGE BACKGROUND
+========================================== */
 body {
-    background-color: #b9cbee;
-    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #3c4655, #6b9efa);
+    font-family:"Segoe UI",sans-serif;
+}
+
+/* ==========================================
+   SMOOTH PAGE ANIMATION
+========================================== */
+.container-fluid {
+    animation: fadeIn .4s ease-in-out;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.overview-banner {
+    background:linear-gradient(135deg,#0d6efd,#6ea8fe);
+    border-radius: 20px !important;
+    border: none !important;
+    padding: 15px;
+    box-shadow:0 10px 25px rgba(13,110,253,.20);
 }
 /* ==========================================
-   PAGE TITLE
+   KPI CARDS
 ========================================== */
+
+.kpi-card {
+    border-radius: 20px !important;
+    background: white;
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+    transition: all .3s ease;
+    min-height: 170px;
+}
+.kpi-card:hover {
+    transform: translateY(-8px);
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+}
+.kpi-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+.kpi-label {
+    color: #6c757d;
+    font-size: .95rem;
+    margin-bottom: 10px;
+}
+.kpi-value {
+    font-size: 2rem;
+    font-weight: 700;
+}
+.footer-text {
+    text-align: center;
+    color: white;
+    background: linear-gradient(135deg, #ce1a2b, #3977d2);
+    font-weight: bold;
+    padding: 18px;
+    border-radius: 12px;
+    font-size: 1rem;
+    margin-top: 20px;
+}
+.card {
+    border: none !important;
+    border-radius: 20px !important;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+.card-header {
+    background: white !important;
+    font-weight: 600;
+    border-bottom: 1px solid #f1f1f1 !important;
+}
+.table {
+    border-radius: 15px;
+    overflow: hidden;
+    background: white;
+}
+.alert {
+    border-radius: 15px !important;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+.prediction-card {
+    border-radius: 20px !important;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+.form-control {
+    border-radius: 10px !important;
+}
+.Select-control {
+    border-radius: 10px !important;
+}
+input {
+    border-radius: 10px !important;
+}
+button.btn-primary {
+    border-radius: 12px !important;
+    font-weight: 600;
+    padding: 12px;
+}
+button.btn-primary:hover {
+    transform: translateY(-2px);
+    transition: .3s;
+}
+.prediction-result {
+    border-radius: 20px;
+    background: white;
+    box-shadow:0 6px 20px rgba(0,0,0,.08);
+}
 
 h1 {
     font-weight: 700 !important;
@@ -19,150 +193,13 @@ h3,h4,h5 {
     font-weight: 600 !important;
 }
 
-/* ==========================================
-   DASHBOARD CONTAINER
-========================================== */
-
-.container-fluid {
-    padding-left: 30px;
-    padding-right: 30px;
-}
-
-/* ==========================================
-   CARDS
-========================================== */
-
-.card {
-    border: none !important;
-    border-radius: 18px !important;
-    box-shadow:0 4px 15px rgba(0,0,0,0.08);
-    transition: all .3s ease;
-}
-
 .card:hover {
     transform: translateY(-4px);
     box-shadow:0 12px 25px rgba(0,0,0,0.15);
 }
-
-.card-header {
-    background: white !important;
-    border-bottom: 1px solid #f1f1f1 !important;
-    font-weight: 600;
-    border-radius: 18px 18px 0 0 !important;
-}
-
-/* ==========================================
-   KPI CARDS
-========================================== */
-.kpi-card {
-    background: white;
-    border-radius: 20px;
-    padding: 20px;
-    text-align: center;
-    box-shadow:0 5px 18px rgba(0,0,0,.08);
-    transition: .3s;
-}
-
-.kpi-card:hover {
-    transform: translateY(-6px);
-    box-shadow:0 12px 25px rgba(0,0,0,.15);
-}
-
-.kpi-value {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #0d6efd;
-}
-
-.kpi-label {
-    font-size: .9rem;
-    color: #6c757d;
-}
-
-/* ==========================================
-   ALERTS
-========================================== */
-
-.alert {
-    border-radius: 15px !important;
-    border: none !important;
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
-}
-
-.alert-info {
-    background: #eaf5ff !important;
-    color: #004085 !important;
-}
-
-.alert-success {
-    background: #eafaf1 !important;
-    color: #155724 !important;
-}
-.alert-danger {
-    background: #ffeaea !important;
-    color: #721c24 !important;
-}
-.alert-warning {
-    background: #fff8e5 !important;
-    color: #856404 !important;
-}
-
-/* ==========================================
-   BUTTONS
-========================================== */
-.btn-primary {
-    border-radius: 12px !important;
-    font-weight: 600 !important;
-    padding: 10px 18px !important;
-    transition: .3s;
-}
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow:0 6px 18px rgba(13,110,253,.4);
-}
-
-/* ==========================================
-   TABS
-========================================== */
-.custom-tab {
-    background-color: white !important;
-    border-radius: 12px !important;
-    margin-right: 8px !important;
-    padding: 12px !important;
-    font-weight: 600 !important;
-    color: #495057 !important;
-    border: none !important;
-}
-.custom-tab--selected {
-    background: linear-gradient(135deg,#0d6efd,#4f8cff) !important;
-    color: white !important;
-    border: none !important;
-    box-shadow:0 6px 15px rgba(13,110,253,.3);
-}
-
-/* ==========================================
-   TABLES
-========================================== */
-table {
-    border-radius: 12px !important;
-    overflow: hidden;
-}
-thead {
-    background: #0d6efd !important;
-    color: white !important;
-}
-.table-hover tbody tr:hover {
-    background: #f3f8ff !important;
-}
-
 /* ==========================================
    INPUTS
 ========================================== */
-.form-control {
-    border-radius: 12px !important;
-    border: 1px solid #dee2e6 !important;
-    height: 45px;
-}
 .form-control:focus {
     border-color: #0d6efd !important;
     box-shadow:0 0 10px rgba(13,110,253,.25) !important;
@@ -171,9 +208,6 @@ thead {
 /* ==========================================
    DROPDOWNS
 ========================================== */
-.Select-control {
-    border-radius: 12px !important;
-}
 .Select-menu-outer {
     border-radius: 12px !important;
 }
@@ -193,28 +227,6 @@ thead {
 ========================================== */
 .dash-graph {
     padding: 10px;
-}
-
-/* ==========================================
-   PREDICTION RESULT
-========================================== */
-.prediction-high {
-    background: #ffeaea;
-    border-left: 6px solid #dc3545;
-    padding: 20px;
-    border-radius: 15px;
-}
-.prediction-medium {
-    background: #fff6df;
-    border-left: 6px solid #ffc107;
-    padding: 20px;
-    border-radius: 15px;
-}
-.prediction-low {
-    background: #eafaf1;
-    border-left: 6px solid #198754;
-    padding: 20px;
-    border-radius: 15px;
 }
 
 /* ==========================================

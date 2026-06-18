@@ -19,6 +19,16 @@ performance_df = pd.DataFrame({
     "ROC AUC": [0.841750,0.825770,0.841436]
 })
 
+def create_model_card(title, value, color, icon):
+    return dbc.Card(
+        dbc.CardBody([
+            html.Div(icon, className="kpi-icon"),
+            html.H6(title,className="kpi-label"),
+            html.H3(value,className=f"text-{color} fw-bold")
+        ]),
+        className="kpi-card"
+    )
+
 #==============================================
 # ACCURACY COMPARISON
 #==============================================
@@ -29,11 +39,6 @@ accuracy_fig = px.bar(
     color="Model",
     text_auto=".3f",
     title="Accuracy Comaprison Across Models"
-)
-accuracy_fig.update_layout(
-    template="plotly_white",
-    height=450,
-    showlegend=False
 )
 
 #==============================================
@@ -47,11 +52,6 @@ f1_fig = px.bar(
     text_auto=".3f",
     title="F1 Score Comparison"
 )
-f1_fig.update_layout(
-    template="plotly_white",
-    height=450,
-    showlegend=False
-)
 
 # =============================================
 # ROC AUC COMPARISON
@@ -64,11 +64,17 @@ roc_fig = px.bar(
     text_auto=".3f",
     title="ROC-AUC Comparison"
 )
-roc_fig.update_layout(
-    template="plotly_white",
-    height=450,
-    showlegend=False
-)
+
+for fig in [accuracy_fig, f1_fig, roc_fig]:
+    fig.update_layout(
+        template="plotly_white",
+        title_x=0.5,
+        paper_bgcolor="white",
+        plot_bgcolor="white",
+        height=450,
+        font=dict(size=13)
+    )
+    fig.update_traces(textposition="outside")
 
 # =============================================
 # RADAR CHART
@@ -86,7 +92,12 @@ radar_fig = px.line_polar(
     line_close=True,
     title="Overall Model Comparison"
 )
-radar_fig.update_layout(height=700)
+radar_fig.update_layout(
+    template="plotly_white",
+    height=650,
+    title_x=0.5,
+    paper_bgcolor="white"
+)
 
 # =============================================
 # MODEL INSIGHTS
@@ -97,23 +108,74 @@ best_model = performance_df.loc[performance_df['ROC AUC'].idxmax(), "Model"]
 # PAGE_LAYOUT
 # =============================================
 model_performance_layout = dbc.Container([
-    html.Br(),
-    html.H2(
-        "Machine Learning Model Performance",
-        className="text-center fw-bold text-primary"
+    # =====================================
+    # PAGE BANNER
+    # =====================================
+    dbc.Card(
+        dbc.CardBody([
+            html.H2(
+                "Machine Learning Model Evaluation",
+                className="text-white fw-bold text-center"
+            ),
+            html.P(
+                "Compare multiple machine learning models and identify the optimal production-ready churn prediction solution.",
+                className="text-white text-center"
+            )
+        ]),
+        className="overview-banner mb-4"
     ),
-    html.Hr(),
-    dbc.Alert([
-        html.B("Project Overview: "),
-        "Evaluate multiple machine learning algorithms and select the most effective model for customer churn prediction."
-    ], color="info"),
-    #===============================
+    # =====================================
+    # OBJECTIVE
+    # =====================================
+    dbc.Card(
+        dbc.CardBody([
+            html.H4("Project Objective",className="fw-bold"),
+            html.P(
+                "Evaluate Logistic Regression, Random Forest and XGBoost using multiple performance metrics to identify the best model for customer churn prediction."
+            )
+        ]),
+        className="shadow-sm mb-4"
+    ),
+    # =====================================
+    # KPI CARDS
+    # =====================================
+    dbc.Row([
+        dbc.Col(
+            create_model_card(
+                "Best Model",
+                best_model,
+                "success",
+                "🏆"
+            ),
+            md=4
+        ),
+        dbc.Col(
+            create_model_card(
+                "Highest ROC-AUC",
+                "0.842",
+                "primary",
+                "📈"
+            ),
+            md=4
+        ),
+        dbc.Col(
+            create_model_card(
+                "Models Evaluated",
+                "3",
+                "warning",
+                "🤖"
+            ),
+            md=4
+        )
+    ], className="mb-4"),
+    # =====================================
     # PERFORMANCE TABLE
-    #===============================
+    # =====================================
     dbc.Card([
         dbc.CardHeader(
             html.H4(
-                "Model Evaluation Matrics", className="mb-0"
+                "Model Evaluation Metrics",
+                className="mb-0 fw-bold"
             )
         ),
         dbc.CardBody([
@@ -125,110 +187,106 @@ model_performance_layout = dbc.Container([
                 responsive=True
             )
         ])
-    ]),
-    html.Br(),
-    #=============================
-    # KPI CARDS
-    #=============================
-    dbc.Row([
-        dbc.Col(
-            dbc.Card(
-                dbc.CardBody([
-                    html.H6("Best Model"),
-                    html.H3(best_model, className="text-success")
-                ]),
-                className="shadow-sm border-success"
-            ),
-            width=4
-        ),
-        dbc.Col(
-            dbc.Card(
-                dbc.CardBody([
-                    html.H6("Highest ROC-AUC"),
-                    html.H3("0.842", className="text-primary")
-                ]),
-                className="shadow-sm border-primary"
-            ),
-            width=4
-        ),
-        dbc.Col(
-            dbc.Card(
-                dbc.CardBody([
-                    html.H6("Model Compared"),
-                    html.H3("3", className="text-warning")
-                ]),
-                className="shadow-sm border-warning"
-            ),
-            width=4
-        )
-    ]),
-    html.Br(),
-    #======================
+    ],
+    className="mb-4"),
+    # =====================================
     # BAR CHARTS
-    #======================
+    # =====================================
     dbc.Row([
         dbc.Col(
             dbc.Card([
+                dbc.CardHeader("Accuracy Comparison"),
                 dbc.CardBody([
-                    dcc.Graph(figure=accuracy_fig)
+                    dcc.Graph(
+                        figure=accuracy_fig,
+                        config={"displayModeBar": False}
+                    )
                 ])
             ]),
-            width=4
+            md=4
         ),
         dbc.Col(
             dbc.Card([
+                dbc.CardHeader("F1 Score Comparison"),
                 dbc.CardBody([
-                    dcc.Graph(figure=f1_fig)
+                    dcc.Graph(
+                        figure=f1_fig,
+                        config={"displayModeBar": False}
+                    )
                 ])
             ]),
-            width=4
+            md=4
         ),
         dbc.Col(
             dbc.Card([
+                dbc.CardHeader("ROC-AUC Comparison"),
                 dbc.CardBody([
-                    dcc.Graph(figure=roc_fig)
+                    dcc.Graph(
+                        figure=roc_fig,
+                        config={"displayModeBar": False}
+                    )
                 ])
             ]),
-            width=4
+            md=4
         )
     ]),
     html.Br(),
-    #=========================
+    # =====================================
     # RADAR CHART
-    #=======================
+    # =====================================
     dbc.Card([
         dbc.CardHeader(
-            html.H4("Model Comparison Radar Chart", className="mb-0")
+            html.H4(
+                "Overall Model Comparison",
+                className="mb-0 fw-bold"
+            )
         ),
         dbc.CardBody([
-            dcc.Graph(figure=radar_fig)
+            dcc.Graph(
+                figure=radar_fig,
+                config={"displayModeBar": False}
+            )
         ])
-    ]),
-    html.Br(),
-    #=========================
-    # INSIGHTS
-    #========================
+    ],
+    className="mb-4"),
+    # =====================================
+    # EXECUTIVE FINDINGS
+    # =====================================
     dbc.Alert([
-        html.H5("Key Findings: ", className="fw-bold"),
+        html.H4("Executive Findings",className="fw-bold"),
+        html.Hr(),
         html.Ul([
             html.Li(
-                "Logistic Regression achieved the highest ROC-AUC score."
-            ),
-            html.Li(
-                "XGBoost delivered performance very close to Logistic Regression."
-            ),
-            html.Li(
-                "Random Forest showed slightly lower recall and F1 score."
-            ),
-            html.Li(
-                "Logistic Regression provides superior interpretability for business stakeholders."
-            ),
-            html.Li("Selected as the final production model.")
+                    "Logistic Regression achieved the highest ROC-AUC score (0.842)."
+                ),
+                html.Li(
+                    "XGBoost delivered nearly identical performance."
+                ),
+                html.Li(
+                    "Random Forest showed slightly lower recall and F1 performance."
+                ),
+                html.Li(
+                    "Logistic Regression provides excellent explainability."
+                ),
+                html.Li(
+                    "Model transparency is critical for customer retention strategies."
+                )
         ])
-    ], color="success"),
-    html.Br(),
-    dbc.Alert([
-        html.B("Business Recommendation: "),
-        "Deploy Logistic Regression as the production churn prediction model because it balances strong predictive performance with transparency and explainability."
-    ], color="primary")
+    ], color="success",className="shadow-sm mb-4"),
+    # =====================================
+    # DEPLOYMENT RECOMMENDATION
+    # =====================================
+    dbc.Card(
+        dbc.CardBody([
+            html.H4(
+                "Production Recommendation",
+                className="fw-bold text-primary"
+            ),
+            html.Hr(),
+            html.P(
+                "Logistic Regression was selected as the production model because it achieved the highest ROC-AUC score while maintaining strong interpretability. Business stakeholders can clearly understand churn drivers and make data-driven retention decisions."
+            )
+        ]),
+        className="shadow-sm"
+    )
 ], fluid=True)

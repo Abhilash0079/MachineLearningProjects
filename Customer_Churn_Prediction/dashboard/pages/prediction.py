@@ -8,17 +8,29 @@ from utils.prediction_helper import predict_customer
 # PAGE LAYOUT
 # =====================================================
 prediction_layout = dbc.Container([
-    html.Br(),
-    html.H2(
-        "Customer Churn Prediction Tool",
-        className="text-center fw-bold text-primary"
+    # =====================================
+    # PAGE BANNER
+    # =====================================
+    dbc.Card(
+        dbc.CardBody([
+            html.H2(
+                "Customer Churn Prediction Center", className="text-white fw-bold text-center"),
+            html.P(
+                "Predict customer churn risk using the trained  Logistic Regression model.",className="text-white text-center")
+        ]),
+        className="overview-banner mb-4"
     ),
-    html.Hr(),
-    dbc.Alert(
-        [
-            html.B("Objective: "),
-            "Predict whether a customer is likely to churn based on customer profile and subscription details."
-        ],color="info"
+    # =====================================
+    # OBJECTIVE
+    # =====================================
+    dbc.Card(
+        dbc.CardBody([
+            html.H4("Prediction Objective",className="fw-bold"),
+            html.P(
+                "Enter customer profile information to estimate churn probability and generate retention recommendations."
+            )
+        ]),
+        className="shadow-sm mb-4"
     ),
     dbc.Row([
         # =================================================
@@ -26,7 +38,9 @@ prediction_layout = dbc.Container([
         # =================================================
         dbc.Col([
             dbc.Card([
-                dbc.CardHeader(html.H4("Customer Information")),
+                dbc.CardHeader(
+                    html.H5("Customer Profile",className="fw-bold mb-0")
+                ),
                 dbc.CardBody([
                     html.Label("Gender"),
                     dcc.Dropdown(
@@ -95,7 +109,9 @@ prediction_layout = dbc.Container([
         # =================================================
         dbc.Col([
             dbc.Card([
-                dbc.CardHeader(html.H4("Subscription Details")),
+                dbc.CardHeader(
+                    html.H5("Service Information",className="fw-bold mb-0")
+                ),
                 dbc.CardBody([
                     html.Label("Phone Service"),
                     dcc.Dropdown(
@@ -173,7 +189,9 @@ prediction_layout = dbc.Container([
         # =================================================
         dbc.Col([
             dbc.Card([
-                dbc.CardHeader(html.H4("Billing Details")),
+                dbc.CardHeader(
+                    html.H5("Billing Information",className="fw-bold mb-0")
+                ),
                 dbc.CardBody([
                     html.Label("Streaming TV"),
                     dcc.Dropdown(
@@ -238,9 +256,37 @@ prediction_layout = dbc.Container([
     ]),
     html.Br(),
     dbc.Card([
-        dbc.CardHeader(html.H4("Prediction Result")),
-        dbc.CardBody(html.Div(id="prediction-output"))
-    ])
+        dbc.CardHeader(
+            html.H4("Prediction Results",className="mb-0 fw-bold")
+        ),
+        dbc.CardBody([html.Div(id="prediction-output")])
+    ],
+    className="shadow-sm mb-4"),
+    dbc.Card(
+        dbc.CardBody([
+            html.H4("How To Use This Tool", className="fw-bold"),
+            html.Hr(),
+            html.Ul([
+                html.Li(
+                    "Enter customer profile and subscription information."),
+                html.Li("Click Predict Churn."),
+                html.Li("Review churn probability and risk category."),
+                html.Li("Use the recommendation to guide retention actions")
+            ])
+        ]),
+        className="shadow-sm mb-4"
+    ),
+    html.Br(),
+    dbc.Alert(
+        [
+            html.H4("Risk Interpretation Guide",className="fw-bold"),
+            html.Hr(),
+            html.P("Low Risk (<30%): Customer likely to stay."),
+            html.P("Medium Risk (30%-70%): Customer requires monitoring."),
+            html.P("High Risk (>70%): Immediate retention intervention recommended.")
+        ],
+        color="info", className="shadow-sm"
+    )
 ], fluid=True)
 
 # =====================================================
@@ -321,6 +367,34 @@ def register_prediction_callback(app):
         }
         prediction, probability = predict_customer(data)
         probability_pct = probability * 100
+        # =====================================
+        # DERIVED FEATURES
+        # =====================================
+        avg_spend = round(totalcharges / tenure, 2) if tenure > 0 else 0
+        if tenure <= 12:
+            tenure_group = "New Customer"
+        elif tenure <= 24:
+            tenure_group = "Developing Customer"
+        elif tenure <= 48:
+            tenure_group = "Established Customer"
+        else:
+            tenure_group = "Loyal Customer"
+
+        num_services = 0
+
+        service_list = [
+            multiplelines,
+            onlinesecurity,
+            onlinebackup,
+            deviceprotection,
+            techsupport,
+            streamingtv,
+            streamingmovies
+        ]
+
+        for service in service_list:
+            if service == "Yes":
+                num_services += 1
         if probability_pct < 30:
             risk = "LOW"
             color = "success"
@@ -338,11 +412,35 @@ def register_prediction_callback(app):
             "HIGH":
                 "Immediate retention campaign recommended. Consider contract upgrade incentives."
         }
-        return dbc.Alert(
-            [
-                html.H3(f"Churn Probability: {probability_pct:.2f}%"),
-                html.H4(f"Risk Level: {risk}"),
+        return dbc.Card(
+            dbc.CardBody([
+                html.H2(
+                    f"{probability_pct:.2f}%",
+                    className=f"text-{color} fw-bold text-center"
+                ),
+                html.H4(f"Risk Level: {risk}", className='text-center'),
                 html.Hr(),
+                dbc.Row([
+                    dbc.Col([
+                        html.H6("Customer Segment"),
+                        html.P(tenure_group)
+                    ], md=3),
+                    dbc.Col([
+                        html.H6("Avg Monthly Spend"),
+                        html.P(f"${avg_spend}")
+                    ], md=3),
+                    dbc.Col([
+                        html.H6("Services Used"),
+                        html.P(str(num_services))
+                    ], md=3),
+                    dbc.Col([
+                        html.H6("Tenure"),
+                        html.P(f"{tenure} Months")
+                    ], md=3)
+                ]),
+                html.Hr(),
+                html.H5("Recommended Action",className="fw-bold"),
                 html.P(recommendation[risk])
-            ],color=color
+            ]),
+            className=f"kpi-card border-start border-5 border-{color}"
         )

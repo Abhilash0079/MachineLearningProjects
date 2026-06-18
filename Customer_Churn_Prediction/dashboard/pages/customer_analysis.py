@@ -22,7 +22,6 @@ contract_fig = px.bar(
     title="Churn Rate by Contract Type",
     text_auto=".1f"
 )
-contract_fig.update_layout(template='plotly_white')
 
 """
 Insights: Month-to-month customers should have the highest churn.
@@ -40,7 +39,7 @@ internet_fig = px.bar(
     y='Churn',
     title="Churn Rate by Internet Service"
 )
-internet_fig.update_layout(template="plotly_white")
+
 
 #=====================================
 # 3. CHURN BY PAYMENT METHOD
@@ -54,7 +53,6 @@ payment_fig = px.bar(
     y='Churn',
     title="Churn Rate by Payment Method"
 )
-payment_fig.update_layout(template="plotly_white")
 
 #=====================================
 # 4. CHURN BY TENURE GROUP
@@ -68,58 +66,152 @@ tenure_fig = px.bar(
     y='Churn',
     title="Churn Rate by Customer Tenure"
 )
-tenure_fig.update_layout(template="plotly_white")
 
+for fig in [contract_fig,internet_fig,payment_fig,tenure_fig]:
+    fig.update_layout(
+        template="plotly_white",
+        title_x=0.5,
+        height=450,
+        paper_bgcolor="white",
+        plot_bgcolor="white",
+        font=dict(size=13)
+    )
+    fig.update_traces(textposition="outside")
 #=====================================
 # LAYOUT
 #=====================================
 customer_analyis_layout = dbc.Container([
-    html.Br(),
-    html.H2(
-        "Customer Analysis",
-        className="text-center fw-bold text-primary"
+    # =====================================
+    # PAGE BANNER
+    # =====================================
+    dbc.Card(
+        dbc.CardBody([
+            html.H2(
+                "Customer Segmentation & Churn Analysis",
+                className="text-white fw-bold text-center"
+            ),
+            html.P(
+                "Understand which customer groups are most likely to churn and identify retention opportunities.",
+                className="text-white text-center"
+            )
+        ]),
+        className="overview-banner mb-4"
     ),
-    html.Hr(),
+    # =====================================
+    # BUSINESS OBJECTIVE
+    # =====================================
+    dbc.Card(
+        dbc.CardBody([
+            html.H4("Analysis Objective",className="fw-bold"),
+            html.P(
+                "Analyze customer characteristics, contract types, internet services, payment methods and tenure patterns to uncover drivers of customer churn."
+            )
+        ]),
+        className="shadow-sm mb-4"
+    ),
+    # =====================================
+    # ROW 1
+    # =====================================
     dbc.Row([
         dbc.Col(
             dbc.Card([
+                dbc.CardHeader("Contract Type Analysis"),
                 dbc.CardBody([
-                    dcc.Graph(figure=contract_fig)
+                    dcc.Graph(figure=contract_fig,config={"displayModeBar": False})
                 ])
             ]),
-            width=6
+            md=6
         ),
         dbc.Col(
             dbc.Card([
+                dbc.CardHeader("Internet Service Analysis"),
                 dbc.CardBody([
-                    dcc.Graph(figure=internet_fig)
+                    dcc.Graph(figure=internet_fig,config={"displayModeBar": False})
                 ])
             ]),
-            width=6
+            md=6
         )
     ]),
     html.Br(),
+    # =====================================
+    # ROW 2
+    # =====================================
     dbc.Row([
         dbc.Col(
             dbc.Card([
+                dbc.CardHeader("Payment Method Analysis"),
                 dbc.CardBody([
-                    dcc.Graph(figure=payment_fig)
+                    dcc.Graph(figure=payment_fig,
+                        config={"displayModeBar": False})
                 ])
             ]),
-            width=6
+            md=6
         ),
         dbc.Col(
             dbc.Card([
+                dbc.CardHeader("Tenure Group Analysis"),
                 dbc.CardBody([
-                    dcc.Graph(figure=tenure_fig)
+                    dcc.Graph(figure=tenure_fig,
+                        config={"displayModeBar": False})
                 ])
             ]),
-            width=6
+            md=6
         )
     ]),
     html.Br(),
+    # =====================================
+    # EXECUTIVE INSIGHTS
+    # =====================================
     dbc.Alert([
-        html.B("Key Business Insight: "),
-        "Customers on month-to-month contracts and electronic check payments exhibit significantly higher churn rates. Longer tenure customers show much stronger retention."
-    ],color='info')
+            html.H4("Executive Insights",className="fw-bold"),
+            html.Hr(),
+            html.Ul([
+                html.Li(
+                    "Month-to-month contract customers exhibit the highest churn behavior."
+                ),
+                html.Li(
+                    "Electronic check users are significantly more likely to churn."
+                ),
+                html.Li(
+                    "Customers with shorter tenure have substantially higher churn rates."
+                ),
+                html.Li(
+                    "Long-term customers demonstrate strong loyalty and retention."
+                ),
+                html.Li(
+                    "Fiber optic customers show higher churn compared to other internet services."
+                )
+            ])
+        ],
+        color="info",
+        className="shadow-sm mb-4"
+    ),
+    # =====================================
+    # RECOMMENDATIONS
+    # =====================================
+    dbc.Card(
+        dbc.CardBody([
+            html.H4("Business Recommendations",className="fw-bold text-success"
+            ),
+            html.Hr(),
+            html.Ul([
+                html.Li(
+                    "Promote annual and two-year contracts to reduce churn."
+                ),
+                html.Li(
+                    "Introduce retention campaigns for customers within their first year."
+                ),
+                html.Li(
+                    "Provide incentives for automatic payment enrollment."
+                ),
+                html.Li(
+                    "Focus customer success efforts on high-risk Fiber Optic customers."
+                ),
+                html.Li(
+                    "Offer personalized discounts to newly acquired customers."
+                )
+            ])
+        ]),
+        className="shadow-sm"
+    )
 ], fluid=True)
