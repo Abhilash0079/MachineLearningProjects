@@ -1,0 +1,30 @@
+body{
+    background-color:#f5f7fb;
+}
+
+.card{
+    border-radius:15px;
+}
+
+h1{
+    font-weight:700;
+}
+
+.js-plotly-plot{
+    border-radius:15px;
+}
+.custom-tabs {
+    margin-top: 15px;
+}
+
+.custom-tab {
+    background-color: white !important;
+    border-radius: 10px 10px 0 0 !important;
+    padding: 12px !important;
+    font-weight: 600;
+}
+
+.custom-tab--selected {
+    background-color: #0d6efd !important;
+    color: white !important;
+}

@@ -191,7 +191,9 @@ Customer_Churn_Prediction/
    ✅ XGBoost Model
 ✅ Business Insights
 ✅ Explainable AI
-⬜ Dashboard Development
+🟦 Dashboard Development
+   ✅ Overview
+   🟦 Customer Analysis
 ⬜ Deployment
 
 ---
