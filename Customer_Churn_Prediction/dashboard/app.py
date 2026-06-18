@@ -4,6 +4,9 @@ import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 from pages.overview import overview_layout
 from pages.customer_analysis import customer_analyis_layout
+from pages.model_performance import model_performance_layout
+from pages.explainability import explainability_layout
+from pages.prediction import prediction_layout, register_prediction_callback
 
 #====================================
 # APP
@@ -15,10 +18,14 @@ app = dash.Dash(
 )
 app.title=("Customer Churn Analytics Dashboard")
 
+# ====================================
+# REGISTER PAGE CALLBACKS
+# ====================================
+register_prediction_callback(app)
+
 #====================================
 # LAYOUT
 #====================================
-
 app.layout = dbc.Container([
     html.Br(),
     html.Div([
@@ -45,6 +52,24 @@ app.layout = dbc.Container([
                 value="customer_analysis", 
                 className="custom-tab", 
                 selected_className="custom-tab--selected"
+            ),
+            dcc.Tab(
+                label="Model Performance",
+                value="model_performance",
+                className="custom-tab",
+                selected_className="custom-tab--selected"
+            ),
+            dcc.Tab(
+                label="Explainable AI",
+                value="explainability",
+                className="custom-tab",
+                selected_className="custom-tab--selected"
+            ),
+            dcc.Tab(
+                label="Prediction",
+                value="prediction",
+                className="custom-tab",
+                selected_className="custom-tab--selected"
             )
         ]
     ),
@@ -66,6 +91,12 @@ def render_page(tab):
         return overview_layout
     elif tab == 'customer_analysis':
         return customer_analyis_layout
+    elif tab == 'model_performance':
+        return model_performance_layout
+    elif tab == 'explainability':
+        return explainability_layout
+    elif tab == "prediction":
+        return prediction_layout
 
 #====================================
 # RUN

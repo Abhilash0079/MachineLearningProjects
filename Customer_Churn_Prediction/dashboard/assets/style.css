@@ -1,30 +1,253 @@
-body{
-    background-color:#f5f7fb;
+body {
+    background-color: #b9cbee;
+    font-family: "Segoe UI", sans-serif;
+}
+/* ==========================================
+   PAGE TITLE
+========================================== */
+
+h1 {
+    font-weight: 700 !important;
+    letter-spacing: 1px;
 }
 
-.card{
-    border-radius:15px;
+h2 {
+    font-weight: 700 !important;
 }
 
-h1{
-    font-weight:700;
+h3,h4,h5 {
+    font-weight: 600 !important;
 }
 
-.js-plotly-plot{
-    border-radius:15px;
-}
-.custom-tabs {
-    margin-top: 15px;
+/* ==========================================
+   DASHBOARD CONTAINER
+========================================== */
+
+.container-fluid {
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
+/* ==========================================
+   CARDS
+========================================== */
+
+.card {
+    border: none !important;
+    border-radius: 18px !important;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+    transition: all .3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow:0 12px 25px rgba(0,0,0,0.15);
+}
+
+.card-header {
+    background: white !important;
+    border-bottom: 1px solid #f1f1f1 !important;
+    font-weight: 600;
+    border-radius: 18px 18px 0 0 !important;
+}
+
+/* ==========================================
+   KPI CARDS
+========================================== */
+.kpi-card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+    transition: .3s;
+}
+
+.kpi-card:hover {
+    transform: translateY(-6px);
+    box-shadow:0 12px 25px rgba(0,0,0,.15);
+}
+
+.kpi-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0d6efd;
+}
+
+.kpi-label {
+    font-size: .9rem;
+    color: #6c757d;
+}
+
+/* ==========================================
+   ALERTS
+========================================== */
+
+.alert {
+    border-radius: 15px !important;
+    border: none !important;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.alert-info {
+    background: #eaf5ff !important;
+    color: #004085 !important;
+}
+
+.alert-success {
+    background: #eafaf1 !important;
+    color: #155724 !important;
+}
+.alert-danger {
+    background: #ffeaea !important;
+    color: #721c24 !important;
+}
+.alert-warning {
+    background: #fff8e5 !important;
+    color: #856404 !important;
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+.btn-primary {
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    padding: 10px 18px !important;
+    transition: .3s;
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow:0 6px 18px rgba(13,110,253,.4);
+}
+
+/* ==========================================
+   TABS
+========================================== */
 .custom-tab {
     background-color: white !important;
-    border-radius: 10px 10px 0 0 !important;
+    border-radius: 12px !important;
+    margin-right: 8px !important;
     padding: 12px !important;
-    font-weight: 600;
+    font-weight: 600 !important;
+    color: #495057 !important;
+    border: none !important;
+}
+.custom-tab--selected {
+    background: linear-gradient(135deg,#0d6efd,#4f8cff) !important;
+    color: white !important;
+    border: none !important;
+    box-shadow:0 6px 15px rgba(13,110,253,.3);
 }
 
-.custom-tab--selected {
-    background-color: #0d6efd !important;
+/* ==========================================
+   TABLES
+========================================== */
+table {
+    border-radius: 12px !important;
+    overflow: hidden;
+}
+thead {
+    background: #0d6efd !important;
     color: white !important;
+}
+.table-hover tbody tr:hover {
+    background: #f3f8ff !important;
+}
+
+/* ==========================================
+   INPUTS
+========================================== */
+.form-control {
+    border-radius: 12px !important;
+    border: 1px solid #dee2e6 !important;
+    height: 45px;
+}
+.form-control:focus {
+    border-color: #0d6efd !important;
+    box-shadow:0 0 10px rgba(13,110,253,.25) !important;
+}
+
+/* ==========================================
+   DROPDOWNS
+========================================== */
+.Select-control {
+    border-radius: 12px !important;
+}
+.Select-menu-outer {
+    border-radius: 12px !important;
+}
+
+/* ==========================================
+   GRAPHS
+========================================== */
+.js-plotly-plot {
+    border-radius: 18px;
+    overflow: hidden;
+    background: white;
+    box-shadow:0 4px 12px rgba(0,0,0,.06);
+}
+
+/* ==========================================
+   DASH GRAPH CONTAINER
+========================================== */
+.dash-graph {
+    padding: 10px;
+}
+
+/* ==========================================
+   PREDICTION RESULT
+========================================== */
+.prediction-high {
+    background: #ffeaea;
+    border-left: 6px solid #dc3545;
+    padding: 20px;
+    border-radius: 15px;
+}
+.prediction-medium {
+    background: #fff6df;
+    border-left: 6px solid #ffc107;
+    padding: 20px;
+    border-radius: 15px;
+}
+.prediction-low {
+    background: #eafaf1;
+    border-left: 6px solid #198754;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #0d6efd;
+    border-radius: 10px;
+}
+
+/* ==========================================
+   ANIMATIONS
+========================================== */
+.card,
+.alert,
+.btn {
+    animation: fadeIn .4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

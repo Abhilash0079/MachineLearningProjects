@@ -156,6 +156,7 @@ Customer_Churn_Prediction/
 │
 ├── notebooks/
 │   ├── EDA.ipynb
+│   └── Modelling.ipynb
 │
 ├── models/
 │
@@ -167,10 +168,14 @@ Customer_Churn_Prediction/
 │
 ├── dashboard/
 │   ├── pages/
+|        ├── overview.py
+│        ├── customer_analyis.py
+│        ├── model_performance.py
+│        ├── explainability.py
+│        └── prediction.py
 │   ├── assets/
 │   └── utils/
-│
-├── images/
+|   ├── app.py
 │
 ├── requirements.txt
 ├── README.md
@@ -191,13 +196,13 @@ Customer_Churn_Prediction/
    ✅ XGBoost Model
 ✅ Business Insights
 ✅ Explainable AI
-🟦 Dashboard Development
+✅ Dashboard Development
    ✅ Overview
    ✅ Customer Analysis
-   🟦 Model Performance
-   🟦 Explainable AI
-   🟦 Churn Prediction Tool
-⬜ Deployment
+   ✅ Model Performance
+   ✅ Explainable AI
+   ✅ Churn Prediction Tool
+🟦 Deployment
 
 ---
 

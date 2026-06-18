@@ -52,10 +52,10 @@ tenure_fig.update_layout(template="plotly_white")
 def create_card(title, value, color):
     return dbc.Card(
         dbc.CardBody([
-            html.H6(title, className="text-muted"),
-            html.H3(value, className="fw-bold")
+            html.H6(title, className="text-muted kpi-label"),
+            html.H3(value, className="fw-bold kpi-value")
         ]),
-        className=f"shadow-sm border-start border-5 border-{color}"
+        className=f"border-start border-5 border-{color}"
     )
 
 #====================================
@@ -121,7 +121,7 @@ overview_layout = dbc.Container([
     dbc.Alert(
         [
             html.B("Key Insights: "),
-            f"{churn_rate:.1f}% of customer have churned."
+            f"{churn_rate:.1f}% of customer have churned. "
             "Most churn occurs among customers with shorter tenure and month-to-month contracts."
         ],
         color="info"

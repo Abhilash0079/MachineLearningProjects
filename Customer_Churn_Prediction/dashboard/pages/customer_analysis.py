@@ -38,7 +38,7 @@ internet_fig = px.bar(
     internet_df,
     x='InternetService',
     y='Churn',
-    title="Churn Rate Internet Service"
+    title="Churn Rate by Internet Service"
 )
 internet_fig.update_layout(template="plotly_white")
 
