@@ -1,7 +1,7 @@
 # 📊 Customer Churn Prediction & Business Intelligence Platform
 
 🚀 Live Demo:
-https://your-app-name.onrender.com
+https://customer-churn-dashboard-f28f.onrender.com/
 
 ## Project Overview
 
