@@ -1,5 +1,8 @@
 # 📊 Customer Churn Prediction & Business Intelligence Platform
 
+🚀 Live Demo:
+https://your-app-name.onrender.com
+
 ## Project Overview
 
 Customer churn is one of the most critical business challenges faced by subscription-based companies such as telecom providers, SaaS businesses, banks, and e-commerce platforms.
@@ -164,8 +167,17 @@ Customer_Churn_Prediction/
 │   ├── check_dataset.py
 │   ├── data_preprocessing.py
 │   ├── feature_engineering.py
-│   ├── model_preparation.py
+│   └── model_preparation.py
 │
+|
+├── images/
+│   ├── overview.png
+│   ├── cuatomer_analysis.png
+│   ├── model_performance.png
+│   ├── expalin_AI.png
+│   └── prediction.png
+|
+|
 ├── dashboard/
 │   ├── pages/
 |        ├── overview.py
@@ -180,34 +192,67 @@ Customer_Churn_Prediction/
 ├── requirements.txt
 ├── README.md
 ```
+---
+
+## Dashboard Preview
+
+### Overview
+
+![Overview](images/overview.png)
+
+### Customer Analysis
+
+![Customer Analysis](images/customer_analysis.png)
+
+### Model Performance
+
+![Model Performance](images/model_performance.png)
+
+### Explainable AI
+
+![Explainability](images/expalin_AI.png)
+
+### Prediction
+
+![Prediction](images/prediction.png)
 
 ---
 
-## Current Status
+## 🚀 Project Status
 
-✅ Project Initialization
-✅ Data Preprocessing
-✅ Exploratory Data Analysis
-✅ Feature Engineering
-✅ Model Preparation
-✅ Machine Learning Models
-   ✅ Logistic Regression Model
-   ✅ RandomForest Model
-   ✅ XGBoost Model
-✅ Business Insights
-✅ Explainable AI
-✅ Dashboard Development
-   ✅ Overview
-   ✅ Customer Analysis
-   ✅ Model Performance
-   ✅ Explainable AI
-   ✅ Churn Prediction Tool
-🟦 Deployment
+| Module | Status |
+|----------|----------|
+| Data Preprocessing | ✅ Completed |
+| Exploratory Data Analysis | ✅ Completed |
+| Feature Engineering | ✅ Completed |
+| Model Preparation | ✅ Completed |
+| Logistic Regression | ✅ Completed |
+| Random Forest | ✅ Completed |
+| XGBoost | ✅ Completed |
+| Explainable AI | ✅ Completed |
+| Dashboard Development | ✅ Completed |
+| Deployment | ✅ Completed |
 
+---
+
+## 🔮 Future Enhancements
+* Customer Segmentation using Clustering
+* Automated Retraining Pipeline
+* Real-Time Data Integration
+* Cloud-Based Model Monitoring
+* Customer Lifetime Value Prediction
 ---
 
 ## Author
 
 Abhilash Kumar
 
-Aspiring Data Scientist | Machine Learning Enthusiast | Python Developer
+Aspiring Data Scientist | Machine Learning Enthusiast | Data Analytics Professional
+
+Skills:
+
+Python • SQL • Power BI • Machine Learning • Data Visualization • Dashboard Development • Statistical Analysis
+
+---
+
+⭐ If you found this project useful, consider giving it a star on GitHub.
