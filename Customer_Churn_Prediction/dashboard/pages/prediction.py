@@ -2,11 +2,11 @@ import dash
 from dash import html, dcc
 from dash.dependencies import Input, Output, State
 import dash_bootstrap_components as dbc
-from utils.prediction_helper import predict_customer
+from dashboard.utils.prediction_helper import predict_customer
 
 # =====================================================
 # PAGE LAYOUT
-# =====================================================
+#=====================================================
 prediction_layout = dbc.Container([
     # =====================================
     # PAGE BANNER

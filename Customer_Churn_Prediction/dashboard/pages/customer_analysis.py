@@ -2,7 +2,7 @@ import pandas as pd
 from dash import html, dcc
 import dash_bootstrap_components as dbc
 import plotly.express as px
-from utils.data_loader import load_data
+from dashboard.utils.data_loader import load_data
 
 #=====================================
 # LOAD DATA

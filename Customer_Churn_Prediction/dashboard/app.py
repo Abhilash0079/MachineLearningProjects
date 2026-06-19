@@ -2,11 +2,19 @@ import dash
 from dash import html, dcc
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
-from pages.overview import overview_layout
-from pages.customer_analysis import customer_analyis_layout
-from pages.model_performance import model_performance_layout
-from pages.explainability import explainability_layout
-from pages.prediction import prediction_layout, register_prediction_callback
+# from pages.overview import overview_layout
+# from pages.customer_analysis import customer_analyis_layout
+# from pages.model_performance import model_performance_layout
+# from pages.explainability import explainability_layout
+# from pages.prediction import prediction_layout, register_prediction_callback
+
+#=======================  DEPLOYMENT  =====================
+from dashboard.pages.overview import overview_layout
+from dashboard.pages.customer_analysis import customer_analyis_layout
+from dashboard.pages.model_performance import model_performance_layout
+from dashboard.pages.explainability import explainability_layout
+from dashboard.pages.prediction import prediction_layout, register_prediction_callback
+#=======================  DEPLOYMENT  =====================
 
 #====================================
 # APP
@@ -16,6 +24,12 @@ app = dash.Dash(
     external_stylesheets=[dbc.themes.BOOTSTRAP],
     suppress_callback_exceptions=True
 )
+#=======================
+# DEPLOYMENT
+#=======================
+server = app.server
+#=======================
+
 app.title=("Customer Churn Analytics Dashboard")
 
 # ====================================

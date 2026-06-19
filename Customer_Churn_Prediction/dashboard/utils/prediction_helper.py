@@ -1,13 +1,40 @@
 import pandas as pd
 import numpy as np
 import joblib
+import os
 
 #=============================
 # LOAD ARTIFACTS
 #=============================
-model = joblib.load("models/logistic_regression_churn.pkl")
-scaler = joblib.load("models/scaler.pkl")
-feature_columns = joblib.load("models/feature_columns.pkl")
+# model = joblib.load("models/logistic_regression_churn.pkl")
+# scaler = joblib.load("models/scaler.pkl")
+# feature_columns = joblib.load("models/feature_columns.pkl")
+
+#=======================
+# FOR DEPLOYMENT
+#=======================
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+
+MODEL_PATH = os.path.join(
+    BASE_DIR,
+    "models",
+    "logistic_regression_churn.pkl",
+)
+SCALER_PATH = os.path.join(
+    BASE_DIR,
+    "models",
+    "scaler.pkl",
+)
+
+FEATURE_PATH = os.path.join(
+    BASE_DIR,
+    "models",
+    "feature_columns.pkl",
+)
+model = joblib.load(MODEL_PATH)
+scaler = joblib.load(SCALER_PATH)
+feature_columns = joblib.load(FEATURE_PATH)
+
 
 HIGH_VALUE_THRESHOLD = 70.35
 
