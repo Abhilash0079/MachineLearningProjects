@@ -1,0 +1,269 @@
+/* =========================================
+   BODY
+========================================= */
+body{
+    background: radial-gradient(circle at top left, #c3d6f1, #154371), radial-gradient(circle at bottom right, #3e618c, #161010);
+    font-family:'Segoe UI',sans-serif;
+    /* min-height:100vh; */
+}
+/* =========================================
+   BANNER
+========================================= */
+.banner{
+
+    background-image:
+        linear-gradient(
+            rgba(15,23,42,0.80),
+            rgba(30,58,138,0.80)
+        ),
+        url("/assets/banner.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    padding:70px 30px;
+
+    border-radius:25px;
+
+    color:white;
+
+    margin-bottom:25px;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.20);
+}
+
+.banner h1{
+
+    font-size:42px;
+
+    font-weight:800;
+
+    margin-bottom:15px;
+}
+
+.banner p{
+
+    font-size:18px;
+
+    color:#e2e8f0;
+}
+
+/* =========================================
+   PAGE TITLES
+========================================= */
+
+.page-title{
+
+    text-align:center;
+
+    font-weight:700;
+
+    color:#310128b0;
+
+    margin-bottom:15px;
+}
+
+/* =========================================
+   KPI CARDS
+========================================= */
+
+.kpi-card{
+
+    background:#7cd8e2a8;
+
+    border:none;
+
+    border-radius:20px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.08);
+
+    transition:0.3s;
+}
+
+.kpi-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 15px 30px rgba(0,0,0,0.12);
+}
+
+.kpi-label{
+    color: #27303d;
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.kpi-value{
+
+    font-weight:700;
+
+    color:#0f172a;
+}
+.section-title{
+
+    color:#560046b0;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+    padding-left:10px;
+
+    border-left:5px solid #560046b0;
+}
+/* =========================================
+   GRAPH CARDS
+========================================= */
+
+.graph-card{
+
+    border:none;
+
+    border-radius:20px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* =========================================
+   TABLE CARD
+========================================= */
+
+.table-card{
+
+    border:none;
+
+    border-radius:20px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* =========================================
+   ALERTS
+========================================= */
+
+.insight-alert{
+
+    border-radius:15px;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* =========================================
+   TABS
+========================================= */
+
+.custom-tabs{
+    border:none;
+}
+
+.custom-tab{
+
+    background:#e2e8f0 !important;
+
+    border:none !important;
+
+    border-radius:12px !important;
+
+    padding:12px;
+
+    font-weight:600;
+
+    margin-right:10px;
+}
+
+.custom-tab--selected{
+
+    background:#315e69 !important;
+
+    color:white !important;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.custom-btn{
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    padding:10px 25px;
+}
+
+/* =========================================
+   INPUTS
+========================================= */
+
+.custom-input{
+
+    border-radius:12px !important;
+
+    padding:12px !important;
+}
+
+/* =========================================
+   PREDICTION RESULT
+========================================= */
+
+.prediction-card{
+
+    border-radius:20px;
+
+    padding:20px;
+
+    text-align:center;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.10);
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer{
+
+    background:#0f172a;
+
+    color:white;
+
+    text-align:center;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    margin-top:40px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #205664;
+    border-radius: 10px;
+}
