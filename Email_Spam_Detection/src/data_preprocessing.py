@@ -58,7 +58,12 @@ def clean_text(text):
 # CLEAN TEXT
 #===============================
 df['CleanMessage'] = df['Message'].apply(clean_text)
+print("Before:", df.shape)
 
+df["CleanMessage"] = df["CleanMessage"].replace("", pd.NA)
+df = df.dropna(subset=["CleanMessage"])
+
+print("After:", df.shape)
 #===============================
 # SAVE DATA
 #===============================
