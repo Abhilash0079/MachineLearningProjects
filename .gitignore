@@ -38,3 +38,9 @@ models/*.pkl
 
 # Logs
 *.log
+
+# Spam pkl files
+Email_Spam_Detection/models/X_test.pkl
+Email_Spam_Detection/models/X_train.pkl
+Email_Spam_Detection/models/y_test.pkl
+Email_Spam_Detection/models/y_train.pkl
