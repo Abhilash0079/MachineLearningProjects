@@ -44,3 +44,8 @@ Email_Spam_Detection/models/X_test.pkl
 Email_Spam_Detection/models/X_train.pkl
 Email_Spam_Detection/models/y_test.pkl
 Email_Spam_Detection/models/y_train.pkl
+
+# Csv files
+Email_Spam_Detection/data/raw/emails.csv
+Email_Spam_Detection/data/processed/email_cleaned.csv
+Email_Spam_Detection/data/processed/email_featured.csv

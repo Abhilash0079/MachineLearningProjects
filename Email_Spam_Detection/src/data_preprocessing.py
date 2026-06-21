@@ -1,82 +1,97 @@
 import pandas as pd
 import re
 import string
+import nltk
 
 from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
+from nltk.stem import PorterStemmer
 
-#===============================
+# ===================================
+# DOWNLOAD NLTK RESOURCES
+# ===================================
+
+nltk.download("stopwords")
+
+# ===================================
 # LOAD DATA
-#===============================
-INPUT_FILE = "data/raw/spam_emails.csv"
-OUTPUT_FILE = "data/processed/spam_cleaned.csv"
+# ===================================
+
+INPUT_FILE = "data/raw/emails.csv"
+OUTPUT_FILE = "data/processed/email_cleaned.csv"
 
 df = pd.read_csv(INPUT_FILE)
+
 print(f"Original Shape: {df.shape}")
 
-#===============================
-# TARGET ENCODING
-#===============================
-df['Category'] = df['Category'].map({
-    "ham":0,
-    "spam":1
-})
+# ===================================
+# RENAME COLUMNS
+# ===================================
+df.rename(
+    columns={
+        "text": "Message",
+        "spam": "Category"
+    },
+    inplace=True
+)
 
-#===============================
-# NLP OBJECTS
-#===============================
+# ===================================
+# STEMMER & STOPWORDS
+# ===================================
+ps = PorterStemmer()
+
 stop_words = set(stopwords.words("english"))
-lemmatizer = WordNetLemmatizer()
 
-#===============================
-# CLEAN FUNCTION
-#===============================
+# ===================================
+# CLEANING FUNCTION
+# ===================================
 def clean_text(text):
-    text = str(text).lower()
-
-    #Remove URLs
-    text = re.sub(r"http\S+","",text)
-
-    # Remove Puntuation
+    text = str(text)
+    # Lowercase
+    text = text.lower()
+    # Remove HTML
+    text = re.sub(r"<.*?>"," ",text)
+    # Remove URLs
+    text = re.sub(r"http\S+|www\S+"," ",text)
+    # Remove Email IDs
+    text = re.sub(r"\S+@\S+"," ",text)
+    # Remove Numbers
+    text = re.sub(r"\d+"," ",text)
+    # Remove Punctuation
     text = text.translate(
-        str.maketrans("","",string.punctuation)
+        str.maketrans(
+            "",
+            "",
+            string.punctuation
+        )
     )
-
-    # Remove Digits
-    text = re.sub(r"\d+", "", text)
-
     # Tokenization
     words = text.split()
-
-    # Remove stopwords + lemmatize
+    # Remove Stopwords + Stemming
     words = [
-        lemmatizer.lemmatize(word) for word in words if word not in stop_words
+        ps.stem(word)
+        for word in words
+        if word not in stop_words
     ]
     return " ".join(words)
 
-#===============================
-# CLEAN TEXT
-#===============================
-df['CleanMessage'] = df['Message'].apply(clean_text)
-print("Before:", df.shape)
+# ===================================
+# APPLY CLEANING
+# ===================================
 
-df["CleanMessage"] = df["CleanMessage"].replace("", pd.NA)
-df = df.dropna(subset=["CleanMessage"])
+df["CleanMessage"] = df["Message"].apply(clean_text)
 
-print("After:", df.shape)
-#===============================
-# SAVE DATA
-#===============================
-df.to_csv(OUTPUT_FILE, index=False)
+# ===================================
+# CHECK RESULTS
+# ===================================
 
-print("Saved Successfully.")
-print(df.head())
+print(df[[
+    "Message",
+    "CleanMessage"
+]].head())
 
-
-##==================
-# TESTING FILE
-#====================
-print(df.shape)
-print(df.columns.tolist())
-print(df["Category"].value_counts())
-print(df["CleanMessage"].head())
+# ===================================
+# SAVE CLEANED DATA
+# ===================================
+df.to_csv(OUTPUT_FILE,index=False)
+print(f"Saved: {OUTPUT_FILE}")
+print(f"Final Shape: {df.shape}")
