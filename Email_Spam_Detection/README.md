@@ -250,7 +250,7 @@ Selected because:
 
 ### Prediction Dashboard
 
-![Prediction](images/prediction.png)
+![Prediction](images/Prediction.png)
 
 ---
 
