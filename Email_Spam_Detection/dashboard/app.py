@@ -5,6 +5,7 @@ from dash.dependencies import Input,Output
 from pages.overview import overview_layout
 from pages.model_performance import model_performance_layout
 from pages.explainability import explainability_layout
+from pages.prediction import prediction_layout, register_prediction_callback
 
 app = dash.Dash(
     __name__,
@@ -15,6 +16,11 @@ app = dash.Dash(
 )
 
 app.title = "Email Spam Detection | NLP & Machine Learning"
+
+# ====================================
+# REGISTER PAGE CALLBACKS
+# ====================================
+register_prediction_callback(app)
 
 app.layout = dbc.Container([
     html.Div([
@@ -52,6 +58,12 @@ app.layout = dbc.Container([
                 value="explainability",
                 className="custom-tab",
                 selected_className="custom-tab--selected"
+            ),
+            dcc.Tab(
+                label="Prediction",
+                value="prediction",
+                className="custom-tab",
+                selected_className="custom-tab--selected"
             )
         ]
     ),
@@ -78,6 +90,10 @@ def render_page(tab):
         return model_performance_layout
     elif tab == "explainability":
         return explainability_layout
+    elif tab == "prediction":
+        return prediction_layout
+    else:
+        return "Page Not Found"
 
 if __name__=="__main__":
     app.run(debug=True)

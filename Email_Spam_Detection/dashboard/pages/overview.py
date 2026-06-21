@@ -9,6 +9,11 @@ from utils.data_loader import load_data
 #==========================
 df = load_data()
 
+# ===================================== 
+# CREATE LABEL COLUMN 
+# ===================================== 
+df["Label"] = df["Category"].map({ 0: "Ham", 1: "Spam" })
+
 #==========================
 # KPIs
 #==========================
@@ -16,6 +21,14 @@ total_emails = len(df)
 spam_emails = (df['Category']==1).sum()
 ham_emails = (df['Category']==0).sum()
 spam_rate = (spam_emails/total_emails) * 100
+avg_word_count = round( df["WordCount"].mean(), 1 )
+avg_email_length = round( df["EmailLength"].mean(), 1 )
+
+# ===================================== 
+# DEPLOYED MODEL INFO 
+# ===================================== 
+model_name = "Linear SVM" 
+model_accuracy = "98.87%"
 
 #==========================
 # KPI CARD
@@ -43,6 +56,7 @@ pie_fig = px.pie(
     hole=.5,
     title="Spam vs Ham Distribution"
 )
+pie_fig.update_layout( template="plotly_white" )
 
 # ===================================
 # WORD COUNT
@@ -53,16 +67,18 @@ word_fig = px.histogram(
     nbins=40,
     title="Word Count Distribution"
 )
+word_fig.update_layout( template="plotly_white" )
 
-# ===================================
-# CHAR COUNT
-# ===================================
-char_fig = px.histogram(
-    df,
-    x="CharCount",
-    nbins=40,
-    title="Character Count Distribution"
-)
+# ===================================== 
+# SPAM VS HAM WORD COUNT 
+# ===================================== 
+compare_fig = px.box( 
+    df, x="Label", 
+    y="WordCount", 
+    color="Label", 
+    title="Spam vs Ham Word Count Comparison" 
+) 
+compare_fig.update_layout( template="plotly_white" )
 
 # ===================================
 # LAYOUT
@@ -73,17 +89,26 @@ overview_layout = dbc.Container([
     html.Hr(),
     dbc.Row([
         dbc.Col(
-            create_card("Total Emails", total_emails, "primary"),md=3
+            create_card("Total Emails", total_emails, "primary"),md=4
         ),
         dbc.Col(
-            create_card("Spam Emails", spam_emails, "danger"),md=3
+            create_card("Spam Emails", spam_emails, "danger"),md=4
         ),
         dbc.Col(
-            create_card("Ham Emails", ham_emails, "success"),md=3
+            create_card("Ham Emails", ham_emails, "success"),md=4
+        ),
+    ]),
+    html.Br(),
+    dbc.Row([
+        dbc.Col(
+            create_card("Spam Rate", f"{spam_rate:.2f}%", "warning"),md=4
         ),
         dbc.Col(
-            create_card("Spam Rate", f"{spam_rate:.2f}%", "warning"),md=3
-        )
+            create_card("Avg Word Count", avg_word_count, "info"),md=4
+        ),
+        dbc.Col(
+            create_card("Avg Email Length ", avg_email_length, "success"),md=4
+        ),
     ]),
     html.Br(),
     dbc.Row([
@@ -103,14 +128,20 @@ overview_layout = dbc.Container([
     html.Br(),
     dbc.Card(
         dbc.CardBody([
-            dcc.Graph(figure=char_fig)
+            dcc.Graph(figure=compare_fig)
         ]),
         className="graph-card"
     ),
     html.Br(),
     dbc.Alert([
-        html.B("Key Insights: "),
-        f"{spam_rate:.1f}% messages are spam. "
-        "Spam messages generally contain more promotional content and suspicious keywords."
-    ], color="info", className="insight-alert")
+        html.H5("Key Insights: ", className="fw-bold"),
+        html.Ul([ 
+            html.Li(f"Dataset contains {total_emails:,} emails."), 
+            html.Li(f"{spam_rate:.1f}% of emails are spam."), 
+            html.Li("Spam emails generally contain more promotional language and suspicious keywords."), 
+            html.Li("Spam messages tend to have higher word counts than legitimate emails."), 
+            html.Li("The dataset is reasonably balanced for training machine learning models.") 
+        ])
+    ], color="info", className="insight-alert"),
+    html.Br()
 ], fluid=True)

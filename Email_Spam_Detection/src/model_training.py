@@ -11,7 +11,9 @@ from sklearn.metrics import (
     precision_score,
     recall_score,
     f1_score,
-    roc_auc_score
+    roc_auc_score,
+    roc_curve,
+    precision_recall_curve
 )
 
 # =====================================
@@ -162,3 +164,35 @@ joblib.dump(rf_model, "models/random_forest.pkl")
 joblib.dump(best_model,"models/spam_classifier.pkl")
 joblib.dump(scaler,"models/scaler.pkl")
 print("\nBest Model Saved Successfully")
+
+
+## Save ROC Curve
+lr_model = joblib.load("../models/logistic_regression.pkl")
+y_prob = lr_model.predict_proba(X_test_scaled)[:,1]
+fpr, tpr, thresholds = roc_curve(y_test, y_prob)
+
+roc_df = pd.DataFrame({
+    "FPR": fpr,
+    "TPR": tpr
+})
+
+roc_df.to_csv(
+    "../dashboard/data/roc_curve.csv",
+    index=False
+)
+
+# Save Precison-Recall Curve
+precision, recall, thresholds = precision_recall_curve(
+    y_test,
+    y_prob
+)
+
+pr_df = pd.DataFrame({
+    "Precision": precision[:-1],
+    "Recall": recall[:-1]
+})
+
+pr_df.to_csv(
+    "../dashboard/data/pr_curve.csv",
+    index=False
+)

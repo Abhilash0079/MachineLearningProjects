@@ -4,12 +4,41 @@ from scipy.sparse import hstack
 from dash import html,dcc
 from dash.dependencies import Input,Output,State
 import dash_bootstrap_components as dbc
+import re
+import string
+import nltk
+from nltk.corpus import stopwords
+from nltk.stem import PorterStemmer
 
 # =====================================
 # LOAD MODEL & VECTORIZER
 # =====================================
-model = joblib.load("models/linear_svm.pkl")
+# model = joblib.load("models/linear_svm.pkl")
+model = joblib.load("models/logistic_regression.pkl")
 vectorizer = joblib.load("models/tfidf_vectorizer.pkl")
+scaler = joblib.load("models/scaler.pkl")
+# =====================================
+# NLP PREPROCESSING
+# =====================================
+nltk.download("stopwords")
+ps = PorterStemmer()
+stop_words = set(stopwords.words("english"))
+
+# =====================================
+# CLEAN TEXT
+# =====================================
+
+def clean_text(text):
+    text = str(text)
+    text = text.lower()
+    text = re.sub(r"<.*?>"," ",text)
+    text = re.sub(r"http\S+|www\S+"," ",text)
+    text = re.sub(r"\S+@\S+"," ",text)
+    text = re.sub(r"\d+"," ",text)
+    text = text.translate(str.maketrans("","",string.punctuation))
+    words = text.split()
+    words = [ps.stem(word) for word in words if word not in stop_words]
+    return " ".join(words)
 
 #======================================
 # FEATURE ENGINEERING
@@ -18,34 +47,55 @@ def transform_email(email_text):
     # -------------------------
     # Manual Features
     # -------------------------
-    char_count = len(str(email_text))
+    email_length = len(str(email_text))
     word_count = len(str(email_text).split())
     sentence_count = (
         str(email_text).count(".")
         + str(email_text).count("!")
         + str(email_text).count("?")
     )
-    avg_word_length = (np.mean([len(word) for word in str(email_text).split()])
+
+    avg_word_length = (
+        np.mean(
+            [len(word) for word in str(email_text).split()]
+        )
         if len(str(email_text).split()) > 0
         else 0
     )
 
+    digit_count = sum(
+        c.isdigit()
+        for c in str(email_text)
+    )
+
+    special_char_count = sum(
+        not c.isalnum() and not c.isspace()
+        for c in str(email_text)
+    )
+
     manual_features = np.array([
-        char_count,
+        email_length,
         word_count,
         sentence_count,
-        avg_word_length
+        avg_word_length,
+        digit_count,
+        special_char_count
     ]).reshape(1, -1)
-
+    
+    # -------------------------
+    # Clean Text
+    # -------------------------
+    cleaned_email = clean_text(email_text)
     # -------------------------
     # TF-IDF Features
     # -------------------------
-    tfidf_features = vectorizer.transform([email_text])
+    tfidf_features = vectorizer.transform([cleaned_email])
     # -------------------------
     # Combine Features
     # -------------------------
     final_features = hstack([manual_features,tfidf_features])
     return final_features.toarray()
+
 # =====================================
 # PAGE LAYOUT
 # =====================================
@@ -101,23 +151,27 @@ def register_prediction_callback(app):
         # VECTORIZE
         # ============================
         try:
-            email_vector = transform_email(email_text)            
-            prediction = model.predict(email_vector)[0]
-            decision_score = model.decision_function(email_vector)[0]
-            spam_probability = (1 /(1 + np.exp(-decision_score))) * 100
-            ham_probability = 100 - spam_probability
+            email_vector = transform_email(email_text)
+            email_vector_scaled = scaler.transform(email_vector)         
+            prediction = model.predict(email_vector_scaled)[0]
+            probabilities = model.predict_proba(email_vector_scaled)[0]
+            spam_risk_score = probabilities[1] * 100
+            legitimacy_score = probabilities[0] * 100
+            decision_score = model.decision_function(email_vector_scaled)[0]
+            # spam_risk_score = (1 /(1 + np.exp(-decision_score))) * 100
+            # legitimacy_score = 100 - spam_risk_score
 
             # =====================
             # Risk Level
             # =====================
-            if spam_probability >= 80:
+            if spam_risk_score >= 80:
                 risk_level = "🔴 High Risk Spam"
                 risk_color = "danger"
-            elif spam_probability >= 50:
+            elif spam_risk_score >= 50:
                 risk_level = "🟠 Suspicious Email"
                 risk_color = "warning"
-            elif spam_probability >= 20:
-                risk_level = "🟡 Promotional Email"
+            elif spam_risk_score >= 20:
+                risk_level = "🟡 Likely Legitimate"
                 risk_color = "info"
             else:
                 risk_level = "🟢 Safe Email"
@@ -159,18 +213,18 @@ def register_prediction_callback(app):
                     ),
                     html.H4(risk_level,className=f"text-{risk_color} text-center"),
                     html.Hr(),
-                    html.H5(f"Spam Probability: {spam_probability:.2f}%"),
+                    html.H5(f"Spam Probability: {spam_risk_score:.2f}%"),
                     dbc.Progress(
-                        value=spam_probability,
+                        value=spam_risk_score,
                         color="danger",
                         striped=True,
                         animated=True,
                         style={"height":"25px"}
                     ),
                     html.Br(),
-                    html.H5(f"Ham Probability: {ham_probability:.2f}%"),
+                    html.H5(f"Ham Probability: {legitimacy_score:.2f}%"),
                     dbc.Progress(
-                        value=ham_probability,
+                        value=legitimacy_score,
                         color="success",
                         striped=True,
                         animated=True,

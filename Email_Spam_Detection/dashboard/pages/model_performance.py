@@ -13,11 +13,11 @@ performance_df = pd.DataFrame({
         "Linear SVM",
         "Random Forest"
     ],
-    "Accuracy":[0.9704,0.9686,0.9865,0.9803],
-    "Precision":[1.0000,0.9600,0.9927,1.0000],
-    "Recall":[0.7800,0.8000,0.9067,0.8533],
-    "F1 Score":[0.8764,0.8727,0.9477,0.9209],
-    "ROC AUC":[0.9838,0.9914,0.9528,0.9890]
+    "Accuracy":[0.7269,0.9878,0.9887,0.9852],
+    "Precision":[0.4612,0.9851,0.9815,0.9813],
+    "Recall":[0.8467,0.9635,0.9708,0.9562],
+    "F1 Score":[0.5972,0.9742,0.9761,0.9686],
+    "ROC AUC":[0.8329,0.9992,0.9825,0.9980]
 })
 
 # ======================================
@@ -35,9 +35,19 @@ def create_card(title, value, color):
 # ======================================
 # BEST MODEL
 # ======================================
-best_model = "Linear SVM"
-best_accuracy = performance_df["Accuracy"].max()
-best_f1 = performance_df["F1 Score"].max()
+production_model = "Logistic Regression"
+
+production_accuracy = (
+    performance_df[
+        performance_df["Model"] == "Logistic Regression"
+    ]["Accuracy"].iloc[0]
+)
+
+production_roc_auc = (
+    performance_df[
+        performance_df["Model"] == "Logistic Regression"
+    ]["ROC AUC"].iloc[0]
+)
 
 # ======================================
 # ACCURACY CHART
@@ -72,6 +82,23 @@ f1_fig.update_layout(
 )
 
 # ======================================
+# RECALL CHART
+# ======================================
+recall_fig = px.bar(
+    performance_df,
+    x="Model",
+    y="Recall",
+    color="Model",
+    text_auto=".3f",
+    title="Recall Comparison"
+)
+
+recall_fig.update_layout(
+    template="plotly_white",
+    showlegend=False
+)
+
+# ======================================
 # ROC AUC
 # ======================================
 roc_fig = px.bar(
@@ -87,6 +114,41 @@ roc_fig.update_layout(
     showlegend=False
 )
 
+roc_df = pd.read_csv(
+    "dashboard/data/roc_curve.csv"
+)
+#====================
+# ROC CURVE
+#====================
+roc_curve_fig = px.line(
+    roc_df,
+    x="FPR",
+    y="TPR",
+    title="ROC Curve"
+)
+
+roc_curve_fig.add_shape(
+    type="line",
+    x0=0,
+    y0=0,
+    x1=1,
+    y1=1,
+    line=dict(dash="dash")
+)
+
+#===============================
+# PRECISION-RECALL CURVE
+#================================
+pr_df = pd.read_csv(
+    "dashboard/data/pr_curve.csv"
+)
+
+pr_curve_fig = px.line(
+    pr_df,
+    x="Recall",
+    y="Precision",
+    title="Precision-Recall Curve"
+)
 # ======================================
 # RADAR CHART
 # ======================================
@@ -128,15 +190,15 @@ model_performance_layout = dbc.Container([
     html.H4("Performance Summary",className="section-title mb-3"),
     dbc.Row([
         dbc.Col(
-            create_card("Best Model",best_model,"success"),
+            create_card("Production Model",production_model,"success"),
             md=4
         ),
         dbc.Col(
-            create_card("Best Accuracy",f"{best_accuracy:.2%}","primary"),
+            create_card("Accuracy",f"{production_accuracy:.2%}","primary"),
             md=4
         ),
         dbc.Col(
-            create_card("Best F1 Score",f"{best_f1:.2%}","warning"),
+            create_card("ROC-AUC",f"{production_roc_auc:.2%}","warning"),
             md=4
         )
     ]),
@@ -173,15 +235,26 @@ model_performance_layout = dbc.Container([
                     dcc.Graph(figure=accuracy_fig)
                 ])
             ],
-            className="graph-card"),md=4
+            className="graph-card"),md=6
         ),
+        dbc.Col(
+            dbc.Card([
+                dbc.CardBody([
+                    dcc.Graph(figure=recall_fig)
+                ])
+            ],
+            className="graph-card"),md=6
+        ),
+    ]),
+    html.Br(),
+    dbc.Row([
         dbc.Col(
             dbc.Card([
                 dbc.CardBody([
                     dcc.Graph(figure=f1_fig)
                 ])
             ],
-            className="graph-card"),md=4
+            className="graph-card"),md=6
         ),
         dbc.Col(
             dbc.Card([
@@ -189,10 +262,9 @@ model_performance_layout = dbc.Container([
                     dcc.Graph(figure=roc_fig)
                 ])
             ],
-            className="graph-card"),md=4
-        )
+            className="graph-card"),md=6
+        ),
     ]),
-    html.Br(),
     # ==================================
     # RADAR
     # ==================================
@@ -205,17 +277,47 @@ model_performance_layout = dbc.Container([
             dcc.Graph(figure=radar_fig)
         ])
     ],
+    className="graph-card"
+    ),
+    html.Br(),
+    html.H4("Advanced Evaluation Curves",className="section-title mb-3"),
+    dbc.Row([
+        dbc.Col(
+            dbc.Card([
+                dbc.CardBody([
+                    dcc.Graph(figure=roc_curve_fig)
+                ])
+            ]),
+            md=6
+        ),
+        dbc.Col(
+            dbc.Card([
+                dbc.CardBody([
+                    dcc.Graph(figure=pr_curve_fig)
+                ])
+            ]),
+            md=6
+        )
+    ]),
+    dbc.Card([
+        dbc.CardBody([
+            html.Img(src="/assets/confusion_matrix.png",
+                style={
+                "width": "100%",
+                "borderRadius": "10px"
+                }
+            )
+        ])
+    ],
     className="graph-card"),
     html.Br(),
     html.H4("Business Insights & Recommendations",className="section-title mb-3"),
     dbc.Alert([
         html.H5("Key Findings:",className="fw-bold"),
         html.Ul([
-            html.Li("Linear SVM achieved the highest overall performance."),
             html.Li("Linear SVM delivered the highest F1 Score and Recall."),
-            html.Li("Random Forest achieved perfect Precision."),
-            html.Li("Logistic Regression achieved the highest ROC-AUC."),
-            html.Li("Linear SVM selected as the production model.")
+            html.Li("Logistic Regression achieved highest Precision and ROC-AUC."),
+            html.Li("Logistic Regression selected as the production model.")
         ])
     ],
     color="success",

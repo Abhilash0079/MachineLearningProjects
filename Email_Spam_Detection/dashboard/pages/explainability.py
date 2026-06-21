@@ -6,7 +6,7 @@ import plotly.express as px
 # =====================================
 # LOAD COEFFICIENTS
 # =====================================
-coef_df = pd.read_csv("dashboard/data/model_coefficients.csv")
+coef_df = pd.read_csv("dashboard/data/lr_model_coefficients.csv")
 
 # =====================================
 # TOP SPAM WORDS
@@ -35,7 +35,7 @@ def create_card(title,value,color):
 # =====================================
 top_spam_word = top_spam.iloc[0]["Feature"]
 top_ham_word = top_ham.iloc[0]["Feature"]
-
+total_features = len(coef_df)
 # =====================================
 # SPAM DRIVERS
 # =====================================
@@ -63,6 +63,21 @@ ham_fig = px.bar(
 )
 ham_fig.update_layout(template="plotly_white",height=650)
 
+# ===================================== 
+# MOST INFLUENTIAL FEATURES 
+# ===================================== 
+overall_features = pd.concat([top_spam.head(10), top_ham.head(10)]) 
+overall_fig = px.bar(
+    overall_features, 
+    x="Coefficient", 
+    y="Feature", 
+    orientation="h", 
+    color="Coefficient", 
+    title="Most Influential Features", 
+    text_auto=".2f" 
+) 
+overall_fig.update_layout(template="plotly_white", height=700)
+
 # =====================================
 # PAGE LAYOUT
 # =====================================
@@ -82,7 +97,7 @@ explainability_layout = dbc.Container([
     dbc.Row([
         dbc.Col(create_card("Top Spam Driver",top_spam_word,"danger"),md=4),
         dbc.Col(create_card("Top Ham Driver",top_ham_word,"success"),md=4),
-        dbc.Col(create_card("Model","Logistic Regression","primary"),md=4)
+        dbc.Col(create_card("Feature Analyzed",f"{total_features}","primary"),md=4)
     ]),
     html.Br(),
     # =================================
@@ -105,21 +120,32 @@ explainability_layout = dbc.Container([
         )
     ]),
     html.Br(),
+    dbc.Card([ 
+        dbc.CardHeader( 
+            html.H4("Most Influential Features") 
+        ), 
+        dbc.CardBody([ 
+            dcc.Graph(figure=overall_fig) 
+        ]) 
+    ], className="graph-card"
+    ),
+    html.Br(),
     dbc.Alert([
         html.H5("Key Findings",className="fw-bold"),
-        html.Ul([
-            html.Li(f"'{top_spam_word}' is the strongest spam-indicating feature."),
-            html.Li(f"'{top_ham_word}' is the strongest ham-indicating feature."),
-            html.Li("Promotional words significantly increase spam probability."),
-            html.Li("Normal conversational language strongly indicates legitimate emails."),
-            html.Li("Logistic Regression enables full transparency through feature coefficients.")
+        html.Ul([ 
+            html.Li( f"'{top_spam_word}' is the strongest spam-indicating feature." ), 
+            html.Li( f"'{top_ham_word}' is the strongest ham-indicating feature." ), 
+            html.Li( f"{total_features:,} features were analyzed during model interpretation." ), 
+            html.Li( "Promotional and urgency-related words strongly increase spam probability." ), 
+            html.Li( "Conversational and workplace-related language strongly indicates legitimate emails." ), 
+            html.Li( "Feature coefficients provide transparency into model decision-making." ) 
         ])
     ],
     color="success",className="insight-alert"),
     html.Br(),
-    dbc.Alert([
-        html.B("Business Recommendation: "),
-        "Messages containing strong promotional and urgency-related keywords should receive higher spam risk scores and trigger enhanced filtering."
+    dbc.Alert([ 
+        html.B( "Business Recommendation: " ), 
+        "Messages containing strong promotional, urgency, reward, discount, or financial keywords should receive elevated spam risk scores and be prioritized for automated filtering." 
     ],
     color="primary",className="insight-alert")
 ], fluid=True)
