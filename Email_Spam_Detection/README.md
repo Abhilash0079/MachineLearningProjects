@@ -256,46 +256,48 @@ Selected because:
 
 ## 📁 Project Structure
 
-Email_Spam_Detection/
+```text
+Email_Spam_Prediction/
 
 ├── data/
 │   ├── raw/
 │   └── processed/
-|
-|
-├── models/
-│   ├── logistic_regression.pkl
-│   ├── scaler.pkl
-│   └── tfidf_vectorizer.pkl
-|
-|
+│
 ├── notebooks/
 │   ├── EDA.ipynb
 │   └── Modelling.ipynb
-|
-|
+│
+├── models/
+│
 ├── src/
+│   ├── check_dataset.py
 │   ├── data_preprocessing.py
 │   ├── feature_engineering.py
 │   ├── model_preparation.py
 │   └── model_training.py
+│
+|
+├── images/
+│   ├── overview.png
+│   ├── model_perform1.png
+│   ├── model_perform2.png
+│   ├── expalin_AI.png
+│   └── prediction.png
 |
 |
 ├── dashboard/
-│   ├── app.py
 │   ├── pages/
-│       ├── overview.py
-│       ├── model_performance.py
-│       ├── explainability.py
-│       └── prediction.py
+|        ├── overview.py
+│        ├── model_performance.py
+│        ├── explainability.py
+│        └── prediction.py
 │   ├── assets/
-│       ├── style.css
-│   └── data/
-|
-|
+│   └── utils/
+|   ├── app.py
+│
 ├── requirements.txt
-└── README.md
-
+├── README.md
+```
 ---
 
 ## 🚀 How to Run
