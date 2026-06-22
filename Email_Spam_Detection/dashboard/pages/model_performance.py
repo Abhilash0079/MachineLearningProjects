@@ -2,6 +2,7 @@ import pandas as pd
 from dash import html, dcc
 import dash_bootstrap_components as dbc
 import plotly.express as px
+import os
 
 # ======================================
 # MODEL RESULTS
@@ -19,6 +20,13 @@ performance_df = pd.DataFrame({
     "F1 Score":[0.5972,0.9742,0.9761,0.9686],
     "ROC AUC":[0.8329,0.9992,0.9825,0.9980]
 })
+
+#=================================
+# RELATIVE PATH FOR RENDER
+#=================================
+BASE_DIR = os.path.dirname(
+    os.path.dirname(os.path.abspath(__file__))
+)
 
 # ======================================
 # KPI CARD
@@ -114,9 +122,13 @@ roc_fig.update_layout(
     showlegend=False
 )
 
-roc_df = pd.read_csv(
-    "dashboard/data/roc_curve.csv"
+roc_path = os.path.join(
+    BASE_DIR,
+    "data",
+    "roc_curve.csv"
 )
+
+roc_df = pd.read_csv(roc_path)
 #====================
 # ROC CURVE
 #====================
@@ -139,9 +151,12 @@ roc_curve_fig.add_shape(
 #===============================
 # PRECISION-RECALL CURVE
 #================================
-pr_df = pd.read_csv(
-    "dashboard/data/pr_curve.csv"
+pr_path = os.path.join(
+    BASE_DIR,
+    "data",
+    "pr_curve.csv"
 )
+pr_df = pd.read_csv(pr_path)
 
 pr_curve_fig = px.line(
     pr_df,
@@ -301,7 +316,7 @@ model_performance_layout = dbc.Container([
     ]),
     dbc.Card([
         dbc.CardBody([
-            html.Img(src="/assets/confusion_matrix.png",
+            html.Img(src="assets/confusion_matrix.png",
                 style={
                 "width": "100%",
                 "borderRadius": "10px"

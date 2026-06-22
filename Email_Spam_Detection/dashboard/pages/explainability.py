@@ -2,11 +2,21 @@ import pandas as pd
 from dash import html,dcc
 import dash_bootstrap_components as dbc
 import plotly.express as px
+import os
 
 # =====================================
 # LOAD COEFFICIENTS
 # =====================================
-coef_df = pd.read_csv("dashboard/data/lr_model_coefficients.csv")
+BASE_DIR = os.path.dirname(
+    os.path.dirname(os.path.abspath(__file__))
+)
+
+coef_path = os.path.join(
+    BASE_DIR,
+    "data",
+    "lr_model_coefficients.csv"
+)
+coef_df = pd.read_csv(coef_path)
 
 # =====================================
 # TOP SPAM WORDS

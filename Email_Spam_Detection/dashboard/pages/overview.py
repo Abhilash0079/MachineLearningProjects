@@ -2,16 +2,16 @@ import pandas as pd
 from dash import html, dcc
 import dash_bootstrap_components as dbc
 import plotly.express as px
-from utils.data_loader import load_data
+from dashboard.utils.data_loader import load_data
 
 #==========================
 # LOAD DATA
 #==========================
-df = load_data()
+df = load_data().copy()
 
 # ===================================== 
 # CREATE LABEL COLUMN 
-# ===================================== 
+# =====================================
 df["Label"] = df["Category"].map({ 0: "Ham", 1: "Spam" })
 
 #==========================

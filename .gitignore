@@ -49,3 +49,6 @@ Email_Spam_Detection/models/y_train.pkl
 Email_Spam_Detection/data/raw/emails.csv
 Email_Spam_Detection/data/processed/email_cleaned.csv
 Email_Spam_Detection/data/processed/email_featured.csv
+
+# Streamlit Deployment
+Email_Spam_Detection/streamlit_app.py

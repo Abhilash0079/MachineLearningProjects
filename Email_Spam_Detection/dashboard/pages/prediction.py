@@ -9,18 +9,37 @@ import string
 import nltk
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
+import os
 
+#=================================
+# RELATIVE PATH
+#=================================
+MODEL_PATH = os.path.join(
+    "models",
+    "logistic_regression.pkl"
+)
+VECTORIZER_PATH = os.path.join(
+    "models",
+    "tfidf_vectorizer.pkl"
+)
+SCALER_PATH = os.path.join(
+    "models",
+    "scaler.pkl"
+)
 # =====================================
 # LOAD MODEL & VECTORIZER
 # =====================================
 # model = joblib.load("models/linear_svm.pkl")
-model = joblib.load("models/logistic_regression.pkl")
-vectorizer = joblib.load("models/tfidf_vectorizer.pkl")
-scaler = joblib.load("models/scaler.pkl")
+model = joblib.load(MODEL_PATH)
+vectorizer = joblib.load(VECTORIZER_PATH)
+scaler = joblib.load(SCALER_PATH)
 # =====================================
 # NLP PREPROCESSING
 # =====================================
-nltk.download("stopwords")
+try:
+    stopwords.words("english")
+except LookupError:
+    nltk.download("stopwords")
 ps = PorterStemmer()
 stop_words = set(stopwords.words("english"))
 
