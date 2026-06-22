@@ -1,7 +1,7 @@
 # 📧 Email Spam Detection System using Machine Learning & NLP
 
 🚀 Live Demo:
-https://customer-churn-dashboard-f28f.onrender.com/
+https://email-spam-detection-e2xl.onrender.com/
 
 ## 📌 Project Overview
 
