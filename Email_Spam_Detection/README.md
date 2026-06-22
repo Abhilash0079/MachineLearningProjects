@@ -1,5 +1,8 @@
 # 📧 Email Spam Detection System using Machine Learning & NLP
 
+🚀 Live Demo:
+https://customer-churn-dashboard-f28f.onrender.com/
+
 ## 📌 Project Overview
 
 This project is an end-to-end Email Spam Detection System that uses Natural Language Processing (NLP) and Machine Learning to automatically classify emails as Spam or Ham (Legitimate Email).
