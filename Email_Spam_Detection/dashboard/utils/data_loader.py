@@ -16,7 +16,7 @@ DATA_PATH = os.path.join(
     PROJECT_ROOT,
     "data",
     "processed",
-    "email_featured.csv"
+    "dashboard_data.csv"
 )
 
 def load_data():
