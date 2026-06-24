@@ -52,3 +52,6 @@ Email_Spam_Detection/data/processed/email_featured.csv
 
 # Streamlit Deployment
 Email_Spam_Detection/streamlit_app.py
+
+### CREDIT CARD FRAUD DETECTION
+Credit_Card_Fraud_Detection/data/raw/*.csv
