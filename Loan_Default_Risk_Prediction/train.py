@@ -1,23 +1,17 @@
-from src.exception import LoanDefaultException
-from src.logger import logger
+from src.components.data_ingestion import DataIngestion
 
+def main():
 
-def test_project_setup() -> None:
-    try:
-        logger.info("Testing project setup.")
+    ingestion = DataIngestion()
 
-        first_number = 10
-        second_number = 5
+    df = ingestion.load_data()
 
-        result = first_number + second_number
+    print(df.head())
 
-        logger.info("Project setup test completed successfully.")
-        print(f"Project setup is working. Result: {result}")
+    print()
 
-    except Exception as error:
-        logger.exception("Project setup failed.")
-        raise LoanDefaultException(error) from error
+    print(df.shape)
 
 
 if __name__ == "__main__":
-    test_project_setup()
+    main()
