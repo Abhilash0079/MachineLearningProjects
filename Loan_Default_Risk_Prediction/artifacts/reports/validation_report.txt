@@ -1,0 +1,9 @@
+Rows: 307511
+Columns: 122
+Expected Rows: 307511
+Expected Columns: 122
+Shape Valid: True
+Target Present: True
+Duplicate Rows: 0
+Missing Values: 9152465
+Data Types: {'float64': 65, 'int64': 41, 'object': 16}

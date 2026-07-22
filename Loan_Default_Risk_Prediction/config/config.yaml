@@ -4,14 +4,14 @@ project:
 
 data:
   raw_data_path: data/raw/application_train.csv
-
   train_path: data/interim/train.csv
-
   test_path: data/interim/test.csv
-
   target_column: TARGET
 
 model:
   random_state: 42
-
   test_size: 0.20
+
+validation:
+  expected_rows: 307511
+  expected_columns: 122
