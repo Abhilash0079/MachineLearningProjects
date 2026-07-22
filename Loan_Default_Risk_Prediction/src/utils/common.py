@@ -2,22 +2,21 @@ from pathlib import Path
 import yaml
 
 
-def read_yaml(file_path: str) -> dict:
+def read_yaml(file_path: str | Path) -> dict:
     """
-    Read a YAML configuration file.
-
-    Parameters
-    ----------
-    file_path : str
-        Path to the YAML file.
-
-    Returns
-    -------
-    dict
-        Parsed configuration dictionary.
+    Read and return the contents of a YAML configuration file.
     """
-
-    with open(file_path, "r", encoding="utf-8") as file:
+    file_path = Path(file_path)
+    if not file_path.exists():
+        raise FileNotFoundError(
+            f"Configuration file not found: {file_path}"
+        )
+    with file_path.open("r", encoding="utf-8") as file:
         config = yaml.safe_load(file)
+
+    if config is None:
+        raise ValueError(
+            f"Configuration file is empty: {file_path}"
+        )
 
     return config
