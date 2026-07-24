@@ -53,30 +53,5 @@ Email_Spam_Detection/data/processed/email_featured.csv
 # Streamlit Deployment
 Email_Spam_Detection/streamlit_app.py
 
-### LOAN_DEFAULT_RISK_PREDICTION
-LOAN_DEFAULT_RISK_PREDICTION/data/raw/*
-LOAN_DEFAULT_RISK_PREDICTION/data/interim/*
-LOAN_DEFAULT_RISK_PREDICTION/data/processed/*
-
-##### Model files
-LOAN_DEFAULT_RISK_PREDICTION/artifacts/models/*
-LOAN_DEFAULT_RISK_PREDICTION/artifacts/preprocessors/*
-*.pkl
-*.joblib
-
-# MLflow
-mlruns/
-mlartifacts/
-
-# Testing
-.pytest_cache/
-.coverage
-
-# Operating system files
-Thumbs.db
-.DS_Store
-
-# Python package files
-build/
-dist/
-*.egg-info/
+### PROFESSIONAL_CRICKET_ANALYTICS
+PROFESSIONAL-CRICKET-ANALYTICS/data/raw/ipl/*
