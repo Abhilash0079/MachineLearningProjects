@@ -32,17 +32,17 @@ match_id,season,team,player_name,player_registry_id,source_file
 1082592,2017,Mumbai Indians,TG Southee,13c35c9e,1082592.json
 1082592,2017,Mumbai Indians,MJ McClenaghan,51a3c5ef,1082592.json
 1082592,2017,Mumbai Indians,JJ Bumrah,462411b3,1082592.json
-1082592,2017,Rising Pune Supergiant,AM Rahane,29e95537,1082592.json
-1082592,2017,Rising Pune Supergiant,MA Agarwal,00ea847a,1082592.json
-1082592,2017,Rising Pune Supergiant,SPD Smith,30a45b23,1082592.json
-1082592,2017,Rising Pune Supergiant,BA Stokes,e087956b,1082592.json
-1082592,2017,Rising Pune Supergiant,MS Dhoni,4a8a2e3b,1082592.json
-1082592,2017,Rising Pune Supergiant,MK Tiwary,26e5cabf,1082592.json
-1082592,2017,Rising Pune Supergiant,R Bhatia,33a364a6,1082592.json
-1082592,2017,Rising Pune Supergiant,DL Chahar,23eeb873,1082592.json
-1082592,2017,Rising Pune Supergiant,A Zampa,14f96089,1082592.json
-1082592,2017,Rising Pune Supergiant,AB Dinda,66b30f71,1082592.json
-1082592,2017,Rising Pune Supergiant,Imran Tahir,acee4cc4,1082592.json
+1082592,2017,Rising Pune Supergiants,AM Rahane,29e95537,1082592.json
+1082592,2017,Rising Pune Supergiants,MA Agarwal,00ea847a,1082592.json
+1082592,2017,Rising Pune Supergiants,SPD Smith,30a45b23,1082592.json
+1082592,2017,Rising Pune Supergiants,BA Stokes,e087956b,1082592.json
+1082592,2017,Rising Pune Supergiants,MS Dhoni,4a8a2e3b,1082592.json
+1082592,2017,Rising Pune Supergiants,MK Tiwary,26e5cabf,1082592.json
+1082592,2017,Rising Pune Supergiants,R Bhatia,33a364a6,1082592.json
+1082592,2017,Rising Pune Supergiants,DL Chahar,23eeb873,1082592.json
+1082592,2017,Rising Pune Supergiants,A Zampa,14f96089,1082592.json
+1082592,2017,Rising Pune Supergiants,AB Dinda,66b30f71,1082592.json
+1082592,2017,Rising Pune Supergiants,Imran Tahir,acee4cc4,1082592.json
 1082593,2017,Gujarat Lions,JJ Roy,d1c36f5c,1082593.json
 1082593,2017,Gujarat Lions,BB McCullum,b8a55852,1082593.json
 1082593,2017,Gujarat Lions,SK Raina,1dc12ab9,1082593.json
@@ -76,17 +76,17 @@ match_id,season,team,player_name,player_registry_id,source_file
 1082594,2017,Kings XI Punjab,MM Sharma,759ac88f,1082594.json
 1082594,2017,Kings XI Punjab,Sandeep Sharma,ce820073,1082594.json
 1082594,2017,Kings XI Punjab,T Natarajan,ce794613,1082594.json
-1082594,2017,Rising Pune Supergiant,AM Rahane,29e95537,1082594.json
-1082594,2017,Rising Pune Supergiant,MA Agarwal,00ea847a,1082594.json
-1082594,2017,Rising Pune Supergiant,SPD Smith,30a45b23,1082594.json
-1082594,2017,Rising Pune Supergiant,BA Stokes,e087956b,1082594.json
-1082594,2017,Rising Pune Supergiant,MS Dhoni,4a8a2e3b,1082594.json
-1082594,2017,Rising Pune Supergiant,MK Tiwary,26e5cabf,1082594.json
-1082594,2017,Rising Pune Supergiant,DT Christian,2a2e6343,1082594.json
-1082594,2017,Rising Pune Supergiant,R Bhatia,33a364a6,1082594.json
-1082594,2017,Rising Pune Supergiant,RD Chahar,2ed569a0,1082594.json
-1082594,2017,Rising Pune Supergiant,Imran Tahir,acee4cc4,1082594.json
-1082594,2017,Rising Pune Supergiant,AB Dinda,66b30f71,1082594.json
+1082594,2017,Rising Pune Supergiants,AM Rahane,29e95537,1082594.json
+1082594,2017,Rising Pune Supergiants,MA Agarwal,00ea847a,1082594.json
+1082594,2017,Rising Pune Supergiants,SPD Smith,30a45b23,1082594.json
+1082594,2017,Rising Pune Supergiants,BA Stokes,e087956b,1082594.json
+1082594,2017,Rising Pune Supergiants,MS Dhoni,4a8a2e3b,1082594.json
+1082594,2017,Rising Pune Supergiants,MK Tiwary,26e5cabf,1082594.json
+1082594,2017,Rising Pune Supergiants,DT Christian,2a2e6343,1082594.json
+1082594,2017,Rising Pune Supergiants,R Bhatia,33a364a6,1082594.json
+1082594,2017,Rising Pune Supergiants,RD Chahar,2ed569a0,1082594.json
+1082594,2017,Rising Pune Supergiants,Imran Tahir,acee4cc4,1082594.json
+1082594,2017,Rising Pune Supergiants,AB Dinda,66b30f71,1082594.json
 1082595,2017,Royal Challengers Bangalore,CH Gayle,db584dad,1082595.json
 1082595,2017,Royal Challengers Bangalore,SR Watson,4329fbb5,1082595.json
 1082595,2017,Royal Challengers Bangalore,Mandeep Singh,c3a96caf,1082595.json
@@ -186,17 +186,17 @@ match_id,season,team,player_name,player_registry_id,source_file
 1082599,2017,Delhi Daredevils,A Mishra,6b19d823,1082599.json
 1082599,2017,Delhi Daredevils,Z Khan,91a4a398,1082599.json
 1082599,2017,Delhi Daredevils,S Nadeem,9d80c5e1,1082599.json
-1082599,2017,Rising Pune Supergiant,AM Rahane,29e95537,1082599.json
-1082599,2017,Rising Pune Supergiant,MA Agarwal,00ea847a,1082599.json
-1082599,2017,Rising Pune Supergiant,F du Plessis,3355b542,1082599.json
-1082599,2017,Rising Pune Supergiant,RA Tripathi,77255a9e,1082599.json
-1082599,2017,Rising Pune Supergiant,BA Stokes,e087956b,1082599.json
-1082599,2017,Rising Pune Supergiant,MS Dhoni,4a8a2e3b,1082599.json
-1082599,2017,Rising Pune Supergiant,R Bhatia,33a364a6,1082599.json
-1082599,2017,Rising Pune Supergiant,DL Chahar,23eeb873,1082599.json
-1082599,2017,Rising Pune Supergiant,A Zampa,14f96089,1082599.json
-1082599,2017,Rising Pune Supergiant,AB Dinda,66b30f71,1082599.json
-1082599,2017,Rising Pune Supergiant,Imran Tahir,acee4cc4,1082599.json
+1082599,2017,Rising Pune Supergiants,AM Rahane,29e95537,1082599.json
+1082599,2017,Rising Pune Supergiants,MA Agarwal,00ea847a,1082599.json
+1082599,2017,Rising Pune Supergiants,F du Plessis,3355b542,1082599.json
+1082599,2017,Rising Pune Supergiants,RA Tripathi,77255a9e,1082599.json
+1082599,2017,Rising Pune Supergiants,BA Stokes,e087956b,1082599.json
+1082599,2017,Rising Pune Supergiants,MS Dhoni,4a8a2e3b,1082599.json
+1082599,2017,Rising Pune Supergiants,R Bhatia,33a364a6,1082599.json
+1082599,2017,Rising Pune Supergiants,DL Chahar,23eeb873,1082599.json
+1082599,2017,Rising Pune Supergiants,A Zampa,14f96089,1082599.json
+1082599,2017,Rising Pune Supergiants,AB Dinda,66b30f71,1082599.json
+1082599,2017,Rising Pune Supergiants,Imran Tahir,acee4cc4,1082599.json
 1082600,2017,Mumbai Indians,PA Patel,b5da6c24,1082600.json
 1082600,2017,Mumbai Indians,JC Buttler,99b75528,1082600.json
 1082600,2017,Mumbai Indians,RG Sharma,740742ef,1082600.json
@@ -274,17 +274,17 @@ match_id,season,team,player_name,player_registry_id,source_file
 1082603,2017,Gujarat Lions,Basil Thampi,871e9faf,1082603.json
 1082603,2017,Gujarat Lions,AJ Tye,7c7d63a2,1082603.json
 1082603,2017,Gujarat Lions,SB Jakati,c8179c68,1082603.json
-1082603,2017,Rising Pune Supergiant,AM Rahane,29e95537,1082603.json
-1082603,2017,Rising Pune Supergiant,RA Tripathi,77255a9e,1082603.json
-1082603,2017,Rising Pune Supergiant,SPD Smith,30a45b23,1082603.json
-1082603,2017,Rising Pune Supergiant,BA Stokes,e087956b,1082603.json
-1082603,2017,Rising Pune Supergiant,MK Tiwary,26e5cabf,1082603.json
-1082603,2017,Rising Pune Supergiant,MS Dhoni,4a8a2e3b,1082603.json
-1082603,2017,Rising Pune Supergiant,Ankit Sharma,24d94623,1082603.json
-1082603,2017,Rising Pune Supergiant,SN Thakur,1abb78f8,1082603.json
-1082603,2017,Rising Pune Supergiant,LH Ferguson,2f9d0389,1082603.json
-1082603,2017,Rising Pune Supergiant,RD Chahar,2ed569a0,1082603.json
-1082603,2017,Rising Pune Supergiant,Imran Tahir,acee4cc4,1082603.json
+1082603,2017,Rising Pune Supergiants,AM Rahane,29e95537,1082603.json
+1082603,2017,Rising Pune Supergiants,RA Tripathi,77255a9e,1082603.json
+1082603,2017,Rising Pune Supergiants,SPD Smith,30a45b23,1082603.json
+1082603,2017,Rising Pune Supergiants,BA Stokes,e087956b,1082603.json
+1082603,2017,Rising Pune Supergiants,MK Tiwary,26e5cabf,1082603.json
+1082603,2017,Rising Pune Supergiants,MS Dhoni,4a8a2e3b,1082603.json
+1082603,2017,Rising Pune Supergiants,Ankit Sharma,24d94623,1082603.json
+1082603,2017,Rising Pune Supergiants,SN Thakur,1abb78f8,1082603.json
+1082603,2017,Rising Pune Supergiants,LH Ferguson,2f9d0389,1082603.json
+1082603,2017,Rising Pune Supergiants,RD Chahar,2ed569a0,1082603.json
+1082603,2017,Rising Pune Supergiants,Imran Tahir,acee4cc4,1082603.json
 1082604,2017,Kolkata Knight Riders,SP Narine,9d430b40,1082604.json
 1082604,2017,Kolkata Knight Riders,G Gambhir,bb345e0b,1082604.json
 1082604,2017,Kolkata Knight Riders,RV Uthappa,1c17e270,1082604.json
@@ -351,17 +351,17 @@ match_id,season,team,player_name,player_registry_id,source_file
 1082606,2017,Mumbai Indians,MJ McClenaghan,51a3c5ef,1082606.json
 1082606,2017,Mumbai Indians,SL Malinga,a12e1d51,1082606.json
 1082606,2017,Mumbai Indians,JJ Bumrah,462411b3,1082606.json
-1082607,2017,Rising Pune Supergiant,AM Rahane,29e95537,1082607.json
-1082607,2017,Rising Pune Supergiant,RA Tripathi,77255a9e,1082607.json
-1082607,2017,Rising Pune Supergiant,SPD Smith,30a45b23,1082607.json
-1082607,2017,Rising Pune Supergiant,MS Dhoni,4a8a2e3b,1082607.json
-1082607,2017,Rising Pune Supergiant,BA Stokes,e087956b,1082607.json
-1082607,2017,Rising Pune Supergiant,DT Christian,2a2e6343,1082607.json
-1082607,2017,Rising Pune Supergiant,MK Tiwary,26e5cabf,1082607.json
-1082607,2017,Rising Pune Supergiant,SN Thakur,1abb78f8,1082607.json
-1082607,2017,Rising Pune Supergiant,JD Unadkat,1e66c162,1082607.json
-1082607,2017,Rising Pune Supergiant,RD Chahar,2ed569a0,1082607.json
-1082607,2017,Rising Pune Supergiant,Imran Tahir,acee4cc4,1082607.json
+1082607,2017,Rising Pune Supergiants,AM Rahane,29e95537,1082607.json
+1082607,2017,Rising Pune Supergiants,RA Tripathi,77255a9e,1082607.json
+1082607,2017,Rising Pune Supergiants,SPD Smith,30a45b23,1082607.json
+1082607,2017,Rising Pune Supergiants,MS Dhoni,4a8a2e3b,1082607.json
+1082607,2017,Rising Pune Supergiants,BA Stokes,e087956b,1082607.json
+1082607,2017,Rising Pune Supergiants,DT Christian,2a2e6343,1082607.json
+1082607,2017,Rising Pune Supergiants,MK Tiwary,26e5cabf,1082607.json
+1082607,2017,Rising Pune Supergiants,SN Thakur,1abb78f8,1082607.json
+1082607,2017,Rising Pune Supergiants,JD Unadkat,1e66c162,1082607.json
+1082607,2017,Rising Pune Supergiants,RD Chahar,2ed569a0,1082607.json
+1082607,2017,Rising Pune Supergiants,Imran Tahir,acee4cc4,1082607.json
 1082607,2017,Royal Challengers Bangalore,V Kohli,ba607b88,1082607.json
 1082607,2017,Royal Challengers Bangalore,Mandeep Singh,c3a96caf,1082607.json
 1082607,2017,Royal Challengers Bangalore,AB de Villiers,c4487b84,1082607.json
@@ -527,17 +527,17 @@ match_id,season,team,player_name,player_registry_id,source_file
 1082614,2017,Mumbai Indians,MJ McClenaghan,51a3c5ef,1082614.json
 1082614,2017,Mumbai Indians,MG Johnson,f5180fe6,1082614.json
 1082614,2017,Mumbai Indians,JJ Bumrah,462411b3,1082614.json
-1082615,2017,Rising Pune Supergiant,AM Rahane,29e95537,1082615.json
-1082615,2017,Rising Pune Supergiant,RA Tripathi,77255a9e,1082615.json
-1082615,2017,Rising Pune Supergiant,SPD Smith,30a45b23,1082615.json
-1082615,2017,Rising Pune Supergiant,MS Dhoni,4a8a2e3b,1082615.json
-1082615,2017,Rising Pune Supergiant,BA Stokes,e087956b,1082615.json
-1082615,2017,Rising Pune Supergiant,MK Tiwary,26e5cabf,1082615.json
-1082615,2017,Rising Pune Supergiant,DT Christian,2a2e6343,1082615.json
-1082615,2017,Rising Pune Supergiant,Washington Sundar,f19ccfad,1082615.json
-1082615,2017,Rising Pune Supergiant,SN Thakur,1abb78f8,1082615.json
-1082615,2017,Rising Pune Supergiant,JD Unadkat,1e66c162,1082615.json
-1082615,2017,Rising Pune Supergiant,Imran Tahir,acee4cc4,1082615.json
+1082615,2017,Rising Pune Supergiants,AM Rahane,29e95537,1082615.json
+1082615,2017,Rising Pune Supergiants,RA Tripathi,77255a9e,1082615.json
+1082615,2017,Rising Pune Supergiants,SPD Smith,30a45b23,1082615.json
+1082615,2017,Rising Pune Supergiants,MS Dhoni,4a8a2e3b,1082615.json
+1082615,2017,Rising Pune Supergiants,BA Stokes,e087956b,1082615.json
+1082615,2017,Rising Pune Supergiants,MK Tiwary,26e5cabf,1082615.json
+1082615,2017,Rising Pune Supergiants,DT Christian,2a2e6343,1082615.json
+1082615,2017,Rising Pune Supergiants,Washington Sundar,f19ccfad,1082615.json
+1082615,2017,Rising Pune Supergiants,SN Thakur,1abb78f8,1082615.json
+1082615,2017,Rising Pune Supergiants,JD Unadkat,1e66c162,1082615.json
+1082615,2017,Rising Pune Supergiants,Imran Tahir,acee4cc4,1082615.json
 1082615,2017,Sunrisers Hyderabad,DA Warner,dcce6f09,1082615.json
 1082615,2017,Sunrisers Hyderabad,S Dhawan,0a476045,1082615.json
 1082615,2017,Sunrisers Hyderabad,KS Williamson,d027ba9f,1082615.json
@@ -604,17 +604,17 @@ match_id,season,team,player_name,player_registry_id,source_file
 1082618,2017,Mumbai Indians,MJ McClenaghan,51a3c5ef,1082618.json
 1082618,2017,Mumbai Indians,MG Johnson,f5180fe6,1082618.json
 1082618,2017,Mumbai Indians,JJ Bumrah,462411b3,1082618.json
-1082618,2017,Rising Pune Supergiant,AM Rahane,29e95537,1082618.json
-1082618,2017,Rising Pune Supergiant,RA Tripathi,77255a9e,1082618.json
-1082618,2017,Rising Pune Supergiant,SPD Smith,30a45b23,1082618.json
-1082618,2017,Rising Pune Supergiant,MS Dhoni,4a8a2e3b,1082618.json
-1082618,2017,Rising Pune Supergiant,BA Stokes,e087956b,1082618.json
-1082618,2017,Rising Pune Supergiant,MK Tiwary,26e5cabf,1082618.json
-1082618,2017,Rising Pune Supergiant,DT Christian,2a2e6343,1082618.json
-1082618,2017,Rising Pune Supergiant,Washington Sundar,f19ccfad,1082618.json
-1082618,2017,Rising Pune Supergiant,SN Thakur,1abb78f8,1082618.json
-1082618,2017,Rising Pune Supergiant,JD Unadkat,1e66c162,1082618.json
-1082618,2017,Rising Pune Supergiant,Imran Tahir,acee4cc4,1082618.json
+1082618,2017,Rising Pune Supergiants,AM Rahane,29e95537,1082618.json
+1082618,2017,Rising Pune Supergiants,RA Tripathi,77255a9e,1082618.json
+1082618,2017,Rising Pune Supergiants,SPD Smith,30a45b23,1082618.json
+1082618,2017,Rising Pune Supergiants,MS Dhoni,4a8a2e3b,1082618.json
+1082618,2017,Rising Pune Supergiants,BA Stokes,e087956b,1082618.json
+1082618,2017,Rising Pune Supergiants,MK Tiwary,26e5cabf,1082618.json
+1082618,2017,Rising Pune Supergiants,DT Christian,2a2e6343,1082618.json
+1082618,2017,Rising Pune Supergiants,Washington Sundar,f19ccfad,1082618.json
+1082618,2017,Rising Pune Supergiants,SN Thakur,1abb78f8,1082618.json
+1082618,2017,Rising Pune Supergiants,JD Unadkat,1e66c162,1082618.json
+1082618,2017,Rising Pune Supergiants,Imran Tahir,acee4cc4,1082618.json
 1082620,2017,Kolkata Knight Riders,SP Narine,9d430b40,1082620.json
 1082620,2017,Kolkata Knight Riders,G Gambhir,bb345e0b,1082620.json
 1082620,2017,Kolkata Knight Riders,RV Uthappa,1c17e270,1082620.json
@@ -626,17 +626,17 @@ match_id,season,team,player_name,player_registry_id,source_file
 1082620,2017,Kolkata Knight Riders,PP Chawla,98ae73b1,1082620.json
 1082620,2017,Kolkata Knight Riders,Kuldeep Yadav,8d2c70ad,1082620.json
 1082620,2017,Kolkata Knight Riders,UT Yadav,cc1e8c68,1082620.json
-1082620,2017,Rising Pune Supergiant,AM Rahane,29e95537,1082620.json
-1082620,2017,Rising Pune Supergiant,RA Tripathi,77255a9e,1082620.json
-1082620,2017,Rising Pune Supergiant,SPD Smith,30a45b23,1082620.json
-1082620,2017,Rising Pune Supergiant,MS Dhoni,4a8a2e3b,1082620.json
-1082620,2017,Rising Pune Supergiant,MK Tiwary,26e5cabf,1082620.json
-1082620,2017,Rising Pune Supergiant,DT Christian,2a2e6343,1082620.json
-1082620,2017,Rising Pune Supergiant,F du Plessis,3355b542,1082620.json
-1082620,2017,Rising Pune Supergiant,Washington Sundar,f19ccfad,1082620.json
-1082620,2017,Rising Pune Supergiant,SN Thakur,1abb78f8,1082620.json
-1082620,2017,Rising Pune Supergiant,JD Unadkat,1e66c162,1082620.json
-1082620,2017,Rising Pune Supergiant,Imran Tahir,acee4cc4,1082620.json
+1082620,2017,Rising Pune Supergiants,AM Rahane,29e95537,1082620.json
+1082620,2017,Rising Pune Supergiants,RA Tripathi,77255a9e,1082620.json
+1082620,2017,Rising Pune Supergiants,SPD Smith,30a45b23,1082620.json
+1082620,2017,Rising Pune Supergiants,MS Dhoni,4a8a2e3b,1082620.json
+1082620,2017,Rising Pune Supergiants,MK Tiwary,26e5cabf,1082620.json
+1082620,2017,Rising Pune Supergiants,DT Christian,2a2e6343,1082620.json
+1082620,2017,Rising Pune Supergiants,F du Plessis,3355b542,1082620.json
+1082620,2017,Rising Pune Supergiants,Washington Sundar,f19ccfad,1082620.json
+1082620,2017,Rising Pune Supergiants,SN Thakur,1abb78f8,1082620.json
+1082620,2017,Rising Pune Supergiants,JD Unadkat,1e66c162,1082620.json
+1082620,2017,Rising Pune Supergiants,Imran Tahir,acee4cc4,1082620.json
 1082621,2017,Gujarat Lions,Ishan Kishan,752f7486,1082621.json
 1082621,2017,Gujarat Lions,BB McCullum,b8a55852,1082621.json
 1082621,2017,Gujarat Lions,SK Raina,1dc12ab9,1082621.json
@@ -703,17 +703,17 @@ match_id,season,team,player_name,player_registry_id,source_file
 1082623,2017,Sunrisers Hyderabad,A Nehra,96fd40ae,1082623.json
 1082623,2017,Sunrisers Hyderabad,S Kaul,dcf81436,1082623.json
 1082623,2017,Sunrisers Hyderabad,Rashid Khan,5f547c8b,1082623.json
-1082624,2017,Rising Pune Supergiant,AM Rahane,29e95537,1082624.json
-1082624,2017,Rising Pune Supergiant,RA Tripathi,77255a9e,1082624.json
-1082624,2017,Rising Pune Supergiant,SPD Smith,30a45b23,1082624.json
-1082624,2017,Rising Pune Supergiant,MK Tiwary,26e5cabf,1082624.json
-1082624,2017,Rising Pune Supergiant,MS Dhoni,4a8a2e3b,1082624.json
-1082624,2017,Rising Pune Supergiant,DT Christian,2a2e6343,1082624.json
-1082624,2017,Rising Pune Supergiant,Washington Sundar,f19ccfad,1082624.json
-1082624,2017,Rising Pune Supergiant,LH Ferguson,2f9d0389,1082624.json
-1082624,2017,Rising Pune Supergiant,JD Unadkat,1e66c162,1082624.json
-1082624,2017,Rising Pune Supergiant,DL Chahar,23eeb873,1082624.json
-1082624,2017,Rising Pune Supergiant,Imran Tahir,acee4cc4,1082624.json
+1082624,2017,Rising Pune Supergiants,AM Rahane,29e95537,1082624.json
+1082624,2017,Rising Pune Supergiants,RA Tripathi,77255a9e,1082624.json
+1082624,2017,Rising Pune Supergiants,SPD Smith,30a45b23,1082624.json
+1082624,2017,Rising Pune Supergiants,MK Tiwary,26e5cabf,1082624.json
+1082624,2017,Rising Pune Supergiants,MS Dhoni,4a8a2e3b,1082624.json
+1082624,2017,Rising Pune Supergiants,DT Christian,2a2e6343,1082624.json
+1082624,2017,Rising Pune Supergiants,Washington Sundar,f19ccfad,1082624.json
+1082624,2017,Rising Pune Supergiants,LH Ferguson,2f9d0389,1082624.json
+1082624,2017,Rising Pune Supergiants,JD Unadkat,1e66c162,1082624.json
+1082624,2017,Rising Pune Supergiants,DL Chahar,23eeb873,1082624.json
+1082624,2017,Rising Pune Supergiants,Imran Tahir,acee4cc4,1082624.json
 1082624,2017,Royal Challengers Bangalore,TM Head,12b610c2,1082624.json
 1082624,2017,Royal Challengers Bangalore,V Kohli,ba607b88,1082624.json
 1082624,2017,Royal Challengers Bangalore,AB de Villiers,c4487b84,1082624.json
@@ -824,17 +824,17 @@ match_id,season,team,player_name,player_registry_id,source_file
 1082629,2017,Gujarat Lions,PJ Sangwan,9fc0ef64,1082629.json
 1082629,2017,Gujarat Lions,Basil Thampi,871e9faf,1082629.json
 1082629,2017,Gujarat Lions,Ankit Soni,f18ba07f,1082629.json
-1082629,2017,Rising Pune Supergiant,AM Rahane,29e95537,1082629.json
-1082629,2017,Rising Pune Supergiant,RA Tripathi,77255a9e,1082629.json
-1082629,2017,Rising Pune Supergiant,SPD Smith,30a45b23,1082629.json
-1082629,2017,Rising Pune Supergiant,MK Tiwary,26e5cabf,1082629.json
-1082629,2017,Rising Pune Supergiant,BA Stokes,e087956b,1082629.json
-1082629,2017,Rising Pune Supergiant,MS Dhoni,4a8a2e3b,1082629.json
-1082629,2017,Rising Pune Supergiant,DT Christian,2a2e6343,1082629.json
-1082629,2017,Rising Pune Supergiant,Washington Sundar,f19ccfad,1082629.json
-1082629,2017,Rising Pune Supergiant,JD Unadkat,1e66c162,1082629.json
-1082629,2017,Rising Pune Supergiant,SN Thakur,1abb78f8,1082629.json
-1082629,2017,Rising Pune Supergiant,Imran Tahir,acee4cc4,1082629.json
+1082629,2017,Rising Pune Supergiants,AM Rahane,29e95537,1082629.json
+1082629,2017,Rising Pune Supergiants,RA Tripathi,77255a9e,1082629.json
+1082629,2017,Rising Pune Supergiants,SPD Smith,30a45b23,1082629.json
+1082629,2017,Rising Pune Supergiants,MK Tiwary,26e5cabf,1082629.json
+1082629,2017,Rising Pune Supergiants,BA Stokes,e087956b,1082629.json
+1082629,2017,Rising Pune Supergiants,MS Dhoni,4a8a2e3b,1082629.json
+1082629,2017,Rising Pune Supergiants,DT Christian,2a2e6343,1082629.json
+1082629,2017,Rising Pune Supergiants,Washington Sundar,f19ccfad,1082629.json
+1082629,2017,Rising Pune Supergiants,JD Unadkat,1e66c162,1082629.json
+1082629,2017,Rising Pune Supergiants,SN Thakur,1abb78f8,1082629.json
+1082629,2017,Rising Pune Supergiants,Imran Tahir,acee4cc4,1082629.json
 1082630,2017,Delhi Daredevils,SV Samson,a4cc73aa,1082630.json
 1082630,2017,Delhi Daredevils,KK Nair,944533a5,1082630.json
 1082630,2017,Delhi Daredevils,RR Pant,919a3be2,1082630.json
@@ -868,17 +868,17 @@ match_id,season,team,player_name,player_registry_id,source_file
 1082631,2017,Kolkata Knight Riders,NM Coulter-Nile,56ab442f,1082631.json
 1082631,2017,Kolkata Knight Riders,UT Yadav,cc1e8c68,1082631.json
 1082631,2017,Kolkata Knight Riders,Kuldeep Yadav,8d2c70ad,1082631.json
-1082631,2017,Rising Pune Supergiant,AM Rahane,29e95537,1082631.json
-1082631,2017,Rising Pune Supergiant,RA Tripathi,77255a9e,1082631.json
-1082631,2017,Rising Pune Supergiant,SPD Smith,30a45b23,1082631.json
-1082631,2017,Rising Pune Supergiant,MK Tiwary,26e5cabf,1082631.json
-1082631,2017,Rising Pune Supergiant,BA Stokes,e087956b,1082631.json
-1082631,2017,Rising Pune Supergiant,MS Dhoni,4a8a2e3b,1082631.json
-1082631,2017,Rising Pune Supergiant,DT Christian,2a2e6343,1082631.json
-1082631,2017,Rising Pune Supergiant,Washington Sundar,f19ccfad,1082631.json
-1082631,2017,Rising Pune Supergiant,SN Thakur,1abb78f8,1082631.json
-1082631,2017,Rising Pune Supergiant,JD Unadkat,1e66c162,1082631.json
-1082631,2017,Rising Pune Supergiant,Imran Tahir,acee4cc4,1082631.json
+1082631,2017,Rising Pune Supergiants,AM Rahane,29e95537,1082631.json
+1082631,2017,Rising Pune Supergiants,RA Tripathi,77255a9e,1082631.json
+1082631,2017,Rising Pune Supergiants,SPD Smith,30a45b23,1082631.json
+1082631,2017,Rising Pune Supergiants,MK Tiwary,26e5cabf,1082631.json
+1082631,2017,Rising Pune Supergiants,BA Stokes,e087956b,1082631.json
+1082631,2017,Rising Pune Supergiants,MS Dhoni,4a8a2e3b,1082631.json
+1082631,2017,Rising Pune Supergiants,DT Christian,2a2e6343,1082631.json
+1082631,2017,Rising Pune Supergiants,Washington Sundar,f19ccfad,1082631.json
+1082631,2017,Rising Pune Supergiants,SN Thakur,1abb78f8,1082631.json
+1082631,2017,Rising Pune Supergiants,JD Unadkat,1e66c162,1082631.json
+1082631,2017,Rising Pune Supergiants,Imran Tahir,acee4cc4,1082631.json
 1082632,2017,Delhi Daredevils,SV Samson,a4cc73aa,1082632.json
 1082632,2017,Delhi Daredevils,KK Nair,944533a5,1082632.json
 1082632,2017,Delhi Daredevils,RR Pant,919a3be2,1082632.json
@@ -923,17 +923,17 @@ match_id,season,team,player_name,player_registry_id,source_file
 1082633,2017,Royal Challengers Bangalore,S Badree,76388dc8,1082633.json
 1082633,2017,Royal Challengers Bangalore,A Choudhary,18e6906e,1082633.json
 1082633,2017,Royal Challengers Bangalore,YS Chahal,57ee1fde,1082633.json
-1082634,2017,Rising Pune Supergiant,AM Rahane,29e95537,1082634.json
-1082634,2017,Rising Pune Supergiant,RA Tripathi,77255a9e,1082634.json
-1082634,2017,Rising Pune Supergiant,SPD Smith,30a45b23,1082634.json
-1082634,2017,Rising Pune Supergiant,BA Stokes,e087956b,1082634.json
-1082634,2017,Rising Pune Supergiant,MS Dhoni,4a8a2e3b,1082634.json
-1082634,2017,Rising Pune Supergiant,DT Christian,2a2e6343,1082634.json
-1082634,2017,Rising Pune Supergiant,MK Tiwary,26e5cabf,1082634.json
-1082634,2017,Rising Pune Supergiant,Washington Sundar,f19ccfad,1082634.json
-1082634,2017,Rising Pune Supergiant,SN Thakur,1abb78f8,1082634.json
-1082634,2017,Rising Pune Supergiant,JD Unadkat,1e66c162,1082634.json
-1082634,2017,Rising Pune Supergiant,Imran Tahir,acee4cc4,1082634.json
+1082634,2017,Rising Pune Supergiants,AM Rahane,29e95537,1082634.json
+1082634,2017,Rising Pune Supergiants,RA Tripathi,77255a9e,1082634.json
+1082634,2017,Rising Pune Supergiants,SPD Smith,30a45b23,1082634.json
+1082634,2017,Rising Pune Supergiants,BA Stokes,e087956b,1082634.json
+1082634,2017,Rising Pune Supergiants,MS Dhoni,4a8a2e3b,1082634.json
+1082634,2017,Rising Pune Supergiants,DT Christian,2a2e6343,1082634.json
+1082634,2017,Rising Pune Supergiants,MK Tiwary,26e5cabf,1082634.json
+1082634,2017,Rising Pune Supergiants,Washington Sundar,f19ccfad,1082634.json
+1082634,2017,Rising Pune Supergiants,SN Thakur,1abb78f8,1082634.json
+1082634,2017,Rising Pune Supergiants,JD Unadkat,1e66c162,1082634.json
+1082634,2017,Rising Pune Supergiants,Imran Tahir,acee4cc4,1082634.json
 1082634,2017,Sunrisers Hyderabad,DA Warner,dcce6f09,1082634.json
 1082634,2017,Sunrisers Hyderabad,S Dhawan,0a476045,1082634.json
 1082634,2017,Sunrisers Hyderabad,KS Williamson,d027ba9f,1082634.json
@@ -1110,17 +1110,17 @@ match_id,season,team,player_name,player_registry_id,source_file
 1082642,2017,Delhi Daredevils,Mohammed Shami,8cf9814c,1082642.json
 1082642,2017,Delhi Daredevils,S Nadeem,9d80c5e1,1082642.json
 1082642,2017,Delhi Daredevils,Z Khan,91a4a398,1082642.json
-1082642,2017,Rising Pune Supergiant,AM Rahane,29e95537,1082642.json
-1082642,2017,Rising Pune Supergiant,RA Tripathi,77255a9e,1082642.json
-1082642,2017,Rising Pune Supergiant,SPD Smith,30a45b23,1082642.json
-1082642,2017,Rising Pune Supergiant,MK Tiwary,26e5cabf,1082642.json
-1082642,2017,Rising Pune Supergiant,BA Stokes,e087956b,1082642.json
-1082642,2017,Rising Pune Supergiant,MS Dhoni,4a8a2e3b,1082642.json
-1082642,2017,Rising Pune Supergiant,DT Christian,2a2e6343,1082642.json
-1082642,2017,Rising Pune Supergiant,Washington Sundar,f19ccfad,1082642.json
-1082642,2017,Rising Pune Supergiant,SN Thakur,1abb78f8,1082642.json
-1082642,2017,Rising Pune Supergiant,JD Unadkat,1e66c162,1082642.json
-1082642,2017,Rising Pune Supergiant,A Zampa,14f96089,1082642.json
+1082642,2017,Rising Pune Supergiants,AM Rahane,29e95537,1082642.json
+1082642,2017,Rising Pune Supergiants,RA Tripathi,77255a9e,1082642.json
+1082642,2017,Rising Pune Supergiants,SPD Smith,30a45b23,1082642.json
+1082642,2017,Rising Pune Supergiants,MK Tiwary,26e5cabf,1082642.json
+1082642,2017,Rising Pune Supergiants,BA Stokes,e087956b,1082642.json
+1082642,2017,Rising Pune Supergiants,MS Dhoni,4a8a2e3b,1082642.json
+1082642,2017,Rising Pune Supergiants,DT Christian,2a2e6343,1082642.json
+1082642,2017,Rising Pune Supergiants,Washington Sundar,f19ccfad,1082642.json
+1082642,2017,Rising Pune Supergiants,SN Thakur,1abb78f8,1082642.json
+1082642,2017,Rising Pune Supergiants,JD Unadkat,1e66c162,1082642.json
+1082642,2017,Rising Pune Supergiants,A Zampa,14f96089,1082642.json
 1082643,2017,Gujarat Lions,DR Smith,35205dfc,1082643.json
 1082643,2017,Gujarat Lions,Ishan Kishan,752f7486,1082643.json
 1082643,2017,Gujarat Lions,SK Raina,1dc12ab9,1082643.json
@@ -1176,17 +1176,17 @@ match_id,season,team,player_name,player_registry_id,source_file
 1082645,2017,Kings XI Punjab,MM Sharma,759ac88f,1082645.json
 1082645,2017,Kings XI Punjab,I Sharma,5bb1a1c4,1082645.json
 1082645,2017,Kings XI Punjab,Sandeep Sharma,ce820073,1082645.json
-1082645,2017,Rising Pune Supergiant,AM Rahane,29e95537,1082645.json
-1082645,2017,Rising Pune Supergiant,RA Tripathi,77255a9e,1082645.json
-1082645,2017,Rising Pune Supergiant,SPD Smith,30a45b23,1082645.json
-1082645,2017,Rising Pune Supergiant,BA Stokes,e087956b,1082645.json
-1082645,2017,Rising Pune Supergiant,MK Tiwary,26e5cabf,1082645.json
-1082645,2017,Rising Pune Supergiant,MS Dhoni,4a8a2e3b,1082645.json
-1082645,2017,Rising Pune Supergiant,DT Christian,2a2e6343,1082645.json
-1082645,2017,Rising Pune Supergiant,Washington Sundar,f19ccfad,1082645.json
-1082645,2017,Rising Pune Supergiant,SN Thakur,1abb78f8,1082645.json
-1082645,2017,Rising Pune Supergiant,JD Unadkat,1e66c162,1082645.json
-1082645,2017,Rising Pune Supergiant,A Zampa,14f96089,1082645.json
+1082645,2017,Rising Pune Supergiants,AM Rahane,29e95537,1082645.json
+1082645,2017,Rising Pune Supergiants,RA Tripathi,77255a9e,1082645.json
+1082645,2017,Rising Pune Supergiants,SPD Smith,30a45b23,1082645.json
+1082645,2017,Rising Pune Supergiants,BA Stokes,e087956b,1082645.json
+1082645,2017,Rising Pune Supergiants,MK Tiwary,26e5cabf,1082645.json
+1082645,2017,Rising Pune Supergiants,MS Dhoni,4a8a2e3b,1082645.json
+1082645,2017,Rising Pune Supergiants,DT Christian,2a2e6343,1082645.json
+1082645,2017,Rising Pune Supergiants,Washington Sundar,f19ccfad,1082645.json
+1082645,2017,Rising Pune Supergiants,SN Thakur,1abb78f8,1082645.json
+1082645,2017,Rising Pune Supergiants,JD Unadkat,1e66c162,1082645.json
+1082645,2017,Rising Pune Supergiants,A Zampa,14f96089,1082645.json
 1082646,2017,Delhi Daredevils,SV Samson,a4cc73aa,1082646.json
 1082646,2017,Delhi Daredevils,KK Nair,944533a5,1082646.json
 1082646,2017,Delhi Daredevils,SS Iyer,85ec8e33,1082646.json
@@ -1220,17 +1220,17 @@ match_id,season,team,player_name,player_registry_id,source_file
 1082647,2017,Mumbai Indians,KV Sharma,119678fd,1082647.json
 1082647,2017,Mumbai Indians,JJ Bumrah,462411b3,1082647.json
 1082647,2017,Mumbai Indians,SL Malinga,a12e1d51,1082647.json
-1082647,2017,Rising Pune Supergiant,AM Rahane,29e95537,1082647.json
-1082647,2017,Rising Pune Supergiant,RA Tripathi,77255a9e,1082647.json
-1082647,2017,Rising Pune Supergiant,SPD Smith,30a45b23,1082647.json
-1082647,2017,Rising Pune Supergiant,MK Tiwary,26e5cabf,1082647.json
-1082647,2017,Rising Pune Supergiant,MS Dhoni,4a8a2e3b,1082647.json
-1082647,2017,Rising Pune Supergiant,DT Christian,2a2e6343,1082647.json
-1082647,2017,Rising Pune Supergiant,Washington Sundar,f19ccfad,1082647.json
-1082647,2017,Rising Pune Supergiant,LH Ferguson,2f9d0389,1082647.json
-1082647,2017,Rising Pune Supergiant,A Zampa,14f96089,1082647.json
-1082647,2017,Rising Pune Supergiant,SN Thakur,1abb78f8,1082647.json
-1082647,2017,Rising Pune Supergiant,JD Unadkat,1e66c162,1082647.json
+1082647,2017,Rising Pune Supergiants,AM Rahane,29e95537,1082647.json
+1082647,2017,Rising Pune Supergiants,RA Tripathi,77255a9e,1082647.json
+1082647,2017,Rising Pune Supergiants,SPD Smith,30a45b23,1082647.json
+1082647,2017,Rising Pune Supergiants,MK Tiwary,26e5cabf,1082647.json
+1082647,2017,Rising Pune Supergiants,MS Dhoni,4a8a2e3b,1082647.json
+1082647,2017,Rising Pune Supergiants,DT Christian,2a2e6343,1082647.json
+1082647,2017,Rising Pune Supergiants,Washington Sundar,f19ccfad,1082647.json
+1082647,2017,Rising Pune Supergiants,LH Ferguson,2f9d0389,1082647.json
+1082647,2017,Rising Pune Supergiants,A Zampa,14f96089,1082647.json
+1082647,2017,Rising Pune Supergiants,SN Thakur,1abb78f8,1082647.json
+1082647,2017,Rising Pune Supergiants,JD Unadkat,1e66c162,1082647.json
 1082648,2017,Kolkata Knight Riders,RV Uthappa,1c17e270,1082648.json
 1082648,2017,Kolkata Knight Riders,CA Lynn,45eda7c8,1082648.json
 1082648,2017,Kolkata Knight Riders,YK Pathan,3c6ffae8,1082648.json
@@ -1286,17 +1286,17 @@ match_id,season,team,player_name,player_registry_id,source_file
 1082650,2017,Mumbai Indians,MG Johnson,f5180fe6,1082650.json
 1082650,2017,Mumbai Indians,JJ Bumrah,462411b3,1082650.json
 1082650,2017,Mumbai Indians,SL Malinga,a12e1d51,1082650.json
-1082650,2017,Rising Pune Supergiant,AM Rahane,29e95537,1082650.json
-1082650,2017,Rising Pune Supergiant,RA Tripathi,77255a9e,1082650.json
-1082650,2017,Rising Pune Supergiant,SPD Smith,30a45b23,1082650.json
-1082650,2017,Rising Pune Supergiant,MS Dhoni,4a8a2e3b,1082650.json
-1082650,2017,Rising Pune Supergiant,MK Tiwary,26e5cabf,1082650.json
-1082650,2017,Rising Pune Supergiant,DT Christian,2a2e6343,1082650.json
-1082650,2017,Rising Pune Supergiant,Washington Sundar,f19ccfad,1082650.json
-1082650,2017,Rising Pune Supergiant,LH Ferguson,2f9d0389,1082650.json
-1082650,2017,Rising Pune Supergiant,A Zampa,14f96089,1082650.json
-1082650,2017,Rising Pune Supergiant,SN Thakur,1abb78f8,1082650.json
-1082650,2017,Rising Pune Supergiant,JD Unadkat,1e66c162,1082650.json
+1082650,2017,Rising Pune Supergiants,AM Rahane,29e95537,1082650.json
+1082650,2017,Rising Pune Supergiants,RA Tripathi,77255a9e,1082650.json
+1082650,2017,Rising Pune Supergiants,SPD Smith,30a45b23,1082650.json
+1082650,2017,Rising Pune Supergiants,MS Dhoni,4a8a2e3b,1082650.json
+1082650,2017,Rising Pune Supergiants,MK Tiwary,26e5cabf,1082650.json
+1082650,2017,Rising Pune Supergiants,DT Christian,2a2e6343,1082650.json
+1082650,2017,Rising Pune Supergiants,Washington Sundar,f19ccfad,1082650.json
+1082650,2017,Rising Pune Supergiants,LH Ferguson,2f9d0389,1082650.json
+1082650,2017,Rising Pune Supergiants,A Zampa,14f96089,1082650.json
+1082650,2017,Rising Pune Supergiants,SN Thakur,1abb78f8,1082650.json
+1082650,2017,Rising Pune Supergiants,JD Unadkat,1e66c162,1082650.json
 1136561,2018,Mumbai Indians,RG Sharma,740742ef,1136561.json
 1136561,2018,Mumbai Indians,E Lewis,0ebfb1ad,1136561.json
 1136561,2018,Mumbai Indians,Ishan Kishan,752f7486,1136561.json
@@ -9973,18 +9973,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1370353,2023,Chennai Super Kings,M Pathirana,64839cb3,1370353.json
 1370353,2023,Chennai Super Kings,TU Deshpande,46a9bea1,1370353.json
 1370353,2023,Chennai Super Kings,M Theekshana,f24c6701,1370353.json
-1422119,2024,Royal Challengers Bengaluru,V Kohli,ba607b88,1422119.json
-1422119,2024,Royal Challengers Bengaluru,F du Plessis,3355b542,1422119.json
-1422119,2024,Royal Challengers Bengaluru,RM Patidar,c740ea83,1422119.json
-1422119,2024,Royal Challengers Bengaluru,GJ Maxwell,b681e71e,1422119.json
-1422119,2024,Royal Challengers Bengaluru,C Green,eaa76d3c,1422119.json
-1422119,2024,Royal Challengers Bengaluru,Anuj Rawat,c8f5f961,1422119.json
-1422119,2024,Royal Challengers Bengaluru,KD Karthik,c03f1114,1422119.json
-1422119,2024,Royal Challengers Bengaluru,KV Sharma,119678fd,1422119.json
-1422119,2024,Royal Challengers Bengaluru,AS Joseph,b0946605,1422119.json
-1422119,2024,Royal Challengers Bengaluru,Mayank Dagar,a457cfb5,1422119.json
-1422119,2024,Royal Challengers Bengaluru,Mohammed Siraj,2f49c897,1422119.json
-1422119,2024,Royal Challengers Bengaluru,Yash Dayal,7210d461,1422119.json
+1422119,2024,Royal Challengers Bangalore,V Kohli,ba607b88,1422119.json
+1422119,2024,Royal Challengers Bangalore,F du Plessis,3355b542,1422119.json
+1422119,2024,Royal Challengers Bangalore,RM Patidar,c740ea83,1422119.json
+1422119,2024,Royal Challengers Bangalore,GJ Maxwell,b681e71e,1422119.json
+1422119,2024,Royal Challengers Bangalore,C Green,eaa76d3c,1422119.json
+1422119,2024,Royal Challengers Bangalore,Anuj Rawat,c8f5f961,1422119.json
+1422119,2024,Royal Challengers Bangalore,KD Karthik,c03f1114,1422119.json
+1422119,2024,Royal Challengers Bangalore,KV Sharma,119678fd,1422119.json
+1422119,2024,Royal Challengers Bangalore,AS Joseph,b0946605,1422119.json
+1422119,2024,Royal Challengers Bangalore,Mayank Dagar,a457cfb5,1422119.json
+1422119,2024,Royal Challengers Bangalore,Mohammed Siraj,2f49c897,1422119.json
+1422119,2024,Royal Challengers Bangalore,Yash Dayal,7210d461,1422119.json
 1422119,2024,Chennai Super Kings,RD Gaikwad,45a43fe2,1422119.json
 1422119,2024,Chennai Super Kings,R Ravindra,ba5e1069,1422119.json
 1422119,2024,Chennai Super Kings,AM Rahane,29e95537,1422119.json
@@ -10105,18 +10105,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1422124,2024,Punjab Kings,HV Patel,f986ca1a,1422124.json
 1422124,2024,Punjab Kings,K Rabada,e62dd25d,1422124.json
 1422124,2024,Punjab Kings,RD Chahar,2ed569a0,1422124.json
-1422124,2024,Royal Challengers Bengaluru,Yash Dayal,7210d461,1422124.json
-1422124,2024,Royal Challengers Bengaluru,V Kohli,ba607b88,1422124.json
-1422124,2024,Royal Challengers Bengaluru,F du Plessis,3355b542,1422124.json
-1422124,2024,Royal Challengers Bengaluru,C Green,eaa76d3c,1422124.json
-1422124,2024,Royal Challengers Bengaluru,RM Patidar,c740ea83,1422124.json
-1422124,2024,Royal Challengers Bengaluru,GJ Maxwell,b681e71e,1422124.json
-1422124,2024,Royal Challengers Bengaluru,Anuj Rawat,c8f5f961,1422124.json
-1422124,2024,Royal Challengers Bengaluru,KD Karthik,c03f1114,1422124.json
-1422124,2024,Royal Challengers Bengaluru,MK Lomror,da934ee8,1422124.json
-1422124,2024,Royal Challengers Bengaluru,AS Joseph,b0946605,1422124.json
-1422124,2024,Royal Challengers Bengaluru,Mayank Dagar,a457cfb5,1422124.json
-1422124,2024,Royal Challengers Bengaluru,Mohammed Siraj,2f49c897,1422124.json
+1422124,2024,Royal Challengers Bangalore,Yash Dayal,7210d461,1422124.json
+1422124,2024,Royal Challengers Bangalore,V Kohli,ba607b88,1422124.json
+1422124,2024,Royal Challengers Bangalore,F du Plessis,3355b542,1422124.json
+1422124,2024,Royal Challengers Bangalore,C Green,eaa76d3c,1422124.json
+1422124,2024,Royal Challengers Bangalore,RM Patidar,c740ea83,1422124.json
+1422124,2024,Royal Challengers Bangalore,GJ Maxwell,b681e71e,1422124.json
+1422124,2024,Royal Challengers Bangalore,Anuj Rawat,c8f5f961,1422124.json
+1422124,2024,Royal Challengers Bangalore,KD Karthik,c03f1114,1422124.json
+1422124,2024,Royal Challengers Bangalore,MK Lomror,da934ee8,1422124.json
+1422124,2024,Royal Challengers Bangalore,AS Joseph,b0946605,1422124.json
+1422124,2024,Royal Challengers Bangalore,Mayank Dagar,a457cfb5,1422124.json
+1422124,2024,Royal Challengers Bangalore,Mohammed Siraj,2f49c897,1422124.json
 1422125,2024,Chennai Super Kings,M Pathirana,64839cb3,1422125.json
 1422125,2024,Chennai Super Kings,RD Gaikwad,45a43fe2,1422125.json
 1422125,2024,Chennai Super Kings,R Ravindra,ba5e1069,1422125.json
@@ -10189,18 +10189,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1422127,2024,Delhi Capitals,Kuldeep Yadav,8d2c70ad,1422127.json
 1422127,2024,Delhi Capitals,A Nortje,acdc62f5,1422127.json
 1422127,2024,Delhi Capitals,Mukesh Kumar,2cffab74,1422127.json
-1422128,2024,Royal Challengers Bengaluru,Vijaykumar Vyshak,54e52590,1422128.json
-1422128,2024,Royal Challengers Bengaluru,V Kohli,ba607b88,1422128.json
-1422128,2024,Royal Challengers Bengaluru,F du Plessis,3355b542,1422128.json
-1422128,2024,Royal Challengers Bengaluru,C Green,eaa76d3c,1422128.json
-1422128,2024,Royal Challengers Bengaluru,GJ Maxwell,b681e71e,1422128.json
-1422128,2024,Royal Challengers Bengaluru,RM Patidar,c740ea83,1422128.json
-1422128,2024,Royal Challengers Bengaluru,Anuj Rawat,c8f5f961,1422128.json
-1422128,2024,Royal Challengers Bengaluru,KD Karthik,c03f1114,1422128.json
-1422128,2024,Royal Challengers Bengaluru,AS Joseph,b0946605,1422128.json
-1422128,2024,Royal Challengers Bengaluru,Mayank Dagar,a457cfb5,1422128.json
-1422128,2024,Royal Challengers Bengaluru,Mohammed Siraj,2f49c897,1422128.json
-1422128,2024,Royal Challengers Bengaluru,Yash Dayal,7210d461,1422128.json
+1422128,2024,Royal Challengers Bangalore,Vijaykumar Vyshak,54e52590,1422128.json
+1422128,2024,Royal Challengers Bangalore,V Kohli,ba607b88,1422128.json
+1422128,2024,Royal Challengers Bangalore,F du Plessis,3355b542,1422128.json
+1422128,2024,Royal Challengers Bangalore,C Green,eaa76d3c,1422128.json
+1422128,2024,Royal Challengers Bangalore,GJ Maxwell,b681e71e,1422128.json
+1422128,2024,Royal Challengers Bangalore,RM Patidar,c740ea83,1422128.json
+1422128,2024,Royal Challengers Bangalore,Anuj Rawat,c8f5f961,1422128.json
+1422128,2024,Royal Challengers Bangalore,KD Karthik,c03f1114,1422128.json
+1422128,2024,Royal Challengers Bangalore,AS Joseph,b0946605,1422128.json
+1422128,2024,Royal Challengers Bangalore,Mayank Dagar,a457cfb5,1422128.json
+1422128,2024,Royal Challengers Bangalore,Mohammed Siraj,2f49c897,1422128.json
+1422128,2024,Royal Challengers Bangalore,Yash Dayal,7210d461,1422128.json
 1422128,2024,Kolkata Knight Riders,CV Varun,5b7ab5a9,1422128.json
 1422128,2024,Kolkata Knight Riders,PD Salt,3d284ca3,1422128.json
 1422128,2024,Kolkata Knight Riders,SP Narine,9d430b40,1422128.json
@@ -10321,18 +10321,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1422133,2024,Lucknow Super Giants,Yash Thakur,4b31f3a3,1422133.json
 1422133,2024,Lucknow Super Giants,Naveen-ul-Haq,c0c411cb,1422133.json
 1422133,2024,Lucknow Super Giants,MP Yadav,b1ad996b,1422133.json
-1422133,2024,Royal Challengers Bengaluru,Yash Dayal,7210d461,1422133.json
-1422133,2024,Royal Challengers Bengaluru,V Kohli,ba607b88,1422133.json
-1422133,2024,Royal Challengers Bengaluru,F du Plessis,3355b542,1422133.json
-1422133,2024,Royal Challengers Bengaluru,RM Patidar,c740ea83,1422133.json
-1422133,2024,Royal Challengers Bengaluru,GJ Maxwell,b681e71e,1422133.json
-1422133,2024,Royal Challengers Bengaluru,C Green,eaa76d3c,1422133.json
-1422133,2024,Royal Challengers Bengaluru,Anuj Rawat,c8f5f961,1422133.json
-1422133,2024,Royal Challengers Bengaluru,MK Lomror,da934ee8,1422133.json
-1422133,2024,Royal Challengers Bengaluru,KD Karthik,c03f1114,1422133.json
-1422133,2024,Royal Challengers Bengaluru,Mayank Dagar,a457cfb5,1422133.json
-1422133,2024,Royal Challengers Bengaluru,RJW Topley,8db7f47f,1422133.json
-1422133,2024,Royal Challengers Bengaluru,Mohammed Siraj,2f49c897,1422133.json
+1422133,2024,Royal Challengers Bangalore,Yash Dayal,7210d461,1422133.json
+1422133,2024,Royal Challengers Bangalore,V Kohli,ba607b88,1422133.json
+1422133,2024,Royal Challengers Bangalore,F du Plessis,3355b542,1422133.json
+1422133,2024,Royal Challengers Bangalore,RM Patidar,c740ea83,1422133.json
+1422133,2024,Royal Challengers Bangalore,GJ Maxwell,b681e71e,1422133.json
+1422133,2024,Royal Challengers Bangalore,C Green,eaa76d3c,1422133.json
+1422133,2024,Royal Challengers Bangalore,Anuj Rawat,c8f5f961,1422133.json
+1422133,2024,Royal Challengers Bangalore,MK Lomror,da934ee8,1422133.json
+1422133,2024,Royal Challengers Bangalore,KD Karthik,c03f1114,1422133.json
+1422133,2024,Royal Challengers Bangalore,Mayank Dagar,a457cfb5,1422133.json
+1422133,2024,Royal Challengers Bangalore,RJW Topley,8db7f47f,1422133.json
+1422133,2024,Royal Challengers Bangalore,Mohammed Siraj,2f49c897,1422133.json
 1422134,2024,Kolkata Knight Riders,VG Arora,7c3b3b78,1422134.json
 1422134,2024,Kolkata Knight Riders,PD Salt,3d284ca3,1422134.json
 1422134,2024,Kolkata Knight Riders,SP Narine,9d430b40,1422134.json
@@ -10405,18 +10405,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1422136,2024,Sunrisers Hyderabad,B Kumar,2e81a32d,1422136.json
 1422136,2024,Sunrisers Hyderabad,M Markande,a9fd84fb,1422136.json
 1422136,2024,Sunrisers Hyderabad,JD Unadkat,1e66c162,1422136.json
-1422137,2024,Royal Challengers Bengaluru,H Sharma,52294a79,1422137.json
-1422137,2024,Royal Challengers Bengaluru,V Kohli,ba607b88,1422137.json
-1422137,2024,Royal Challengers Bengaluru,F du Plessis,3355b542,1422137.json
-1422137,2024,Royal Challengers Bengaluru,GJ Maxwell,b681e71e,1422137.json
-1422137,2024,Royal Challengers Bengaluru,Saurav Chauhan,9e7225b0,1422137.json
-1422137,2024,Royal Challengers Bengaluru,C Green,eaa76d3c,1422137.json
-1422137,2024,Royal Challengers Bengaluru,RM Patidar,c740ea83,1422137.json
-1422137,2024,Royal Challengers Bengaluru,KD Karthik,c03f1114,1422137.json
-1422137,2024,Royal Challengers Bengaluru,RJW Topley,8db7f47f,1422137.json
-1422137,2024,Royal Challengers Bengaluru,Mayank Dagar,a457cfb5,1422137.json
-1422137,2024,Royal Challengers Bengaluru,Mohammed Siraj,2f49c897,1422137.json
-1422137,2024,Royal Challengers Bengaluru,Yash Dayal,7210d461,1422137.json
+1422137,2024,Royal Challengers Bangalore,H Sharma,52294a79,1422137.json
+1422137,2024,Royal Challengers Bangalore,V Kohli,ba607b88,1422137.json
+1422137,2024,Royal Challengers Bangalore,F du Plessis,3355b542,1422137.json
+1422137,2024,Royal Challengers Bangalore,GJ Maxwell,b681e71e,1422137.json
+1422137,2024,Royal Challengers Bangalore,Saurav Chauhan,9e7225b0,1422137.json
+1422137,2024,Royal Challengers Bangalore,C Green,eaa76d3c,1422137.json
+1422137,2024,Royal Challengers Bangalore,RM Patidar,c740ea83,1422137.json
+1422137,2024,Royal Challengers Bangalore,KD Karthik,c03f1114,1422137.json
+1422137,2024,Royal Challengers Bangalore,RJW Topley,8db7f47f,1422137.json
+1422137,2024,Royal Challengers Bangalore,Mayank Dagar,a457cfb5,1422137.json
+1422137,2024,Royal Challengers Bangalore,Mohammed Siraj,2f49c897,1422137.json
+1422137,2024,Royal Challengers Bangalore,Yash Dayal,7210d461,1422137.json
 1422137,2024,Rajasthan Royals,YS Chahal,57ee1fde,1422137.json
 1422137,2024,Rajasthan Royals,YBK Jaiswal,6c19c6e5,1422137.json
 1422137,2024,Rajasthan Royals,JC Buttler,99b75528,1422137.json
@@ -10549,18 +10549,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1426262,2024,Gujarat Titans,Noor Ahmad,efc04be7,1426262.json
 1426262,2024,Gujarat Titans,UT Yadav,cc1e8c68,1426262.json
 1426262,2024,Gujarat Titans,SH Johnson,83c3e8e3,1426262.json
-1426263,2024,Royal Challengers Bengaluru,V Kohli,ba607b88,1426263.json
-1426263,2024,Royal Challengers Bengaluru,F du Plessis,3355b542,1426263.json
-1426263,2024,Royal Challengers Bengaluru,WG Jacks,9caf69a1,1426263.json
-1426263,2024,Royal Challengers Bengaluru,RM Patidar,c740ea83,1426263.json
-1426263,2024,Royal Challengers Bengaluru,GJ Maxwell,b681e71e,1426263.json
-1426263,2024,Royal Challengers Bengaluru,KD Karthik,c03f1114,1426263.json
-1426263,2024,Royal Challengers Bengaluru,MK Lomror,da934ee8,1426263.json
-1426263,2024,Royal Challengers Bengaluru,Saurav Chauhan,9e7225b0,1426263.json
-1426263,2024,Royal Challengers Bengaluru,Vijaykumar Vyshak,54e52590,1426263.json
-1426263,2024,Royal Challengers Bengaluru,Akash Deep,0a67aec0,1426263.json
-1426263,2024,Royal Challengers Bengaluru,RJW Topley,8db7f47f,1426263.json
-1426263,2024,Royal Challengers Bengaluru,Mohammed Siraj,2f49c897,1426263.json
+1426263,2024,Royal Challengers Bangalore,V Kohli,ba607b88,1426263.json
+1426263,2024,Royal Challengers Bangalore,F du Plessis,3355b542,1426263.json
+1426263,2024,Royal Challengers Bangalore,WG Jacks,9caf69a1,1426263.json
+1426263,2024,Royal Challengers Bangalore,RM Patidar,c740ea83,1426263.json
+1426263,2024,Royal Challengers Bangalore,GJ Maxwell,b681e71e,1426263.json
+1426263,2024,Royal Challengers Bangalore,KD Karthik,c03f1114,1426263.json
+1426263,2024,Royal Challengers Bangalore,MK Lomror,da934ee8,1426263.json
+1426263,2024,Royal Challengers Bangalore,Saurav Chauhan,9e7225b0,1426263.json
+1426263,2024,Royal Challengers Bangalore,Vijaykumar Vyshak,54e52590,1426263.json
+1426263,2024,Royal Challengers Bangalore,Akash Deep,0a67aec0,1426263.json
+1426263,2024,Royal Challengers Bangalore,RJW Topley,8db7f47f,1426263.json
+1426263,2024,Royal Challengers Bangalore,Mohammed Siraj,2f49c897,1426263.json
 1426263,2024,Mumbai Indians,Akash Madhwal,4bd09374,1426263.json
 1426263,2024,Mumbai Indians,Ishan Kishan,752f7486,1426263.json
 1426263,2024,Mumbai Indians,RG Sharma,740742ef,1426263.json
@@ -10681,18 +10681,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1426268,2024,Sunrisers Hyderabad,JD Unadkat,1e66c162,1426268.json
 1426268,2024,Sunrisers Hyderabad,T Natarajan,ce794613,1426268.json
 1426268,2024,Sunrisers Hyderabad,Nithish Kumar Reddy,aad0c365,1426268.json
-1426268,2024,Royal Challengers Bengaluru,Yash Dayal,7210d461,1426268.json
-1426268,2024,Royal Challengers Bengaluru,V Kohli,ba607b88,1426268.json
-1426268,2024,Royal Challengers Bengaluru,F du Plessis,3355b542,1426268.json
-1426268,2024,Royal Challengers Bengaluru,WG Jacks,9caf69a1,1426268.json
-1426268,2024,Royal Challengers Bengaluru,RM Patidar,c740ea83,1426268.json
-1426268,2024,Royal Challengers Bengaluru,Saurav Chauhan,9e7225b0,1426268.json
-1426268,2024,Royal Challengers Bengaluru,KD Karthik,c03f1114,1426268.json
-1426268,2024,Royal Challengers Bengaluru,MK Lomror,da934ee8,1426268.json
-1426268,2024,Royal Challengers Bengaluru,Anuj Rawat,c8f5f961,1426268.json
-1426268,2024,Royal Challengers Bengaluru,Vijaykumar Vyshak,54e52590,1426268.json
-1426268,2024,Royal Challengers Bengaluru,RJW Topley,8db7f47f,1426268.json
-1426268,2024,Royal Challengers Bengaluru,LH Ferguson,2f9d0389,1426268.json
+1426268,2024,Royal Challengers Bangalore,Yash Dayal,7210d461,1426268.json
+1426268,2024,Royal Challengers Bangalore,V Kohli,ba607b88,1426268.json
+1426268,2024,Royal Challengers Bangalore,F du Plessis,3355b542,1426268.json
+1426268,2024,Royal Challengers Bangalore,WG Jacks,9caf69a1,1426268.json
+1426268,2024,Royal Challengers Bangalore,RM Patidar,c740ea83,1426268.json
+1426268,2024,Royal Challengers Bangalore,Saurav Chauhan,9e7225b0,1426268.json
+1426268,2024,Royal Challengers Bangalore,KD Karthik,c03f1114,1426268.json
+1426268,2024,Royal Challengers Bangalore,MK Lomror,da934ee8,1426268.json
+1426268,2024,Royal Challengers Bangalore,Anuj Rawat,c8f5f961,1426268.json
+1426268,2024,Royal Challengers Bangalore,Vijaykumar Vyshak,54e52590,1426268.json
+1426268,2024,Royal Challengers Bangalore,RJW Topley,8db7f47f,1426268.json
+1426268,2024,Royal Challengers Bangalore,LH Ferguson,2f9d0389,1426268.json
 1426269,2024,Kolkata Knight Riders,VG Arora,7c3b3b78,1426269.json
 1426269,2024,Kolkata Knight Riders,PD Salt,3d284ca3,1426269.json
 1426269,2024,Kolkata Knight Riders,SP Narine,9d430b40,1426269.json
@@ -10824,18 +10824,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1426274,2024,Kolkata Knight Riders,MA Starc,3fb19989,1426274.json
 1426274,2024,Kolkata Knight Riders,CV Varun,5b7ab5a9,1426274.json
 1426274,2024,Kolkata Knight Riders,Harshit Rana,77b1aa15,1426274.json
-1426274,2024,Royal Challengers Bengaluru,Yash Dayal,7210d461,1426274.json
-1426274,2024,Royal Challengers Bengaluru,V Kohli,ba607b88,1426274.json
-1426274,2024,Royal Challengers Bengaluru,F du Plessis,3355b542,1426274.json
-1426274,2024,Royal Challengers Bengaluru,WG Jacks,9caf69a1,1426274.json
-1426274,2024,Royal Challengers Bengaluru,RM Patidar,c740ea83,1426274.json
-1426274,2024,Royal Challengers Bengaluru,C Green,eaa76d3c,1426274.json
-1426274,2024,Royal Challengers Bengaluru,SS Prabhudessai,9385de2e,1426274.json
-1426274,2024,Royal Challengers Bengaluru,MK Lomror,da934ee8,1426274.json
-1426274,2024,Royal Challengers Bengaluru,KD Karthik,c03f1114,1426274.json
-1426274,2024,Royal Challengers Bengaluru,KV Sharma,119678fd,1426274.json
-1426274,2024,Royal Challengers Bengaluru,Mohammed Siraj,2f49c897,1426274.json
-1426274,2024,Royal Challengers Bengaluru,LH Ferguson,2f9d0389,1426274.json
+1426274,2024,Royal Challengers Bangalore,Yash Dayal,7210d461,1426274.json
+1426274,2024,Royal Challengers Bangalore,V Kohli,ba607b88,1426274.json
+1426274,2024,Royal Challengers Bangalore,F du Plessis,3355b542,1426274.json
+1426274,2024,Royal Challengers Bangalore,WG Jacks,9caf69a1,1426274.json
+1426274,2024,Royal Challengers Bangalore,RM Patidar,c740ea83,1426274.json
+1426274,2024,Royal Challengers Bangalore,C Green,eaa76d3c,1426274.json
+1426274,2024,Royal Challengers Bangalore,SS Prabhudessai,9385de2e,1426274.json
+1426274,2024,Royal Challengers Bangalore,MK Lomror,da934ee8,1426274.json
+1426274,2024,Royal Challengers Bangalore,KD Karthik,c03f1114,1426274.json
+1426274,2024,Royal Challengers Bangalore,KV Sharma,119678fd,1426274.json
+1426274,2024,Royal Challengers Bangalore,Mohammed Siraj,2f49c897,1426274.json
+1426274,2024,Royal Challengers Bangalore,LH Ferguson,2f9d0389,1426274.json
 1426275,2024,Punjab Kings,SM Curran,e94915e6,1426275.json
 1426275,2024,Punjab Kings,P Simran Singh,9418198b,1426275.json
 1426275,2024,Punjab Kings,RR Rossouw,cad00a4d,1426275.json
@@ -10932,18 +10932,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1426278,2024,Gujarat Titans,R Sai Kishore,c7a995d3,1426278.json
 1426278,2024,Gujarat Titans,MM Sharma,759ac88f,1426278.json
 1426278,2024,Gujarat Titans,Noor Ahmad,efc04be7,1426278.json
-1426279,2024,Royal Challengers Bengaluru,V Kohli,ba607b88,1426279.json
-1426279,2024,Royal Challengers Bengaluru,F du Plessis,3355b542,1426279.json
-1426279,2024,Royal Challengers Bengaluru,WG Jacks,9caf69a1,1426279.json
-1426279,2024,Royal Challengers Bengaluru,RM Patidar,c740ea83,1426279.json
-1426279,2024,Royal Challengers Bengaluru,C Green,eaa76d3c,1426279.json
-1426279,2024,Royal Challengers Bengaluru,MK Lomror,da934ee8,1426279.json
-1426279,2024,Royal Challengers Bengaluru,KD Karthik,c03f1114,1426279.json
-1426279,2024,Royal Challengers Bengaluru,Swapnil Singh,983f2f61,1426279.json
-1426279,2024,Royal Challengers Bengaluru,KV Sharma,119678fd,1426279.json
-1426279,2024,Royal Challengers Bengaluru,LH Ferguson,2f9d0389,1426279.json
-1426279,2024,Royal Challengers Bengaluru,Yash Dayal,7210d461,1426279.json
-1426279,2024,Royal Challengers Bengaluru,Mohammed Siraj,2f49c897,1426279.json
+1426279,2024,Royal Challengers Bangalore,V Kohli,ba607b88,1426279.json
+1426279,2024,Royal Challengers Bangalore,F du Plessis,3355b542,1426279.json
+1426279,2024,Royal Challengers Bangalore,WG Jacks,9caf69a1,1426279.json
+1426279,2024,Royal Challengers Bangalore,RM Patidar,c740ea83,1426279.json
+1426279,2024,Royal Challengers Bangalore,C Green,eaa76d3c,1426279.json
+1426279,2024,Royal Challengers Bangalore,MK Lomror,da934ee8,1426279.json
+1426279,2024,Royal Challengers Bangalore,KD Karthik,c03f1114,1426279.json
+1426279,2024,Royal Challengers Bangalore,Swapnil Singh,983f2f61,1426279.json
+1426279,2024,Royal Challengers Bangalore,KV Sharma,119678fd,1426279.json
+1426279,2024,Royal Challengers Bangalore,LH Ferguson,2f9d0389,1426279.json
+1426279,2024,Royal Challengers Bangalore,Yash Dayal,7210d461,1426279.json
+1426279,2024,Royal Challengers Bangalore,Mohammed Siraj,2f49c897,1426279.json
 1426279,2024,Sunrisers Hyderabad,T Natarajan,ce794613,1426279.json
 1426279,2024,Sunrisers Hyderabad,Abhishek Sharma,f29185a1,1426279.json
 1426279,2024,Sunrisers Hyderabad,TM Head,12b610c2,1426279.json
@@ -11040,17 +11040,17 @@ match_id,season,team,player_name,player_registry_id,source_file
 1426283,2024,Gujarat Titans,R Sai Kishore,c7a995d3,1426283.json
 1426283,2024,Gujarat Titans,MM Sharma,759ac88f,1426283.json
 1426283,2024,Gujarat Titans,Noor Ahmad,efc04be7,1426283.json
-1426283,2024,Royal Challengers Bengaluru,V Kohli,ba607b88,1426283.json
-1426283,2024,Royal Challengers Bengaluru,F du Plessis,3355b542,1426283.json
-1426283,2024,Royal Challengers Bengaluru,WG Jacks,9caf69a1,1426283.json
-1426283,2024,Royal Challengers Bengaluru,RM Patidar,c740ea83,1426283.json
-1426283,2024,Royal Challengers Bengaluru,GJ Maxwell,b681e71e,1426283.json
-1426283,2024,Royal Challengers Bengaluru,C Green,eaa76d3c,1426283.json
-1426283,2024,Royal Challengers Bengaluru,KD Karthik,c03f1114,1426283.json
-1426283,2024,Royal Challengers Bengaluru,KV Sharma,119678fd,1426283.json
-1426283,2024,Royal Challengers Bengaluru,Mohammed Siraj,2f49c897,1426283.json
-1426283,2024,Royal Challengers Bengaluru,Yash Dayal,7210d461,1426283.json
-1426283,2024,Royal Challengers Bengaluru,Swapnil Singh,983f2f61,1426283.json
+1426283,2024,Royal Challengers Bangalore,V Kohli,ba607b88,1426283.json
+1426283,2024,Royal Challengers Bangalore,F du Plessis,3355b542,1426283.json
+1426283,2024,Royal Challengers Bangalore,WG Jacks,9caf69a1,1426283.json
+1426283,2024,Royal Challengers Bangalore,RM Patidar,c740ea83,1426283.json
+1426283,2024,Royal Challengers Bangalore,GJ Maxwell,b681e71e,1426283.json
+1426283,2024,Royal Challengers Bangalore,C Green,eaa76d3c,1426283.json
+1426283,2024,Royal Challengers Bangalore,KD Karthik,c03f1114,1426283.json
+1426283,2024,Royal Challengers Bangalore,KV Sharma,119678fd,1426283.json
+1426283,2024,Royal Challengers Bangalore,Mohammed Siraj,2f49c897,1426283.json
+1426283,2024,Royal Challengers Bangalore,Yash Dayal,7210d461,1426283.json
+1426283,2024,Royal Challengers Bangalore,Swapnil Singh,983f2f61,1426283.json
 1426284,2024,Chennai Super Kings,SN Thakur,1abb78f8,1426284.json
 1426284,2024,Chennai Super Kings,AM Rahane,29e95537,1426284.json
 1426284,2024,Chennai Super Kings,RD Gaikwad,45a43fe2,1426284.json
@@ -11207,18 +11207,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1426290,2024,Gujarat Titans,MM Sharma,759ac88f,1426290.json
 1426290,2024,Gujarat Titans,Noor Ahmad,efc04be7,1426290.json
 1426290,2024,Gujarat Titans,J Little,9061a703,1426290.json
-1426290,2024,Royal Challengers Bengaluru,Yash Dayal,7210d461,1426290.json
-1426290,2024,Royal Challengers Bengaluru,V Kohli,ba607b88,1426290.json
-1426290,2024,Royal Challengers Bengaluru,F du Plessis,3355b542,1426290.json
-1426290,2024,Royal Challengers Bengaluru,WG Jacks,9caf69a1,1426290.json
-1426290,2024,Royal Challengers Bengaluru,RM Patidar,c740ea83,1426290.json
-1426290,2024,Royal Challengers Bengaluru,GJ Maxwell,b681e71e,1426290.json
-1426290,2024,Royal Challengers Bengaluru,C Green,eaa76d3c,1426290.json
-1426290,2024,Royal Challengers Bengaluru,KD Karthik,c03f1114,1426290.json
-1426290,2024,Royal Challengers Bengaluru,Swapnil Singh,983f2f61,1426290.json
-1426290,2024,Royal Challengers Bengaluru,KV Sharma,119678fd,1426290.json
-1426290,2024,Royal Challengers Bengaluru,Mohammed Siraj,2f49c897,1426290.json
-1426290,2024,Royal Challengers Bengaluru,Vijaykumar Vyshak,54e52590,1426290.json
+1426290,2024,Royal Challengers Bangalore,Yash Dayal,7210d461,1426290.json
+1426290,2024,Royal Challengers Bangalore,V Kohli,ba607b88,1426290.json
+1426290,2024,Royal Challengers Bangalore,F du Plessis,3355b542,1426290.json
+1426290,2024,Royal Challengers Bangalore,WG Jacks,9caf69a1,1426290.json
+1426290,2024,Royal Challengers Bangalore,RM Patidar,c740ea83,1426290.json
+1426290,2024,Royal Challengers Bangalore,GJ Maxwell,b681e71e,1426290.json
+1426290,2024,Royal Challengers Bangalore,C Green,eaa76d3c,1426290.json
+1426290,2024,Royal Challengers Bangalore,KD Karthik,c03f1114,1426290.json
+1426290,2024,Royal Challengers Bangalore,Swapnil Singh,983f2f61,1426290.json
+1426290,2024,Royal Challengers Bangalore,KV Sharma,119678fd,1426290.json
+1426290,2024,Royal Challengers Bangalore,Mohammed Siraj,2f49c897,1426290.json
+1426290,2024,Royal Challengers Bangalore,Vijaykumar Vyshak,54e52590,1426290.json
 1426291,2024,Chennai Super Kings,Simarjeet Singh,30df8c66,1426291.json
 1426291,2024,Chennai Super Kings,AM Rahane,29e95537,1426291.json
 1426291,2024,Chennai Super Kings,RD Gaikwad,45a43fe2,1426291.json
@@ -11338,18 +11338,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1426295,2024,Sunrisers Hyderabad,B Kumar,2e81a32d,1426295.json
 1426295,2024,Sunrisers Hyderabad,JD Unadkat,1e66c162,1426295.json
 1426295,2024,Sunrisers Hyderabad,V Viyaskanth,03a83c50,1426295.json
-1426296,2024,Royal Challengers Bengaluru,Yash Dayal,7210d461,1426296.json
-1426296,2024,Royal Challengers Bengaluru,V Kohli,ba607b88,1426296.json
-1426296,2024,Royal Challengers Bengaluru,F du Plessis,3355b542,1426296.json
-1426296,2024,Royal Challengers Bengaluru,WG Jacks,9caf69a1,1426296.json
-1426296,2024,Royal Challengers Bengaluru,RM Patidar,c740ea83,1426296.json
-1426296,2024,Royal Challengers Bengaluru,C Green,eaa76d3c,1426296.json
-1426296,2024,Royal Challengers Bengaluru,KD Karthik,c03f1114,1426296.json
-1426296,2024,Royal Challengers Bengaluru,MK Lomror,da934ee8,1426296.json
-1426296,2024,Royal Challengers Bengaluru,Swapnil Singh,983f2f61,1426296.json
-1426296,2024,Royal Challengers Bengaluru,KV Sharma,119678fd,1426296.json
-1426296,2024,Royal Challengers Bengaluru,Mohammed Siraj,2f49c897,1426296.json
-1426296,2024,Royal Challengers Bengaluru,LH Ferguson,2f9d0389,1426296.json
+1426296,2024,Royal Challengers Bangalore,Yash Dayal,7210d461,1426296.json
+1426296,2024,Royal Challengers Bangalore,V Kohli,ba607b88,1426296.json
+1426296,2024,Royal Challengers Bangalore,F du Plessis,3355b542,1426296.json
+1426296,2024,Royal Challengers Bangalore,WG Jacks,9caf69a1,1426296.json
+1426296,2024,Royal Challengers Bangalore,RM Patidar,c740ea83,1426296.json
+1426296,2024,Royal Challengers Bangalore,C Green,eaa76d3c,1426296.json
+1426296,2024,Royal Challengers Bangalore,KD Karthik,c03f1114,1426296.json
+1426296,2024,Royal Challengers Bangalore,MK Lomror,da934ee8,1426296.json
+1426296,2024,Royal Challengers Bangalore,Swapnil Singh,983f2f61,1426296.json
+1426296,2024,Royal Challengers Bangalore,KV Sharma,119678fd,1426296.json
+1426296,2024,Royal Challengers Bangalore,Mohammed Siraj,2f49c897,1426296.json
+1426296,2024,Royal Challengers Bangalore,LH Ferguson,2f9d0389,1426296.json
 1426296,2024,Punjab Kings,V Kaverappa,d4d929b0,1426296.json
 1426296,2024,Punjab Kings,P Simran Singh,9418198b,1426296.json
 1426296,2024,Punjab Kings,JM Bairstow,abb83e27,1426296.json
@@ -11434,18 +11434,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1426299,2024,Chennai Super Kings,TU Deshpande,46a9bea1,1426299.json
 1426299,2024,Chennai Super Kings,Simarjeet Singh,30df8c66,1426299.json
 1426299,2024,Chennai Super Kings,M Theekshana,f24c6701,1426299.json
-1426300,2024,Royal Challengers Bengaluru,V Kohli,ba607b88,1426300.json
-1426300,2024,Royal Challengers Bengaluru,F du Plessis,3355b542,1426300.json
-1426300,2024,Royal Challengers Bengaluru,WG Jacks,9caf69a1,1426300.json
-1426300,2024,Royal Challengers Bengaluru,RM Patidar,c740ea83,1426300.json
-1426300,2024,Royal Challengers Bengaluru,C Green,eaa76d3c,1426300.json
-1426300,2024,Royal Challengers Bengaluru,MK Lomror,da934ee8,1426300.json
-1426300,2024,Royal Challengers Bengaluru,KD Karthik,c03f1114,1426300.json
-1426300,2024,Royal Challengers Bengaluru,Swapnil Singh,983f2f61,1426300.json
-1426300,2024,Royal Challengers Bengaluru,KV Sharma,119678fd,1426300.json
-1426300,2024,Royal Challengers Bengaluru,Mohammed Siraj,2f49c897,1426300.json
-1426300,2024,Royal Challengers Bengaluru,Yash Dayal,7210d461,1426300.json
-1426300,2024,Royal Challengers Bengaluru,LH Ferguson,2f9d0389,1426300.json
+1426300,2024,Royal Challengers Bangalore,V Kohli,ba607b88,1426300.json
+1426300,2024,Royal Challengers Bangalore,F du Plessis,3355b542,1426300.json
+1426300,2024,Royal Challengers Bangalore,WG Jacks,9caf69a1,1426300.json
+1426300,2024,Royal Challengers Bangalore,RM Patidar,c740ea83,1426300.json
+1426300,2024,Royal Challengers Bangalore,C Green,eaa76d3c,1426300.json
+1426300,2024,Royal Challengers Bangalore,MK Lomror,da934ee8,1426300.json
+1426300,2024,Royal Challengers Bangalore,KD Karthik,c03f1114,1426300.json
+1426300,2024,Royal Challengers Bangalore,Swapnil Singh,983f2f61,1426300.json
+1426300,2024,Royal Challengers Bangalore,KV Sharma,119678fd,1426300.json
+1426300,2024,Royal Challengers Bangalore,Mohammed Siraj,2f49c897,1426300.json
+1426300,2024,Royal Challengers Bangalore,Yash Dayal,7210d461,1426300.json
+1426300,2024,Royal Challengers Bangalore,LH Ferguson,2f9d0389,1426300.json
 1426300,2024,Delhi Capitals,KK Ahmed,a2f46292,1426300.json
 1426300,2024,Delhi Capitals,DA Warner,dcce6f09,1426300.json
 1426300,2024,Delhi Capitals,J Fraser-McGurk,9b6e1b3f,1426300.json
@@ -11530,18 +11530,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1426305,2024,Mumbai Indians,A Kamboj,fcc21ace,1426305.json
 1426305,2024,Mumbai Indians,PP Chawla,98ae73b1,1426305.json
 1426305,2024,Mumbai Indians,Arjun Tendulkar,44aac2f0,1426305.json
-1426306,2024,Royal Challengers Bengaluru,Swapnil Singh,983f2f61,1426306.json
-1426306,2024,Royal Challengers Bengaluru,V Kohli,ba607b88,1426306.json
-1426306,2024,Royal Challengers Bengaluru,F du Plessis,3355b542,1426306.json
-1426306,2024,Royal Challengers Bengaluru,RM Patidar,c740ea83,1426306.json
-1426306,2024,Royal Challengers Bengaluru,C Green,eaa76d3c,1426306.json
-1426306,2024,Royal Challengers Bengaluru,KD Karthik,c03f1114,1426306.json
-1426306,2024,Royal Challengers Bengaluru,GJ Maxwell,b681e71e,1426306.json
-1426306,2024,Royal Challengers Bengaluru,MK Lomror,da934ee8,1426306.json
-1426306,2024,Royal Challengers Bengaluru,Yash Dayal,7210d461,1426306.json
-1426306,2024,Royal Challengers Bengaluru,KV Sharma,119678fd,1426306.json
-1426306,2024,Royal Challengers Bengaluru,Mohammed Siraj,2f49c897,1426306.json
-1426306,2024,Royal Challengers Bengaluru,LH Ferguson,2f9d0389,1426306.json
+1426306,2024,Royal Challengers Bangalore,Swapnil Singh,983f2f61,1426306.json
+1426306,2024,Royal Challengers Bangalore,V Kohli,ba607b88,1426306.json
+1426306,2024,Royal Challengers Bangalore,F du Plessis,3355b542,1426306.json
+1426306,2024,Royal Challengers Bangalore,RM Patidar,c740ea83,1426306.json
+1426306,2024,Royal Challengers Bangalore,C Green,eaa76d3c,1426306.json
+1426306,2024,Royal Challengers Bangalore,KD Karthik,c03f1114,1426306.json
+1426306,2024,Royal Challengers Bangalore,GJ Maxwell,b681e71e,1426306.json
+1426306,2024,Royal Challengers Bangalore,MK Lomror,da934ee8,1426306.json
+1426306,2024,Royal Challengers Bangalore,Yash Dayal,7210d461,1426306.json
+1426306,2024,Royal Challengers Bangalore,KV Sharma,119678fd,1426306.json
+1426306,2024,Royal Challengers Bangalore,Mohammed Siraj,2f49c897,1426306.json
+1426306,2024,Royal Challengers Bangalore,LH Ferguson,2f9d0389,1426306.json
 1426306,2024,Chennai Super Kings,M Theekshana,f24c6701,1426306.json
 1426306,2024,Chennai Super Kings,RD Gaikwad,45a43fe2,1426306.json
 1426306,2024,Chennai Super Kings,R Ravindra,ba5e1069,1426306.json
@@ -11601,18 +11601,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1426309,2024,Kolkata Knight Riders,VG Arora,7c3b3b78,1426309.json
 1426309,2024,Kolkata Knight Riders,Harshit Rana,77b1aa15,1426309.json
 1426309,2024,Kolkata Knight Riders,CV Varun,5b7ab5a9,1426309.json
-1426310,2024,Royal Challengers Bengaluru,V Kohli,ba607b88,1426310.json
-1426310,2024,Royal Challengers Bengaluru,F du Plessis,3355b542,1426310.json
-1426310,2024,Royal Challengers Bengaluru,C Green,eaa76d3c,1426310.json
-1426310,2024,Royal Challengers Bengaluru,RM Patidar,c740ea83,1426310.json
-1426310,2024,Royal Challengers Bengaluru,GJ Maxwell,b681e71e,1426310.json
-1426310,2024,Royal Challengers Bengaluru,MK Lomror,da934ee8,1426310.json
-1426310,2024,Royal Challengers Bengaluru,KD Karthik,c03f1114,1426310.json
-1426310,2024,Royal Challengers Bengaluru,Swapnil Singh,983f2f61,1426310.json
-1426310,2024,Royal Challengers Bengaluru,KV Sharma,119678fd,1426310.json
-1426310,2024,Royal Challengers Bengaluru,Yash Dayal,7210d461,1426310.json
-1426310,2024,Royal Challengers Bengaluru,Mohammed Siraj,2f49c897,1426310.json
-1426310,2024,Royal Challengers Bengaluru,LH Ferguson,2f9d0389,1426310.json
+1426310,2024,Royal Challengers Bangalore,V Kohli,ba607b88,1426310.json
+1426310,2024,Royal Challengers Bangalore,F du Plessis,3355b542,1426310.json
+1426310,2024,Royal Challengers Bangalore,C Green,eaa76d3c,1426310.json
+1426310,2024,Royal Challengers Bangalore,RM Patidar,c740ea83,1426310.json
+1426310,2024,Royal Challengers Bangalore,GJ Maxwell,b681e71e,1426310.json
+1426310,2024,Royal Challengers Bangalore,MK Lomror,da934ee8,1426310.json
+1426310,2024,Royal Challengers Bangalore,KD Karthik,c03f1114,1426310.json
+1426310,2024,Royal Challengers Bangalore,Swapnil Singh,983f2f61,1426310.json
+1426310,2024,Royal Challengers Bangalore,KV Sharma,119678fd,1426310.json
+1426310,2024,Royal Challengers Bangalore,Yash Dayal,7210d461,1426310.json
+1426310,2024,Royal Challengers Bangalore,Mohammed Siraj,2f49c897,1426310.json
+1426310,2024,Royal Challengers Bangalore,LH Ferguson,2f9d0389,1426310.json
 1426310,2024,Rajasthan Royals,YS Chahal,57ee1fde,1426310.json
 1426310,2024,Rajasthan Royals,YBK Jaiswal,6c19c6e5,1426310.json
 1426310,2024,Rajasthan Royals,T Kohler-Cadmore,f836b33d,1426310.json
@@ -11684,18 +11684,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1473438,2025,Kolkata Knight Riders,Harshit Rana,77b1aa15,1473438.json
 1473438,2025,Kolkata Knight Riders,SH Johnson,83c3e8e3,1473438.json
 1473438,2025,Kolkata Knight Riders,CV Varun,5b7ab5a9,1473438.json
-1473438,2025,Royal Challengers Bengaluru,Suyash Sharma,9440ef41,1473438.json
-1473438,2025,Royal Challengers Bengaluru,PD Salt,3d284ca3,1473438.json
-1473438,2025,Royal Challengers Bengaluru,V Kohli,ba607b88,1473438.json
-1473438,2025,Royal Challengers Bengaluru,D Padikkal,2c25d4f5,1473438.json
-1473438,2025,Royal Challengers Bengaluru,RM Patidar,c740ea83,1473438.json
-1473438,2025,Royal Challengers Bengaluru,LS Livingstone,50c6bc2b,1473438.json
-1473438,2025,Royal Challengers Bengaluru,JM Sharma,800d2d97,1473438.json
-1473438,2025,Royal Challengers Bengaluru,TH David,f1f99156,1473438.json
-1473438,2025,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1473438.json
-1473438,2025,Royal Challengers Bengaluru,Rasikh Salam,b8527c3d,1473438.json
-1473438,2025,Royal Challengers Bengaluru,JR Hazlewood,03806cf8,1473438.json
-1473438,2025,Royal Challengers Bengaluru,Yash Dayal,7210d461,1473438.json
+1473438,2025,Royal Challengers Bangalore,Suyash Sharma,9440ef41,1473438.json
+1473438,2025,Royal Challengers Bangalore,PD Salt,3d284ca3,1473438.json
+1473438,2025,Royal Challengers Bangalore,V Kohli,ba607b88,1473438.json
+1473438,2025,Royal Challengers Bangalore,D Padikkal,2c25d4f5,1473438.json
+1473438,2025,Royal Challengers Bangalore,RM Patidar,c740ea83,1473438.json
+1473438,2025,Royal Challengers Bangalore,LS Livingstone,50c6bc2b,1473438.json
+1473438,2025,Royal Challengers Bangalore,JM Sharma,800d2d97,1473438.json
+1473438,2025,Royal Challengers Bangalore,TH David,f1f99156,1473438.json
+1473438,2025,Royal Challengers Bangalore,KH Pandya,5b8c830e,1473438.json
+1473438,2025,Royal Challengers Bangalore,Rasikh Salam,b8527c3d,1473438.json
+1473438,2025,Royal Challengers Bangalore,JR Hazlewood,03806cf8,1473438.json
+1473438,2025,Royal Challengers Bangalore,Yash Dayal,7210d461,1473438.json
 1473439,2025,Sunrisers Hyderabad,A Zampa,14f96089,1473439.json
 1473439,2025,Sunrisers Hyderabad,Abhishek Sharma,f29185a1,1473439.json
 1473439,2025,Sunrisers Hyderabad,TM Head,12b610c2,1473439.json
@@ -11840,18 +11840,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1473444,2025,Lucknow Super Giants,Ravi Bishnoi,df064e1a,1473444.json
 1473444,2025,Lucknow Super Giants,Prince Yadav,80b2fb19,1473444.json
 1473444,2025,Lucknow Super Giants,Avesh Khan,eef2536f,1473444.json
-1473445,2025,Royal Challengers Bengaluru,Suyash Sharma,9440ef41,1473445.json
-1473445,2025,Royal Challengers Bengaluru,PD Salt,3d284ca3,1473445.json
-1473445,2025,Royal Challengers Bengaluru,V Kohli,ba607b88,1473445.json
-1473445,2025,Royal Challengers Bengaluru,D Padikkal,2c25d4f5,1473445.json
-1473445,2025,Royal Challengers Bengaluru,RM Patidar,c740ea83,1473445.json
-1473445,2025,Royal Challengers Bengaluru,LS Livingstone,50c6bc2b,1473445.json
-1473445,2025,Royal Challengers Bengaluru,JM Sharma,800d2d97,1473445.json
-1473445,2025,Royal Challengers Bengaluru,TH David,f1f99156,1473445.json
-1473445,2025,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1473445.json
-1473445,2025,Royal Challengers Bengaluru,B Kumar,2e81a32d,1473445.json
-1473445,2025,Royal Challengers Bengaluru,JR Hazlewood,03806cf8,1473445.json
-1473445,2025,Royal Challengers Bengaluru,Yash Dayal,7210d461,1473445.json
+1473445,2025,Royal Challengers Bangalore,Suyash Sharma,9440ef41,1473445.json
+1473445,2025,Royal Challengers Bangalore,PD Salt,3d284ca3,1473445.json
+1473445,2025,Royal Challengers Bangalore,V Kohli,ba607b88,1473445.json
+1473445,2025,Royal Challengers Bangalore,D Padikkal,2c25d4f5,1473445.json
+1473445,2025,Royal Challengers Bangalore,RM Patidar,c740ea83,1473445.json
+1473445,2025,Royal Challengers Bangalore,LS Livingstone,50c6bc2b,1473445.json
+1473445,2025,Royal Challengers Bangalore,JM Sharma,800d2d97,1473445.json
+1473445,2025,Royal Challengers Bangalore,TH David,f1f99156,1473445.json
+1473445,2025,Royal Challengers Bangalore,KH Pandya,5b8c830e,1473445.json
+1473445,2025,Royal Challengers Bangalore,B Kumar,2e81a32d,1473445.json
+1473445,2025,Royal Challengers Bangalore,JR Hazlewood,03806cf8,1473445.json
+1473445,2025,Royal Challengers Bangalore,Yash Dayal,7210d461,1473445.json
 1473445,2025,Chennai Super Kings,M Pathirana,64839cb3,1473445.json
 1473445,2025,Chennai Super Kings,R Ravindra,ba5e1069,1473445.json
 1473445,2025,Chennai Super Kings,RA Tripathi,77255a9e,1473445.json
@@ -11983,18 +11983,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1473450,2025,Punjab Kings,M Jansen,81c36ee9,1473450.json
 1473450,2025,Punjab Kings,LH Ferguson,2f9d0389,1473450.json
 1473450,2025,Punjab Kings,Arshdeep Singh,244048f6,1473450.json
-1473451,2025,Royal Challengers Bengaluru,Rasikh Salam,b8527c3d,1473451.json
-1473451,2025,Royal Challengers Bengaluru,PD Salt,3d284ca3,1473451.json
-1473451,2025,Royal Challengers Bengaluru,V Kohli,ba607b88,1473451.json
-1473451,2025,Royal Challengers Bengaluru,D Padikkal,2c25d4f5,1473451.json
-1473451,2025,Royal Challengers Bengaluru,RM Patidar,c740ea83,1473451.json
-1473451,2025,Royal Challengers Bengaluru,LS Livingstone,50c6bc2b,1473451.json
-1473451,2025,Royal Challengers Bengaluru,JM Sharma,800d2d97,1473451.json
-1473451,2025,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1473451.json
-1473451,2025,Royal Challengers Bengaluru,TH David,f1f99156,1473451.json
-1473451,2025,Royal Challengers Bengaluru,B Kumar,2e81a32d,1473451.json
-1473451,2025,Royal Challengers Bengaluru,JR Hazlewood,03806cf8,1473451.json
-1473451,2025,Royal Challengers Bengaluru,Yash Dayal,7210d461,1473451.json
+1473451,2025,Royal Challengers Bangalore,Rasikh Salam,b8527c3d,1473451.json
+1473451,2025,Royal Challengers Bangalore,PD Salt,3d284ca3,1473451.json
+1473451,2025,Royal Challengers Bangalore,V Kohli,ba607b88,1473451.json
+1473451,2025,Royal Challengers Bangalore,D Padikkal,2c25d4f5,1473451.json
+1473451,2025,Royal Challengers Bangalore,RM Patidar,c740ea83,1473451.json
+1473451,2025,Royal Challengers Bangalore,LS Livingstone,50c6bc2b,1473451.json
+1473451,2025,Royal Challengers Bangalore,JM Sharma,800d2d97,1473451.json
+1473451,2025,Royal Challengers Bangalore,KH Pandya,5b8c830e,1473451.json
+1473451,2025,Royal Challengers Bangalore,TH David,f1f99156,1473451.json
+1473451,2025,Royal Challengers Bangalore,B Kumar,2e81a32d,1473451.json
+1473451,2025,Royal Challengers Bangalore,JR Hazlewood,03806cf8,1473451.json
+1473451,2025,Royal Challengers Bangalore,Yash Dayal,7210d461,1473451.json
 1473451,2025,Gujarat Titans,I Sharma,5bb1a1c4,1473451.json
 1473451,2025,Gujarat Titans,B Sai Sudharsan,d5130a30,1473451.json
 1473451,2025,Gujarat Titans,Shubman Gill,b4b99816,1473451.json
@@ -12151,18 +12151,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1473457,2025,Gujarat Titans,R Sai Kishore,c7a995d3,1473457.json
 1473457,2025,Gujarat Titans,Mohammed Siraj,2f49c897,1473457.json
 1473457,2025,Gujarat Titans,M Prasidh Krishna,85e0cf10,1473457.json
-1473458,2025,Royal Challengers Bengaluru,PD Salt,3d284ca3,1473458.json
-1473458,2025,Royal Challengers Bengaluru,V Kohli,ba607b88,1473458.json
-1473458,2025,Royal Challengers Bengaluru,D Padikkal,2c25d4f5,1473458.json
-1473458,2025,Royal Challengers Bengaluru,RM Patidar,c740ea83,1473458.json
-1473458,2025,Royal Challengers Bengaluru,LS Livingstone,50c6bc2b,1473458.json
-1473458,2025,Royal Challengers Bengaluru,JM Sharma,800d2d97,1473458.json
-1473458,2025,Royal Challengers Bengaluru,TH David,f1f99156,1473458.json
-1473458,2025,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1473458.json
-1473458,2025,Royal Challengers Bengaluru,B Kumar,2e81a32d,1473458.json
-1473458,2025,Royal Challengers Bengaluru,JR Hazlewood,03806cf8,1473458.json
-1473458,2025,Royal Challengers Bengaluru,Yash Dayal,7210d461,1473458.json
-1473458,2025,Royal Challengers Bengaluru,Suyash Sharma,9440ef41,1473458.json
+1473458,2025,Royal Challengers Bangalore,PD Salt,3d284ca3,1473458.json
+1473458,2025,Royal Challengers Bangalore,V Kohli,ba607b88,1473458.json
+1473458,2025,Royal Challengers Bangalore,D Padikkal,2c25d4f5,1473458.json
+1473458,2025,Royal Challengers Bangalore,RM Patidar,c740ea83,1473458.json
+1473458,2025,Royal Challengers Bangalore,LS Livingstone,50c6bc2b,1473458.json
+1473458,2025,Royal Challengers Bangalore,JM Sharma,800d2d97,1473458.json
+1473458,2025,Royal Challengers Bangalore,TH David,f1f99156,1473458.json
+1473458,2025,Royal Challengers Bangalore,KH Pandya,5b8c830e,1473458.json
+1473458,2025,Royal Challengers Bangalore,B Kumar,2e81a32d,1473458.json
+1473458,2025,Royal Challengers Bangalore,JR Hazlewood,03806cf8,1473458.json
+1473458,2025,Royal Challengers Bangalore,Yash Dayal,7210d461,1473458.json
+1473458,2025,Royal Challengers Bangalore,Suyash Sharma,9440ef41,1473458.json
 1473458,2025,Mumbai Indians,V Puthur,1e030637,1473458.json
 1473458,2025,Mumbai Indians,RG Sharma,740742ef,1473458.json
 1473458,2025,Mumbai Indians,RD Rickelton,e66732f8,1473458.json
@@ -12223,18 +12223,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1473460,2025,Rajasthan Royals,M Theekshana,f24c6701,1473460.json
 1473460,2025,Rajasthan Royals,TU Deshpande,46a9bea1,1473460.json
 1473460,2025,Rajasthan Royals,Sandeep Sharma,ce820073,1473460.json
-1473461,2025,Royal Challengers Bengaluru,PD Salt,3d284ca3,1473461.json
-1473461,2025,Royal Challengers Bengaluru,V Kohli,ba607b88,1473461.json
-1473461,2025,Royal Challengers Bengaluru,D Padikkal,2c25d4f5,1473461.json
-1473461,2025,Royal Challengers Bengaluru,RM Patidar,c740ea83,1473461.json
-1473461,2025,Royal Challengers Bengaluru,LS Livingstone,50c6bc2b,1473461.json
-1473461,2025,Royal Challengers Bengaluru,JM Sharma,800d2d97,1473461.json
-1473461,2025,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1473461.json
-1473461,2025,Royal Challengers Bengaluru,TH David,f1f99156,1473461.json
-1473461,2025,Royal Challengers Bengaluru,B Kumar,2e81a32d,1473461.json
-1473461,2025,Royal Challengers Bengaluru,JR Hazlewood,03806cf8,1473461.json
-1473461,2025,Royal Challengers Bengaluru,Yash Dayal,7210d461,1473461.json
-1473461,2025,Royal Challengers Bengaluru,Suyash Sharma,9440ef41,1473461.json
+1473461,2025,Royal Challengers Bangalore,PD Salt,3d284ca3,1473461.json
+1473461,2025,Royal Challengers Bangalore,V Kohli,ba607b88,1473461.json
+1473461,2025,Royal Challengers Bangalore,D Padikkal,2c25d4f5,1473461.json
+1473461,2025,Royal Challengers Bangalore,RM Patidar,c740ea83,1473461.json
+1473461,2025,Royal Challengers Bangalore,LS Livingstone,50c6bc2b,1473461.json
+1473461,2025,Royal Challengers Bangalore,JM Sharma,800d2d97,1473461.json
+1473461,2025,Royal Challengers Bangalore,KH Pandya,5b8c830e,1473461.json
+1473461,2025,Royal Challengers Bangalore,TH David,f1f99156,1473461.json
+1473461,2025,Royal Challengers Bangalore,B Kumar,2e81a32d,1473461.json
+1473461,2025,Royal Challengers Bangalore,JR Hazlewood,03806cf8,1473461.json
+1473461,2025,Royal Challengers Bangalore,Yash Dayal,7210d461,1473461.json
+1473461,2025,Royal Challengers Bangalore,Suyash Sharma,9440ef41,1473461.json
 1473461,2025,Delhi Capitals,F du Plessis,3355b542,1473461.json
 1473461,2025,Delhi Capitals,J Fraser-McGurk,9b6e1b3f,1473461.json
 1473461,2025,Delhi Capitals,Abishek Porel,ad3b6e95,1473461.json
@@ -12330,18 +12330,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1473465,2025,Rajasthan Royals,M Theekshana,f24c6701,1473465.json
 1473465,2025,Rajasthan Royals,Sandeep Sharma,ce820073,1473465.json
 1473465,2025,Rajasthan Royals,TU Deshpande,46a9bea1,1473465.json
-1473465,2025,Royal Challengers Bengaluru,Suyash Sharma,9440ef41,1473465.json
-1473465,2025,Royal Challengers Bengaluru,PD Salt,3d284ca3,1473465.json
-1473465,2025,Royal Challengers Bengaluru,V Kohli,ba607b88,1473465.json
-1473465,2025,Royal Challengers Bengaluru,D Padikkal,2c25d4f5,1473465.json
-1473465,2025,Royal Challengers Bengaluru,RM Patidar,c740ea83,1473465.json
-1473465,2025,Royal Challengers Bengaluru,LS Livingstone,50c6bc2b,1473465.json
-1473465,2025,Royal Challengers Bengaluru,JM Sharma,800d2d97,1473465.json
-1473465,2025,Royal Challengers Bengaluru,TH David,f1f99156,1473465.json
-1473465,2025,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1473465.json
-1473465,2025,Royal Challengers Bengaluru,B Kumar,2e81a32d,1473465.json
-1473465,2025,Royal Challengers Bengaluru,JR Hazlewood,03806cf8,1473465.json
-1473465,2025,Royal Challengers Bengaluru,Yash Dayal,7210d461,1473465.json
+1473465,2025,Royal Challengers Bangalore,Suyash Sharma,9440ef41,1473465.json
+1473465,2025,Royal Challengers Bangalore,PD Salt,3d284ca3,1473465.json
+1473465,2025,Royal Challengers Bangalore,V Kohli,ba607b88,1473465.json
+1473465,2025,Royal Challengers Bangalore,D Padikkal,2c25d4f5,1473465.json
+1473465,2025,Royal Challengers Bangalore,RM Patidar,c740ea83,1473465.json
+1473465,2025,Royal Challengers Bangalore,LS Livingstone,50c6bc2b,1473465.json
+1473465,2025,Royal Challengers Bangalore,JM Sharma,800d2d97,1473465.json
+1473465,2025,Royal Challengers Bangalore,TH David,f1f99156,1473465.json
+1473465,2025,Royal Challengers Bangalore,KH Pandya,5b8c830e,1473465.json
+1473465,2025,Royal Challengers Bangalore,B Kumar,2e81a32d,1473465.json
+1473465,2025,Royal Challengers Bangalore,JR Hazlewood,03806cf8,1473465.json
+1473465,2025,Royal Challengers Bangalore,Yash Dayal,7210d461,1473465.json
 1473466,2025,Mumbai Indians,KV Sharma,119678fd,1473466.json
 1473466,2025,Mumbai Indians,RG Sharma,740742ef,1473466.json
 1473466,2025,Mumbai Indians,RD Rickelton,e66732f8,1473466.json
@@ -12462,18 +12462,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1473470,2025,Mumbai Indians,DL Chahar,23eeb873,1473470.json
 1473470,2025,Mumbai Indians,TA Boult,a818c1be,1473470.json
 1473470,2025,Mumbai Indians,JJ Bumrah,462411b3,1473470.json
-1473471,2025,Royal Challengers Bengaluru,PD Salt,3d284ca3,1473471.json
-1473471,2025,Royal Challengers Bengaluru,V Kohli,ba607b88,1473471.json
-1473471,2025,Royal Challengers Bengaluru,RM Patidar,c740ea83,1473471.json
-1473471,2025,Royal Challengers Bengaluru,LS Livingstone,50c6bc2b,1473471.json
-1473471,2025,Royal Challengers Bengaluru,JM Sharma,800d2d97,1473471.json
-1473471,2025,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1473471.json
-1473471,2025,Royal Challengers Bengaluru,TH David,f1f99156,1473471.json
-1473471,2025,Royal Challengers Bengaluru,MS Bhandage,e96801ea,1473471.json
-1473471,2025,Royal Challengers Bengaluru,B Kumar,2e81a32d,1473471.json
-1473471,2025,Royal Challengers Bengaluru,Yash Dayal,7210d461,1473471.json
-1473471,2025,Royal Challengers Bengaluru,JR Hazlewood,03806cf8,1473471.json
-1473471,2025,Royal Challengers Bengaluru,Suyash Sharma,9440ef41,1473471.json
+1473471,2025,Royal Challengers Bangalore,PD Salt,3d284ca3,1473471.json
+1473471,2025,Royal Challengers Bangalore,V Kohli,ba607b88,1473471.json
+1473471,2025,Royal Challengers Bangalore,RM Patidar,c740ea83,1473471.json
+1473471,2025,Royal Challengers Bangalore,LS Livingstone,50c6bc2b,1473471.json
+1473471,2025,Royal Challengers Bangalore,JM Sharma,800d2d97,1473471.json
+1473471,2025,Royal Challengers Bangalore,KH Pandya,5b8c830e,1473471.json
+1473471,2025,Royal Challengers Bangalore,TH David,f1f99156,1473471.json
+1473471,2025,Royal Challengers Bangalore,MS Bhandage,e96801ea,1473471.json
+1473471,2025,Royal Challengers Bangalore,B Kumar,2e81a32d,1473471.json
+1473471,2025,Royal Challengers Bangalore,Yash Dayal,7210d461,1473471.json
+1473471,2025,Royal Challengers Bangalore,JR Hazlewood,03806cf8,1473471.json
+1473471,2025,Royal Challengers Bangalore,Suyash Sharma,9440ef41,1473471.json
 1473471,2025,Punjab Kings,YS Chahal,57ee1fde,1473471.json
 1473471,2025,Punjab Kings,Priyansh Arya,b5797845,1473471.json
 1473471,2025,Punjab Kings,P Simran Singh,9418198b,1473471.json
@@ -12546,18 +12546,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1473474,2025,Punjab Kings,XC Bartlett,3b53243a,1473474.json
 1473474,2025,Punjab Kings,Arshdeep Singh,244048f6,1473474.json
 1473474,2025,Punjab Kings,YS Chahal,57ee1fde,1473474.json
-1473474,2025,Royal Challengers Bengaluru,Suyash Sharma,9440ef41,1473474.json
-1473474,2025,Royal Challengers Bengaluru,PD Salt,3d284ca3,1473474.json
-1473474,2025,Royal Challengers Bengaluru,V Kohli,ba607b88,1473474.json
-1473474,2025,Royal Challengers Bengaluru,D Padikkal,2c25d4f5,1473474.json
-1473474,2025,Royal Challengers Bengaluru,RM Patidar,c740ea83,1473474.json
-1473474,2025,Royal Challengers Bengaluru,JM Sharma,800d2d97,1473474.json
-1473474,2025,Royal Challengers Bengaluru,R Shepherd,c5aef772,1473474.json
-1473474,2025,Royal Challengers Bengaluru,TH David,f1f99156,1473474.json
-1473474,2025,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1473474.json
-1473474,2025,Royal Challengers Bengaluru,B Kumar,2e81a32d,1473474.json
-1473474,2025,Royal Challengers Bengaluru,JR Hazlewood,03806cf8,1473474.json
-1473474,2025,Royal Challengers Bengaluru,Yash Dayal,7210d461,1473474.json
+1473474,2025,Royal Challengers Bangalore,Suyash Sharma,9440ef41,1473474.json
+1473474,2025,Royal Challengers Bangalore,PD Salt,3d284ca3,1473474.json
+1473474,2025,Royal Challengers Bangalore,V Kohli,ba607b88,1473474.json
+1473474,2025,Royal Challengers Bangalore,D Padikkal,2c25d4f5,1473474.json
+1473474,2025,Royal Challengers Bangalore,RM Patidar,c740ea83,1473474.json
+1473474,2025,Royal Challengers Bangalore,JM Sharma,800d2d97,1473474.json
+1473474,2025,Royal Challengers Bangalore,R Shepherd,c5aef772,1473474.json
+1473474,2025,Royal Challengers Bangalore,TH David,f1f99156,1473474.json
+1473474,2025,Royal Challengers Bangalore,KH Pandya,5b8c830e,1473474.json
+1473474,2025,Royal Challengers Bangalore,B Kumar,2e81a32d,1473474.json
+1473474,2025,Royal Challengers Bangalore,JR Hazlewood,03806cf8,1473474.json
+1473474,2025,Royal Challengers Bangalore,Yash Dayal,7210d461,1473474.json
 1473475,2025,Chennai Super Kings,R Ashwin,495d42a5,1473475.json
 1473475,2025,Chennai Super Kings,SK Rasheed,cbf58a86,1473475.json
 1473475,2025,Chennai Super Kings,R Ravindra,ba5e1069,1473475.json
@@ -12653,18 +12653,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1473478,2025,Mumbai Indians,DL Chahar,23eeb873,1473478.json
 1473478,2025,Mumbai Indians,TA Boult,a818c1be,1473478.json
 1473478,2025,Mumbai Indians,JJ Bumrah,462411b3,1473478.json
-1473479,2025,Royal Challengers Bengaluru,Suyash Sharma,9440ef41,1473479.json
-1473479,2025,Royal Challengers Bengaluru,PD Salt,3d284ca3,1473479.json
-1473479,2025,Royal Challengers Bengaluru,V Kohli,ba607b88,1473479.json
-1473479,2025,Royal Challengers Bengaluru,D Padikkal,2c25d4f5,1473479.json
-1473479,2025,Royal Challengers Bengaluru,TH David,f1f99156,1473479.json
-1473479,2025,Royal Challengers Bengaluru,RM Patidar,c740ea83,1473479.json
-1473479,2025,Royal Challengers Bengaluru,JM Sharma,800d2d97,1473479.json
-1473479,2025,Royal Challengers Bengaluru,R Shepherd,c5aef772,1473479.json
-1473479,2025,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1473479.json
-1473479,2025,Royal Challengers Bengaluru,B Kumar,2e81a32d,1473479.json
-1473479,2025,Royal Challengers Bengaluru,JR Hazlewood,03806cf8,1473479.json
-1473479,2025,Royal Challengers Bengaluru,Yash Dayal,7210d461,1473479.json
+1473479,2025,Royal Challengers Bangalore,Suyash Sharma,9440ef41,1473479.json
+1473479,2025,Royal Challengers Bangalore,PD Salt,3d284ca3,1473479.json
+1473479,2025,Royal Challengers Bangalore,V Kohli,ba607b88,1473479.json
+1473479,2025,Royal Challengers Bangalore,D Padikkal,2c25d4f5,1473479.json
+1473479,2025,Royal Challengers Bangalore,TH David,f1f99156,1473479.json
+1473479,2025,Royal Challengers Bangalore,RM Patidar,c740ea83,1473479.json
+1473479,2025,Royal Challengers Bangalore,JM Sharma,800d2d97,1473479.json
+1473479,2025,Royal Challengers Bangalore,R Shepherd,c5aef772,1473479.json
+1473479,2025,Royal Challengers Bangalore,KH Pandya,5b8c830e,1473479.json
+1473479,2025,Royal Challengers Bangalore,B Kumar,2e81a32d,1473479.json
+1473479,2025,Royal Challengers Bangalore,JR Hazlewood,03806cf8,1473479.json
+1473479,2025,Royal Challengers Bangalore,Yash Dayal,7210d461,1473479.json
 1473479,2025,Rajasthan Royals,Sandeep Sharma,ce820073,1473479.json
 1473479,2025,Rajasthan Royals,YBK Jaiswal,6c19c6e5,1473479.json
 1473479,2025,Rajasthan Royals,V Suryavanshi,470f446b,1473479.json
@@ -12761,18 +12761,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1473483,2025,Delhi Capitals,PVD Chameera,327b58d3,1473483.json
 1473483,2025,Delhi Capitals,Kuldeep Yadav,8d2c70ad,1473483.json
 1473483,2025,Delhi Capitals,Mukesh Kumar,2cffab74,1473483.json
-1473483,2025,Royal Challengers Bengaluru,Suyash Sharma,9440ef41,1473483.json
-1473483,2025,Royal Challengers Bengaluru,JG Bethell,3c55c703,1473483.json
-1473483,2025,Royal Challengers Bengaluru,V Kohli,ba607b88,1473483.json
-1473483,2025,Royal Challengers Bengaluru,D Padikkal,2c25d4f5,1473483.json
-1473483,2025,Royal Challengers Bengaluru,RM Patidar,c740ea83,1473483.json
-1473483,2025,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1473483.json
-1473483,2025,Royal Challengers Bengaluru,TH David,f1f99156,1473483.json
-1473483,2025,Royal Challengers Bengaluru,R Shepherd,c5aef772,1473483.json
-1473483,2025,Royal Challengers Bengaluru,JM Sharma,800d2d97,1473483.json
-1473483,2025,Royal Challengers Bengaluru,B Kumar,2e81a32d,1473483.json
-1473483,2025,Royal Challengers Bengaluru,JR Hazlewood,03806cf8,1473483.json
-1473483,2025,Royal Challengers Bengaluru,Yash Dayal,7210d461,1473483.json
+1473483,2025,Royal Challengers Bangalore,Suyash Sharma,9440ef41,1473483.json
+1473483,2025,Royal Challengers Bangalore,JG Bethell,3c55c703,1473483.json
+1473483,2025,Royal Challengers Bangalore,V Kohli,ba607b88,1473483.json
+1473483,2025,Royal Challengers Bangalore,D Padikkal,2c25d4f5,1473483.json
+1473483,2025,Royal Challengers Bangalore,RM Patidar,c740ea83,1473483.json
+1473483,2025,Royal Challengers Bangalore,KH Pandya,5b8c830e,1473483.json
+1473483,2025,Royal Challengers Bangalore,TH David,f1f99156,1473483.json
+1473483,2025,Royal Challengers Bangalore,R Shepherd,c5aef772,1473483.json
+1473483,2025,Royal Challengers Bangalore,JM Sharma,800d2d97,1473483.json
+1473483,2025,Royal Challengers Bangalore,B Kumar,2e81a32d,1473483.json
+1473483,2025,Royal Challengers Bangalore,JR Hazlewood,03806cf8,1473483.json
+1473483,2025,Royal Challengers Bangalore,Yash Dayal,7210d461,1473483.json
 1473484,2025,Gujarat Titans,I Sharma,5bb1a1c4,1473484.json
 1473484,2025,Gujarat Titans,B Sai Sudharsan,d5130a30,1473484.json
 1473484,2025,Gujarat Titans,Shubman Gill,b4b99816,1473484.json
@@ -12892,18 +12892,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1473488,2025,Sunrisers Hyderabad,HV Patel,f986ca1a,1473488.json
 1473488,2025,Sunrisers Hyderabad,JD Unadkat,1e66c162,1473488.json
 1473488,2025,Sunrisers Hyderabad,Zeeshan Ansari,36619795,1473488.json
-1473489,2025,Royal Challengers Bengaluru,Suyash Sharma,9440ef41,1473489.json
-1473489,2025,Royal Challengers Bengaluru,JG Bethell,3c55c703,1473489.json
-1473489,2025,Royal Challengers Bengaluru,V Kohli,ba607b88,1473489.json
-1473489,2025,Royal Challengers Bengaluru,D Padikkal,2c25d4f5,1473489.json
-1473489,2025,Royal Challengers Bengaluru,RM Patidar,c740ea83,1473489.json
-1473489,2025,Royal Challengers Bengaluru,JM Sharma,800d2d97,1473489.json
-1473489,2025,Royal Challengers Bengaluru,TH David,f1f99156,1473489.json
-1473489,2025,Royal Challengers Bengaluru,R Shepherd,c5aef772,1473489.json
-1473489,2025,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1473489.json
-1473489,2025,Royal Challengers Bengaluru,B Kumar,2e81a32d,1473489.json
-1473489,2025,Royal Challengers Bengaluru,L Ngidi,f834dcfc,1473489.json
-1473489,2025,Royal Challengers Bengaluru,Yash Dayal,7210d461,1473489.json
+1473489,2025,Royal Challengers Bangalore,Suyash Sharma,9440ef41,1473489.json
+1473489,2025,Royal Challengers Bangalore,JG Bethell,3c55c703,1473489.json
+1473489,2025,Royal Challengers Bangalore,V Kohli,ba607b88,1473489.json
+1473489,2025,Royal Challengers Bangalore,D Padikkal,2c25d4f5,1473489.json
+1473489,2025,Royal Challengers Bangalore,RM Patidar,c740ea83,1473489.json
+1473489,2025,Royal Challengers Bangalore,JM Sharma,800d2d97,1473489.json
+1473489,2025,Royal Challengers Bangalore,TH David,f1f99156,1473489.json
+1473489,2025,Royal Challengers Bangalore,R Shepherd,c5aef772,1473489.json
+1473489,2025,Royal Challengers Bangalore,KH Pandya,5b8c830e,1473489.json
+1473489,2025,Royal Challengers Bangalore,B Kumar,2e81a32d,1473489.json
+1473489,2025,Royal Challengers Bangalore,L Ngidi,f834dcfc,1473489.json
+1473489,2025,Royal Challengers Bangalore,Yash Dayal,7210d461,1473489.json
 1473489,2025,Chennai Super Kings,M Pathirana,64839cb3,1473489.json
 1473489,2025,Chennai Super Kings,A Mhatre,b2b4f545,1473489.json
 1473489,2025,Chennai Super Kings,SK Rasheed,cbf58a86,1473489.json
@@ -13214,18 +13214,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1473503,2025,Sunrisers Hyderabad,JD Unadkat,1e66c162,1473503.json
 1473503,2025,Sunrisers Hyderabad,E Malinga,5750bcb4,1473503.json
 1473503,2025,Sunrisers Hyderabad,Harsh Dubey,25228673,1473503.json
-1473503,2025,Royal Challengers Bengaluru,PD Salt,3d284ca3,1473503.json
-1473503,2025,Royal Challengers Bengaluru,V Kohli,ba607b88,1473503.json
-1473503,2025,Royal Challengers Bengaluru,MA Agarwal,00ea847a,1473503.json
-1473503,2025,Royal Challengers Bengaluru,RM Patidar,c740ea83,1473503.json
-1473503,2025,Royal Challengers Bengaluru,JM Sharma,800d2d97,1473503.json
-1473503,2025,Royal Challengers Bengaluru,R Shepherd,c5aef772,1473503.json
-1473503,2025,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1473503.json
-1473503,2025,Royal Challengers Bengaluru,TH David,f1f99156,1473503.json
-1473503,2025,Royal Challengers Bengaluru,B Kumar,2e81a32d,1473503.json
-1473503,2025,Royal Challengers Bengaluru,Yash Dayal,7210d461,1473503.json
-1473503,2025,Royal Challengers Bengaluru,L Ngidi,f834dcfc,1473503.json
-1473503,2025,Royal Challengers Bengaluru,Suyash Sharma,9440ef41,1473503.json
+1473503,2025,Royal Challengers Bangalore,PD Salt,3d284ca3,1473503.json
+1473503,2025,Royal Challengers Bangalore,V Kohli,ba607b88,1473503.json
+1473503,2025,Royal Challengers Bangalore,MA Agarwal,00ea847a,1473503.json
+1473503,2025,Royal Challengers Bangalore,RM Patidar,c740ea83,1473503.json
+1473503,2025,Royal Challengers Bangalore,JM Sharma,800d2d97,1473503.json
+1473503,2025,Royal Challengers Bangalore,R Shepherd,c5aef772,1473503.json
+1473503,2025,Royal Challengers Bangalore,KH Pandya,5b8c830e,1473503.json
+1473503,2025,Royal Challengers Bangalore,TH David,f1f99156,1473503.json
+1473503,2025,Royal Challengers Bangalore,B Kumar,2e81a32d,1473503.json
+1473503,2025,Royal Challengers Bangalore,Yash Dayal,7210d461,1473503.json
+1473503,2025,Royal Challengers Bangalore,L Ngidi,f834dcfc,1473503.json
+1473503,2025,Royal Challengers Bangalore,Suyash Sharma,9440ef41,1473503.json
 1473504,2025,Chennai Super Kings,M Pathirana,64839cb3,1473504.json
 1473504,2025,Chennai Super Kings,A Mhatre,b2b4f545,1473504.json
 1473504,2025,Chennai Super Kings,DP Conway,df5a6881,1473504.json
@@ -13310,18 +13310,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1473507,2025,Lucknow Super Giants,DS Rathi,13fc5c6d,1473507.json
 1473507,2025,Lucknow Super Giants,Avesh Khan,eef2536f,1473507.json
 1473507,2025,Lucknow Super Giants,W O'Rourke,cb9b8664,1473507.json
-1473507,2025,Royal Challengers Bengaluru,Suyash Sharma,9440ef41,1473507.json
-1473507,2025,Royal Challengers Bengaluru,PD Salt,3d284ca3,1473507.json
-1473507,2025,Royal Challengers Bengaluru,V Kohli,ba607b88,1473507.json
-1473507,2025,Royal Challengers Bengaluru,RM Patidar,c740ea83,1473507.json
-1473507,2025,Royal Challengers Bengaluru,LS Livingstone,50c6bc2b,1473507.json
-1473507,2025,Royal Challengers Bengaluru,MA Agarwal,00ea847a,1473507.json
-1473507,2025,Royal Challengers Bengaluru,JM Sharma,800d2d97,1473507.json
-1473507,2025,Royal Challengers Bengaluru,R Shepherd,c5aef772,1473507.json
-1473507,2025,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1473507.json
-1473507,2025,Royal Challengers Bengaluru,B Kumar,2e81a32d,1473507.json
-1473507,2025,Royal Challengers Bengaluru,Yash Dayal,7210d461,1473507.json
-1473507,2025,Royal Challengers Bengaluru,N Thushara,ee1b6c27,1473507.json
+1473507,2025,Royal Challengers Bangalore,Suyash Sharma,9440ef41,1473507.json
+1473507,2025,Royal Challengers Bangalore,PD Salt,3d284ca3,1473507.json
+1473507,2025,Royal Challengers Bangalore,V Kohli,ba607b88,1473507.json
+1473507,2025,Royal Challengers Bangalore,RM Patidar,c740ea83,1473507.json
+1473507,2025,Royal Challengers Bangalore,LS Livingstone,50c6bc2b,1473507.json
+1473507,2025,Royal Challengers Bangalore,MA Agarwal,00ea847a,1473507.json
+1473507,2025,Royal Challengers Bangalore,JM Sharma,800d2d97,1473507.json
+1473507,2025,Royal Challengers Bangalore,R Shepherd,c5aef772,1473507.json
+1473507,2025,Royal Challengers Bangalore,KH Pandya,5b8c830e,1473507.json
+1473507,2025,Royal Challengers Bangalore,B Kumar,2e81a32d,1473507.json
+1473507,2025,Royal Challengers Bangalore,Yash Dayal,7210d461,1473507.json
+1473507,2025,Royal Challengers Bangalore,N Thushara,ee1b6c27,1473507.json
 1473508,2025,Punjab Kings,Priyansh Arya,b5797845,1473508.json
 1473508,2025,Punjab Kings,P Simran Singh,9418198b,1473508.json
 1473508,2025,Punjab Kings,JP Inglis,989889ff,1473508.json
@@ -13334,18 +13334,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1473508,2025,Punjab Kings,Harpreet Brar,c05edf8e,1473508.json
 1473508,2025,Punjab Kings,KA Jamieson,68c56d09,1473508.json
 1473508,2025,Punjab Kings,Arshdeep Singh,244048f6,1473508.json
-1473508,2025,Royal Challengers Bengaluru,Suyash Sharma,9440ef41,1473508.json
-1473508,2025,Royal Challengers Bengaluru,PD Salt,3d284ca3,1473508.json
-1473508,2025,Royal Challengers Bengaluru,V Kohli,ba607b88,1473508.json
-1473508,2025,Royal Challengers Bengaluru,MA Agarwal,00ea847a,1473508.json
-1473508,2025,Royal Challengers Bengaluru,RM Patidar,c740ea83,1473508.json
-1473508,2025,Royal Challengers Bengaluru,LS Livingstone,50c6bc2b,1473508.json
-1473508,2025,Royal Challengers Bengaluru,JM Sharma,800d2d97,1473508.json
-1473508,2025,Royal Challengers Bengaluru,R Shepherd,c5aef772,1473508.json
-1473508,2025,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1473508.json
-1473508,2025,Royal Challengers Bengaluru,B Kumar,2e81a32d,1473508.json
-1473508,2025,Royal Challengers Bengaluru,Yash Dayal,7210d461,1473508.json
-1473508,2025,Royal Challengers Bengaluru,JR Hazlewood,03806cf8,1473508.json
+1473508,2025,Royal Challengers Bangalore,Suyash Sharma,9440ef41,1473508.json
+1473508,2025,Royal Challengers Bangalore,PD Salt,3d284ca3,1473508.json
+1473508,2025,Royal Challengers Bangalore,V Kohli,ba607b88,1473508.json
+1473508,2025,Royal Challengers Bangalore,MA Agarwal,00ea847a,1473508.json
+1473508,2025,Royal Challengers Bangalore,RM Patidar,c740ea83,1473508.json
+1473508,2025,Royal Challengers Bangalore,LS Livingstone,50c6bc2b,1473508.json
+1473508,2025,Royal Challengers Bangalore,JM Sharma,800d2d97,1473508.json
+1473508,2025,Royal Challengers Bangalore,R Shepherd,c5aef772,1473508.json
+1473508,2025,Royal Challengers Bangalore,KH Pandya,5b8c830e,1473508.json
+1473508,2025,Royal Challengers Bangalore,B Kumar,2e81a32d,1473508.json
+1473508,2025,Royal Challengers Bangalore,Yash Dayal,7210d461,1473508.json
+1473508,2025,Royal Challengers Bangalore,JR Hazlewood,03806cf8,1473508.json
 1473509,2025,Mumbai Indians,Ashwani Kumar,d45c29b1,1473509.json
 1473509,2025,Mumbai Indians,RG Sharma,740742ef,1473509.json
 1473509,2025,Mumbai Indians,JM Bairstow,abb83e27,1473509.json
@@ -13394,18 +13394,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1473510,2025,Punjab Kings,Vijaykumar Vyshak,54e52590,1473510.json
 1473510,2025,Punjab Kings,KA Jamieson,68c56d09,1473510.json
 1473510,2025,Punjab Kings,Arshdeep Singh,244048f6,1473510.json
-1473511,2025,Royal Challengers Bengaluru,Suyash Sharma,9440ef41,1473511.json
-1473511,2025,Royal Challengers Bengaluru,PD Salt,3d284ca3,1473511.json
-1473511,2025,Royal Challengers Bengaluru,V Kohli,ba607b88,1473511.json
-1473511,2025,Royal Challengers Bengaluru,MA Agarwal,00ea847a,1473511.json
-1473511,2025,Royal Challengers Bengaluru,RM Patidar,c740ea83,1473511.json
-1473511,2025,Royal Challengers Bengaluru,LS Livingstone,50c6bc2b,1473511.json
-1473511,2025,Royal Challengers Bengaluru,JM Sharma,800d2d97,1473511.json
-1473511,2025,Royal Challengers Bengaluru,R Shepherd,c5aef772,1473511.json
-1473511,2025,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1473511.json
-1473511,2025,Royal Challengers Bengaluru,B Kumar,2e81a32d,1473511.json
-1473511,2025,Royal Challengers Bengaluru,Yash Dayal,7210d461,1473511.json
-1473511,2025,Royal Challengers Bengaluru,JR Hazlewood,03806cf8,1473511.json
+1473511,2025,Royal Challengers Bangalore,Suyash Sharma,9440ef41,1473511.json
+1473511,2025,Royal Challengers Bangalore,PD Salt,3d284ca3,1473511.json
+1473511,2025,Royal Challengers Bangalore,V Kohli,ba607b88,1473511.json
+1473511,2025,Royal Challengers Bangalore,MA Agarwal,00ea847a,1473511.json
+1473511,2025,Royal Challengers Bangalore,RM Patidar,c740ea83,1473511.json
+1473511,2025,Royal Challengers Bangalore,LS Livingstone,50c6bc2b,1473511.json
+1473511,2025,Royal Challengers Bangalore,JM Sharma,800d2d97,1473511.json
+1473511,2025,Royal Challengers Bangalore,R Shepherd,c5aef772,1473511.json
+1473511,2025,Royal Challengers Bangalore,KH Pandya,5b8c830e,1473511.json
+1473511,2025,Royal Challengers Bangalore,B Kumar,2e81a32d,1473511.json
+1473511,2025,Royal Challengers Bangalore,Yash Dayal,7210d461,1473511.json
+1473511,2025,Royal Challengers Bangalore,JR Hazlewood,03806cf8,1473511.json
 1473511,2025,Punjab Kings,YS Chahal,57ee1fde,1473511.json
 1473511,2025,Punjab Kings,Priyansh Arya,b5797845,1473511.json
 1473511,2025,Punjab Kings,P Simran Singh,9418198b,1473511.json
@@ -13454,18 +13454,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1527674,2026,Sunrisers Hyderabad,DA Payne,6c79c098,1527674.json
 1527674,2026,Sunrisers Hyderabad,JD Unadkat,1e66c162,1527674.json
 1527674,2026,Sunrisers Hyderabad,E Malinga,5750bcb4,1527674.json
-1527674,2026,Royal Challengers Bengaluru,JA Duffy,dadbdb68,1527674.json
-1527674,2026,Royal Challengers Bengaluru,PD Salt,3d284ca3,1527674.json
-1527674,2026,Royal Challengers Bengaluru,V Kohli,ba607b88,1527674.json
-1527674,2026,Royal Challengers Bengaluru,D Padikkal,2c25d4f5,1527674.json
-1527674,2026,Royal Challengers Bengaluru,RM Patidar,c740ea83,1527674.json
-1527674,2026,Royal Challengers Bengaluru,JM Sharma,800d2d97,1527674.json
-1527674,2026,Royal Challengers Bengaluru,TH David,f1f99156,1527674.json
-1527674,2026,Royal Challengers Bengaluru,R Shepherd,c5aef772,1527674.json
-1527674,2026,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1527674.json
-1527674,2026,Royal Challengers Bengaluru,B Kumar,2e81a32d,1527674.json
-1527674,2026,Royal Challengers Bengaluru,Abhinandan Singh,82c10dac,1527674.json
-1527674,2026,Royal Challengers Bengaluru,Suyash Sharma,9440ef41,1527674.json
+1527674,2026,Royal Challengers Bangalore,JA Duffy,dadbdb68,1527674.json
+1527674,2026,Royal Challengers Bangalore,PD Salt,3d284ca3,1527674.json
+1527674,2026,Royal Challengers Bangalore,V Kohli,ba607b88,1527674.json
+1527674,2026,Royal Challengers Bangalore,D Padikkal,2c25d4f5,1527674.json
+1527674,2026,Royal Challengers Bangalore,RM Patidar,c740ea83,1527674.json
+1527674,2026,Royal Challengers Bangalore,JM Sharma,800d2d97,1527674.json
+1527674,2026,Royal Challengers Bangalore,TH David,f1f99156,1527674.json
+1527674,2026,Royal Challengers Bangalore,R Shepherd,c5aef772,1527674.json
+1527674,2026,Royal Challengers Bangalore,KH Pandya,5b8c830e,1527674.json
+1527674,2026,Royal Challengers Bangalore,B Kumar,2e81a32d,1527674.json
+1527674,2026,Royal Challengers Bangalore,Abhinandan Singh,82c10dac,1527674.json
+1527674,2026,Royal Challengers Bangalore,Suyash Sharma,9440ef41,1527674.json
 1527675,2026,Kolkata Knight Riders,Kartik Tyagi,5d2eea49,1527675.json
 1527675,2026,Kolkata Knight Riders,AM Rahane,29e95537,1527675.json
 1527675,2026,Kolkata Knight Riders,FH Allen,bf74b130,1527675.json
@@ -13681,18 +13681,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1527683,2026,Lucknow Super Giants,Avesh Khan,eef2536f,1527683.json
 1527683,2026,Lucknow Super Giants,DS Rathi,13fc5c6d,1527683.json
 1527683,2026,Lucknow Super Giants,Prince Yadav,80b2fb19,1527683.json
-1527684,2026,Royal Challengers Bengaluru,Suyash Sharma,9440ef41,1527684.json
-1527684,2026,Royal Challengers Bengaluru,PD Salt,3d284ca3,1527684.json
-1527684,2026,Royal Challengers Bengaluru,V Kohli,ba607b88,1527684.json
-1527684,2026,Royal Challengers Bengaluru,D Padikkal,2c25d4f5,1527684.json
-1527684,2026,Royal Challengers Bengaluru,RM Patidar,c740ea83,1527684.json
-1527684,2026,Royal Challengers Bengaluru,TH David,f1f99156,1527684.json
-1527684,2026,Royal Challengers Bengaluru,JM Sharma,800d2d97,1527684.json
-1527684,2026,Royal Challengers Bengaluru,R Shepherd,c5aef772,1527684.json
-1527684,2026,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1527684.json
-1527684,2026,Royal Challengers Bengaluru,B Kumar,2e81a32d,1527684.json
-1527684,2026,Royal Challengers Bengaluru,Abhinandan Singh,82c10dac,1527684.json
-1527684,2026,Royal Challengers Bengaluru,JA Duffy,dadbdb68,1527684.json
+1527684,2026,Royal Challengers Bangalore,Suyash Sharma,9440ef41,1527684.json
+1527684,2026,Royal Challengers Bangalore,PD Salt,3d284ca3,1527684.json
+1527684,2026,Royal Challengers Bangalore,V Kohli,ba607b88,1527684.json
+1527684,2026,Royal Challengers Bangalore,D Padikkal,2c25d4f5,1527684.json
+1527684,2026,Royal Challengers Bangalore,RM Patidar,c740ea83,1527684.json
+1527684,2026,Royal Challengers Bangalore,TH David,f1f99156,1527684.json
+1527684,2026,Royal Challengers Bangalore,JM Sharma,800d2d97,1527684.json
+1527684,2026,Royal Challengers Bangalore,R Shepherd,c5aef772,1527684.json
+1527684,2026,Royal Challengers Bangalore,KH Pandya,5b8c830e,1527684.json
+1527684,2026,Royal Challengers Bangalore,B Kumar,2e81a32d,1527684.json
+1527684,2026,Royal Challengers Bangalore,Abhinandan Singh,82c10dac,1527684.json
+1527684,2026,Royal Challengers Bangalore,JA Duffy,dadbdb68,1527684.json
 1527684,2026,Chennai Super Kings,KK Ahmed,a2f46292,1527684.json
 1527684,2026,Chennai Super Kings,SV Samson,a4cc73aa,1527684.json
 1527684,2026,Chennai Super Kings,RD Gaikwad,45a43fe2,1527684.json
@@ -13799,18 +13799,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1527688,2026,Lucknow Super Giants,Avesh Khan,eef2536f,1527688.json
 1527688,2026,Lucknow Super Giants,DS Rathi,13fc5c6d,1527688.json
 1527688,2026,Lucknow Super Giants,Prince Yadav,80b2fb19,1527688.json
-1527689,2026,Royal Challengers Bengaluru,PD Salt,3d284ca3,1527689.json
-1527689,2026,Royal Challengers Bengaluru,V Kohli,ba607b88,1527689.json
-1527689,2026,Royal Challengers Bengaluru,D Padikkal,2c25d4f5,1527689.json
-1527689,2026,Royal Challengers Bengaluru,RM Patidar,c740ea83,1527689.json
-1527689,2026,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1527689.json
-1527689,2026,Royal Challengers Bengaluru,JM Sharma,800d2d97,1527689.json
-1527689,2026,Royal Challengers Bengaluru,TH David,f1f99156,1527689.json
-1527689,2026,Royal Challengers Bengaluru,R Shepherd,c5aef772,1527689.json
-1527689,2026,Royal Challengers Bengaluru,VR Iyer,a24be938,1527689.json
-1527689,2026,Royal Challengers Bengaluru,B Kumar,2e81a32d,1527689.json
-1527689,2026,Royal Challengers Bengaluru,Abhinandan Singh,82c10dac,1527689.json
-1527689,2026,Royal Challengers Bengaluru,JR Hazlewood,03806cf8,1527689.json
+1527689,2026,Royal Challengers Bangalore,PD Salt,3d284ca3,1527689.json
+1527689,2026,Royal Challengers Bangalore,V Kohli,ba607b88,1527689.json
+1527689,2026,Royal Challengers Bangalore,D Padikkal,2c25d4f5,1527689.json
+1527689,2026,Royal Challengers Bangalore,RM Patidar,c740ea83,1527689.json
+1527689,2026,Royal Challengers Bangalore,KH Pandya,5b8c830e,1527689.json
+1527689,2026,Royal Challengers Bangalore,JM Sharma,800d2d97,1527689.json
+1527689,2026,Royal Challengers Bangalore,TH David,f1f99156,1527689.json
+1527689,2026,Royal Challengers Bangalore,R Shepherd,c5aef772,1527689.json
+1527689,2026,Royal Challengers Bangalore,VR Iyer,a24be938,1527689.json
+1527689,2026,Royal Challengers Bangalore,B Kumar,2e81a32d,1527689.json
+1527689,2026,Royal Challengers Bangalore,Abhinandan Singh,82c10dac,1527689.json
+1527689,2026,Royal Challengers Bangalore,JR Hazlewood,03806cf8,1527689.json
 1527689,2026,Rajasthan Royals,Sandeep Sharma,ce820073,1527689.json
 1527689,2026,Rajasthan Royals,YBK Jaiswal,6c19c6e5,1527689.json
 1527689,2026,Rajasthan Royals,V Suryavanshi,470f446b,1527689.json
@@ -13895,18 +13895,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1527692,2026,Gujarat Titans,Ashok Sharma,50c09020,1527692.json
 1527692,2026,Gujarat Titans,M Prasidh Krishna,85e0cf10,1527692.json
 1527692,2026,Gujarat Titans,M Shahrukh Khan,7dcb9bc9,1527692.json
-1527693,2026,Royal Challengers Bengaluru,Rasikh Salam,b8527c3d,1527693.json
-1527693,2026,Royal Challengers Bengaluru,PD Salt,3d284ca3,1527693.json
-1527693,2026,Royal Challengers Bengaluru,V Kohli,ba607b88,1527693.json
-1527693,2026,Royal Challengers Bengaluru,RM Patidar,c740ea83,1527693.json
-1527693,2026,Royal Challengers Bengaluru,TH David,f1f99156,1527693.json
-1527693,2026,Royal Challengers Bengaluru,JM Sharma,800d2d97,1527693.json
-1527693,2026,Royal Challengers Bengaluru,R Shepherd,c5aef772,1527693.json
-1527693,2026,Royal Challengers Bengaluru,D Padikkal,2c25d4f5,1527693.json
-1527693,2026,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1527693.json
-1527693,2026,Royal Challengers Bengaluru,B Kumar,2e81a32d,1527693.json
-1527693,2026,Royal Challengers Bengaluru,JA Duffy,dadbdb68,1527693.json
-1527693,2026,Royal Challengers Bengaluru,Suyash Sharma,9440ef41,1527693.json
+1527693,2026,Royal Challengers Bangalore,Rasikh Salam,b8527c3d,1527693.json
+1527693,2026,Royal Challengers Bangalore,PD Salt,3d284ca3,1527693.json
+1527693,2026,Royal Challengers Bangalore,V Kohli,ba607b88,1527693.json
+1527693,2026,Royal Challengers Bangalore,RM Patidar,c740ea83,1527693.json
+1527693,2026,Royal Challengers Bangalore,TH David,f1f99156,1527693.json
+1527693,2026,Royal Challengers Bangalore,JM Sharma,800d2d97,1527693.json
+1527693,2026,Royal Challengers Bangalore,R Shepherd,c5aef772,1527693.json
+1527693,2026,Royal Challengers Bangalore,D Padikkal,2c25d4f5,1527693.json
+1527693,2026,Royal Challengers Bangalore,KH Pandya,5b8c830e,1527693.json
+1527693,2026,Royal Challengers Bangalore,B Kumar,2e81a32d,1527693.json
+1527693,2026,Royal Challengers Bangalore,JA Duffy,dadbdb68,1527693.json
+1527693,2026,Royal Challengers Bangalore,Suyash Sharma,9440ef41,1527693.json
 1527693,2026,Mumbai Indians,M Markande,a9fd84fb,1527693.json
 1527693,2026,Mumbai Indians,RD Rickelton,e66732f8,1527693.json
 1527693,2026,Mumbai Indians,RG Sharma,740742ef,1527693.json
@@ -13979,18 +13979,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1529266,2026,Lucknow Super Giants,Avesh Khan,eef2536f,1529266.json
 1529266,2026,Lucknow Super Giants,DS Rathi,13fc5c6d,1529266.json
 1529266,2026,Lucknow Super Giants,Prince Yadav,80b2fb19,1529266.json
-1529266,2026,Royal Challengers Bengaluru,Suyash Sharma,9440ef41,1529266.json
-1529266,2026,Royal Challengers Bengaluru,PD Salt,3d284ca3,1529266.json
-1529266,2026,Royal Challengers Bengaluru,V Kohli,ba607b88,1529266.json
-1529266,2026,Royal Challengers Bengaluru,D Padikkal,2c25d4f5,1529266.json
-1529266,2026,Royal Challengers Bengaluru,RM Patidar,c740ea83,1529266.json
-1529266,2026,Royal Challengers Bengaluru,JM Sharma,800d2d97,1529266.json
-1529266,2026,Royal Challengers Bengaluru,TH David,f1f99156,1529266.json
-1529266,2026,Royal Challengers Bengaluru,R Shepherd,c5aef772,1529266.json
-1529266,2026,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1529266.json
-1529266,2026,Royal Challengers Bengaluru,B Kumar,2e81a32d,1529266.json
-1529266,2026,Royal Challengers Bengaluru,Rasikh Salam,b8527c3d,1529266.json
-1529266,2026,Royal Challengers Bengaluru,JR Hazlewood,03806cf8,1529266.json
+1529266,2026,Royal Challengers Bangalore,Suyash Sharma,9440ef41,1529266.json
+1529266,2026,Royal Challengers Bangalore,PD Salt,3d284ca3,1529266.json
+1529266,2026,Royal Challengers Bangalore,V Kohli,ba607b88,1529266.json
+1529266,2026,Royal Challengers Bangalore,D Padikkal,2c25d4f5,1529266.json
+1529266,2026,Royal Challengers Bangalore,RM Patidar,c740ea83,1529266.json
+1529266,2026,Royal Challengers Bangalore,JM Sharma,800d2d97,1529266.json
+1529266,2026,Royal Challengers Bangalore,TH David,f1f99156,1529266.json
+1529266,2026,Royal Challengers Bangalore,R Shepherd,c5aef772,1529266.json
+1529266,2026,Royal Challengers Bangalore,KH Pandya,5b8c830e,1529266.json
+1529266,2026,Royal Challengers Bangalore,B Kumar,2e81a32d,1529266.json
+1529266,2026,Royal Challengers Bangalore,Rasikh Salam,b8527c3d,1529266.json
+1529266,2026,Royal Challengers Bangalore,JR Hazlewood,03806cf8,1529266.json
 1529267,2026,Mumbai Indians,AM Ghazanfar,9ca68676,1529267.json
 1529267,2026,Mumbai Indians,RD Rickelton,e66732f8,1529267.json
 1529267,2026,Mumbai Indians,Q de Kock,372455c4,1529267.json
@@ -14038,18 +14038,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1529268,2026,Gujarat Titans,Ashok Sharma,50c09020,1529268.json
 1529268,2026,Gujarat Titans,K Rabada,e62dd25d,1529268.json
 1529268,2026,Gujarat Titans,Mohammed Siraj,2f49c897,1529268.json
-1529269,2026,Royal Challengers Bengaluru,PD Salt,3d284ca3,1529269.json
-1529269,2026,Royal Challengers Bengaluru,V Kohli,ba607b88,1529269.json
-1529269,2026,Royal Challengers Bengaluru,D Padikkal,2c25d4f5,1529269.json
-1529269,2026,Royal Challengers Bengaluru,RM Patidar,c740ea83,1529269.json
-1529269,2026,Royal Challengers Bengaluru,TH David,f1f99156,1529269.json
-1529269,2026,Royal Challengers Bengaluru,JM Sharma,800d2d97,1529269.json
-1529269,2026,Royal Challengers Bengaluru,R Shepherd,c5aef772,1529269.json
-1529269,2026,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1529269.json
-1529269,2026,Royal Challengers Bengaluru,Rasikh Salam,b8527c3d,1529269.json
-1529269,2026,Royal Challengers Bengaluru,B Kumar,2e81a32d,1529269.json
-1529269,2026,Royal Challengers Bengaluru,Suyash Sharma,9440ef41,1529269.json
-1529269,2026,Royal Challengers Bengaluru,JR Hazlewood,03806cf8,1529269.json
+1529269,2026,Royal Challengers Bangalore,PD Salt,3d284ca3,1529269.json
+1529269,2026,Royal Challengers Bangalore,V Kohli,ba607b88,1529269.json
+1529269,2026,Royal Challengers Bangalore,D Padikkal,2c25d4f5,1529269.json
+1529269,2026,Royal Challengers Bangalore,RM Patidar,c740ea83,1529269.json
+1529269,2026,Royal Challengers Bangalore,TH David,f1f99156,1529269.json
+1529269,2026,Royal Challengers Bangalore,JM Sharma,800d2d97,1529269.json
+1529269,2026,Royal Challengers Bangalore,R Shepherd,c5aef772,1529269.json
+1529269,2026,Royal Challengers Bangalore,KH Pandya,5b8c830e,1529269.json
+1529269,2026,Royal Challengers Bangalore,Rasikh Salam,b8527c3d,1529269.json
+1529269,2026,Royal Challengers Bangalore,B Kumar,2e81a32d,1529269.json
+1529269,2026,Royal Challengers Bangalore,Suyash Sharma,9440ef41,1529269.json
+1529269,2026,Royal Challengers Bangalore,JR Hazlewood,03806cf8,1529269.json
 1529269,2026,Delhi Capitals,Mukesh Kumar,2cffab74,1529269.json
 1529269,2026,Delhi Capitals,P Nissanka,8ee36b18,1529269.json
 1529269,2026,Delhi Capitals,KL Rahul,b17e2f24,1529269.json
@@ -14243,18 +14243,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1529277,2026,Gujarat Titans,K Rabada,e62dd25d,1529277.json
 1529277,2026,Gujarat Titans,Mohammed Siraj,2f49c897,1529277.json
 1529277,2026,Gujarat Titans,M Prasidh Krishna,85e0cf10,1529277.json
-1529277,2026,Royal Challengers Bengaluru,Suyash Sharma,9440ef41,1529277.json
-1529277,2026,Royal Challengers Bengaluru,JG Bethell,3c55c703,1529277.json
-1529277,2026,Royal Challengers Bengaluru,V Kohli,ba607b88,1529277.json
-1529277,2026,Royal Challengers Bengaluru,D Padikkal,2c25d4f5,1529277.json
-1529277,2026,Royal Challengers Bengaluru,RM Patidar,c740ea83,1529277.json
-1529277,2026,Royal Challengers Bengaluru,JM Sharma,800d2d97,1529277.json
-1529277,2026,Royal Challengers Bengaluru,TH David,f1f99156,1529277.json
-1529277,2026,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1529277.json
-1529277,2026,Royal Challengers Bengaluru,R Shepherd,c5aef772,1529277.json
-1529277,2026,Royal Challengers Bengaluru,B Kumar,2e81a32d,1529277.json
-1529277,2026,Royal Challengers Bengaluru,JR Hazlewood,03806cf8,1529277.json
-1529277,2026,Royal Challengers Bengaluru,Rasikh Salam,b8527c3d,1529277.json
+1529277,2026,Royal Challengers Bangalore,Suyash Sharma,9440ef41,1529277.json
+1529277,2026,Royal Challengers Bangalore,JG Bethell,3c55c703,1529277.json
+1529277,2026,Royal Challengers Bangalore,V Kohli,ba607b88,1529277.json
+1529277,2026,Royal Challengers Bangalore,D Padikkal,2c25d4f5,1529277.json
+1529277,2026,Royal Challengers Bangalore,RM Patidar,c740ea83,1529277.json
+1529277,2026,Royal Challengers Bangalore,JM Sharma,800d2d97,1529277.json
+1529277,2026,Royal Challengers Bangalore,TH David,f1f99156,1529277.json
+1529277,2026,Royal Challengers Bangalore,KH Pandya,5b8c830e,1529277.json
+1529277,2026,Royal Challengers Bangalore,R Shepherd,c5aef772,1529277.json
+1529277,2026,Royal Challengers Bangalore,B Kumar,2e81a32d,1529277.json
+1529277,2026,Royal Challengers Bangalore,JR Hazlewood,03806cf8,1529277.json
+1529277,2026,Royal Challengers Bangalore,Rasikh Salam,b8527c3d,1529277.json
 1529278,2026,Delhi Capitals,Auqib Nabi,7c3c0337,1529278.json
 1529278,2026,Delhi Capitals,V Nigam,5ffc0565,1529278.json
 1529278,2026,Delhi Capitals,P Nissanka,8ee36b18,1529278.json
@@ -14363,18 +14363,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1529282,2026,Delhi Capitals,Kuldeep Yadav,8d2c70ad,1529282.json
 1529282,2026,Delhi Capitals,PVD Chameera,327b58d3,1529282.json
 1529282,2026,Delhi Capitals,T Natarajan,ce794613,1529282.json
-1529282,2026,Royal Challengers Bengaluru,Suyash Sharma,9440ef41,1529282.json
-1529282,2026,Royal Challengers Bengaluru,JG Bethell,3c55c703,1529282.json
-1529282,2026,Royal Challengers Bengaluru,V Kohli,ba607b88,1529282.json
-1529282,2026,Royal Challengers Bengaluru,D Padikkal,2c25d4f5,1529282.json
-1529282,2026,Royal Challengers Bengaluru,RM Patidar,c740ea83,1529282.json
-1529282,2026,Royal Challengers Bengaluru,JM Sharma,800d2d97,1529282.json
-1529282,2026,Royal Challengers Bengaluru,TH David,f1f99156,1529282.json
-1529282,2026,Royal Challengers Bengaluru,R Shepherd,c5aef772,1529282.json
-1529282,2026,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1529282.json
-1529282,2026,Royal Challengers Bengaluru,B Kumar,2e81a32d,1529282.json
-1529282,2026,Royal Challengers Bengaluru,JR Hazlewood,03806cf8,1529282.json
-1529282,2026,Royal Challengers Bengaluru,Rasikh Salam,b8527c3d,1529282.json
+1529282,2026,Royal Challengers Bangalore,Suyash Sharma,9440ef41,1529282.json
+1529282,2026,Royal Challengers Bangalore,JG Bethell,3c55c703,1529282.json
+1529282,2026,Royal Challengers Bangalore,V Kohli,ba607b88,1529282.json
+1529282,2026,Royal Challengers Bangalore,D Padikkal,2c25d4f5,1529282.json
+1529282,2026,Royal Challengers Bangalore,RM Patidar,c740ea83,1529282.json
+1529282,2026,Royal Challengers Bangalore,JM Sharma,800d2d97,1529282.json
+1529282,2026,Royal Challengers Bangalore,TH David,f1f99156,1529282.json
+1529282,2026,Royal Challengers Bangalore,R Shepherd,c5aef772,1529282.json
+1529282,2026,Royal Challengers Bangalore,KH Pandya,5b8c830e,1529282.json
+1529282,2026,Royal Challengers Bangalore,B Kumar,2e81a32d,1529282.json
+1529282,2026,Royal Challengers Bangalore,JR Hazlewood,03806cf8,1529282.json
+1529282,2026,Royal Challengers Bangalore,Rasikh Salam,b8527c3d,1529282.json
 1529283,2026,Punjab Kings,Harpreet Brar,c05edf8e,1529283.json
 1529283,2026,Punjab Kings,P Simran Singh,9418198b,1529283.json
 1529283,2026,Punjab Kings,Priyansh Arya,b5797845,1529283.json
@@ -14423,18 +14423,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1529284,2026,Sunrisers Hyderabad,Harsh Dubey,25228673,1529284.json
 1529284,2026,Sunrisers Hyderabad,PP Hinge,ece7b6b3,1529284.json
 1529284,2026,Sunrisers Hyderabad,E Malinga,5750bcb4,1529284.json
-1529285,2026,Royal Challengers Bengaluru,JG Bethell,3c55c703,1529285.json
-1529285,2026,Royal Challengers Bengaluru,V Kohli,ba607b88,1529285.json
-1529285,2026,Royal Challengers Bengaluru,D Padikkal,2c25d4f5,1529285.json
-1529285,2026,Royal Challengers Bengaluru,RM Patidar,c740ea83,1529285.json
-1529285,2026,Royal Challengers Bengaluru,JM Sharma,800d2d97,1529285.json
-1529285,2026,Royal Challengers Bengaluru,TH David,f1f99156,1529285.json
-1529285,2026,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1529285.json
-1529285,2026,Royal Challengers Bengaluru,R Shepherd,c5aef772,1529285.json
-1529285,2026,Royal Challengers Bengaluru,VR Iyer,a24be938,1529285.json
-1529285,2026,Royal Challengers Bengaluru,B Kumar,2e81a32d,1529285.json
-1529285,2026,Royal Challengers Bengaluru,JR Hazlewood,03806cf8,1529285.json
-1529285,2026,Royal Challengers Bengaluru,Suyash Sharma,9440ef41,1529285.json
+1529285,2026,Royal Challengers Bangalore,JG Bethell,3c55c703,1529285.json
+1529285,2026,Royal Challengers Bangalore,V Kohli,ba607b88,1529285.json
+1529285,2026,Royal Challengers Bangalore,D Padikkal,2c25d4f5,1529285.json
+1529285,2026,Royal Challengers Bangalore,RM Patidar,c740ea83,1529285.json
+1529285,2026,Royal Challengers Bangalore,JM Sharma,800d2d97,1529285.json
+1529285,2026,Royal Challengers Bangalore,TH David,f1f99156,1529285.json
+1529285,2026,Royal Challengers Bangalore,KH Pandya,5b8c830e,1529285.json
+1529285,2026,Royal Challengers Bangalore,R Shepherd,c5aef772,1529285.json
+1529285,2026,Royal Challengers Bangalore,VR Iyer,a24be938,1529285.json
+1529285,2026,Royal Challengers Bangalore,B Kumar,2e81a32d,1529285.json
+1529285,2026,Royal Challengers Bangalore,JR Hazlewood,03806cf8,1529285.json
+1529285,2026,Royal Challengers Bangalore,Suyash Sharma,9440ef41,1529285.json
 1529285,2026,Gujarat Titans,Mohammed Siraj,2f49c897,1529285.json
 1529285,2026,Gujarat Titans,B Sai Sudharsan,d5130a30,1529285.json
 1529285,2026,Gujarat Titans,Shubman Gill,b4b99816,1529285.json
@@ -14625,18 +14625,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1529293,2026,Lucknow Super Giants,DS Rathi,13fc5c6d,1529293.json
 1529293,2026,Lucknow Super Giants,Mohammed Shami,8cf9814c,1529293.json
 1529293,2026,Lucknow Super Giants,Prince Yadav,80b2fb19,1529293.json
-1529293,2026,Royal Challengers Bengaluru,Suyash Sharma,9440ef41,1529293.json
-1529293,2026,Royal Challengers Bengaluru,JG Bethell,3c55c703,1529293.json
-1529293,2026,Royal Challengers Bengaluru,V Kohli,ba607b88,1529293.json
-1529293,2026,Royal Challengers Bengaluru,D Padikkal,2c25d4f5,1529293.json
-1529293,2026,Royal Challengers Bengaluru,RM Patidar,c740ea83,1529293.json
-1529293,2026,Royal Challengers Bengaluru,JM Sharma,800d2d97,1529293.json
-1529293,2026,Royal Challengers Bengaluru,TH David,f1f99156,1529293.json
-1529293,2026,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1529293.json
-1529293,2026,Royal Challengers Bengaluru,R Shepherd,c5aef772,1529293.json
-1529293,2026,Royal Challengers Bengaluru,B Kumar,2e81a32d,1529293.json
-1529293,2026,Royal Challengers Bengaluru,JR Hazlewood,03806cf8,1529293.json
-1529293,2026,Royal Challengers Bengaluru,Rasikh Salam,b8527c3d,1529293.json
+1529293,2026,Royal Challengers Bangalore,Suyash Sharma,9440ef41,1529293.json
+1529293,2026,Royal Challengers Bangalore,JG Bethell,3c55c703,1529293.json
+1529293,2026,Royal Challengers Bangalore,V Kohli,ba607b88,1529293.json
+1529293,2026,Royal Challengers Bangalore,D Padikkal,2c25d4f5,1529293.json
+1529293,2026,Royal Challengers Bangalore,RM Patidar,c740ea83,1529293.json
+1529293,2026,Royal Challengers Bangalore,JM Sharma,800d2d97,1529293.json
+1529293,2026,Royal Challengers Bangalore,TH David,f1f99156,1529293.json
+1529293,2026,Royal Challengers Bangalore,KH Pandya,5b8c830e,1529293.json
+1529293,2026,Royal Challengers Bangalore,R Shepherd,c5aef772,1529293.json
+1529293,2026,Royal Challengers Bangalore,B Kumar,2e81a32d,1529293.json
+1529293,2026,Royal Challengers Bangalore,JR Hazlewood,03806cf8,1529293.json
+1529293,2026,Royal Challengers Bangalore,Rasikh Salam,b8527c3d,1529293.json
 1529294,2026,Delhi Capitals,Kuldeep Yadav,8d2c70ad,1529294.json
 1529294,2026,Delhi Capitals,P Nissanka,8ee36b18,1529294.json
 1529294,2026,Delhi Capitals,KL Rahul,b17e2f24,1529294.json
@@ -14721,18 +14721,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1529297,2026,Mumbai Indians,DL Chahar,23eeb873,1529297.json
 1529297,2026,Mumbai Indians,JJ Bumrah,462411b3,1529297.json
 1529297,2026,Mumbai Indians,AM Ghazanfar,9ca68676,1529297.json
-1529297,2026,Royal Challengers Bengaluru,Suyash Sharma,9440ef41,1529297.json
-1529297,2026,Royal Challengers Bengaluru,JG Bethell,3c55c703,1529297.json
-1529297,2026,Royal Challengers Bengaluru,V Kohli,ba607b88,1529297.json
-1529297,2026,Royal Challengers Bengaluru,D Padikkal,2c25d4f5,1529297.json
-1529297,2026,Royal Challengers Bengaluru,RM Patidar,c740ea83,1529297.json
-1529297,2026,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1529297.json
-1529297,2026,Royal Challengers Bengaluru,JM Sharma,800d2d97,1529297.json
-1529297,2026,Royal Challengers Bengaluru,TH David,f1f99156,1529297.json
-1529297,2026,Royal Challengers Bengaluru,R Shepherd,c5aef772,1529297.json
-1529297,2026,Royal Challengers Bengaluru,Rasikh Salam,b8527c3d,1529297.json
-1529297,2026,Royal Challengers Bengaluru,B Kumar,2e81a32d,1529297.json
-1529297,2026,Royal Challengers Bengaluru,JR Hazlewood,03806cf8,1529297.json
+1529297,2026,Royal Challengers Bangalore,Suyash Sharma,9440ef41,1529297.json
+1529297,2026,Royal Challengers Bangalore,JG Bethell,3c55c703,1529297.json
+1529297,2026,Royal Challengers Bangalore,V Kohli,ba607b88,1529297.json
+1529297,2026,Royal Challengers Bangalore,D Padikkal,2c25d4f5,1529297.json
+1529297,2026,Royal Challengers Bangalore,RM Patidar,c740ea83,1529297.json
+1529297,2026,Royal Challengers Bangalore,KH Pandya,5b8c830e,1529297.json
+1529297,2026,Royal Challengers Bangalore,JM Sharma,800d2d97,1529297.json
+1529297,2026,Royal Challengers Bangalore,TH David,f1f99156,1529297.json
+1529297,2026,Royal Challengers Bangalore,R Shepherd,c5aef772,1529297.json
+1529297,2026,Royal Challengers Bangalore,Rasikh Salam,b8527c3d,1529297.json
+1529297,2026,Royal Challengers Bangalore,B Kumar,2e81a32d,1529297.json
+1529297,2026,Royal Challengers Bangalore,JR Hazlewood,03806cf8,1529297.json
 1529298,2026,Punjab Kings,Yash Thakur,4b31f3a3,1529298.json
 1529298,2026,Punjab Kings,Priyansh Arya,b5797845,1529298.json
 1529298,2026,Punjab Kings,P Simran Singh,9418198b,1529298.json
@@ -14793,18 +14793,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1529300,2026,Kolkata Knight Riders,AS Roy,e4cdf230,1529300.json
 1529300,2026,Kolkata Knight Riders,Kartik Tyagi,5d2eea49,1529300.json
 1529300,2026,Kolkata Knight Riders,VG Arora,7c3b3b78,1529300.json
-1529300,2026,Royal Challengers Bengaluru,JA Duffy,dadbdb68,1529300.json
-1529300,2026,Royal Challengers Bengaluru,JG Bethell,3c55c703,1529300.json
-1529300,2026,Royal Challengers Bengaluru,V Kohli,ba607b88,1529300.json
-1529300,2026,Royal Challengers Bengaluru,D Padikkal,2c25d4f5,1529300.json
-1529300,2026,Royal Challengers Bengaluru,RM Patidar,c740ea83,1529300.json
-1529300,2026,Royal Challengers Bengaluru,TH David,f1f99156,1529300.json
-1529300,2026,Royal Challengers Bengaluru,JM Sharma,800d2d97,1529300.json
-1529300,2026,Royal Challengers Bengaluru,VR Iyer,a24be938,1529300.json
-1529300,2026,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1529300.json
-1529300,2026,Royal Challengers Bengaluru,B Kumar,2e81a32d,1529300.json
-1529300,2026,Royal Challengers Bengaluru,Rasikh Salam,b8527c3d,1529300.json
-1529300,2026,Royal Challengers Bengaluru,JR Hazlewood,03806cf8,1529300.json
+1529300,2026,Royal Challengers Bangalore,JA Duffy,dadbdb68,1529300.json
+1529300,2026,Royal Challengers Bangalore,JG Bethell,3c55c703,1529300.json
+1529300,2026,Royal Challengers Bangalore,V Kohli,ba607b88,1529300.json
+1529300,2026,Royal Challengers Bangalore,D Padikkal,2c25d4f5,1529300.json
+1529300,2026,Royal Challengers Bangalore,RM Patidar,c740ea83,1529300.json
+1529300,2026,Royal Challengers Bangalore,TH David,f1f99156,1529300.json
+1529300,2026,Royal Challengers Bangalore,JM Sharma,800d2d97,1529300.json
+1529300,2026,Royal Challengers Bangalore,VR Iyer,a24be938,1529300.json
+1529300,2026,Royal Challengers Bangalore,KH Pandya,5b8c830e,1529300.json
+1529300,2026,Royal Challengers Bangalore,B Kumar,2e81a32d,1529300.json
+1529300,2026,Royal Challengers Bangalore,Rasikh Salam,b8527c3d,1529300.json
+1529300,2026,Royal Challengers Bangalore,JR Hazlewood,03806cf8,1529300.json
 1529301,2026,Punjab Kings,Priyansh Arya,b5797845,1529301.json
 1529301,2026,Punjab Kings,P Simran Singh,9418198b,1529301.json
 1529301,2026,Punjab Kings,C Connolly,fe366f34,1529301.json
@@ -14877,18 +14877,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1529303,2026,Gujarat Titans,K Rabada,e62dd25d,1529303.json
 1529303,2026,Gujarat Titans,Arshad Khan,12314277,1529303.json
 1529303,2026,Gujarat Titans,R Sai Kishore,c7a995d3,1529303.json
-1529304,2026,Royal Challengers Bengaluru,Rasikh Salam,b8527c3d,1529304.json
-1529304,2026,Royal Challengers Bengaluru,JG Bethell,3c55c703,1529304.json
-1529304,2026,Royal Challengers Bengaluru,V Kohli,ba607b88,1529304.json
-1529304,2026,Royal Challengers Bengaluru,D Padikkal,2c25d4f5,1529304.json
-1529304,2026,Royal Challengers Bengaluru,VR Iyer,a24be938,1529304.json
-1529304,2026,Royal Challengers Bengaluru,TH David,f1f99156,1529304.json
-1529304,2026,Royal Challengers Bengaluru,JM Sharma,800d2d97,1529304.json
-1529304,2026,Royal Challengers Bengaluru,R Shepherd,c5aef772,1529304.json
-1529304,2026,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1529304.json
-1529304,2026,Royal Challengers Bengaluru,B Kumar,2e81a32d,1529304.json
-1529304,2026,Royal Challengers Bengaluru,Suyash Sharma,9440ef41,1529304.json
-1529304,2026,Royal Challengers Bengaluru,JR Hazlewood,03806cf8,1529304.json
+1529304,2026,Royal Challengers Bangalore,Rasikh Salam,b8527c3d,1529304.json
+1529304,2026,Royal Challengers Bangalore,JG Bethell,3c55c703,1529304.json
+1529304,2026,Royal Challengers Bangalore,V Kohli,ba607b88,1529304.json
+1529304,2026,Royal Challengers Bangalore,D Padikkal,2c25d4f5,1529304.json
+1529304,2026,Royal Challengers Bangalore,VR Iyer,a24be938,1529304.json
+1529304,2026,Royal Challengers Bangalore,TH David,f1f99156,1529304.json
+1529304,2026,Royal Challengers Bangalore,JM Sharma,800d2d97,1529304.json
+1529304,2026,Royal Challengers Bangalore,R Shepherd,c5aef772,1529304.json
+1529304,2026,Royal Challengers Bangalore,KH Pandya,5b8c830e,1529304.json
+1529304,2026,Royal Challengers Bangalore,B Kumar,2e81a32d,1529304.json
+1529304,2026,Royal Challengers Bangalore,Suyash Sharma,9440ef41,1529304.json
+1529304,2026,Royal Challengers Bangalore,JR Hazlewood,03806cf8,1529304.json
 1529304,2026,Punjab Kings,YS Chahal,57ee1fde,1529304.json
 1529304,2026,Punjab Kings,Priyansh Arya,b5797845,1529304.json
 1529304,2026,Punjab Kings,P Simran Singh,9418198b,1529304.json
@@ -15034,18 +15034,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1529310,2026,Sunrisers Hyderabad,Shivang Kumar,7b44eb3e,1529310.json
 1529310,2026,Sunrisers Hyderabad,E Malinga,5750bcb4,1529310.json
 1529310,2026,Sunrisers Hyderabad,Sakib Hussain,280fff14,1529310.json
-1529310,2026,Royal Challengers Bengaluru,Suyash Sharma,9440ef41,1529310.json
-1529310,2026,Royal Challengers Bengaluru,VR Iyer,a24be938,1529310.json
-1529310,2026,Royal Challengers Bengaluru,V Kohli,ba607b88,1529310.json
-1529310,2026,Royal Challengers Bengaluru,D Padikkal,2c25d4f5,1529310.json
-1529310,2026,Royal Challengers Bengaluru,RM Patidar,c740ea83,1529310.json
-1529310,2026,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1529310.json
-1529310,2026,Royal Challengers Bengaluru,TH David,f1f99156,1529310.json
-1529310,2026,Royal Challengers Bengaluru,JM Sharma,800d2d97,1529310.json
-1529310,2026,Royal Challengers Bengaluru,R Shepherd,c5aef772,1529310.json
-1529310,2026,Royal Challengers Bengaluru,B Kumar,2e81a32d,1529310.json
-1529310,2026,Royal Challengers Bengaluru,JR Hazlewood,03806cf8,1529310.json
-1529310,2026,Royal Challengers Bengaluru,Rasikh Salam,b8527c3d,1529310.json
+1529310,2026,Royal Challengers Bangalore,Suyash Sharma,9440ef41,1529310.json
+1529310,2026,Royal Challengers Bangalore,VR Iyer,a24be938,1529310.json
+1529310,2026,Royal Challengers Bangalore,V Kohli,ba607b88,1529310.json
+1529310,2026,Royal Challengers Bangalore,D Padikkal,2c25d4f5,1529310.json
+1529310,2026,Royal Challengers Bangalore,RM Patidar,c740ea83,1529310.json
+1529310,2026,Royal Challengers Bangalore,KH Pandya,5b8c830e,1529310.json
+1529310,2026,Royal Challengers Bangalore,TH David,f1f99156,1529310.json
+1529310,2026,Royal Challengers Bangalore,JM Sharma,800d2d97,1529310.json
+1529310,2026,Royal Challengers Bangalore,R Shepherd,c5aef772,1529310.json
+1529310,2026,Royal Challengers Bangalore,B Kumar,2e81a32d,1529310.json
+1529310,2026,Royal Challengers Bangalore,JR Hazlewood,03806cf8,1529310.json
+1529310,2026,Royal Challengers Bangalore,Rasikh Salam,b8527c3d,1529310.json
 1529311,2026,Lucknow Super Giants,DS Rathi,13fc5c6d,1529311.json
 1529311,2026,Lucknow Super Giants,JP Inglis,989889ff,1529311.json
 1529311,2026,Lucknow Super Giants,AA Kulkarni,2d140b79,1529311.json
@@ -15118,18 +15118,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1529313,2026,Kolkata Knight Riders,Kartik Tyagi,5d2eea49,1529313.json
 1529313,2026,Kolkata Knight Riders,CV Varun,5b7ab5a9,1529313.json
 1529313,2026,Kolkata Knight Riders,SR Dubey,11061889,1529313.json
-1535462,2026,Royal Challengers Bengaluru,R Shepherd,c5aef772,1535462.json
-1535462,2026,Royal Challengers Bengaluru,VR Iyer,a24be938,1535462.json
-1535462,2026,Royal Challengers Bengaluru,V Kohli,ba607b88,1535462.json
-1535462,2026,Royal Challengers Bengaluru,D Padikkal,2c25d4f5,1535462.json
-1535462,2026,Royal Challengers Bengaluru,RM Patidar,c740ea83,1535462.json
-1535462,2026,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1535462.json
-1535462,2026,Royal Challengers Bengaluru,TH David,f1f99156,1535462.json
-1535462,2026,Royal Challengers Bengaluru,JM Sharma,800d2d97,1535462.json
-1535462,2026,Royal Challengers Bengaluru,B Kumar,2e81a32d,1535462.json
-1535462,2026,Royal Challengers Bengaluru,JR Hazlewood,03806cf8,1535462.json
-1535462,2026,Royal Challengers Bengaluru,JA Duffy,dadbdb68,1535462.json
-1535462,2026,Royal Challengers Bengaluru,Rasikh Salam,b8527c3d,1535462.json
+1535462,2026,Royal Challengers Bangalore,R Shepherd,c5aef772,1535462.json
+1535462,2026,Royal Challengers Bangalore,VR Iyer,a24be938,1535462.json
+1535462,2026,Royal Challengers Bangalore,V Kohli,ba607b88,1535462.json
+1535462,2026,Royal Challengers Bangalore,D Padikkal,2c25d4f5,1535462.json
+1535462,2026,Royal Challengers Bangalore,RM Patidar,c740ea83,1535462.json
+1535462,2026,Royal Challengers Bangalore,KH Pandya,5b8c830e,1535462.json
+1535462,2026,Royal Challengers Bangalore,TH David,f1f99156,1535462.json
+1535462,2026,Royal Challengers Bangalore,JM Sharma,800d2d97,1535462.json
+1535462,2026,Royal Challengers Bangalore,B Kumar,2e81a32d,1535462.json
+1535462,2026,Royal Challengers Bangalore,JR Hazlewood,03806cf8,1535462.json
+1535462,2026,Royal Challengers Bangalore,JA Duffy,dadbdb68,1535462.json
+1535462,2026,Royal Challengers Bangalore,Rasikh Salam,b8527c3d,1535462.json
 1535462,2026,Gujarat Titans,K Khejroliya,fa2f1dde,1535462.json
 1535462,2026,Gujarat Titans,B Sai Sudharsan,d5130a30,1535462.json
 1535462,2026,Gujarat Titans,Shubman Gill,b4b99816,1535462.json
@@ -15202,18 +15202,18 @@ match_id,season,team,player_name,player_registry_id,source_file
 1535465,2026,Gujarat Titans,Rashid Khan,5f547c8b,1535465.json
 1535465,2026,Gujarat Titans,K Rabada,e62dd25d,1535465.json
 1535465,2026,Gujarat Titans,Mohammed Siraj,2f49c897,1535465.json
-1535465,2026,Royal Challengers Bengaluru,JA Duffy,dadbdb68,1535465.json
-1535465,2026,Royal Challengers Bengaluru,VR Iyer,a24be938,1535465.json
-1535465,2026,Royal Challengers Bengaluru,V Kohli,ba607b88,1535465.json
-1535465,2026,Royal Challengers Bengaluru,D Padikkal,2c25d4f5,1535465.json
-1535465,2026,Royal Challengers Bengaluru,RM Patidar,c740ea83,1535465.json
-1535465,2026,Royal Challengers Bengaluru,KH Pandya,5b8c830e,1535465.json
-1535465,2026,Royal Challengers Bengaluru,TH David,f1f99156,1535465.json
-1535465,2026,Royal Challengers Bengaluru,JM Sharma,800d2d97,1535465.json
-1535465,2026,Royal Challengers Bengaluru,R Shepherd,c5aef772,1535465.json
-1535465,2026,Royal Challengers Bengaluru,B Kumar,2e81a32d,1535465.json
-1535465,2026,Royal Challengers Bengaluru,JR Hazlewood,03806cf8,1535465.json
-1535465,2026,Royal Challengers Bengaluru,Rasikh Salam,b8527c3d,1535465.json
+1535465,2026,Royal Challengers Bangalore,JA Duffy,dadbdb68,1535465.json
+1535465,2026,Royal Challengers Bangalore,VR Iyer,a24be938,1535465.json
+1535465,2026,Royal Challengers Bangalore,V Kohli,ba607b88,1535465.json
+1535465,2026,Royal Challengers Bangalore,D Padikkal,2c25d4f5,1535465.json
+1535465,2026,Royal Challengers Bangalore,RM Patidar,c740ea83,1535465.json
+1535465,2026,Royal Challengers Bangalore,KH Pandya,5b8c830e,1535465.json
+1535465,2026,Royal Challengers Bangalore,TH David,f1f99156,1535465.json
+1535465,2026,Royal Challengers Bangalore,JM Sharma,800d2d97,1535465.json
+1535465,2026,Royal Challengers Bangalore,R Shepherd,c5aef772,1535465.json
+1535465,2026,Royal Challengers Bangalore,B Kumar,2e81a32d,1535465.json
+1535465,2026,Royal Challengers Bangalore,JR Hazlewood,03806cf8,1535465.json
+1535465,2026,Royal Challengers Bangalore,Rasikh Salam,b8527c3d,1535465.json
 335982,2008,Kolkata Knight Riders,SC Ganguly,725529bc,335982.json
 335982,2008,Kolkata Knight Riders,BB McCullum,b8a55852,335982.json
 335982,2008,Kolkata Knight Riders,RT Ponting,7d415ea5,335982.json
