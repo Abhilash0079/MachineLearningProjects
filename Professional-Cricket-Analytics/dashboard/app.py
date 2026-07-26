@@ -1,6 +1,8 @@
 from pathlib import Path
 import streamlit as st
+import pandas as pd
 from config import ( APP_NAME, APP_SUBTITLE, PAGE_TITLE, PAGE_ICON)
+from utils.data_loader import load_all_data
 
 # --------------------------------------
 # Application Paths
@@ -49,6 +51,7 @@ def show_home_page() -> None:
     st.divider()
 
     display_project_overview()
+    display_data_status()
     display_dashboard_navigation()
     display_project_status()
 
@@ -91,6 +94,7 @@ def display_project_overview()-> None:
             and match strategy.
             """
         )
+
 def display_dashboard_navigation() -> None:
     """
     Display the dashboards planned for the application.
@@ -166,6 +170,60 @@ def display_project_status() -> None:
         Module 3 — Interactive Dashboards
         """
     )
+
+def display_data_status() -> None:
+    """
+    Load the processed datasets and display their status.
+    """
+
+    st.subheader("📁 Dataset Status")
+
+    try:
+        data = load_all_data()
+
+        matches_df = data["matches"]
+        deliveries_df = data["deliveries"]
+        players_df = data["players"]
+
+        column_1, column_2, column_3 = st.columns(3)
+
+        with column_1:
+            st.metric(
+                label="Match Records",
+                value=f"{len(matches_df):,}"
+            )
+
+        with column_2:
+            st.metric(
+                label="Delivery Records",
+                value=f"{len(deliveries_df):,}"
+            )
+
+        with column_3:
+            st.metric(
+                label="Player Records",
+                value=f"{len(players_df):,}"
+            )
+
+        st.success(
+            "All processed datasets loaded successfully."
+        )
+
+    except FileNotFoundError as error:
+        st.error(str(error))
+
+    except ValueError as error:
+        st.error(str(error))
+
+    except pd.errors.ParserError as error:
+        st.error(
+            f"One of the CSV files could not be parsed: {error}"
+        )
+
+    except Exception as error:
+        st.error(
+            f"An unexpected data-loading error occurred: {error}"
+        )
 
 # ---------------------------------------------------------
 # Sidebar
