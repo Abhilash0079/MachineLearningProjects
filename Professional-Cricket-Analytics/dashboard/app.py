@@ -3,6 +3,12 @@ import streamlit as st
 import pandas as pd
 from config import ( APP_NAME, APP_SUBTITLE, PAGE_TITLE, PAGE_ICON)
 from utils.data_loader import load_all_data
+from utils.filters import (
+    display_global_filters,
+    filter_deliveries,
+    filter_matches,
+    get_filtered_match_ids,
+)
 
 # --------------------------------------
 # Application Paths
@@ -34,17 +40,6 @@ def show_home_page() -> None:
         """
         CricVision AI converts historical IPL match data into
         interactive cricket intelligence.
-
-        The platform enables users to analyse:
-
-        - League-level trends
-        - Team performance
-        - Batter performance
-        - Bowler performance
-        - Venue and match conditions
-        - Individual match progression
-        - Partnerships and player combinations
-        - Match phases and pressure situations
         """
     )
 
@@ -52,6 +47,7 @@ def show_home_page() -> None:
 
     display_project_overview()
     display_data_status()
+    display_filter_test()
     display_dashboard_navigation()
     display_project_status()
 
@@ -223,6 +219,68 @@ def display_data_status() -> None:
     except Exception as error:
         st.error(
             f"An unexpected data-loading error occurred: {error}"
+        )
+
+def display_filter_test() -> None:
+    """
+    Test shared dashboard filters using the processed datasets.
+    """
+
+    st.subheader("🧪 Filter Utility Test")
+
+    try:
+        data = load_all_data()
+
+        matches_df = data["matches"]
+        deliveries_df = data["deliveries"]
+
+        selected_filters = display_global_filters(
+            matches_df=matches_df,
+            deliveries_df=deliveries_df,
+            key_prefix="home",
+            include_player_filters=False
+        )
+
+        filtered_matches_df = filter_matches(
+            matches_df=matches_df,
+            season=selected_filters["season"],
+            team=selected_filters["team"],
+            venue=selected_filters["venue"]
+        )
+
+        filtered_match_ids = get_filtered_match_ids(
+            filtered_matches_df
+        )
+
+        filtered_deliveries_df = filter_deliveries(
+            deliveries_df=deliveries_df,
+            match_ids=filtered_match_ids,
+            team=selected_filters["team"]
+            # batter=selected_filters["batter"],
+            # bowler=selected_filters["bowler"]
+        )
+
+        column_1, column_2 = st.columns(2)
+
+        with column_1:
+            st.metric(
+                label="Filtered Matches",
+                value=f"{len(filtered_matches_df):,}"
+            )
+
+        with column_2:
+            st.metric(
+                label="Filtered Deliveries",
+                value=f"{len(filtered_deliveries_df):,}"
+            )
+
+        st.markdown("#### Active Filters")
+
+        st.json(selected_filters)
+
+    except Exception as error:
+        st.error(
+            f"Filter test failed: {error}"
         )
 
 # ---------------------------------------------------------
