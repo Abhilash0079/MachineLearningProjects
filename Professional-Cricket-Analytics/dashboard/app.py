@@ -1,5 +1,6 @@
 from pathlib import Path
 import streamlit as st
+from config import ( APP_NAME, APP_SUBTITLE, PAGE_TITLE, PAGE_ICON)
 
 # --------------------------------------
 # Application Paths
@@ -12,10 +13,10 @@ ASSETS_DIR = DASHBOARD_DIR/'assets'
 # Streamlit page configuration
 # --------------------------------------
 st.set_page_config(
-    page_title="CricVision AI",
-    page_icon="🏏",
-    layout='wide',
-    initial_sidebar_state='expanded'
+    page_title=PAGE_TITLE,
+    page_icon=PAGE_ICON,
+    layout="wide",
+    initial_sidebar_state="expanded"
 )
 
 # --------------------------------------
@@ -25,12 +26,8 @@ def show_home_page() -> None:
     """
     Display the main landing page of the cricket analytics dashboard.
     """
-    st.title("🏏 CricVision AI")
-
-    st.subheader(
-        "Professional Cricket Analytics and "
-        "Decision-Support Platform"
-    )
+    st.title(APP_NAME)
+    st.subheader(APP_SUBTITLE)
     st.markdown(
         """
         CricVision AI converts historical IPL match data into
