@@ -1,49 +1,107 @@
-from typing import Any, Dict, List, Optional
+from collections.abc import Sequence
+from typing import Any
+
 import pandas as pd
 import streamlit as st
 
-from config import (
-    DEFAULT_BATTER,
-    DEFAULT_BOWLER,
-    DEFAULT_SEASON,
-    DEFAULT_TEAM,
-    DEFAULT_VENUE,
-)
 
-from utils.helpers import (
-    add_all_option,
-    clean_unique_values,
-    validate_required_columns,
-)
+# ==========================================================
+# Common values and column candidates
+# ==========================================================
+
+ALL_OPTION = "All"
+
+MATCH_ID_COLUMNS = [
+    "match_id",
+    "id",
+    "Match_ID",
+    "MatchId",
+]
+
+SEASON_COLUMNS = [
+    "season",
+    "Season",
+]
+
+TEAM_1_COLUMNS = [
+    "team1",
+    "team_1",
+    "Team1",
+    "home_team",
+]
+
+TEAM_2_COLUMNS = [
+    "team2",
+    "team_2",
+    "Team2",
+    "away_team",
+]
+
+VENUE_COLUMNS = [
+    "venue",
+    "Venue",
+    "ground",
+    "stadium",
+]
+
+BATTER_COLUMNS = [
+    "batter",
+    "batsman",
+    "striker",
+]
+
+BOWLER_COLUMNS = [
+    "bowler",
+]
+
+BATTING_TEAM_COLUMNS = [
+    "batting_team",
+    "battingTeam",
+]
+
+BOWLING_TEAM_COLUMNS = [
+    "bowling_team",
+    "bowlingTeam",
+]
 
 
 # ==========================================================
-# Internal column helpers
+# Column helpers
 # ==========================================================
 
 def find_first_available_column(
     dataframe: pd.DataFrame,
-    possible_columns: List[str]
-) -> Optional[str]:
+    candidate_columns: Sequence[str],
+) -> str:
     """
-    Return the first column from possible_columns that exists
-    in the supplied DataFrame.
+    Return the first candidate column available in a DataFrame.
 
-    Parameters
-    ----------
-    dataframe : pd.DataFrame
-        Dataset in which columns are searched.
-
-    possible_columns : List[str]
-        Possible column names in priority order.
-
-    Returns
-    -------
-    Optional[str]
-        First matching column name or None.
+    Raises
+    ------
+    KeyError
+        When none of the candidate columns exists.
     """
 
-    for column in possible_columns:
+    for column in candidate_columns:
+        if column in dataframe.columns:
+            return column
+
+    raise KeyError(
+        "None of the expected columns were found. "
+        f"Expected one of: {list(candidate_columns)}. "
+        f"Available columns: {dataframe.columns.tolist()}"
+    )
+
+
+def find_optional_column(
+    dataframe: pd.DataFrame,
+    candidate_columns: Sequence[str],
+) -> str | None:
+    """
+    Return the first available candidate column or None.
+    """
+
+    for column in candidate_columns:
         if column in dataframe.columns:
             return column
 
@@ -51,431 +109,269 @@ def find_first_available_column(
 
 
 # ==========================================================
-# Season options
+# Option preparation
 # ==========================================================
 
-def get_season_options(
-    matches_df: pd.DataFrame
-) -> List[Any]:
+def clean_unique_values(
+    values: pd.Series,
+) -> list[Any]:
     """
-    Return available season values with an All option.
-    """
-
-    season_column = find_first_available_column(
-        matches_df,
-        ["season", "Season"]
-    )
-
-    if season_column is None:
-        return [DEFAULT_SEASON]
-
-    seasons = clean_unique_values(
-        matches_df[season_column]
-    )
-
-    return add_all_option(
-        seasons,
-        all_label=DEFAULT_SEASON
-    )
-
-
-# ==========================================================
-# Team options
-# ==========================================================
-
-def get_team_options(
-    matches_df: pd.DataFrame,
-    deliveries_df: Optional[pd.DataFrame] = None
-) -> List[str]:
-    """
-    Return all team names found in match and delivery datasets.
+    Return clean, unique and sorted values from a Series.
     """
 
-    teams = []
-
-    match_team_columns = [
-        "team1",
-        "team2",
-        "winner",
-        "toss_winner"
-    ]
-
-    for column in match_team_columns:
-        if column in matches_df.columns:
-            teams.extend(
-                matches_df[column].dropna().tolist()
-            )
-
-    if deliveries_df is not None:
-
-        delivery_team_columns = [
-            "batting_team",
-            "bowling_team"
-        ]
-
-        for column in delivery_team_columns:
-            if column in deliveries_df.columns:
-                teams.extend(
-                    deliveries_df[column].dropna().tolist()
-                )
-
-    cleaned_teams = clean_unique_values(teams)
-
-    return add_all_option(
-        cleaned_teams,
-        all_label=DEFAULT_TEAM
-    )
-
-
-# ==========================================================
-# Venue options
-# ==========================================================
-
-def get_venue_options(
-    matches_df: pd.DataFrame
-) -> List[str]:
-    """
-    Return available venue names with an All option.
-    """
-
-    venue_column = find_first_available_column(
-        matches_df,
-        ["venue", "Venue"]
-    )
-
-    if venue_column is None:
-        return [DEFAULT_VENUE]
-
-    venues = clean_unique_values(
-        matches_df[venue_column]
-    )
-
-    return add_all_option(
-        venues,
-        all_label=DEFAULT_VENUE
-    )
-
-
-# ==========================================================
-# Batter options
-# ==========================================================
-
-def get_batter_options(
-    deliveries_df: pd.DataFrame
-) -> List[str]:
-    """
-    Return available batter names with an All option.
-    """
-
-    batter_column = find_first_available_column(
-        deliveries_df,
-        [
-            "batter",
-            "batsman",
-            "striker"
-        ]
-    )
-
-    if batter_column is None:
-        return [DEFAULT_BATTER]
-
-    batters = clean_unique_values(
-        deliveries_df[batter_column]
-    )
-
-    return add_all_option(
-        batters,
-        all_label=DEFAULT_BATTER
-    )
-
-
-# ==========================================================
-# Bowler options
-# ==========================================================
-
-def get_bowler_options(
-    deliveries_df: pd.DataFrame
-) -> List[str]:
-    """
-    Return available bowler names with an All option.
-    """
-
-    bowler_column = find_first_available_column(
-        deliveries_df,
-        ["bowler"]
-    )
-
-    if bowler_column is None:
-        return [DEFAULT_BOWLER]
-
-    bowlers = clean_unique_values(
-        deliveries_df[bowler_column]
-    )
-
-    return add_all_option(
-        bowlers,
-        all_label=DEFAULT_BOWLER
-    )
-
-
-# ==========================================================
-# Match options
-# ==========================================================
-
-def get_match_options(
-    matches_df: pd.DataFrame
-) -> List[Any]:
-    """
-    Return match identifiers for the match explorer.
-    """
-
-    match_id_column = find_first_available_column(
-        matches_df,
-        [
-            "match_id",
-            "id",
-            "registry_id"
-        ]
-    )
-
-    if match_id_column is None:
-        return []
-
-    return clean_unique_values(
-        matches_df[match_id_column]
-    )
-
-
-# ==========================================================
-# Match-level filtering
-# ==========================================================
-
-def filter_matches(
-    matches_df: pd.DataFrame,
-    season: Any = DEFAULT_SEASON,
-    team: str = DEFAULT_TEAM,
-    venue: str = DEFAULT_VENUE
-) -> pd.DataFrame:
-    """
-    Filter the match-level dataset by season, team and venue.
-
-    A copy of the filtered dataset is returned to avoid modifying
-    the original cached DataFrame.
-    """
-
-    filtered_df = matches_df.copy()
-
-    season_column = find_first_available_column(
-        filtered_df,
-        ["season", "Season"]
-    )
-
-    venue_column = find_first_available_column(
-        filtered_df,
-        ["venue", "Venue"]
-    )
-
-    if (
-        season != DEFAULT_SEASON
-        and season_column is not None
-    ):
-        filtered_df = filtered_df[
-            filtered_df[season_column] == season
-        ]
-
-    if team != DEFAULT_TEAM:
-
-        available_team_columns = [
-            column
-            for column in ["team1", "team2"]
-            if column in filtered_df.columns
-        ]
-
-        if available_team_columns:
-            team_mask = pd.Series(
-                False,
-                index=filtered_df.index
-            )
-
-            for column in available_team_columns:
-                team_mask = (
-                    team_mask
-                    | filtered_df[column].eq(team)
-                )
-
-            filtered_df = filtered_df[team_mask]
-
-    if (
-        venue != DEFAULT_VENUE
-        and venue_column is not None
-    ):
-        filtered_df = filtered_df[
-            filtered_df[venue_column] == venue
-        ]
-
-    return filtered_df.copy()
-
-
-# ==========================================================
-# Delivery-level filtering
-# ==========================================================
-
-def filter_deliveries(
-    deliveries_df: pd.DataFrame,
-    match_ids: Optional[List[Any]] = None,
-    team: str = DEFAULT_TEAM,
-    batter: str = DEFAULT_BATTER,
-    bowler: str = DEFAULT_BOWLER
-) -> pd.DataFrame:
-    """
-    Filter the delivery-level dataset.
-
-    Parameters
-    ----------
-    deliveries_df : pd.DataFrame
-        Ball-by-ball dataset.
-
-    match_ids : Optional[List[Any]]
-        Match identifiers retained after applying match-level
-        filters.
-
-    team : str
-        Team selected by the user.
-
-    batter : str
-        Batter selected by the user.
-
-    bowler : str
-        Bowler selected by the user.
-
-    Returns
-    -------
-    pd.DataFrame
-        Filtered delivery-level dataset.
-    """
-
-    filtered_df = deliveries_df.copy()
-
-    delivery_match_id_column = find_first_available_column(
-        filtered_df,
-        [
-            "match_id",
-            "id",
-            "registry_id"
-        ]
-    )
-
-    if (
-        match_ids is not None
-        and delivery_match_id_column is not None
-    ):
-        filtered_df = filtered_df[
-            filtered_df[
-                delivery_match_id_column
-            ].isin(match_ids)
-        ]
-
-    if team != DEFAULT_TEAM:
-
-        available_team_columns = [
-            column
-            for column in [
-                "batting_team",
-                "bowling_team"
-            ]
-            if column in filtered_df.columns
-        ]
-
-        if available_team_columns:
-            team_mask = pd.Series(
-                False,
-                index=filtered_df.index
-            )
-
-            for column in available_team_columns:
-                team_mask = (
-                    team_mask
-                    | filtered_df[column].eq(team)
-                )
-
-            filtered_df = filtered_df[team_mask]
-
-    batter_column = find_first_available_column(
-        filtered_df,
-        [
-            "batter",
-            "batsman",
-            "striker"
-        ]
-    )
-
-    if (
-        batter != DEFAULT_BATTER
-        and batter_column is not None
-    ):
-        filtered_df = filtered_df[
-            filtered_df[batter_column] == batter
-        ]
-
-    bowler_column = find_first_available_column(
-        filtered_df,
-        ["bowler"]
-    )
-
-    if (
-        bowler != DEFAULT_BOWLER
-        and bowler_column is not None
-    ):
-        filtered_df = filtered_df[
-            filtered_df[bowler_column] == bowler
-        ]
-
-    return filtered_df.copy()
-
-
-# ==========================================================
-# Match ID extraction
-# ==========================================================
-
-def get_filtered_match_ids(
-    matches_df: pd.DataFrame
-) -> Optional[List[Any]]:
-    """
-    Extract match identifiers from a filtered match dataset.
-    """
-
-    match_id_column = find_first_available_column(
-        matches_df,
-        [
-            "match_id",
-            "id",
-            "registry_id"
-        ]
-    )
-
-    if match_id_column is None:
-        return None
-
-    return (
-        matches_df[match_id_column]
+    cleaned_values = (
+        values
         .dropna()
-        .unique()
+        .drop_duplicates()
         .tolist()
     )
 
+    cleaned_values = [
+        value
+        for value in cleaned_values
+        if str(value).strip()
+    ]
+
+    try:
+        return sorted(cleaned_values)
+
+    except TypeError:
+        return sorted(
+            cleaned_values,
+            key=lambda value: str(value).lower(),
+        )
+
+
+def add_all_option(
+    options: Sequence[Any],
+) -> list[Any]:
+    """
+    Add the All option at the beginning of an option list.
+    """
+
+    cleaned_options = [
+        option
+        for option in options
+        if str(option).strip().lower()
+        != ALL_OPTION.lower()
+    ]
+
+    return [
+        ALL_OPTION,
+        *cleaned_options,
+    ]
+
+
+def get_season_options(
+    matches_df: pd.DataFrame,
+) -> list[Any]:
+    """
+    Return all available season options.
+    """
+
+    season_column = find_first_available_column(
+        matches_df,
+        SEASON_COLUMNS,
+    )
+
+    return add_all_option(
+        clean_unique_values(
+            matches_df[season_column]
+        )
+    )
+
+
+def get_team_options(
+    matches_df: pd.DataFrame,
+) -> list[str]:
+    """
+    Return teams appearing in either team column.
+    """
+
+    team_1_column = find_first_available_column(
+        matches_df,
+        TEAM_1_COLUMNS,
+    )
+
+    team_2_column = find_first_available_column(
+        matches_df,
+        TEAM_2_COLUMNS,
+    )
+
+    combined_teams = pd.concat(
+        [
+            matches_df[team_1_column],
+            matches_df[team_2_column],
+        ],
+        ignore_index=True,
+    )
+
+    team_options = [
+        str(team).strip()
+        for team in clean_unique_values(
+            combined_teams
+        )
+    ]
+
+    return add_all_option(
+        team_options
+    )
+
+
+def get_venue_options(
+    matches_df: pd.DataFrame,
+) -> list[str]:
+    """
+    Return all available venue options.
+    """
+
+    venue_column = find_first_available_column(
+        matches_df,
+        VENUE_COLUMNS,
+    )
+
+    venues = [
+        str(venue).strip()
+        for venue in clean_unique_values(
+            matches_df[venue_column]
+        )
+    ]
+
+    return add_all_option(
+        venues
+    )
+
+
+def get_batter_options(
+    deliveries_df: pd.DataFrame,
+) -> list[str]:
+    """
+    Return all available batter options.
+    """
+
+    batter_column = find_first_available_column(
+        deliveries_df,
+        BATTER_COLUMNS,
+    )
+
+    batters = [
+        str(batter).strip()
+        for batter in clean_unique_values(
+            deliveries_df[batter_column]
+        )
+    ]
+
+    return add_all_option(
+        batters
+    )
+
+
+def get_bowler_options(
+    deliveries_df: pd.DataFrame,
+) -> list[str]:
+    """
+    Return all available bowler options.
+    """
+
+    bowler_column = find_first_available_column(
+        deliveries_df,
+        BOWLER_COLUMNS,
+    )
+
+    bowlers = [
+        str(bowler).strip()
+        for bowler in clean_unique_values(
+            deliveries_df[bowler_column]
+        )
+    ]
+
+    return add_all_option(
+        bowlers
+    )
+
+
+def get_match_options(
+    matches_df: pd.DataFrame,
+) -> list[Any]:
+    """
+    Return available match-ID options.
+    """
+
+    match_id_column = find_first_available_column(
+        matches_df,
+        MATCH_ID_COLUMNS,
+    )
+
+    return add_all_option(
+        clean_unique_values(
+            matches_df[match_id_column]
+        )
+    )
+
 
 # ==========================================================
-# Shared sidebar filters
+# Widget state helpers
+# ==========================================================
+
+def initialise_filter_state(
+    key: str,
+    options: Sequence[Any],
+) -> None:
+    """
+    Initialise a filter key and correct invalid stored values.
+    """
+
+    if not options:
+        return
+
+    if key not in st.session_state:
+        st.session_state[key] = ALL_OPTION
+
+    if st.session_state[key] not in options:
+        st.session_state[key] = ALL_OPTION
+
+
+def reset_filter_state(
+    key_prefix: str,
+    include_player_filters: bool,
+) -> None:
+    """
+    Reset filter-widget state to All.
+
+    This function is used as a button callback so Streamlit updates
+    the widgets safely before rerunning the page.
+    """
+
+    keys_to_reset = [
+        f"{key_prefix}_season",
+        f"{key_prefix}_team",
+        f"{key_prefix}_venue",
+    ]
+
+    if include_player_filters:
+        keys_to_reset.extend(
+            [
+                f"{key_prefix}_batter",
+                f"{key_prefix}_bowler",
+            ]
+        )
+
+    for key in keys_to_reset:
+        st.session_state[key] = ALL_OPTION
+
+
+# ==========================================================
+# Global filter controls
 # ==========================================================
 
 def display_global_filters(
     matches_df: pd.DataFrame,
     deliveries_df: pd.DataFrame,
+    include_player_filters: bool = False,
     key_prefix: str = "global",
-    include_player_filters: bool = False
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """
-    Display reusable dashboard filters in the Streamlit sidebar.
+    Display reusable filters in the Streamlit sidebar.
 
     Parameters
     ----------
@@ -483,99 +379,127 @@ def display_global_filters(
         Match-level dataset.
 
     deliveries_df : pd.DataFrame
-        Ball-by-ball dataset.
+        Delivery-level dataset.
 
-    key_prefix : str, default="global"
-        Unique prefix used for Streamlit widget keys.
+    include_player_filters : bool
+        Whether Batter and Bowler filters should appear.
 
-    include_player_filters : bool, default=False
-        Whether batter and bowler filters should be shown.
+    key_prefix : str
+        Unique prefix for widget session-state keys.
 
     Returns
     -------
-    Dict[str, Any]
-        Dictionary containing selected filter values.
+    dict
+        Selected season, team, venue, batter and bowler.
     """
 
-    season_options = get_season_options(matches_df)
-
-    team_options = get_team_options(
-        matches_df=matches_df,
-        deliveries_df=deliveries_df
+    season_options = get_season_options(
+        matches_df
     )
 
-    venue_options = get_venue_options(matches_df)
+    team_options = get_team_options(
+        matches_df
+    )
+
+    venue_options = get_venue_options(
+        matches_df
+    )
+
+    batter_options = [ALL_OPTION]
+    bowler_options = [ALL_OPTION]
+
+    if include_player_filters:
+        batter_options = get_batter_options(
+            deliveries_df
+        )
+
+        bowler_options = get_bowler_options(
+            deliveries_df
+        )
+
+    season_key = f"{key_prefix}_season"
+    team_key = f"{key_prefix}_team"
+    venue_key = f"{key_prefix}_venue"
+    batter_key = f"{key_prefix}_batter"
+    bowler_key = f"{key_prefix}_bowler"
+
+    initialise_filter_state(
+        season_key,
+        season_options,
+    )
+
+    initialise_filter_state(
+        team_key,
+        team_options,
+    )
+
+    initialise_filter_state(
+        venue_key,
+        venue_options,
+    )
+
+    if include_player_filters:
+        initialise_filter_state(
+            batter_key,
+            batter_options,
+        )
+
+        initialise_filter_state(
+            bowler_key,
+            bowler_options,
+        )
 
     with st.sidebar:
+
+        st.divider()
 
         st.subheader("🔍 Filters")
 
         selected_season = st.selectbox(
             label="Season",
             options=season_options,
-            index=0,
-            key=f"{key_prefix}_season"
+            key=season_key,
         )
 
         selected_team = st.selectbox(
             label="Team",
             options=team_options,
-            index=0,
-            key=f"{key_prefix}_team"
+            key=team_key,
         )
 
         selected_venue = st.selectbox(
             label="Venue",
             options=venue_options,
-            index=0,
-            key=f"{key_prefix}_venue"
+            key=venue_key,
         )
 
-        selected_batter = DEFAULT_BATTER
-        selected_bowler = DEFAULT_BOWLER
+        selected_batter = ALL_OPTION
+        selected_bowler = ALL_OPTION
 
         if include_player_filters:
-
-            batter_options = get_batter_options(
-                deliveries_df
-            )
-
-            bowler_options = get_bowler_options(
-                deliveries_df
-            )
 
             selected_batter = st.selectbox(
                 label="Batter",
                 options=batter_options,
-                index=0,
-                key=f"{key_prefix}_batter"
+                key=batter_key,
             )
 
             selected_bowler = st.selectbox(
                 label="Bowler",
                 options=bowler_options,
-                index=0,
-                key=f"{key_prefix}_bowler"
+                key=bowler_key,
             )
 
-        if st.button(
-            "Reset Filters",
-            key=f"{key_prefix}_reset",
-            use_container_width=True
-        ):
-            keys_to_clear = [
-                f"{key_prefix}_season",
-                f"{key_prefix}_team",
-                f"{key_prefix}_venue",
-                f"{key_prefix}_batter",
-                f"{key_prefix}_bowler",
-            ]
-
-            for key in keys_to_clear:
-                if key in st.session_state:
-                    del st.session_state[key]
-
-            st.rerun()
+        st.button(
+            label="Reset Filters",
+            key=f"{key_prefix}_reset_filters",
+            use_container_width=True,
+            on_click=reset_filter_state,
+            args=(
+                key_prefix,
+                include_player_filters,
+            ),
+        )
 
     return {
         "season": selected_season,
@@ -584,3 +508,248 @@ def display_global_filters(
         "batter": selected_batter,
         "bowler": selected_bowler,
     }
+
+
+# ==========================================================
+# Match filtering
+# ==========================================================
+
+def filter_matches(
+    matches_df: pd.DataFrame,
+    season: Any = ALL_OPTION,
+    team: str = ALL_OPTION,
+    venue: str = ALL_OPTION,
+) -> pd.DataFrame:
+    """
+    Filter match-level data by season, team and venue.
+    """
+
+    filtered_df = matches_df.copy()
+
+    season_column = find_first_available_column(
+        filtered_df,
+        SEASON_COLUMNS,
+    )
+
+    team_1_column = find_first_available_column(
+        filtered_df,
+        TEAM_1_COLUMNS,
+    )
+
+    team_2_column = find_first_available_column(
+        filtered_df,
+        TEAM_2_COLUMNS,
+    )
+
+    venue_column = find_first_available_column(
+        filtered_df,
+        VENUE_COLUMNS,
+    )
+
+    if str(season).strip().lower() != ALL_OPTION.lower():
+
+        selected_season = str(
+            season
+        ).strip()
+
+        filtered_df = filtered_df[
+            filtered_df[season_column]
+            .astype(str)
+            .str.strip()
+            .eq(selected_season)
+        ]
+
+    if str(team).strip().lower() != ALL_OPTION.lower():
+
+        selected_team = str(
+            team
+        ).strip()
+
+        team_1_matches = (
+            filtered_df[team_1_column]
+            .astype(str)
+            .str.strip()
+            .eq(selected_team)
+        )
+
+        team_2_matches = (
+            filtered_df[team_2_column]
+            .astype(str)
+            .str.strip()
+            .eq(selected_team)
+        )
+
+        filtered_df = filtered_df[
+            team_1_matches | team_2_matches
+        ]
+
+    if str(venue).strip().lower() != ALL_OPTION.lower():
+
+        selected_venue = str(
+            venue
+        ).strip()
+
+        filtered_df = filtered_df[
+            filtered_df[venue_column]
+            .astype(str)
+            .str.strip()
+            .eq(selected_venue)
+        ]
+
+    return filtered_df.reset_index(
+        drop=True
+    )
+
+
+# ==========================================================
+# Match-ID extraction
+# ==========================================================
+
+def get_filtered_match_ids(
+    matches_df: pd.DataFrame,
+) -> list[Any]:
+    """
+    Return match IDs from filtered match data.
+    """
+
+    if matches_df.empty:
+        return []
+
+    match_id_column = find_first_available_column(
+        matches_df,
+        MATCH_ID_COLUMNS,
+    )
+
+    return (
+        matches_df[match_id_column]
+        .dropna()
+        .drop_duplicates()
+        .tolist()
+    )
+
+
+# ==========================================================
+# Delivery filtering
+# ==========================================================
+
+def filter_deliveries(
+    deliveries_df: pd.DataFrame,
+    match_ids: Sequence[Any] | None = None,
+    team: str = ALL_OPTION,
+    batter: str = ALL_OPTION,
+    bowler: str = ALL_OPTION,
+) -> pd.DataFrame:
+    """
+    Filter delivery-level data.
+
+    Delivery records can be filtered by match IDs, team,
+    batter and bowler.
+    """
+
+    filtered_df = deliveries_df.copy()
+
+    delivery_match_id_column = (
+        find_first_available_column(
+            filtered_df,
+            MATCH_ID_COLUMNS,
+        )
+    )
+
+    if match_ids is not None:
+
+        if len(match_ids) == 0:
+            return filtered_df.iloc[
+                0:0
+            ].copy()
+
+        filtered_df = filtered_df[
+            filtered_df[
+                delivery_match_id_column
+            ].isin(match_ids)
+        ]
+
+    if str(team).strip().lower() != ALL_OPTION.lower():
+
+        selected_team = str(
+            team
+        ).strip()
+
+        batting_team_column = find_optional_column(
+            filtered_df,
+            BATTING_TEAM_COLUMNS,
+        )
+
+        bowling_team_column = find_optional_column(
+            filtered_df,
+            BOWLING_TEAM_COLUMNS,
+        )
+
+        team_conditions = []
+
+        if batting_team_column is not None:
+            team_conditions.append(
+                filtered_df[batting_team_column]
+                .astype(str)
+                .str.strip()
+                .eq(selected_team)
+            )
+
+        if bowling_team_column is not None:
+            team_conditions.append(
+                filtered_df[bowling_team_column]
+                .astype(str)
+                .str.strip()
+                .eq(selected_team)
+            )
+
+        if team_conditions:
+            combined_condition = team_conditions[0]
+
+            for condition in team_conditions[1:]:
+                combined_condition = (
+                    combined_condition | condition
+                )
+
+            filtered_df = filtered_df[
+                combined_condition
+            ]
+
+    if str(batter).strip().lower() != ALL_OPTION.lower():
+
+        batter_column = find_first_available_column(
+            filtered_df,
+            BATTER_COLUMNS,
+        )
+
+        selected_batter = str(
+            batter
+        ).strip()
+
+        filtered_df = filtered_df[
+            filtered_df[batter_column]
+            .astype(str)
+            .str.strip()
+            .eq(selected_batter)
+        ]
+
+    if str(bowler).strip().lower() != ALL_OPTION.lower():
+
+        bowler_column = find_first_available_column(
+            filtered_df,
+            BOWLER_COLUMNS,
+        )
+
+        selected_bowler = str(
+            bowler
+        ).strip()
+
+        filtered_df = filtered_df[
+            filtered_df[bowler_column]
+            .astype(str)
+            .str.strip()
+            .eq(selected_bowler)
+        ]
+
+    return filtered_df.reset_index(
+        drop=True
+    )

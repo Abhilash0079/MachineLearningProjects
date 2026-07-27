@@ -214,59 +214,6 @@ def show_home_page() -> None:
     display_dashboard_navigation()
     display_project_status()
 
-# ---------------------------------------------------------
-# Sidebar
-# ---------------------------------------------------------
-
-# def display_sidebar() -> None:
-#     """
-#     Display common information in the application sidebar.
-#     """
-
-#     with st.sidebar:
-#         st.title("🏏 CricVision AI")
-
-#         st.caption(
-#             "Professional Cricket Analytics Platform"
-#         )
-
-#         st.divider()
-
-#         st.markdown(
-#             """
-#             ### Current Module
-
-#             **Module 3: Interactive Dashboards**
-
-#             The application will contain six analytical
-#             dashboards.
-#             """
-#         )
-
-#         st.divider()
-
-#         st.markdown(
-#             """
-#             ### Data Sources
-
-#             - `matches.csv`
-#             - `deliveries.csv`
-#             - `players.csv`
-#             """
-#         )
-
-#         st.divider()
-
-#         st.caption(
-#             "Built using Python, Pandas, Plotly and Streamlit."
-#         )
-
-# # ---------------------------------------------------------
-# # Application navigation
-# # ---------------------------------------------------------
-
-# display_sidebar()
-
 # ==========================================================
 # Navigation
 # ==========================================================
