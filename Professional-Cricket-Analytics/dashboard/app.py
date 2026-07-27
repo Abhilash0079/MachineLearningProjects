@@ -1,26 +1,8 @@
 from pathlib import Path
 import streamlit as st
-import pandas as pd
-from config import ( APP_NAME, APP_SUBTITLE, PAGE_TITLE, PAGE_ICON)
+from config import (APP_NAME, PAGE_ICON, PAGE_TITLE)
 from utils.data_loader import load_all_data
-from utils.filters import (
-    display_global_filters,
-    filter_deliveries,
-    filter_matches,
-    get_filtered_match_ids,
-)
-from utils.charts import (
-    PLOTLY_CONFIG,
-    create_bar_chart,
-    create_horizontal_bar_chart,
-    create_line_chart,
-    create_pie_chart,
-)
-from utils.helpers import (
-    create_information_card,
-    create_page_header,
-)
-
+from utils.helpers import (create_information_card, create_page_header, format_integer)
 from utils.style_loader import load_custom_css
 
 # --------------------------------------
@@ -40,6 +22,9 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# ==========================================================
+# Custom styling
+# ==========================================================
 try:
     load_custom_css()
 
@@ -47,57 +32,27 @@ except (FileNotFoundError, ValueError) as error:
     st.warning(
         f"Custom styling could not be loaded: {error}"
     )
-# --------------------------------------
-# Home page
-# --------------------------------------
-def show_home_page() -> None:
-    """
-    Display the main landing page of the cricket analytics dashboard.
-    """
-    st.html(
-        create_page_header(
-            title=APP_NAME,
-            subtitle=(
-                "Professional Cricket Analytics and "
-                "Decision-Support Platform"
-            ),
-            icon="🏏"
-        )
-    )
-    st.markdown(
-        """
-        CricVision AI converts historical IPL match data into
-        interactive cricket intelligence.
-        """
-    )
 
-    st.divider()
-
-    display_project_overview()
-    display_data_status()
-    # display_filter_test()
-    # display_chart_utility_test()
-    display_dashboard_navigation()
-    display_project_status()
-
+# ==========================================================
+# Home page components
+# ==========================================================
 
 def display_project_overview() -> None:
     """
     Display the main platform capabilities.
     """
-
     st.subheader("📊 Platform Overview")
-
     column_1, column_2, column_3 = st.columns(3)
-
     with column_1:
         st.html(
             create_information_card(
                 title="Data Engineering",
                 description=(
-                    "Raw IPL JSON files are validated and converted into structured match, delivery and player datasets."
+                    "Raw IPL JSON files are validated and "
+                    "converted into structured match, delivery "
+                    "and player datasets."
                 ),
-                icon="⚙️"
+                icon="⚙️",
             )
         )
 
@@ -106,9 +61,10 @@ def display_project_overview() -> None:
             create_information_card(
                 title="Cricket Analytics",
                 description=(
-                    "Explore match, team, batter, bowler, venue, partnership and pressure analytics."
+                    "Explore match, team, batter, bowler, "
+                    "venue, partnership and pressure analytics."
                 ),
-                icon="📊"
+                icon="📊",
             )
         )
 
@@ -117,94 +73,20 @@ def display_project_overview() -> None:
             create_information_card(
                 title="Decision Support",
                 description=(
-                    "Support auction planning, player selection, venue strategy and match preparation."
+                    "Support auction planning, player selection, "
+                    "venue strategy and match preparation."
                 ),
-                icon="🎯"
+                icon="🎯",
             )
         )
 
-def display_dashboard_navigation() -> None:
-    """
-    Display the dashboards planned for the application.
-    """
-
-    st.subheader("🧭 Dashboard Navigation")
-
-    left_column, right_column = st.columns(2)
-
-    with left_column:
-        st.markdown(
-            """
-            #### Executive Dashboard
-
-            View league-wide KPIs, trends and major findings.
-
-            #### Team Dashboard
-
-            Compare team records, opponents, venues and seasons.
-
-            #### Batter Dashboard
-
-            Explore runs, averages, strike rates and phase
-            performance.
-            """
-        )
-
-    with right_column:
-        st.markdown(
-            """
-            #### Bowler Dashboard
-
-            Analyse wickets, economy, strike rate and bowling
-            phases.
-
-            #### Venue Dashboard
-
-            Examine scoring conditions and chasing success.
-
-            #### Match Dashboard
-
-            Explore innings progression, wickets, partnerships
-            and momentum.
-            """
-        )
-
-def display_project_status() -> None:
-    """
-    Display the current development status of the platform.
-    """
-
-    st.subheader("🚀 Project Development Status")
-
-    st.progress(
-        40,
-        text="Modules 1 and 2 completed — Dashboard development started"
-    )
-
-    st.success(
-        """
-        **Completed**
-
-        Module 1 — Data Engineering
-
-        Module 2 — Exploratory Data Analysis
-        """
-    )
-
-    st.warning(
-        """
-        **In Progress**
-
-        Module 3 — Interactive Dashboards
-        """
-    )
 
 def display_data_status() -> None:
     """
-    Load the processed datasets and display their status.
+    Display processed dataset status.
     """
 
-    st.subheader("📁 Dataset Status")
+    st.subheader("📁 Processed Data Status")
 
     try:
         data = load_all_data()
@@ -215,259 +97,246 @@ def display_data_status() -> None:
 
         column_1, column_2, column_3 = st.columns(3)
 
-        with column_1:
-            st.metric(
-                label="Match Records",
-                value=f"{len(matches_df):,}"
-            )
+        column_1.metric(
+            label="Matches",
+            value=format_integer(
+                len(matches_df)
+            ),
+        )
 
-        with column_2:
-            st.metric(
-                label="Delivery Records",
-                value=f"{len(deliveries_df):,}"
-            )
+        column_2.metric(
+            label="Deliveries",
+            value=format_integer(
+                len(deliveries_df)
+            ),
+        )
 
-        with column_3:
-            st.metric(
-                label="Player Records",
-                value=f"{len(players_df):,}"
-            )
+        column_3.metric(
+            label="Players",
+            value=format_integer(
+                len(players_df)
+            ),
+        )
 
         st.success(
             "All processed datasets loaded successfully."
         )
 
-    except FileNotFoundError as error:
-        st.error(str(error))
+    except (
+        FileNotFoundError,
+        ValueError,
+        KeyError,
+        RuntimeError,
+    ) as error:
 
-    except ValueError as error:
-        st.error(str(error))
-
-    except pd.errors.ParserError as error:
         st.error(
-            f"One of the CSV files could not be parsed: {error}"
+            f"Processed data could not be loaded: {error}"
         )
 
-    except Exception as error:
-        st.error(
-            f"An unexpected data-loading error occurred: {error}"
-        )
 
-def display_filter_test() -> None:
+def display_dashboard_navigation() -> None:
     """
-    Test shared dashboard filters using the processed datasets.
+    Explain the available dashboard sections.
     """
 
-    st.subheader("🧪 Filter Utility Test")
+    st.subheader("🧭 Analytics Dashboards")
 
-    try:
-        data = load_all_data()
+    st.markdown(
+        """
+        Use the navigation menu to explore:
 
-        matches_df = data["matches"]
-        deliveries_df = data["deliveries"]
+        - Executive intelligence
+        - Team performance
+        - Batter analysis
+        - Bowler analysis
+        - Venue intelligence
+        - Individual match analysis
+        """
+    )
 
-        selected_filters = display_global_filters(
-            matches_df=matches_df,
-            deliveries_df=deliveries_df,
-            key_prefix="home",
-            include_player_filters=False
-        )
 
-        filtered_matches_df = filter_matches(
-            matches_df=matches_df,
-            season=selected_filters["season"],
-            team=selected_filters["team"],
-            venue=selected_filters["venue"]
-        )
-
-        filtered_match_ids = get_filtered_match_ids(
-            filtered_matches_df
-        )
-
-        filtered_deliveries_df = filter_deliveries(
-            deliveries_df=deliveries_df,
-            match_ids=filtered_match_ids,
-            team=selected_filters["team"]
-            # batter=selected_filters["batter"],
-            # bowler=selected_filters["bowler"]
-        )
-
-        column_1, column_2 = st.columns(2)
-
-        with column_1:
-            st.metric(
-                label="Filtered Matches",
-                value=f"{len(filtered_matches_df):,}"
-            )
-
-        with column_2:
-            st.metric(
-                label="Filtered Deliveries",
-                value=f"{len(filtered_deliveries_df):,}"
-            )
-
-        st.markdown("#### Active Filters")
-
-        st.json(selected_filters)
-
-    except Exception as error:
-        st.error(
-            f"Filter test failed: {error}"
-        )
-
-def display_chart_utility_test() -> None:
+def display_project_status() -> None:
     """
-    Test the reusable Plotly chart utility functions.
+    Display current platform development status.
     """
 
-    st.subheader("📊 Chart Utility Test")
+    st.subheader("🚀 Project Status")
 
-    try:
-        data = load_all_data()
+    st.markdown(
+        """
+        **Completed**
 
-        matches_df = data["matches"]
+        - Data engineering pipeline
+        - Processed analytical datasets
+        - Exploratory data analysis
+        - Shared dashboard utilities
+        - Shared chart components
+        - Application theme and styling
+        - Multipage application foundation
 
-        season_column = (
-            "season"
-            if "season" in matches_df.columns
-            else "Season"
+        **Current phase**
+
+        - Dashboard analytics development
+        """
+    )
+
+
+def show_home_page() -> None:
+    """
+    Display the application landing page.
+    """
+
+    st.html(
+        create_page_header(
+            title=APP_NAME,
+            subtitle=(
+                "Professional Cricket Analytics and "
+                "Decision-Support Platform"
+            ),
+            icon="🏏",
         )
+    )
 
-        season_summary = (
-            matches_df
-            .groupby(season_column)
-            .size()
-            .reset_index(name="Matches")
-        )
+    st.markdown(
+        """
+        CricVision AI converts historical IPL match data into
+        interactive cricket intelligence.
 
-        bar_figure = create_bar_chart(
-            dataframe=season_summary,
-            x_column=season_column,
-            y_column="Matches",
-            title="Matches by Season",
-            x_axis_title="Season",
-            y_axis_title="Matches",
-            text_column="Matches",
-            sort_by=season_column,
-            ascending=True,
-        )
+        The platform enables users to explore league, team,
+        player, venue and match-level performance.
+        """
+    )
 
-        st.plotly_chart(
-            bar_figure,
-            use_container_width=True,
-            config=PLOTLY_CONFIG,
-        )
+    st.divider()
 
-        line_figure = create_line_chart(
-            dataframe=season_summary,
-            x_column=season_column,
-            y_column="Matches",
-            title="Match Trend by Season",
-            x_axis_title="Season",
-            y_axis_title="Matches",
-        )
-
-        st.plotly_chart(
-            line_figure,
-            use_container_width=True,
-            config=PLOTLY_CONFIG,
-        )
-
-    except Exception as error:
-        st.error(
-            f"Chart utility test failed: {error}"
-        )
-
-    if "winner" in matches_df.columns:
-        team_wins = (
-            matches_df["winner"]
-            .dropna()
-            .value_counts()
-            .rename_axis("Team")
-            .reset_index(name="Wins")
-        )
-
-        ranking_figure = create_horizontal_bar_chart(
-            dataframe=team_wins,
-            category_column="Team",
-            value_column="Wins",
-            title="Top Teams by Match Wins",
-            x_axis_title="Wins",
-            y_axis_title="Team",
-            top_n=10,
-        )
-
-        st.plotly_chart(
-            ranking_figure,
-            use_container_width=True,
-            config=PLOTLY_CONFIG,
-        )
+    display_project_overview()
+    display_data_status()
+    display_dashboard_navigation()
+    display_project_status()
 
 # ---------------------------------------------------------
 # Sidebar
 # ---------------------------------------------------------
 
-def display_sidebar() -> None:
-    """
-    Display common information in the application sidebar.
-    """
+# def display_sidebar() -> None:
+#     """
+#     Display common information in the application sidebar.
+#     """
 
-    with st.sidebar:
-        st.title("🏏 CricVision AI")
+#     with st.sidebar:
+#         st.title("🏏 CricVision AI")
 
-        st.caption(
-            "Professional Cricket Analytics Platform"
-        )
+#         st.caption(
+#             "Professional Cricket Analytics Platform"
+#         )
 
-        st.divider()
+#         st.divider()
 
-        st.markdown(
-            """
-            ### Current Module
+#         st.markdown(
+#             """
+#             ### Current Module
 
-            **Module 3: Interactive Dashboards**
+#             **Module 3: Interactive Dashboards**
 
-            The application will contain six analytical
-            dashboards.
-            """
-        )
+#             The application will contain six analytical
+#             dashboards.
+#             """
+#         )
 
-        st.divider()
+#         st.divider()
 
-        st.markdown(
-            """
-            ### Data Sources
+#         st.markdown(
+#             """
+#             ### Data Sources
 
-            - `matches.csv`
-            - `deliveries.csv`
-            - `players.csv`
-            """
-        )
+#             - `matches.csv`
+#             - `deliveries.csv`
+#             - `players.csv`
+#             """
+#         )
 
-        st.divider()
+#         st.divider()
 
-        st.caption(
-            "Built using Python, Pandas, Plotly and Streamlit."
-        )
+#         st.caption(
+#             "Built using Python, Pandas, Plotly and Streamlit."
+#         )
 
-# ---------------------------------------------------------
-# Application navigation
-# ---------------------------------------------------------
+# # ---------------------------------------------------------
+# # Application navigation
+# # ---------------------------------------------------------
 
-display_sidebar()
+# display_sidebar()
+
+# ==========================================================
+# Navigation
+# ==========================================================
 
 home_page = st.Page(
     show_home_page,
     title="Home",
     icon="🏠",
-    default=True
+    url_path="home",
+    default=True,
 )
+
+executive_page = st.Page(
+    "pages/executive_dashboard.py",
+    title="Executive Dashboard",
+    icon="📈",
+    url_path="executive",
+)
+
+team_page = st.Page(
+    "pages/team_dashboard.py",
+    title="Team Dashboard",
+    icon="🛡️",
+    url_path="team",
+)
+
+batter_page = st.Page(
+    "pages/batter_dashboard.py",
+    title="Batter Dashboard",
+    icon="🏏",
+    url_path="batter",
+)
+
+bowler_page = st.Page(
+    "pages/bowler_dashboard.py",
+    title="Bowler Dashboard",
+    icon="🎯",
+    url_path="bowler",
+)
+
+venue_page = st.Page(
+    "pages/venue_dashboard.py",
+    title="Venue Dashboard",
+    icon="🏟️",
+    url_path="venue",
+)
+
+match_page = st.Page(
+    "pages/match_dashboard.py",
+    title="Match Dashboard",
+    icon="🔍",
+    url_path="match",
+)
+
 
 navigation = st.navigation(
     {
-        "CricVision AI": [
-            home_page
-        ]
+        "Platform": [
+            home_page,
+            executive_page,
+        ],
+        "Performance Analytics": [
+            team_page,
+            batter_page,
+            bowler_page,
+        ],
+        "Match Intelligence": [
+            venue_page,
+            match_page,
+        ],
     }
 )
 
