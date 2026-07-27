@@ -1,5 +1,6 @@
 from typing import Any, Iterable, List
 import pandas as pd
+import html
 
 # ==========================================================
 # General value-cleaning helpers
@@ -213,3 +214,60 @@ def calculate_percentage(
         denominator=denominator,
         default=0.0
     )
+
+def create_page_header(
+    title: str,
+    subtitle: str,
+    icon: str = "🏏"
+) -> str:
+    """
+    Create a reusable styled dashboard page header.
+
+    User-supplied text is escaped before being inserted into HTML.
+    """
+
+    safe_title = html.escape(str(title))
+    safe_subtitle = html.escape(str(subtitle))
+    safe_icon = html.escape(str(icon))
+
+    return f"""
+    <div class="cv-page-header">
+        <div class="cv-section-label">
+            CricVision AI
+        </div>
+
+        <h1>
+            {safe_icon} {safe_title}
+        </h1>
+
+        <p>
+            {safe_subtitle}
+        </p>
+    </div>
+    """
+
+
+def create_information_card(
+    title: str,
+    description: str,
+    icon: str = "📊"
+) -> str:
+    """
+    Create a reusable information card.
+    """
+
+    safe_title = html.escape(str(title))
+    safe_description = html.escape(str(description))
+    safe_icon = html.escape(str(icon))
+
+    return f"""
+    <div class="cv-card">
+        <h3>
+            {safe_icon} {safe_title}
+        </h3>
+
+        <p>
+            {safe_description}
+        </p>
+    </div>
+    """

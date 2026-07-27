@@ -41,12 +41,21 @@ DASHBOARD_PAGES = {
 # ==========================================================
 # Theme
 # ==========================================================
-PRIMARY_COLOR = "#1F77B4"
-SECONDARY_COLOR = "#FF7F0E"
-SUCCESS_COLOR = "#2CA02C"
-WARNING_COLOR = "#D62728"
-BACKGROUND_COLOR = "#FFFFFF"
-SIDEBAR_BACKGROUND = "#0E1117"
+
+PRIMARY_COLOR = "#22C55E"
+PRIMARY_DARK_COLOR = "#15803D"
+SECONDARY_COLOR = "#38BDF8"
+ACCENT_COLOR = "#F59E0B"
+SUCCESS_COLOR = "#22C55E"
+WARNING_COLOR = "#F59E0B"
+DANGER_COLOR = "#EF4444"
+BACKGROUND_COLOR = "#0B0F17"
+SECONDARY_BACKGROUND_COLOR = "#151A24"
+SIDEBAR_BACKGROUND = "#171B26"
+CARD_BACKGROUND_COLOR = "#111722"
+TEXT_COLOR = "#F8FAFC"
+MUTED_TEXT_COLOR = "#AAB2C0"
+BORDER_COLOR = "#2A3140"
 
 # ==========================================================
 # Qualification Thresholds

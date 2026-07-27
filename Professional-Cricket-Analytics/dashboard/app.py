@@ -16,6 +16,12 @@ from utils.charts import (
     create_line_chart,
     create_pie_chart,
 )
+from utils.helpers import (
+    create_information_card,
+    create_page_header,
+)
+
+from utils.style_loader import load_custom_css
 
 # --------------------------------------
 # Application Paths
@@ -34,6 +40,13 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+try:
+    load_custom_css()
+
+except (FileNotFoundError, ValueError) as error:
+    st.warning(
+        f"Custom styling could not be loaded: {error}"
+    )
 # --------------------------------------
 # Home page
 # --------------------------------------
@@ -41,8 +54,16 @@ def show_home_page() -> None:
     """
     Display the main landing page of the cricket analytics dashboard.
     """
-    st.title(APP_NAME)
-    st.subheader(APP_SUBTITLE)
+    st.html(
+        create_page_header(
+            title=APP_NAME,
+            subtitle=(
+                "Professional Cricket Analytics and "
+                "Decision-Support Platform"
+            ),
+            icon="🏏"
+        )
+    )
     st.markdown(
         """
         CricVision AI converts historical IPL match data into
@@ -55,14 +76,14 @@ def show_home_page() -> None:
     display_project_overview()
     display_data_status()
     # display_filter_test()
-    display_chart_utility_test()
+    # display_chart_utility_test()
     display_dashboard_navigation()
     display_project_status()
 
 
-def display_project_overview()-> None:
+def display_project_overview() -> None:
     """
-    Display a brief overview using dashboard information cards.
+    Display the main platform capabilities.
     """
 
     st.subheader("📊 Platform Overview")
@@ -70,33 +91,36 @@ def display_project_overview()-> None:
     column_1, column_2, column_3 = st.columns(3)
 
     with column_1:
-        st.info(
-            """
-            ### Data Engineering
-
-            Raw IPL JSON files are converted into structured
-            match, delivery and player datasets.
-            """
+        st.html(
+            create_information_card(
+                title="Data Engineering",
+                description=(
+                    "Raw IPL JSON files are validated and converted into structured match, delivery and player datasets."
+                ),
+                icon="⚙️"
+            )
         )
 
     with column_2:
-        st.info(
-            """
-            ### Cricket Analytics
-
-            Match, team, player, venue, partnership and pressure
-            performance are analysed.
-            """
+        st.html(
+            create_information_card(
+                title="Cricket Analytics",
+                description=(
+                    "Explore match, team, batter, bowler, venue, partnership and pressure analytics."
+                ),
+                icon="📊"
+            )
         )
 
     with column_3:
-        st.info(
-            """
-            ### Decision Support
-
-            Analytical findings support team selection, auctions
-            and match strategy.
-            """
+        st.html(
+            create_information_card(
+                title="Decision Support",
+                description=(
+                    "Support auction planning, player selection, venue strategy and match preparation."
+                ),
+                icon="🎯"
+            )
         )
 
 def display_dashboard_navigation() -> None:

@@ -6,8 +6,11 @@ import plotly.graph_objects as go
 
 from config import (
     BACKGROUND_COLOR,
+    BORDER_COLOR,
+    MUTED_TEXT_COLOR,
     PRIMARY_COLOR,
     SECONDARY_COLOR,
+    TEXT_COLOR,
 )
 
 
@@ -80,32 +83,7 @@ def apply_common_layout(
     show_legend: bool = False
 ) -> go.Figure:
     """
-    Apply common layout settings to a Plotly figure.
-
-    Parameters
-    ----------
-    figure : go.Figure
-        Plotly figure to style.
-
-    title : Optional[str]
-        Chart title.
-
-    x_axis_title : Optional[str]
-        X-axis label.
-
-    y_axis_title : Optional[str]
-        Y-axis label.
-
-    height : int
-        Chart height in pixels.
-
-    show_legend : bool
-        Whether the chart legend should be visible.
-
-    Returns
-    -------
-    go.Figure
-        Styled Plotly figure.
+    Apply common dark-theme layout settings to a Plotly figure.
     """
 
     figure.update_layout(
@@ -113,6 +91,10 @@ def apply_common_layout(
             "text": title or "",
             "x": 0.02,
             "xanchor": "left",
+            "font": {
+                "size": 20,
+                "color": TEXT_COLOR,
+            },
         },
         xaxis_title=x_axis_title,
         yaxis_title=y_axis_title,
@@ -121,15 +103,16 @@ def apply_common_layout(
         paper_bgcolor=BACKGROUND_COLOR,
         plot_bgcolor=BACKGROUND_COLOR,
         margin={
-            "l": 40,
-            "r": 30,
-            "t": 70,
-            "b": 50,
+            "l": 50,
+            "r": 35,
+            "t": 75,
+            "b": 60,
         },
         hovermode="closest",
         font={
             "family": "Arial, sans-serif",
             "size": 13,
+            "color": TEXT_COLOR,
         },
         legend={
             "orientation": "h",
@@ -137,6 +120,16 @@ def apply_common_layout(
             "y": 1.02,
             "xanchor": "right",
             "x": 1,
+            "font": {
+                "color": TEXT_COLOR,
+            },
+        },
+        hoverlabel={
+            "bgcolor": "#111722",
+            "bordercolor": BORDER_COLOR,
+            "font": {
+                "color": TEXT_COLOR,
+            },
         },
     )
 
@@ -144,17 +137,32 @@ def apply_common_layout(
         showgrid=False,
         zeroline=False,
         automargin=True,
+        linecolor=BORDER_COLOR,
+        tickcolor=BORDER_COLOR,
+        tickfont={
+            "color": MUTED_TEXT_COLOR,
+        },
+        title_font={
+            "color": TEXT_COLOR,
+        },
     )
 
     figure.update_yaxes(
         showgrid=True,
-        gridcolor="rgba(128, 128, 128, 0.15)",
+        gridcolor="rgba(170, 178, 192, 0.12)",
         zeroline=False,
         automargin=True,
+        linecolor=BORDER_COLOR,
+        tickcolor=BORDER_COLOR,
+        tickfont={
+            "color": MUTED_TEXT_COLOR,
+        },
+        title_font={
+            "color": TEXT_COLOR,
+        },
     )
 
     return figure
-
 
 # ==========================================================
 # Empty chart
