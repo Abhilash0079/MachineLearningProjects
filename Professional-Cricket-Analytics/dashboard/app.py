@@ -9,6 +9,13 @@ from utils.filters import (
     filter_matches,
     get_filtered_match_ids,
 )
+from utils.charts import (
+    PLOTLY_CONFIG,
+    create_bar_chart,
+    create_horizontal_bar_chart,
+    create_line_chart,
+    create_pie_chart,
+)
 
 # --------------------------------------
 # Application Paths
@@ -47,7 +54,8 @@ def show_home_page() -> None:
 
     display_project_overview()
     display_data_status()
-    display_filter_test()
+    # display_filter_test()
+    display_chart_utility_test()
     display_dashboard_navigation()
     display_project_status()
 
@@ -281,6 +289,94 @@ def display_filter_test() -> None:
     except Exception as error:
         st.error(
             f"Filter test failed: {error}"
+        )
+
+def display_chart_utility_test() -> None:
+    """
+    Test the reusable Plotly chart utility functions.
+    """
+
+    st.subheader("📊 Chart Utility Test")
+
+    try:
+        data = load_all_data()
+
+        matches_df = data["matches"]
+
+        season_column = (
+            "season"
+            if "season" in matches_df.columns
+            else "Season"
+        )
+
+        season_summary = (
+            matches_df
+            .groupby(season_column)
+            .size()
+            .reset_index(name="Matches")
+        )
+
+        bar_figure = create_bar_chart(
+            dataframe=season_summary,
+            x_column=season_column,
+            y_column="Matches",
+            title="Matches by Season",
+            x_axis_title="Season",
+            y_axis_title="Matches",
+            text_column="Matches",
+            sort_by=season_column,
+            ascending=True,
+        )
+
+        st.plotly_chart(
+            bar_figure,
+            use_container_width=True,
+            config=PLOTLY_CONFIG,
+        )
+
+        line_figure = create_line_chart(
+            dataframe=season_summary,
+            x_column=season_column,
+            y_column="Matches",
+            title="Match Trend by Season",
+            x_axis_title="Season",
+            y_axis_title="Matches",
+        )
+
+        st.plotly_chart(
+            line_figure,
+            use_container_width=True,
+            config=PLOTLY_CONFIG,
+        )
+
+    except Exception as error:
+        st.error(
+            f"Chart utility test failed: {error}"
+        )
+
+    if "winner" in matches_df.columns:
+        team_wins = (
+            matches_df["winner"]
+            .dropna()
+            .value_counts()
+            .rename_axis("Team")
+            .reset_index(name="Wins")
+        )
+
+        ranking_figure = create_horizontal_bar_chart(
+            dataframe=team_wins,
+            category_column="Team",
+            value_column="Wins",
+            title="Top Teams by Match Wins",
+            x_axis_title="Wins",
+            y_axis_title="Team",
+            top_n=10,
+        )
+
+        st.plotly_chart(
+            ranking_figure,
+            use_container_width=True,
+            config=PLOTLY_CONFIG,
         )
 
 # ---------------------------------------------------------
