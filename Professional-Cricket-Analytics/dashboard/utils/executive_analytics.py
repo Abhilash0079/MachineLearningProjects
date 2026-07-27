@@ -70,7 +70,17 @@ NON_BOWLER_WICKET_TYPES = {
     "obstructing the field",
 }
 
+SEASON_COLUMNS = [
+    "season",
+    "Season",
+]
 
+DELIVERY_MATCH_ID_COLUMNS = [
+    "match_id",
+    "id",
+    "Match_ID",
+    "MatchId",
+]
 # ==========================================================
 # Internal helpers
 # ==========================================================
@@ -387,3 +397,240 @@ def restrict_deliveries_to_matches(
         ]
         .copy()
     )
+
+# ==========================================================
+# Season-level trend preparation
+# ==========================================================
+
+def create_matches_by_season_summary(
+    matches_df: pd.DataFrame,
+) -> pd.DataFrame:
+    """
+    Create a season-level match-count summary.
+
+    Parameters
+    ----------
+    matches_df : pd.DataFrame
+        Filtered match-level data.
+
+    Returns
+    -------
+    pd.DataFrame
+        Columns:
+        - Season
+        - Matches
+    """
+
+    if matches_df.empty:
+        return pd.DataFrame(
+            columns=[
+                "Season",
+                "Matches",
+            ]
+        )
+
+    season_column = find_first_available_column(
+        matches_df,
+        SEASON_COLUMNS,
+    )
+
+    summary_df = (
+        matches_df
+        .groupby(
+            season_column,
+            dropna=False,
+        )
+        .size()
+        .reset_index(
+            name="Matches"
+        )
+        .rename(
+            columns={
+                season_column: "Season",
+            }
+        )
+    )
+
+    summary_df["Matches"] = pd.to_numeric(
+        summary_df["Matches"],
+        errors="coerce",
+    ).fillna(0).astype(int)
+
+    return (
+        summary_df
+        .sort_values(
+            by="Season"
+        )
+        .reset_index(
+            drop=True
+        )
+    )
+
+
+def create_runs_by_season_summary(
+    matches_df: pd.DataFrame,
+    deliveries_df: pd.DataFrame,
+) -> pd.DataFrame:
+    """
+    Create a season-level total-runs summary.
+
+    Match season information is joined to delivery records
+    using the match ID.
+    """
+
+    if matches_df.empty or deliveries_df.empty:
+        return pd.DataFrame(
+            columns=[
+                "Season",
+                "Runs",
+            ]
+        )
+
+    match_id_column = find_first_available_column(
+        matches_df,
+        MATCH_ID_COLUMNS,
+    )
+
+    delivery_match_id_column = (
+        find_first_available_column(
+            deliveries_df,
+            DELIVERY_MATCH_ID_COLUMNS,
+        )
+    )
+
+    season_column = find_first_available_column(
+        matches_df,
+        SEASON_COLUMNS,
+    )
+
+    match_season_df = (
+        matches_df[
+            [
+                match_id_column,
+                season_column,
+            ]
+        ]
+        .drop_duplicates(
+            subset=[
+                match_id_column
+            ]
+        )
+        .rename(
+            columns={
+                match_id_column: "_match_id",
+                season_column: "Season",
+            }
+        )
+    )
+
+    delivery_summary_df = deliveries_df.copy()
+
+    delivery_summary_df = delivery_summary_df.rename(
+        columns={
+            delivery_match_id_column: "_match_id",
+        }
+    )
+
+    total_runs_column = get_optional_column(
+        dataframe=delivery_summary_df,
+        candidate_columns=TOTAL_RUN_COLUMNS,
+    )
+
+    if total_runs_column is not None:
+
+        delivery_summary_df["_delivery_runs"] = (
+            pd.to_numeric(
+                delivery_summary_df[
+                    total_runs_column
+                ],
+                errors="coerce",
+            )
+            .fillna(0)
+        )
+
+    else:
+
+        batter_runs_column = get_optional_column(
+            dataframe=delivery_summary_df,
+            candidate_columns=BATTER_RUN_COLUMNS,
+        )
+
+        extra_runs_column = get_optional_column(
+            dataframe=delivery_summary_df,
+            candidate_columns=EXTRA_RUN_COLUMNS,
+        )
+
+        delivery_summary_df["_delivery_runs"] = 0
+
+        if batter_runs_column is not None:
+            delivery_summary_df[
+                "_delivery_runs"
+            ] += (
+                pd.to_numeric(
+                    delivery_summary_df[
+                        batter_runs_column
+                    ],
+                    errors="coerce",
+                )
+                .fillna(0)
+            )
+
+        if extra_runs_column is not None:
+            delivery_summary_df[
+                "_delivery_runs"
+            ] += (
+                pd.to_numeric(
+                    delivery_summary_df[
+                        extra_runs_column
+                    ],
+                    errors="coerce",
+                )
+                .fillna(0)
+            )
+
+    merged_df = delivery_summary_df.merge(
+        match_season_df,
+        on="_match_id",
+        how="inner",
+    )
+
+    if merged_df.empty:
+        return pd.DataFrame(
+            columns=[
+                "Season",
+                "Runs",
+            ]
+        )
+
+    summary_df = (
+        merged_df
+        .groupby(
+            "Season",
+            dropna=False,
+        )["_delivery_runs"]
+        .sum()
+        .reset_index(
+            name="Runs"
+        )
+    )
+
+    summary_df["Runs"] = (
+        pd.to_numeric(
+            summary_df["Runs"],
+            errors="coerce",
+        )
+        .fillna(0)
+        .round()
+        .astype(int)
+    )
+
+    return (
+        summary_df
+        .sort_values(
+            by="Season"
+        )
+        .reset_index(
+            drop=True
+        )
+    )
+

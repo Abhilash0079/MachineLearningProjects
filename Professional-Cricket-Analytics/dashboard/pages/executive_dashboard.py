@@ -1,6 +1,10 @@
 import streamlit as st
 from utils.data_loader import load_all_data
-from utils.executive_analytics import (calculate_executive_kpis,)
+from utils.executive_analytics import (
+    calculate_executive_kpis,
+    create_matches_by_season_summary,
+    create_runs_by_season_summary,
+)
 from utils.filters import (
     display_global_filters,
     filter_deliveries,
@@ -9,7 +13,11 @@ from utils.filters import (
 )
 from utils.helpers import (format_decimal, format_integer,)
 from utils.page_components import (display_page_header,)
-
+from utils.charts import (
+    PLOTLY_CONFIG,
+    create_bar_chart,
+    create_line_chart,
+)
 
 # ==========================================================
 # Filter controls
@@ -166,6 +174,75 @@ def display_executive_kpis(
         ),
     )
 
+# ==========================================================
+# Season trend charts
+# ==========================================================
+
+def display_season_trend_charts(
+    filtered_matches_df,
+    filtered_deliveries_df,
+) -> None:
+    """
+    Display match-volume and run-volume trends by season.
+    """
+
+    st.subheader("📊 Competition Trends")
+
+    matches_summary_df = (
+        create_matches_by_season_summary(
+            matches_df=filtered_matches_df,
+        )
+    )
+
+    runs_summary_df = (
+        create_runs_by_season_summary(
+            matches_df=filtered_matches_df,
+            deliveries_df=filtered_deliveries_df,
+        )
+    )
+
+    chart_column_1, chart_column_2 = st.columns(2)
+
+    with chart_column_1:
+
+        matches_figure = create_bar_chart(
+            dataframe=matches_summary_df,
+            x_column="Season",
+            y_column="Matches",
+            title="Matches by Season",
+            x_axis_title="Season",
+            y_axis_title="Matches",
+            text_column="Matches",
+            sort_by="Season",
+            ascending=True,
+            height=430,
+        )
+
+        st.plotly_chart(
+            matches_figure,
+            use_container_width=True,
+            config=PLOTLY_CONFIG,
+        )
+
+    with chart_column_2:
+
+        runs_figure = create_line_chart(
+            dataframe=runs_summary_df,
+            x_column="Season",
+            y_column="Runs",
+            title="Total Runs by Season",
+            x_axis_title="Season",
+            y_axis_title="Runs",
+            markers=True,
+            height=430,
+        )
+
+        st.plotly_chart(
+            runs_figure,
+            use_container_width=True,
+            config=PLOTLY_CONFIG,
+        )
+
 
 # ==========================================================
 # Main page
@@ -218,10 +295,16 @@ def show_executive_dashboard() -> None:
             filtered_deliveries_df=filtered_deliveries_df,
         )
 
-        st.info(
-            "Executive charts will be added after the filter "
-            "and KPI section has been verified."
+        st.divider()
+
+        display_season_trend_charts(
+            filtered_matches_df=filtered_matches_df,
+            filtered_deliveries_df=filtered_deliveries_df,
         )
+        # st.info(
+        #     "Executive charts will be added after the filter "
+        #     "and KPI section has been verified."
+        # )
 
     except (
         FileNotFoundError,
