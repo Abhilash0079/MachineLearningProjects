@@ -1,9 +1,7 @@
 from typing import Optional
-
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-
 from config import (
     BACKGROUND_COLOR,
     BORDER_COLOR,
@@ -13,13 +11,10 @@ from config import (
     TEXT_COLOR,
 )
 
-
 # ==========================================================
 # Common chart configuration
 # ==========================================================
-
 DEFAULT_CHART_HEIGHT = 450
-
 PLOTLY_CONFIG = {
     "displayModeBar": True,
     "displaylogo": False,
@@ -31,11 +26,9 @@ PLOTLY_CONFIG = {
     ],
 }
 
-
 # ==========================================================
 # Column validation
 # ==========================================================
-
 def validate_chart_columns(
     dataframe: pd.DataFrame,
     required_columns: list[str]
@@ -69,11 +62,9 @@ def validate_chart_columns(
             f"{missing_columns}"
         )
 
-
 # ==========================================================
 # Common chart styling
 # ==========================================================
-
 def apply_common_layout(
     figure: go.Figure,
     title: Optional[str] = None,
@@ -167,7 +158,6 @@ def apply_common_layout(
 # ==========================================================
 # Empty chart
 # ==========================================================
-
 def create_empty_chart(
     message: str = "No data available for the selected filters.",
     title: Optional[str] = None,
@@ -206,11 +196,9 @@ def create_empty_chart(
         show_legend=False,
     )
 
-
 # ==========================================================
 # Vertical bar chart
 # ==========================================================
-
 def create_bar_chart(
     dataframe: pd.DataFrame,
     x_column: str,
@@ -295,11 +283,9 @@ def create_bar_chart(
         show_legend=show_legend,
     )
 
-
 # ==========================================================
 # Horizontal bar chart
 # ==========================================================
-
 def create_horizontal_bar_chart(
     dataframe: pd.DataFrame,
     category_column: str,
@@ -374,11 +360,9 @@ def create_horizontal_bar_chart(
         show_legend=False,
     )
 
-
 # ==========================================================
 # Line chart
 # ==========================================================
-
 def create_line_chart(
     dataframe: pd.DataFrame,
     x_column: str,
@@ -449,11 +433,9 @@ def create_line_chart(
         show_legend=show_legend,
     )
 
-
 # ==========================================================
 # Pie or donut chart
 # ==========================================================
-
 def create_pie_chart(
     dataframe: pd.DataFrame,
     names_column: str,
@@ -516,11 +498,9 @@ def create_pie_chart(
         show_legend=True,
     )
 
-
 # ==========================================================
 # Scatter chart
 # ==========================================================
-
 def create_scatter_chart(
     dataframe: pd.DataFrame,
     x_column: str,
@@ -594,3 +574,4 @@ def create_scatter_chart(
         height=height,
         show_legend=show_legend,
     )
+

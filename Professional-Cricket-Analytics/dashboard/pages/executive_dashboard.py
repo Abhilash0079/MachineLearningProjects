@@ -2,11 +2,15 @@ import streamlit as st
 from utils.data_loader import load_all_data
 from utils.executive_analytics import (
     calculate_executive_kpis,
+    create_innings_outcome_by_season,
+    create_innings_outcome_summary,
     create_matches_by_season_summary,
     create_runs_by_season_summary,
     create_team_performance_summary,
     create_team_win_percentage_ranking,
     create_team_wins_ranking,
+    create_toss_decision_summary,
+    create_toss_impact_summary,
 )
 from utils.filters import (
     display_global_filters,
@@ -20,13 +24,15 @@ from utils.charts import (
     PLOTLY_CONFIG,
     create_bar_chart,
     create_line_chart,
+    create_pie_chart,
     create_horizontal_bar_chart,
+    apply_common_layout
 )
+import plotly.express as px
 
 # ==========================================================
 # Filter controls
 # ==========================================================
-
 def display_executive_filters(
     matches_df,
     deliveries_df,
@@ -69,11 +75,9 @@ def display_executive_filters(
         filtered_deliveries_df,
     )
 
-
 # ==========================================================
 # Filter summary
 # ==========================================================
-
 def display_filter_summary(
     selected_filters: dict,
 ) -> None:
@@ -103,11 +107,9 @@ def display_filter_summary(
         f"Venue: {venue}"
     )
 
-
 # ==========================================================
 # KPI cards
 # ==========================================================
-
 def display_executive_kpis(
     filtered_matches_df,
     filtered_deliveries_df,
@@ -181,7 +183,6 @@ def display_executive_kpis(
 # ==========================================================
 # Season trend charts
 # ==========================================================
-
 def display_season_trend_charts(
     filtered_matches_df,
     filtered_deliveries_df,
@@ -250,7 +251,6 @@ def display_season_trend_charts(
 # ==========================================================
 # Team performance analysis
 # ==========================================================
-
 def display_team_performance_analysis(
     filtered_matches_df,
 ) -> None:
@@ -393,11 +393,243 @@ def display_team_performance_analysis(
         },
     )
 
+# ==========================================================
+# Toss analysis display
+# ==========================================================
+def display_toss_analysis(
+    filtered_matches_df,
+) -> None:
+    """
+    Display toss-decision and toss-impact analysis.
+    """
+
+    st.subheader("🪙 Toss Analysis")
+
+    toss_decision_df = (
+        create_toss_decision_summary(
+            matches_df=filtered_matches_df,
+        )
+    )
+
+    toss_impact_df = (
+        create_toss_impact_summary(
+            matches_df=filtered_matches_df,
+        )
+    )
+
+    chart_column_1, chart_column_2 = st.columns(2)
+
+    with chart_column_1:
+
+        if toss_decision_df.empty:
+
+            st.info(
+                "Toss-decision data is not available "
+                "for the selected filters."
+            )
+
+        else:
+
+            toss_decision_figure = create_pie_chart(
+                dataframe=toss_decision_df,
+                names_column="Toss Decision",
+                values_column="Matches",
+                title="Toss Decision Distribution",
+                hole=0.55,
+                height=430,
+            )
+
+            toss_decision_figure.update_traces(
+                texttemplate=(
+                    "%{label}<br>"
+                    "%{value} matches<br>"
+                    "%{percent}"
+                ),
+                hovertemplate=(
+                    "<b>%{label}</b><br>"
+                    "Matches: %{value}<br>"
+                    "Percentage: %{percent}"
+                    "<extra></extra>"
+                ),
+            )
+
+            st.plotly_chart(
+                toss_decision_figure,
+                use_container_width=True,
+                config=PLOTLY_CONFIG,
+            )
+
+    with chart_column_2:
+
+        if toss_impact_df.empty:
+
+            st.info(
+                "Toss-impact data is not available "
+                "for the selected filters."
+            )
+
+        else:
+
+            toss_impact_figure = (
+                create_horizontal_bar_chart(
+                    dataframe=toss_impact_df,
+                    category_column="Outcome",
+                    value_column="Percentage",
+                    title="Did the Toss Winner Win the Match?",
+                    x_axis_title="Percentage (%)",
+                    y_axis_title="Outcome",
+                    top_n=2,
+                    ascending=True,
+                    height=430,
+                )
+            )
+
+            toss_impact_figure.update_traces(
+                texttemplate="%{x:.1f}%",
+                hovertemplate=(
+                    "<b>%{y}</b><br>"
+                    "Percentage: %{x:.1f}%"
+                    "<extra></extra>"
+                ),
+            )
+
+            toss_impact_figure.update_xaxes(
+                ticksuffix="%",
+                range=[0, 100],
+            )
+
+            st.plotly_chart(
+                toss_impact_figure,
+                use_container_width=True,
+                config=PLOTLY_CONFIG,
+            )
+
+# ==========================================================
+# Innings outcome display
+# ==========================================================
+def display_innings_outcome_analysis(
+    filtered_matches_df,
+) -> None:
+    """
+    Display batting-first versus chasing outcomes.
+    """
+
+    st.subheader(
+        "🏏 Batting First vs Chasing Outcomes"
+    )
+
+    outcome_summary_df = (
+        create_innings_outcome_summary(
+            matches_df=filtered_matches_df,
+        )
+    )
+
+    outcome_by_season_df = (
+        create_innings_outcome_by_season(
+            matches_df=filtered_matches_df,
+        )
+    )
+
+    chart_column_1, chart_column_2 = st.columns(
+        [
+            0.8,
+            1.2,
+        ]
+    )
+
+    with chart_column_1:
+
+        if outcome_summary_df.empty:
+
+            st.info(
+                "Match outcome data is not available "
+                "for the selected filters."
+            )
+
+        else:
+
+            outcome_figure = create_pie_chart(
+                dataframe=outcome_summary_df,
+                names_column="Match Outcome",
+                values_column="Matches",
+                title="Overall Match Outcome Distribution",
+                hole=0.50,
+                height=450,
+            )
+
+            outcome_figure.update_traces(
+                texttemplate=(
+                    "%{label}<br>"
+                    "%{value}<br>"
+                    "%{percent}"
+                ),
+                hovertemplate=(
+                    "<b>%{label}</b><br>"
+                    "Matches: %{value}<br>"
+                    "Percentage: %{percent}"
+                    "<extra></extra>"
+                ),
+            )
+
+            st.plotly_chart(
+                outcome_figure,
+                use_container_width=True,
+                config=PLOTLY_CONFIG,
+            )
+
+    with chart_column_2:
+
+        if outcome_by_season_df.empty:
+
+            st.info(
+                "Season-level outcome data is not available "
+                "for the selected filters."
+            )
+
+        else:
+
+            season_outcome_figure = px.bar(
+                outcome_by_season_df,
+                x="Season",
+                y="Matches",
+                color="Match Outcome",
+                barmode="group",
+                text="Matches",
+                title=(
+                    "Batting First and Chasing Wins "
+                    "by Season"
+                ),
+            )
+
+            season_outcome_figure.update_traces(
+                textposition="outside",
+                cliponaxis=False,
+                hovertemplate=(
+                    "<b>Season: %{x}</b><br>"
+                    "Matches: %{y}<br>"
+                    "Outcome: %{fullData.name}"
+                    "<extra></extra>"
+                ),
+            )
+
+            season_outcome_figure = apply_common_layout(
+                figure=season_outcome_figure,
+                title=(
+                    "Batting First and Chasing Wins "
+                    "by Season"
+                ),
+                height=450,
+            )
+
+            st.plotly_chart(
+                season_outcome_figure,
+                use_container_width=True,
+                config=PLOTLY_CONFIG,
+            )
 
 # ==========================================================
 # Main page
 # ==========================================================
-
 def show_executive_dashboard() -> None:
     """
     Display the Executive Dashboard.
@@ -456,7 +688,18 @@ def show_executive_dashboard() -> None:
         display_team_performance_analysis(
             filtered_matches_df=filtered_matches_df,
         )
+        st.divider()
 
+        display_toss_analysis(
+            filtered_matches_df=filtered_matches_df,
+        )
+
+        st.divider()
+
+        display_innings_outcome_analysis(
+            filtered_matches_df=filtered_matches_df,
+        )
+        
     except (
         FileNotFoundError,
         ValueError,
@@ -468,6 +711,5 @@ def show_executive_dashboard() -> None:
         st.error(
             f"Executive Dashboard could not be loaded: {error}"
         )
-
 
 show_executive_dashboard()

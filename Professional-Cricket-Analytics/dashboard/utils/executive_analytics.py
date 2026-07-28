@@ -85,6 +85,25 @@ RESULT_COLUMNS = [
     "result",
     "match_result",
 ]
+TOSS_WINNER_COLUMNS = [
+    "toss_winner",
+    "tossWinner",
+]
+
+TOSS_DECISION_COLUMNS = [
+    "toss_decision",
+    "tossDecision",
+]
+
+WIN_BY_RUNS_COLUMNS = [
+    "win_by_runs",
+    "result_margin_runs",
+]
+
+WIN_BY_WICKETS_COLUMNS = [
+    "win_by_wickets",
+    "result_margin_wickets",
+]
 
 # ==========================================================
 # Internal helpers
@@ -657,7 +676,6 @@ def normalise_text_series(
         .str.strip()
     )
 
-
 def create_team_performance_summary(
     matches_df: pd.DataFrame,
 ) -> pd.DataFrame:
@@ -887,7 +905,6 @@ def create_team_performance_summary(
         )
     )
 
-
 def create_team_wins_ranking(
     team_summary_df: pd.DataFrame,
     top_n: int = 10,
@@ -937,7 +954,6 @@ def create_team_wins_ranking(
             drop=True
         )
     )
-
 
 def create_team_win_percentage_ranking(
     team_summary_df: pd.DataFrame,
@@ -991,7 +1007,7 @@ def create_team_win_percentage_ranking(
         team_summary_df["Matches"]
         >= minimum_matches
     ].copy()
-    
+
     qualified_df = (
         qualified_df
         .sort_values(
@@ -1019,3 +1035,560 @@ def create_team_win_percentage_ranking(
             "Win Percentage",
         ]
     ]
+
+# ==========================================================
+# Toss analysis
+# ==========================================================
+
+def normalise_toss_decision(
+    value: object,
+) -> str:
+    """
+    Standardise toss-decision values.
+
+    Examples
+    --------
+    bat, batting -> Bat
+    field, bowl, bowling -> Field
+    """
+
+    cleaned_value = str(value).strip().lower()
+
+    if cleaned_value in {
+        "bat",
+        "batting",
+    }:
+        return "Bat"
+
+    if cleaned_value in {
+        "field",
+        "fielding",
+        "bowl",
+        "bowling",
+    }:
+        return "Field"
+
+    return "Unknown"
+
+def create_toss_decision_summary(
+    matches_df: pd.DataFrame,
+) -> pd.DataFrame:
+    """
+    Calculate the distribution of toss decisions.
+
+    Returns
+    -------
+    pd.DataFrame
+        Columns:
+        - Toss Decision
+        - Matches
+        - Percentage
+    """
+
+    output_columns = [
+        "Toss Decision",
+        "Matches",
+        "Percentage",
+    ]
+
+    if matches_df.empty:
+        return pd.DataFrame(
+            columns=output_columns
+        )
+
+    toss_decision_column = get_optional_column(
+        dataframe=matches_df,
+        candidate_columns=TOSS_DECISION_COLUMNS,
+    )
+
+    if toss_decision_column is None:
+        return pd.DataFrame(
+            columns=output_columns
+        )
+
+    analysis_df = matches_df.copy()
+
+    analysis_df["Toss Decision"] = (
+        analysis_df[toss_decision_column]
+        .apply(normalise_toss_decision)
+    )
+
+    analysis_df = analysis_df[
+        analysis_df["Toss Decision"]
+        .ne("Unknown")
+    ]
+
+    if analysis_df.empty:
+        return pd.DataFrame(
+            columns=output_columns
+        )
+
+    summary_df = (
+        analysis_df
+        .groupby(
+            "Toss Decision",
+            dropna=False,
+        )
+        .size()
+        .reset_index(
+            name="Matches"
+        )
+    )
+
+    total_matches = int(
+        summary_df["Matches"].sum()
+    )
+
+    summary_df["Percentage"] = (
+        summary_df["Matches"]
+        .apply(
+            lambda value: (
+                safe_divide(
+                    numerator=value,
+                    denominator=total_matches,
+                )
+                * 100
+            )
+        )
+        .round(1)
+    )
+
+    decision_order = {
+        "Bat": 1,
+        "Field": 2,
+    }
+
+    summary_df["_decision_order"] = (
+        summary_df["Toss Decision"]
+        .map(decision_order)
+        .fillna(99)
+    )
+
+    return (
+        summary_df
+        .sort_values(
+            by="_decision_order"
+        )
+        .drop(
+            columns="_decision_order"
+        )
+        .reset_index(
+            drop=True
+        )
+    )
+
+def create_toss_impact_summary(
+    matches_df: pd.DataFrame,
+) -> pd.DataFrame:
+    """
+    Analyse whether the toss-winning team also won the match.
+
+    No-result matches are excluded from the percentage denominator.
+
+    Returns
+    -------
+    pd.DataFrame
+        Columns:
+        - Outcome
+        - Matches
+        - Percentage
+    """
+
+    output_columns = [
+        "Outcome",
+        "Matches",
+        "Percentage",
+    ]
+
+    if matches_df.empty:
+        return pd.DataFrame(
+            columns=output_columns
+        )
+
+    toss_winner_column = get_optional_column(
+        dataframe=matches_df,
+        candidate_columns=TOSS_WINNER_COLUMNS,
+    )
+
+    winner_column = get_optional_column(
+        dataframe=matches_df,
+        candidate_columns=WINNER_COLUMNS,
+    )
+
+    if (
+        toss_winner_column is None
+        or winner_column is None
+    ):
+        return pd.DataFrame(
+            columns=output_columns
+        )
+
+    analysis_df = matches_df.copy()
+
+    analysis_df["_toss_winner"] = (
+        normalise_text_series(
+            analysis_df[toss_winner_column]
+        )
+    )
+
+    analysis_df["_match_winner"] = (
+        normalise_text_series(
+            analysis_df[winner_column]
+        )
+    )
+
+    decided_matches_df = analysis_df[
+        analysis_df["_match_winner"].ne("")
+        & analysis_df["_toss_winner"].ne("")
+    ].copy()
+
+    if decided_matches_df.empty:
+        return pd.DataFrame(
+            columns=output_columns
+        )
+
+    toss_winner_won = int(
+        decided_matches_df[
+            "_toss_winner"
+        ]
+        .eq(
+            decided_matches_df[
+                "_match_winner"
+            ]
+        )
+        .sum()
+    )
+
+    toss_winner_lost = int(
+        len(decided_matches_df)
+        - toss_winner_won
+    )
+
+    total_decided_matches = int(
+        len(decided_matches_df)
+    )
+
+    summary_df = pd.DataFrame(
+        [
+            {
+                "Outcome": "Toss Winner Won Match",
+                "Matches": toss_winner_won,
+                "Percentage": round(
+                    safe_divide(
+                        numerator=toss_winner_won,
+                        denominator=total_decided_matches,
+                    )
+                    * 100,
+                    1,
+                ),
+            },
+            {
+                "Outcome": "Toss Winner Lost Match",
+                "Matches": toss_winner_lost,
+                "Percentage": round(
+                    safe_divide(
+                        numerator=toss_winner_lost,
+                        denominator=total_decided_matches,
+                    )
+                    * 100,
+                    1,
+                ),
+            },
+        ],
+        columns=output_columns,
+    )
+
+    return summary_df
+
+# ==========================================================
+# Innings-result analysis
+# ==========================================================
+
+def classify_match_outcome_type(
+    row: pd.Series,
+    win_by_runs_column: str | None,
+    win_by_wickets_column: str | None,
+) -> str:
+    """
+    Classify a match as:
+
+    - Batting First Win
+    - Chasing Win
+    - No Result / Unknown
+    """
+
+    if win_by_runs_column is not None:
+
+        win_by_runs = pd.to_numeric(
+            row.get(
+                win_by_runs_column,
+                0,
+            ),
+            errors="coerce",
+        )
+
+        if pd.notna(win_by_runs) and win_by_runs > 0:
+            return "Batting First Win"
+
+    if win_by_wickets_column is not None:
+
+        win_by_wickets = pd.to_numeric(
+            row.get(
+                win_by_wickets_column,
+                0,
+            ),
+            errors="coerce",
+        )
+
+        if (
+            pd.notna(win_by_wickets)
+            and win_by_wickets > 0
+        ):
+            return "Chasing Win"
+
+    return "No Result / Unknown"
+
+def create_innings_outcome_summary(
+    matches_df: pd.DataFrame,
+) -> pd.DataFrame:
+    """
+    Compare batting-first wins with chasing wins.
+
+    Returns
+    -------
+    pd.DataFrame
+        Columns:
+        - Match Outcome
+        - Matches
+        - Percentage
+    """
+
+    output_columns = [
+        "Match Outcome",
+        "Matches",
+        "Percentage",
+    ]
+
+    if matches_df.empty:
+        return pd.DataFrame(
+            columns=output_columns
+        )
+
+    win_by_runs_column = get_optional_column(
+        dataframe=matches_df,
+        candidate_columns=WIN_BY_RUNS_COLUMNS,
+    )
+
+    win_by_wickets_column = get_optional_column(
+        dataframe=matches_df,
+        candidate_columns=WIN_BY_WICKETS_COLUMNS,
+    )
+
+    if (
+        win_by_runs_column is None
+        and win_by_wickets_column is None
+    ):
+        return pd.DataFrame(
+            columns=output_columns
+        )
+
+    analysis_df = matches_df.copy()
+
+    analysis_df["Match Outcome"] = (
+        analysis_df.apply(
+            classify_match_outcome_type,
+            axis=1,
+            win_by_runs_column=win_by_runs_column,
+            win_by_wickets_column=win_by_wickets_column,
+        )
+    )
+
+    decided_matches_df = analysis_df[
+        analysis_df["Match Outcome"]
+        .isin(
+            [
+                "Batting First Win",
+                "Chasing Win",
+            ]
+        )
+    ].copy()
+
+    if decided_matches_df.empty:
+        return pd.DataFrame(
+            columns=output_columns
+        )
+
+    summary_df = (
+        decided_matches_df
+        .groupby(
+            "Match Outcome",
+            dropna=False,
+        )
+        .size()
+        .reset_index(
+            name="Matches"
+        )
+    )
+
+    total_decided_matches = int(
+        summary_df["Matches"].sum()
+    )
+
+    summary_df["Percentage"] = (
+        summary_df["Matches"]
+        .apply(
+            lambda value: (
+                safe_divide(
+                    numerator=value,
+                    denominator=total_decided_matches,
+                )
+                * 100
+            )
+        )
+        .round(1)
+    )
+
+    outcome_order = {
+        "Batting First Win": 1,
+        "Chasing Win": 2,
+    }
+
+    summary_df["_outcome_order"] = (
+        summary_df["Match Outcome"]
+        .map(outcome_order)
+        .fillna(99)
+    )
+
+    return (
+        summary_df
+        .sort_values(
+            by="_outcome_order"
+        )
+        .drop(
+            columns="_outcome_order"
+        )
+        .reset_index(
+            drop=True
+        )
+    )
+
+def create_innings_outcome_by_season(
+    matches_df: pd.DataFrame,
+) -> pd.DataFrame:
+    """
+    Calculate batting-first and chasing wins by season.
+
+    Returns
+    -------
+    pd.DataFrame
+        Columns:
+        - Season
+        - Match Outcome
+        - Matches
+    """
+
+    output_columns = [
+        "Season",
+        "Match Outcome",
+        "Matches",
+    ]
+
+    if matches_df.empty:
+        return pd.DataFrame(
+            columns=output_columns
+        )
+
+    season_column = get_optional_column(
+        dataframe=matches_df,
+        candidate_columns=SEASON_COLUMNS,
+    )
+
+    win_by_runs_column = get_optional_column(
+        dataframe=matches_df,
+        candidate_columns=WIN_BY_RUNS_COLUMNS,
+    )
+
+    win_by_wickets_column = get_optional_column(
+        dataframe=matches_df,
+        candidate_columns=WIN_BY_WICKETS_COLUMNS,
+    )
+
+    if (
+        season_column is None
+        or (
+            win_by_runs_column is None
+            and win_by_wickets_column is None
+        )
+    ):
+        return pd.DataFrame(
+            columns=output_columns
+        )
+
+    analysis_df = matches_df.copy()
+
+    analysis_df["Match Outcome"] = (
+        analysis_df.apply(
+            classify_match_outcome_type,
+            axis=1,
+            win_by_runs_column=win_by_runs_column,
+            win_by_wickets_column=win_by_wickets_column,
+        )
+    )
+
+    analysis_df = analysis_df[
+        analysis_df["Match Outcome"]
+        .isin(
+            [
+                "Batting First Win",
+                "Chasing Win",
+            ]
+        )
+    ].copy()
+
+    if analysis_df.empty:
+        return pd.DataFrame(
+            columns=output_columns
+        )
+
+    summary_df = (
+        analysis_df
+        .groupby(
+            [
+                season_column,
+                "Match Outcome",
+            ],
+            dropna=False,
+        )
+        .size()
+        .reset_index(
+            name="Matches"
+        )
+        .rename(
+            columns={
+                season_column: "Season",
+            }
+        )
+    )
+
+    summary_df["Matches"] = (
+        pd.to_numeric(
+            summary_df["Matches"],
+            errors="coerce",
+        )
+        .fillna(0)
+        .astype(int)
+    )
+
+    return (
+        summary_df
+        .sort_values(
+            by=[
+                "Season",
+                "Match Outcome",
+            ]
+        )
+        .reset_index(
+            drop=True
+        )
+    )
+
