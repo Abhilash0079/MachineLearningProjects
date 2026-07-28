@@ -11,6 +11,7 @@ from utils.executive_analytics import (
     create_team_wins_ranking,
     create_toss_decision_summary,
     create_toss_impact_summary,
+    create_venue_performance_summary,
 )
 from utils.filters import (
     display_global_filters,
@@ -628,6 +629,258 @@ def display_innings_outcome_analysis(
             )
 
 # ==========================================================
+# Venue analysis display
+# ==========================================================
+def display_venue_analysis(
+    filtered_matches_df,
+    filtered_deliveries_df,
+) -> None:
+    """
+    Display venue match volume, scoring and chasing analysis.
+    """
+
+    st.subheader("🏟️ Venue Performance Analysis")
+
+    venue_summary_df = (
+        create_venue_performance_summary(
+            matches_df=filtered_matches_df,
+            deliveries_df=filtered_deliveries_df,
+        )
+    )
+
+    if venue_summary_df.empty:
+
+        st.info(
+            "Venue performance data is not available "
+            "for the selected filters."
+        )
+
+        return
+
+    top_match_venues_df = (
+        venue_summary_df
+        .sort_values(
+            by=[
+                "Matches",
+                "Venue",
+            ],
+            ascending=[
+                False,
+                True,
+            ],
+        )
+        .head(10)
+        .reset_index(
+            drop=True
+        )
+    )
+
+    top_scoring_venues_df = (
+        venue_summary_df[
+            venue_summary_df["Matches"] >= 1
+        ]
+        .sort_values(
+            by=[
+                "Average Runs per Match",
+                "Matches",
+            ],
+            ascending=[
+                False,
+                False,
+            ],
+        )
+        .head(10)
+        .reset_index(
+            drop=True
+        )
+    )
+
+    top_chasing_venues_df = (
+        venue_summary_df[
+            venue_summary_df["Decided Matches"] >= 1
+        ]
+        .sort_values(
+            by=[
+                "Chasing Success Percentage",
+                "Decided Matches",
+            ],
+            ascending=[
+                False,
+                False,
+            ],
+        )
+        .head(10)
+        .reset_index(
+            drop=True
+        )
+    )
+
+    chart_column_1, chart_column_2 = st.columns(2)
+
+    with chart_column_1:
+
+        match_volume_figure = (
+            create_horizontal_bar_chart(
+                dataframe=top_match_venues_df,
+                category_column="Venue",
+                value_column="Matches",
+                title="Top Venues by Match Volume",
+                x_axis_title="Matches",
+                y_axis_title="Venue",
+                top_n=10,
+                ascending=True,
+                height=520,
+            )
+        )
+
+        st.plotly_chart(
+            match_volume_figure,
+            use_container_width=True,
+            config=PLOTLY_CONFIG,
+        )
+
+    with chart_column_2:
+
+        scoring_figure = (
+            create_horizontal_bar_chart(
+                dataframe=top_scoring_venues_df,
+                category_column="Venue",
+                value_column="Average Runs per Match",
+                title="Highest-Scoring Venues",
+                x_axis_title="Average Runs per Match",
+                y_axis_title="Venue",
+                top_n=10,
+                ascending=True,
+                height=520,
+            )
+        )
+
+        scoring_figure.update_traces(
+            texttemplate="%{x:.1f}",
+            hovertemplate=(
+                "<b>%{y}</b><br>"
+                "Average Runs per Match: %{x:.1f}"
+                "<extra></extra>"
+            ),
+        )
+
+        st.plotly_chart(
+            scoring_figure,
+            use_container_width=True,
+            config=PLOTLY_CONFIG,
+        )
+
+    st.markdown("#### Chasing Success by Venue")
+
+    chasing_figure = (
+        create_horizontal_bar_chart(
+            dataframe=top_chasing_venues_df,
+            category_column="Venue",
+            value_column="Chasing Success Percentage",
+            title="Top Venues for Successful Chases",
+            x_axis_title="Chasing Success (%)",
+            y_axis_title="Venue",
+            top_n=10,
+            ascending=True,
+            height=540,
+        )
+    )
+
+    chasing_figure.update_traces(
+        texttemplate="%{x:.1f}%",
+        hovertemplate=(
+            "<b>%{y}</b><br>"
+            "Chasing Success: %{x:.1f}%"
+            "<extra></extra>"
+        ),
+    )
+
+    chasing_figure.update_xaxes(
+        ticksuffix="%",
+        range=[0, 100],
+    )
+
+    st.plotly_chart(
+        chasing_figure,
+        use_container_width=True,
+        config=PLOTLY_CONFIG,
+    )
+
+    st.markdown("#### Venue Performance Table")
+
+    display_venue_df = venue_summary_df.copy()
+
+    display_venue_df[
+        "Average Runs per Match"
+    ] = (
+        display_venue_df[
+            "Average Runs per Match"
+        ]
+        .map(
+            lambda value: f"{value:.1f}"
+        )
+    )
+
+    display_venue_df[
+        "Chasing Success Percentage"
+    ] = (
+        display_venue_df[
+            "Chasing Success Percentage"
+        ]
+        .map(
+            lambda value: f"{value:.1f}%"
+        )
+    )
+
+    st.dataframe(
+        display_venue_df,
+        use_container_width=True,
+        hide_index=True,
+        column_config={
+            "Venue": st.column_config.TextColumn(
+                "Venue",
+                width="large",
+            ),
+            "Matches": st.column_config.NumberColumn(
+                "Matches",
+                format="%d",
+            ),
+            "Total Runs": st.column_config.NumberColumn(
+                "Total Runs",
+                format="%d",
+            ),
+            "Average Runs per Match": (
+                st.column_config.TextColumn(
+                    "Average Runs per Match",
+                )
+            ),
+            "Batting First Wins": (
+                st.column_config.NumberColumn(
+                    "Batting First Wins",
+                    format="%d",
+                )
+            ),
+            "Chasing Wins": (
+                st.column_config.NumberColumn(
+                    "Chasing Wins",
+                    format="%d",
+                )
+            ),
+            "Decided Matches": (
+                st.column_config.NumberColumn(
+                    "Decided Matches",
+                    format="%d",
+                )
+            ),
+            "Chasing Success Percentage": (
+                st.column_config.TextColumn(
+                    "Chasing Success",
+                )
+            ),
+        },
+    )
+
+# ==========================================================
 # Main page
 # ==========================================================
 def show_executive_dashboard() -> None:
@@ -698,6 +951,13 @@ def show_executive_dashboard() -> None:
 
         display_innings_outcome_analysis(
             filtered_matches_df=filtered_matches_df,
+        )
+
+        st.divider()
+
+        display_venue_analysis(
+            filtered_matches_df=filtered_matches_df,
+            filtered_deliveries_df=filtered_deliveries_df,
         )
         
     except (

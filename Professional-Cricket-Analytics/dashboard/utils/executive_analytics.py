@@ -105,6 +105,10 @@ WIN_BY_WICKETS_COLUMNS = [
     "result_margin_wickets",
 ]
 
+VENUE_COLUMNS = [
+    "venue",
+    "Venue"
+]
 # ==========================================================
 # Internal helpers
 # ==========================================================
@@ -1592,3 +1596,712 @@ def create_innings_outcome_by_season(
         )
     )
 
+# ==========================================================
+# Venue analysis
+# ==========================================================
+def create_venue_match_summary(
+    matches_df: pd.DataFrame,
+) -> pd.DataFrame:
+    """
+    Calculate match volume by venue.
+
+    Returns
+    -------
+    pd.DataFrame
+        Columns:
+        - Venue
+        - Matches
+    """
+
+    output_columns = [
+        "Venue",
+        "Matches",
+    ]
+
+    if matches_df.empty:
+        return pd.DataFrame(
+            columns=output_columns
+        )
+
+    venue_column = get_optional_column(
+        dataframe=matches_df,
+        candidate_columns=VENUE_COLUMNS,
+    )
+
+    if venue_column is None:
+        return pd.DataFrame(
+            columns=output_columns
+        )
+
+    analysis_df = matches_df.copy()
+
+    analysis_df["Venue"] = (
+        normalise_text_series(
+            analysis_df[venue_column]
+        )
+    )
+
+    analysis_df = analysis_df[
+        analysis_df["Venue"].ne("")
+    ]
+
+    if analysis_df.empty:
+        return pd.DataFrame(
+            columns=output_columns
+        )
+
+    summary_df = (
+        analysis_df
+        .groupby(
+            "Venue",
+            dropna=False,
+        )
+        .size()
+        .reset_index(
+            name="Matches"
+        )
+    )
+
+    summary_df["Matches"] = (
+        pd.to_numeric(
+            summary_df["Matches"],
+            errors="coerce",
+        )
+        .fillna(0)
+        .astype(int)
+    )
+
+    return (
+        summary_df
+        .sort_values(
+            by=[
+                "Matches",
+                "Venue",
+            ],
+            ascending=[
+                False,
+                True,
+            ],
+        )
+        .reset_index(
+            drop=True
+        )
+    )
+
+def create_venue_scoring_summary(
+    matches_df: pd.DataFrame,
+    deliveries_df: pd.DataFrame,
+) -> pd.DataFrame:
+    """
+    Calculate total and average runs per match by venue.
+
+    Match-level venue information is joined to deliveries
+    using the match ID.
+
+    Returns
+    -------
+    pd.DataFrame
+        Columns:
+        - Venue
+        - Matches
+        - Total Runs
+        - Average Runs per Match
+    """
+
+    output_columns = [
+        "Venue",
+        "Matches",
+        "Total Runs",
+        "Average Runs per Match",
+    ]
+
+    if matches_df.empty or deliveries_df.empty:
+        return pd.DataFrame(
+            columns=output_columns
+        )
+
+    match_id_column = get_optional_column(
+        dataframe=matches_df,
+        candidate_columns=MATCH_ID_COLUMNS,
+    )
+
+    delivery_match_id_column = get_optional_column(
+        dataframe=deliveries_df,
+        candidate_columns=DELIVERY_MATCH_ID_COLUMNS,
+    )
+
+    venue_column = get_optional_column(
+        dataframe=matches_df,
+        candidate_columns=VENUE_COLUMNS,
+    )
+
+    if (
+        match_id_column is None
+        or delivery_match_id_column is None
+        or venue_column is None
+    ):
+        return pd.DataFrame(
+            columns=output_columns
+        )
+
+    match_venue_df = (
+        matches_df[
+            [
+                match_id_column,
+                venue_column,
+            ]
+        ]
+        .drop_duplicates(
+            subset=[
+                match_id_column
+            ]
+        )
+        .rename(
+            columns={
+                match_id_column: "_match_id",
+                venue_column: "Venue",
+            }
+        )
+    )
+
+    match_venue_df["Venue"] = (
+        normalise_text_series(
+            match_venue_df["Venue"]
+        )
+    )
+
+    match_venue_df = match_venue_df[
+        match_venue_df["Venue"].ne("")
+    ]
+
+    delivery_analysis_df = deliveries_df.copy()
+
+    delivery_analysis_df = (
+        delivery_analysis_df.rename(
+            columns={
+                delivery_match_id_column: "_match_id",
+            }
+        )
+    )
+
+    total_runs_column = get_optional_column(
+        dataframe=delivery_analysis_df,
+        candidate_columns=TOTAL_RUN_COLUMNS,
+    )
+
+    if total_runs_column is not None:
+
+        delivery_analysis_df["_delivery_runs"] = (
+            pd.to_numeric(
+                delivery_analysis_df[
+                    total_runs_column
+                ],
+                errors="coerce",
+            )
+            .fillna(0)
+        )
+
+    else:
+
+        batter_runs_column = get_optional_column(
+            dataframe=delivery_analysis_df,
+            candidate_columns=BATTER_RUN_COLUMNS,
+        )
+
+        extra_runs_column = get_optional_column(
+            dataframe=delivery_analysis_df,
+            candidate_columns=EXTRA_RUN_COLUMNS,
+        )
+
+        delivery_analysis_df["_delivery_runs"] = 0.0
+
+        if batter_runs_column is not None:
+
+            delivery_analysis_df[
+                "_delivery_runs"
+            ] += (
+                pd.to_numeric(
+                    delivery_analysis_df[
+                        batter_runs_column
+                    ],
+                    errors="coerce",
+                )
+                .fillna(0)
+            )
+
+        if extra_runs_column is not None:
+
+            delivery_analysis_df[
+                "_delivery_runs"
+            ] += (
+                pd.to_numeric(
+                    delivery_analysis_df[
+                        extra_runs_column
+                    ],
+                    errors="coerce",
+                )
+                .fillna(0)
+            )
+
+    merged_df = delivery_analysis_df.merge(
+        match_venue_df,
+        on="_match_id",
+        how="inner",
+    )
+
+    if merged_df.empty:
+        return pd.DataFrame(
+            columns=output_columns
+        )
+
+    runs_summary_df = (
+        merged_df
+        .groupby(
+            "Venue",
+            dropna=False,
+        )
+        .agg(
+            **{
+                "Total Runs": (
+                    "_delivery_runs",
+                    "sum",
+                ),
+                "_delivery_matches": (
+                    "_match_id",
+                    "nunique",
+                ),
+            }
+        )
+        .reset_index()
+    )
+
+    match_summary_df = (
+        match_venue_df
+        .groupby(
+            "Venue",
+            dropna=False,
+        )["_match_id"]
+        .nunique()
+        .reset_index(
+            name="Matches"
+        )
+    )
+
+    summary_df = match_summary_df.merge(
+        runs_summary_df[
+            [
+                "Venue",
+                "Total Runs",
+            ]
+        ],
+        on="Venue",
+        how="left",
+    )
+
+    summary_df["Total Runs"] = (
+        pd.to_numeric(
+            summary_df["Total Runs"],
+            errors="coerce",
+        )
+        .fillna(0)
+        .round()
+        .astype(int)
+    )
+
+    summary_df["Matches"] = (
+        pd.to_numeric(
+            summary_df["Matches"],
+            errors="coerce",
+        )
+        .fillna(0)
+        .astype(int)
+    )
+
+    summary_df[
+        "Average Runs per Match"
+    ] = (
+        summary_df.apply(
+            lambda row: safe_divide(
+                numerator=row["Total Runs"],
+                denominator=row["Matches"],
+            ),
+            axis=1,
+        )
+        .round(1)
+    )
+
+    return (
+        summary_df
+        .sort_values(
+            by=[
+                "Average Runs per Match",
+                "Matches",
+            ],
+            ascending=[
+                False,
+                False,
+            ],
+        )
+        .reset_index(
+            drop=True
+        )
+    )
+
+def create_venue_outcome_summary(
+    matches_df: pd.DataFrame,
+) -> pd.DataFrame:
+    """
+    Calculate batting-first and chasing wins by venue.
+
+    Returns
+    -------
+    pd.DataFrame
+        Columns:
+        - Venue
+        - Batting First Wins
+        - Chasing Wins
+        - Decided Matches
+        - Chasing Success Percentage
+    """
+
+    output_columns = [
+        "Venue",
+        "Batting First Wins",
+        "Chasing Wins",
+        "Decided Matches",
+        "Chasing Success Percentage",
+    ]
+
+    if matches_df.empty:
+        return pd.DataFrame(
+            columns=output_columns
+        )
+
+    venue_column = get_optional_column(
+        dataframe=matches_df,
+        candidate_columns=VENUE_COLUMNS,
+    )
+
+    win_by_runs_column = get_optional_column(
+        dataframe=matches_df,
+        candidate_columns=WIN_BY_RUNS_COLUMNS,
+    )
+
+    win_by_wickets_column = get_optional_column(
+        dataframe=matches_df,
+        candidate_columns=WIN_BY_WICKETS_COLUMNS,
+    )
+
+    if (
+        venue_column is None
+        or (
+            win_by_runs_column is None
+            and win_by_wickets_column is None
+        )
+    ):
+        return pd.DataFrame(
+            columns=output_columns
+        )
+
+    analysis_df = matches_df.copy()
+
+    analysis_df["Venue"] = (
+        normalise_text_series(
+            analysis_df[venue_column]
+        )
+    )
+
+    analysis_df = analysis_df[
+        analysis_df["Venue"].ne("")
+    ]
+
+    analysis_df["Match Outcome"] = (
+        analysis_df.apply(
+            classify_match_outcome_type,
+            axis=1,
+            win_by_runs_column=win_by_runs_column,
+            win_by_wickets_column=win_by_wickets_column,
+        )
+    )
+
+    analysis_df = analysis_df[
+        analysis_df["Match Outcome"]
+        .isin(
+            [
+                "Batting First Win",
+                "Chasing Win",
+            ]
+        )
+    ]
+
+    if analysis_df.empty:
+        return pd.DataFrame(
+            columns=output_columns
+        )
+
+    grouped_df = (
+        analysis_df
+        .groupby(
+            [
+                "Venue",
+                "Match Outcome",
+            ],
+            dropna=False,
+        )
+        .size()
+        .reset_index(
+            name="Matches"
+        )
+    )
+
+    pivot_df = (
+        grouped_df
+        .pivot_table(
+            index="Venue",
+            columns="Match Outcome",
+            values="Matches",
+            aggfunc="sum",
+            fill_value=0,
+        )
+        .reset_index()
+    )
+
+    if "Batting First Win" not in pivot_df.columns:
+        pivot_df["Batting First Win"] = 0
+
+    if "Chasing Win" not in pivot_df.columns:
+        pivot_df["Chasing Win"] = 0
+
+    pivot_df = pivot_df.rename(
+        columns={
+            "Batting First Win": "Batting First Wins",
+            "Chasing Win": "Chasing Wins",
+        }
+    )
+
+    pivot_df["Batting First Wins"] = (
+        pd.to_numeric(
+            pivot_df["Batting First Wins"],
+            errors="coerce",
+        )
+        .fillna(0)
+        .astype(int)
+    )
+
+    pivot_df["Chasing Wins"] = (
+        pd.to_numeric(
+            pivot_df["Chasing Wins"],
+            errors="coerce",
+        )
+        .fillna(0)
+        .astype(int)
+    )
+
+    pivot_df["Decided Matches"] = (
+        pivot_df["Batting First Wins"]
+        + pivot_df["Chasing Wins"]
+    )
+
+    pivot_df[
+        "Chasing Success Percentage"
+    ] = (
+        pivot_df.apply(
+            lambda row: (
+                safe_divide(
+                    numerator=row["Chasing Wins"],
+                    denominator=row["Decided Matches"],
+                )
+                * 100
+            ),
+            axis=1,
+        )
+        .round(1)
+    )
+
+    return (
+        pivot_df[
+            output_columns
+        ]
+        .sort_values(
+            by=[
+                "Chasing Success Percentage",
+                "Decided Matches",
+            ],
+            ascending=[
+                False,
+                False,
+            ],
+        )
+        .reset_index(
+            drop=True
+        )
+    )
+
+def create_venue_performance_summary(
+    matches_df: pd.DataFrame,
+    deliveries_df: pd.DataFrame,
+) -> pd.DataFrame:
+    """
+    Combine venue match volume, scoring and outcome metrics.
+
+    Returns
+    -------
+    pd.DataFrame
+        Columns:
+        - Venue
+        - Matches
+        - Total Runs
+        - Average Runs per Match
+        - Batting First Wins
+        - Chasing Wins
+        - Decided Matches
+        - Chasing Success Percentage
+    """
+
+    output_columns = [
+        "Venue",
+        "Matches",
+        "Total Runs",
+        "Average Runs per Match",
+        "Batting First Wins",
+        "Chasing Wins",
+        "Decided Matches",
+        "Chasing Success Percentage",
+    ]
+
+    match_summary_df = create_venue_match_summary(
+        matches_df=matches_df,
+    )
+
+    scoring_summary_df = create_venue_scoring_summary(
+        matches_df=matches_df,
+        deliveries_df=deliveries_df,
+    )
+
+    outcome_summary_df = create_venue_outcome_summary(
+        matches_df=matches_df,
+    )
+
+    if match_summary_df.empty:
+        return pd.DataFrame(
+            columns=output_columns
+        )
+
+    summary_df = match_summary_df.copy()
+
+    if not scoring_summary_df.empty:
+
+        summary_df = summary_df.merge(
+            scoring_summary_df[
+                [
+                    "Venue",
+                    "Total Runs",
+                    "Average Runs per Match",
+                ]
+            ],
+            on="Venue",
+            how="left",
+        )
+
+    else:
+
+        summary_df["Total Runs"] = 0
+        summary_df["Average Runs per Match"] = 0.0
+
+    if not outcome_summary_df.empty:
+
+        summary_df = summary_df.merge(
+            outcome_summary_df[
+                [
+                    "Venue",
+                    "Batting First Wins",
+                    "Chasing Wins",
+                    "Decided Matches",
+                    "Chasing Success Percentage",
+                ]
+            ],
+            on="Venue",
+            how="left",
+        )
+
+    else:
+
+        summary_df["Batting First Wins"] = 0
+        summary_df["Chasing Wins"] = 0
+        summary_df["Decided Matches"] = 0
+        summary_df["Chasing Success Percentage"] = 0.0
+
+    numeric_fill_columns = [
+        "Total Runs",
+        "Average Runs per Match",
+        "Batting First Wins",
+        "Chasing Wins",
+        "Decided Matches",
+        "Chasing Success Percentage",
+    ]
+
+    for column in numeric_fill_columns:
+
+        if column not in summary_df.columns:
+            summary_df[column] = 0
+
+        summary_df[column] = (
+            pd.to_numeric(
+                summary_df[column],
+                errors="coerce",
+            )
+            .fillna(0)
+        )
+
+    integer_columns = [
+        "Matches",
+        "Total Runs",
+        "Batting First Wins",
+        "Chasing Wins",
+        "Decided Matches",
+    ]
+
+    for column in integer_columns:
+
+        summary_df[column] = (
+            summary_df[column]
+            .round()
+            .astype(int)
+        )
+
+    summary_df[
+        "Average Runs per Match"
+    ] = (
+        summary_df[
+            "Average Runs per Match"
+        ]
+        .round(1)
+    )
+
+    summary_df[
+        "Chasing Success Percentage"
+    ] = (
+        summary_df[
+            "Chasing Success Percentage"
+        ]
+        .round(1)
+    )
+
+    return (
+        summary_df[
+            output_columns
+        ]
+        .sort_values(
+            by=[
+                "Matches",
+                "Average Runs per Match",
+            ],
+            ascending=[
+                False,
+                False,
+            ],
+        )
+        .reset_index(
+            drop=True
+        )
+    )
