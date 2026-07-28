@@ -81,6 +81,11 @@ DELIVERY_MATCH_ID_COLUMNS = [
     "Match_ID",
     "MatchId",
 ]
+RESULT_COLUMNS = [
+    "result",
+    "match_result",
+]
+
 # ==========================================================
 # Internal helpers
 # ==========================================================
@@ -634,3 +639,383 @@ def create_runs_by_season_summary(
         )
     )
 
+# ==========================================================
+# Team performance analysis
+# ==========================================================
+
+def normalise_text_series(
+    series: pd.Series,
+) -> pd.Series:
+    """
+    Convert a Series into clean comparable text values.
+    """
+
+    return (
+        series
+        .fillna("")
+        .astype(str)
+        .str.strip()
+    )
+
+
+def create_team_performance_summary(
+    matches_df: pd.DataFrame,
+) -> pd.DataFrame:
+    """
+    Calculate team-level match performance statistics.
+
+    Parameters
+    ----------
+    matches_df : pd.DataFrame
+        Filtered match-level dataset.
+
+    Returns
+    -------
+    pd.DataFrame
+        Team performance summary containing:
+
+        - Team
+        - Matches
+        - Wins
+        - Losses
+        - No Results
+        - Win Percentage
+    """
+
+    output_columns = [
+        "Team",
+        "Matches",
+        "Wins",
+        "Losses",
+        "No Results",
+        "Win Percentage",
+    ]
+
+    if matches_df.empty:
+        return pd.DataFrame(
+            columns=output_columns
+        )
+
+    team_1_column = find_first_available_column(
+        matches_df,
+        TEAM_1_COLUMNS,
+    )
+
+    team_2_column = find_first_available_column(
+        matches_df,
+        TEAM_2_COLUMNS,
+    )
+
+    winner_column = get_optional_column(
+        dataframe=matches_df,
+        candidate_columns=WINNER_COLUMNS,
+    )
+
+    result_column = get_optional_column(
+        dataframe=matches_df,
+        candidate_columns=RESULT_COLUMNS,
+    )
+
+    analysis_df = matches_df.copy()
+
+    analysis_df["_team_1"] = normalise_text_series(
+        analysis_df[team_1_column]
+    )
+
+    analysis_df["_team_2"] = normalise_text_series(
+        analysis_df[team_2_column]
+    )
+
+    if winner_column is not None:
+        analysis_df["_winner"] = normalise_text_series(
+            analysis_df[winner_column]
+        )
+    else:
+        analysis_df["_winner"] = ""
+
+    if result_column is not None:
+        analysis_df["_result"] = (
+            normalise_text_series(
+                analysis_df[result_column]
+            )
+            .str.lower()
+        )
+    else:
+        analysis_df["_result"] = ""
+
+    participating_teams = sorted(
+        set(
+            analysis_df["_team_1"].tolist()
+            +
+            analysis_df["_team_2"].tolist()
+        )
+        - {""}
+    )
+
+    performance_records = []
+
+    for team in participating_teams:
+
+        team_matches = analysis_df[
+            analysis_df["_team_1"].eq(team)
+            |
+            analysis_df["_team_2"].eq(team)
+        ].copy()
+
+        matches_played = int(
+            len(team_matches)
+        )
+
+        wins = int(
+            team_matches["_winner"]
+            .eq(team)
+            .sum()
+        )
+
+        missing_winner = (
+            team_matches["_winner"]
+            .eq("")
+        )
+
+        if result_column is not None:
+
+            no_result_condition = (
+                missing_winner
+                |
+                team_matches["_result"]
+                .isin(
+                    [
+                        "no result",
+                        "abandoned",
+                        "cancelled",
+                        "canceled",
+                    ]
+                )
+            )
+
+        else:
+            no_result_condition = missing_winner
+
+        no_results = int(
+            no_result_condition.sum()
+        )
+
+        losses = max(
+            matches_played
+            - wins
+            - no_results,
+            0,
+        )
+
+        decided_matches = (
+            matches_played
+            - no_results
+        )
+
+        win_percentage = (
+            safe_divide(
+                numerator=wins,
+                denominator=decided_matches,
+            )
+            * 100
+        )
+
+        performance_records.append(
+            {
+                "Team": team,
+                "Matches": matches_played,
+                "Wins": wins,
+                "Losses": losses,
+                "No Results": no_results,
+                "Win Percentage": round(
+                    win_percentage,
+                    1,
+                ),
+            }
+        )
+
+    summary_df = pd.DataFrame(
+        performance_records,
+        columns=output_columns,
+    )
+
+    if summary_df.empty:
+        return summary_df
+
+    integer_columns = [
+        "Matches",
+        "Wins",
+        "Losses",
+        "No Results",
+    ]
+
+    for column in integer_columns:
+        summary_df[column] = (
+            pd.to_numeric(
+                summary_df[column],
+                errors="coerce",
+            )
+            .fillna(0)
+            .astype(int)
+        )
+
+    summary_df["Win Percentage"] = (
+        pd.to_numeric(
+            summary_df["Win Percentage"],
+            errors="coerce",
+        )
+        .fillna(0)
+        .round(1)
+    )
+
+    return (
+        summary_df
+        .sort_values(
+            by=[
+                "Wins",
+                "Win Percentage",
+                "Matches",
+            ],
+            ascending=[
+                False,
+                False,
+                False,
+            ],
+        )
+        .reset_index(
+            drop=True
+        )
+    )
+
+
+def create_team_wins_ranking(
+    team_summary_df: pd.DataFrame,
+    top_n: int = 10,
+) -> pd.DataFrame:
+    """
+    Return teams ranked by total match wins.
+    """
+
+    required_columns = [
+        "Team",
+        "Wins",
+    ]
+
+    missing_columns = [
+        column
+        for column in required_columns
+        if column not in team_summary_df.columns
+    ]
+
+    if missing_columns:
+        raise KeyError(
+            "Team summary is missing required columns: "
+            f"{missing_columns}"
+        )
+
+    if team_summary_df.empty:
+        return pd.DataFrame(
+            columns=[
+                "Team",
+                "Wins",
+            ]
+        )
+
+    return (
+        team_summary_df[
+            [
+                "Team",
+                "Wins",
+            ]
+        ]
+        .sort_values(
+            by="Wins",
+            ascending=False,
+        )
+        .head(top_n)
+        .reset_index(
+            drop=True
+        )
+    )
+
+
+def create_team_win_percentage_ranking(
+    team_summary_df: pd.DataFrame,
+    minimum_matches: int = 1,
+    top_n: int = 10,
+) -> pd.DataFrame:
+    """
+    Rank teams according to win percentage.
+
+    Parameters
+    ----------
+    team_summary_df : pd.DataFrame
+        Team performance summary.
+
+    minimum_matches : int
+        Minimum number of matches required for ranking.
+
+    top_n : int
+        Maximum number of teams returned.
+    """
+
+    required_columns = [
+        "Team",
+        "Matches",
+        "Wins",
+        "Win Percentage",
+    ]
+
+    missing_columns = [
+        column
+        for column in required_columns
+        if column not in team_summary_df.columns
+    ]
+
+    if missing_columns:
+        raise KeyError(
+            "Team summary is missing required columns: "
+            f"{missing_columns}"
+        )
+
+    if team_summary_df.empty:
+        return pd.DataFrame(
+            columns=[
+                "Team",
+                "Matches",
+                "Win Percentage",
+            ]
+        )
+
+    qualified_df = team_summary_df[
+        team_summary_df["Matches"]
+        >= minimum_matches
+    ].copy()
+    
+    qualified_df = (
+        qualified_df
+        .sort_values(
+            by=[
+                "Win Percentage",
+                "Wins",
+                "Matches",
+            ],
+            ascending=[
+                False,
+                False,
+                False,
+            ],
+        )
+        .head(top_n)
+        .reset_index(
+            drop=True
+        )
+    )
+
+    return qualified_df[
+        [
+            "Team",
+            "Matches",
+            "Win Percentage",
+        ]
+    ]

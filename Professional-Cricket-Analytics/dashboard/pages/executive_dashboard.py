@@ -4,6 +4,9 @@ from utils.executive_analytics import (
     calculate_executive_kpis,
     create_matches_by_season_summary,
     create_runs_by_season_summary,
+    create_team_performance_summary,
+    create_team_win_percentage_ranking,
+    create_team_wins_ranking,
 )
 from utils.filters import (
     display_global_filters,
@@ -17,6 +20,7 @@ from utils.charts import (
     PLOTLY_CONFIG,
     create_bar_chart,
     create_line_chart,
+    create_horizontal_bar_chart,
 )
 
 # ==========================================================
@@ -243,6 +247,152 @@ def display_season_trend_charts(
             config=PLOTLY_CONFIG,
         )
 
+# ==========================================================
+# Team performance analysis
+# ==========================================================
+
+def display_team_performance_analysis(
+    filtered_matches_df,
+) -> None:
+    """
+    Display team rankings and win-percentage analysis.
+    """
+
+    st.subheader("🏆 Team Performance Rankings")
+
+    team_summary_df = (
+        create_team_performance_summary(
+            matches_df=filtered_matches_df,
+        )
+    )
+
+    if team_summary_df.empty:
+
+        st.warning(
+            "Team performance data is not available "
+            "for the selected filters."
+        )
+
+        return
+
+    team_wins_df = create_team_wins_ranking(
+        team_summary_df=team_summary_df,
+        top_n=10,
+    )
+
+    win_percentage_df = (
+        create_team_win_percentage_ranking(
+            team_summary_df=team_summary_df,
+            minimum_matches=1,
+            top_n=10,
+        )
+    )
+
+    chart_column_1, chart_column_2 = st.columns(2)
+
+    with chart_column_1:
+
+        wins_figure = create_horizontal_bar_chart(
+            dataframe=team_wins_df,
+            category_column="Team",
+            value_column="Wins",
+            title="Top Teams by Match Wins",
+            x_axis_title="Wins",
+            y_axis_title="Team",
+            top_n=10,
+            ascending=True,
+            height=500,
+        )
+
+        st.plotly_chart(
+            wins_figure,
+            use_container_width=True,
+            config=PLOTLY_CONFIG,
+        )
+
+    with chart_column_2:
+
+        win_percentage_figure = (
+            create_horizontal_bar_chart(
+                dataframe=win_percentage_df,
+                category_column="Team",
+                value_column="Win Percentage",
+                title="Team Win Percentage",
+                x_axis_title="Win Percentage (%)",
+                y_axis_title="Team",
+                top_n=10,
+                ascending=True,
+                height=500,
+            )
+        )
+
+        win_percentage_figure.update_traces(
+            texttemplate="%{x:.1f}%",
+            hovertemplate=(
+                "<b>%{y}</b><br>"
+                "Win Percentage: %{x:.1f}%"
+                "<extra></extra>"
+            ),
+        )
+
+        win_percentage_figure.update_xaxes(
+            ticksuffix="%",
+        )
+
+        st.plotly_chart(
+            win_percentage_figure,
+            use_container_width=True,
+            config=PLOTLY_CONFIG,
+        )
+
+    st.markdown("#### Team Performance Table")
+
+    display_team_summary_df = (
+        team_summary_df.copy()
+    )
+
+    display_team_summary_df[
+        "Win Percentage"
+    ] = (
+        display_team_summary_df[
+            "Win Percentage"
+        ]
+        .map(
+            lambda value: f"{value:.1f}%"
+        )
+    )
+
+    st.dataframe(
+        display_team_summary_df,
+        use_container_width=True,
+        hide_index=True,
+        column_config={
+            "Team": st.column_config.TextColumn(
+                "Team",
+                width="large",
+            ),
+            "Matches": st.column_config.NumberColumn(
+                "Matches",
+                format="%d",
+            ),
+            "Wins": st.column_config.NumberColumn(
+                "Wins",
+                format="%d",
+            ),
+            "Losses": st.column_config.NumberColumn(
+                "Losses",
+                format="%d",
+            ),
+            "No Results": st.column_config.NumberColumn(
+                "No Results",
+                format="%d",
+            ),
+            "Win Percentage": st.column_config.TextColumn(
+                "Win Percentage",
+            ),
+        },
+    )
+
 
 # ==========================================================
 # Main page
@@ -301,10 +451,11 @@ def show_executive_dashboard() -> None:
             filtered_matches_df=filtered_matches_df,
             filtered_deliveries_df=filtered_deliveries_df,
         )
-        # st.info(
-        #     "Executive charts will be added after the filter "
-        #     "and KPI section has been verified."
-        # )
+        st.divider()
+
+        display_team_performance_analysis(
+            filtered_matches_df=filtered_matches_df,
+        )
 
     except (
         FileNotFoundError,
