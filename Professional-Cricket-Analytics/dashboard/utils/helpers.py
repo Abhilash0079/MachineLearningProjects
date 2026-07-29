@@ -76,7 +76,6 @@ def add_all_option(
 # ==========================================================
 # Column validation
 # ==========================================================
-
 def validate_required_columns(
     dataframe: pd.DataFrame,
     required_columns: List[str],
@@ -117,7 +116,6 @@ def validate_required_columns(
 # ==========================================================
 # Numeric formatting
 # ==========================================================
-
 def format_integer(value: Any) -> str:
     """
     Format a value as a comma-separated integer.
@@ -131,7 +129,6 @@ def format_integer(value: Any) -> str:
 
     except (TypeError, ValueError):
         return "0"
-
 
 def format_decimal(
     value: Any,
@@ -149,7 +146,6 @@ def format_decimal(
 
     except (TypeError, ValueError):
         return f"{0:.{decimal_places}f}"
-
 
 def format_percentage(
     value: Any,
@@ -178,7 +174,6 @@ def format_percentage(
 # ==========================================================
 # Safe calculations
 # ==========================================================
-
 def safe_divide(
     numerator: float,
     denominator: float,
@@ -199,7 +194,6 @@ def safe_divide(
 
     except (TypeError, ValueError, ZeroDivisionError):
         return default
-
 
 def calculate_percentage(
     numerator: float,
@@ -245,7 +239,6 @@ def create_page_header(
         </p>
     </div>
     """
-
 
 def create_information_card(
     title: str,

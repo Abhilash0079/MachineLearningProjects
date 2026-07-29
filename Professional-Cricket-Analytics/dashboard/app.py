@@ -133,7 +133,6 @@ def display_data_status() -> None:
             f"Processed data could not be loaded: {error}"
         )
 
-
 def display_dashboard_navigation() -> None:
     """
     Explain the available dashboard sections.
@@ -153,7 +152,6 @@ def display_dashboard_navigation() -> None:
         - Individual match analysis
         """
     )
-
 
 def display_project_status() -> None:
     """
@@ -179,7 +177,6 @@ def display_project_status() -> None:
         - Dashboard analytics development
         """
     )
-
 
 def show_home_page() -> None:
     """
