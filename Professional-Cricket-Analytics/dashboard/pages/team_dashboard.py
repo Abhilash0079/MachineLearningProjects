@@ -10,13 +10,18 @@ from utils.data_loader import load_all_data
 from utils.page_components import display_page_header
 from utils.team_analytics import (
     calculate_team_kpis,
+    create_team_season_performance_summary,
+    filter_deliveries_for_team_matches,
     filter_deliveries_for_team_matches,
     filter_matches_for_team,
     get_team_options,
     get_team_season_options,
     get_team_venue_options,
 )
-
+from utils.charts import (
+    create_bar_chart,
+    create_line_chart,
+)
 
 # ==========================================================
 # KPI cards
@@ -90,9 +95,285 @@ def display_team_kpis(
         )
 
 # ==========================================================
-# Team dashboard filters
+# Season performance display
 # ==========================================================
 
+def display_team_season_performance(
+    team: str,
+    filtered_matches_df,
+    filtered_deliveries_df,
+) -> None:
+    """
+    Display season-by-season team performance.
+    """
+
+    st.subheader("📅 Season-by-Season Performance")
+
+    season_summary_df = (
+        create_team_season_performance_summary(
+            team=team,
+            matches_df=filtered_matches_df,
+            deliveries_df=filtered_deliveries_df,
+        )
+    )
+
+    if season_summary_df.empty:
+
+        st.info(
+            "Season performance data is not available "
+            "for the selected filters."
+        )
+
+        return
+
+    chart_column_1, chart_column_2 = st.columns(2)
+
+    with chart_column_1:
+
+        wins_figure = create_bar_chart(
+            dataframe=season_summary_df,
+            x_column="Season",
+            y_column="Wins",
+            title="Wins by Season",
+            x_axis_title="Season",
+            y_axis_title="Wins",
+            height=450,
+        )
+
+        wins_figure.update_traces(
+            texttemplate="%{y}",
+            textposition="outside",
+            hovertemplate=(
+                "<b>Season: %{x}</b><br>"
+                "Wins: %{y}"
+                "<extra></extra>"
+            ),
+        )
+
+        st.plotly_chart(
+            wins_figure,
+            use_container_width=True,
+        )
+
+    with chart_column_2:
+
+        win_percentage_figure = create_line_chart(
+            dataframe=season_summary_df,
+            x_column="Season",
+            y_column="Win Percentage",
+            title="Win Percentage by Season",
+            x_axis_title="Season",
+            y_axis_title="Win Percentage",
+            markers=True,
+            height=450,
+        )
+
+        win_percentage_figure.update_traces(
+            texttemplate="%{y:.1f}%",
+            hovertemplate=(
+                "<b>Season: %{x}</b><br>"
+                "Win Percentage: %{y:.1f}%"
+                "<extra></extra>"
+            ),
+        )
+
+        win_percentage_figure.update_yaxes(
+            ticksuffix="%",
+            range=[0, 100],
+        )
+
+        st.plotly_chart(
+            win_percentage_figure,
+            use_container_width=True,
+        )
+
+    st.markdown("#### Match Results by Season")
+
+    match_results_long_df = (
+        season_summary_df[
+            [
+                "Season",
+                "Wins",
+                "Losses",
+                "No Results",
+            ]
+        ]
+        .melt(
+            id_vars="Season",
+            value_vars=[
+                "Wins",
+                "Losses",
+                "No Results",
+            ],
+            var_name="Result",
+            value_name="Matches",
+        )
+    )
+
+    match_results_figure = create_bar_chart(
+        dataframe=match_results_long_df,
+        x_column="Season",
+        y_column="Matches",
+        color_column="Result",
+        title="Wins, Losses and No Results by Season",
+        x_axis_title="Season",
+        y_axis_title="Matches",
+        # barmode="group",
+        height=500,
+    )
+
+    # match_results_figure.update_traces(
+    #     hovertemplate=(
+    #         "<b>Season: %{x}</b><br>"
+    #         "Matches: %{y}"
+    #         "<extra></extra>"
+    #     ),
+    # )
+
+    st.plotly_chart(
+        match_results_figure,
+        use_container_width=True,
+    )
+
+    st.markdown("#### Team Output by Season")
+    output_column_1, output_column_2 = st.columns(2)
+    with output_column_1:
+
+        runs_figure = create_line_chart(
+            dataframe=season_summary_df,
+            x_column="Season",
+            y_column="Runs Scored",
+            title="Runs Scored by Season",
+            x_axis_title="Season",
+            y_axis_title="Runs Scored",
+            markers=True,
+            height=450,
+        )
+
+        # runs_figure.update_traces(
+        #     hovertemplate=(
+        #         "<b>Season: %{x}</b><br>"
+        #         "Runs Scored: %{y:,.0f}"
+        #         "<extra></extra>"
+        #     ),
+        # )
+
+        st.plotly_chart(
+            runs_figure,
+            use_container_width=True,
+        )
+
+    with output_column_2:
+
+        wickets_figure = create_line_chart(
+            dataframe=season_summary_df,
+            x_column="Season",
+            y_column="Wickets Taken",
+            title="Wickets Taken by Season",
+            x_axis_title="Season",
+            y_axis_title="Wickets Taken",
+            markers=True,
+            height=450,
+        )
+
+        # wickets_figure.update_traces(
+        #     hovertemplate=(
+        #         "<b>Season: %{x}</b><br>"
+        #         "Wickets Taken: %{y}"
+        #         "<extra></extra>"
+        #     ),
+        # )
+
+        st.plotly_chart(
+            wickets_figure,
+            use_container_width=True,
+        )
+
+    st.markdown("#### Season Performance Table")
+
+    display_df = season_summary_df.copy()
+
+    display_df["Win Percentage"] = (
+        display_df["Win Percentage"]
+        .map(
+            lambda value: f"{value:.1f}%"
+        )
+    )
+
+    display_df["Average Runs per Match"] = (
+        display_df["Average Runs per Match"]
+        .map(
+            lambda value: f"{value:.1f}"
+        )
+    )
+
+    display_df["Average Wickets per Match"] = (
+        display_df["Average Wickets per Match"]
+        .map(
+            lambda value: f"{value:.1f}"
+        )
+    )
+
+    # st.dataframe(
+    #     display_df,
+    #     use_container_width=True,
+    #     hide_index=True,
+    #     column_config={
+    #         "Season": st.column_config.TextColumn(
+    #             "Season",
+    #             width="small",
+    #         ),
+    #         "Matches": st.column_config.NumberColumn(
+    #             "Matches",
+    #             format="%d",
+    #         ),
+    #         "Wins": st.column_config.NumberColumn(
+    #             "Wins",
+    #             format="%d",
+    #         ),
+    #         "Losses": st.column_config.NumberColumn(
+    #             "Losses",
+    #             format="%d",
+    #         ),
+    #         "No Results": st.column_config.NumberColumn(
+    #             "No Results",
+    #             format="%d",
+    #         ),
+    #         "Win Percentage": st.column_config.TextColumn(
+    #             "Win Percentage",
+    #         ),
+    #         "Runs Scored": st.column_config.NumberColumn(
+    #             "Runs Scored",
+    #             format="%d",
+    #         ),
+    #         "Average Runs per Match": (
+    #             st.column_config.TextColumn(
+    #                 "Average Runs per Match",
+    #             )
+    #         ),
+    #         "Wickets Taken": (
+    #             st.column_config.NumberColumn(
+    #                 "Wickets Taken",
+    #                 format="%d",
+    #             )
+    #         ),
+    #         "Average Wickets per Match": (
+    #             st.column_config.TextColumn(
+    #                 "Average Wickets per Match",
+    #             )
+    #         ),
+    #     },
+    # )
+
+    st.dataframe(
+        display_df,
+        use_container_width=True,
+        hide_index=True,
+    )
+
+# ==========================================================
+# Team dashboard filters
+# ==========================================================
 def display_team_dashboard_filters(
     matches_df,
 ) -> dict[str, object]:
@@ -271,9 +552,10 @@ def show_team_dashboard() -> None:
 
     st.divider()
 
-    st.info(
-        "Season trends, opponent records and venue analysis "
-        "will be added in the next Team Dashboard steps."
+    display_team_season_performance(
+        team=selected_team,
+        filtered_matches_df=filtered_matches_df,
+        filtered_deliveries_df=filtered_deliveries_df,
     )
 
 show_team_dashboard()

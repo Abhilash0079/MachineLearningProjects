@@ -202,6 +202,331 @@ def safe_divide(
 
     return numerator / denominator
 
+def sort_season_dataframe(
+    dataframe: pd.DataFrame,
+    season_column: str = "Season",
+) -> pd.DataFrame:
+    """
+    Sort a dataframe chronologically using the starting
+    year found in the season value.
+
+    Examples
+    --------
+    2008      -> 2008
+    2020/21   -> 2020
+    2007-08   -> 2007
+    Unknown   -> placed at the end
+    """
+
+    if dataframe.empty:
+        return dataframe.copy()
+
+    if season_column not in dataframe.columns:
+        return dataframe.copy()
+
+    output_df = dataframe.copy()
+
+    season_text = (
+        output_df[season_column]
+        .fillna("")
+        .astype(str)
+        .str.strip()
+    )
+
+    output_df["_season_sort"] = pd.to_numeric(
+        season_text.str.extract(
+            r"(\d{4})",
+            expand=False,
+        ),
+        errors="coerce",
+    )
+
+    output_df["_season_sort"] = (
+        output_df["_season_sort"]
+        .fillna(float("inf"))
+    )
+
+    output_df = (
+        output_df
+        .sort_values(
+            by=[
+                "_season_sort",
+                season_column,
+            ],
+            ascending=[
+                True,
+                True,
+            ],
+        )
+        .drop(
+            columns="_season_sort",
+        )
+    )
+
+    return output_df
+
+def create_team_runs_by_season(
+    team: str,
+    deliveries_df: pd.DataFrame,
+) -> pd.DataFrame:
+    """
+    Calculate total runs scored by the selected team
+    in each season.
+
+    The deliveries dataframe must contain a Season column.
+    """
+
+    output_columns = [
+        "Season",
+        "Runs Scored",
+    ]
+
+    if (
+        deliveries_df.empty
+        or not team
+        or "Season" not in deliveries_df.columns
+    ):
+        return pd.DataFrame(columns=output_columns)
+
+    batting_team_column = get_optional_column(
+        dataframe=deliveries_df,
+        candidate_columns=BATTING_TEAM_COLUMNS,
+    )
+
+    if batting_team_column is None:
+        return pd.DataFrame(columns=output_columns)
+
+    analysis_df = deliveries_df.copy()
+
+    batting_team_values = clean_text_series(
+        analysis_df[batting_team_column]
+    )
+
+    analysis_df = analysis_df[
+        batting_team_values.eq(team)
+    ].copy()
+
+    if analysis_df.empty:
+        return pd.DataFrame(columns=output_columns)
+
+    total_runs_column = get_optional_column(
+        dataframe=analysis_df,
+        candidate_columns=TOTAL_RUN_COLUMNS,
+    )
+
+    if total_runs_column is not None:
+
+        analysis_df["_team_runs"] = (
+            pd.to_numeric(
+                analysis_df[total_runs_column],
+                errors="coerce",
+            )
+            .fillna(0)
+        )
+
+    else:
+
+        batter_runs_column = get_optional_column(
+            dataframe=analysis_df,
+            candidate_columns=BATTER_RUN_COLUMNS,
+        )
+
+        extra_runs_column = get_optional_column(
+            dataframe=analysis_df,
+            candidate_columns=EXTRA_RUN_COLUMNS,
+        )
+
+        analysis_df["_team_runs"] = 0.0
+
+        if batter_runs_column is not None:
+
+            analysis_df["_team_runs"] += (
+                pd.to_numeric(
+                    analysis_df[batter_runs_column],
+                    errors="coerce",
+                )
+                .fillna(0)
+            )
+
+        if extra_runs_column is not None:
+
+            analysis_df["_team_runs"] += (
+                pd.to_numeric(
+                    analysis_df[extra_runs_column],
+                    errors="coerce",
+                )
+                .fillna(0)
+            )
+
+    summary_df = (
+        analysis_df
+        .groupby(
+            "Season",
+            dropna=False,
+        )["_team_runs"]
+        .sum()
+        .reset_index(
+            name="Runs Scored"
+        )
+    )
+
+    summary_df["Runs Scored"] = (
+        summary_df["Runs Scored"]
+        .round()
+        .astype(int)
+    )
+
+    return (
+        sort_season_dataframe(
+            dataframe=summary_df[
+                output_columns
+            ],
+            season_column="Season",
+        )
+        .reset_index(drop=True)
+    )
+
+def create_team_wickets_by_season(
+    team: str,
+    deliveries_df: pd.DataFrame,
+) -> pd.DataFrame:
+    """
+    Calculate bowler-credit wickets taken by the selected
+    team in each season.
+
+    Run outs and other non-bowler dismissals are excluded.
+    """
+
+    output_columns = [
+        "Season",
+        "Wickets Taken",
+    ]
+
+    if (
+        deliveries_df.empty
+        or not team
+        or "Season" not in deliveries_df.columns
+    ):
+        return pd.DataFrame(columns=output_columns)
+
+    bowling_team_column = get_optional_column(
+        dataframe=deliveries_df,
+        candidate_columns=BOWLING_TEAM_COLUMNS,
+    )
+
+    if bowling_team_column is None:
+        return pd.DataFrame(columns=output_columns)
+
+    analysis_df = deliveries_df.copy()
+
+    bowling_team_values = clean_text_series(
+        analysis_df[bowling_team_column]
+    )
+
+    analysis_df = analysis_df[
+        bowling_team_values.eq(team)
+    ].copy()
+
+    if analysis_df.empty:
+        return pd.DataFrame(columns=output_columns)
+
+    dismissal_kind_column = get_optional_column(
+        dataframe=analysis_df,
+        candidate_columns=DISMISSAL_KIND_COLUMNS,
+    )
+
+    if dismissal_kind_column is not None:
+
+        dismissal_values = (
+            clean_text_series(
+                analysis_df[dismissal_kind_column]
+            )
+            .str.lower()
+        )
+
+        excluded_dismissals = {
+            "",
+            "run out",
+            "retired hurt",
+            "retired out",
+            "obstructing the field",
+        }
+
+        analysis_df["_is_team_wicket"] = (
+            ~dismissal_values.isin(
+                excluded_dismissals
+            )
+        ).astype(int)
+
+    else:
+
+        is_wicket_column = get_optional_column(
+            dataframe=analysis_df,
+            candidate_columns=IS_WICKET_COLUMNS,
+        )
+
+        if is_wicket_column is not None:
+
+            analysis_df["_is_team_wicket"] = (
+                pd.to_numeric(
+                    analysis_df[is_wicket_column],
+                    errors="coerce",
+                )
+                .fillna(0)
+                .eq(1)
+                .astype(int)
+            )
+
+        else:
+
+            player_dismissed_column = get_optional_column(
+                dataframe=analysis_df,
+                candidate_columns=PLAYER_DISMISSED_COLUMNS,
+            )
+
+            if player_dismissed_column is None:
+                return pd.DataFrame(columns=output_columns)
+
+            analysis_df["_is_team_wicket"] = (
+                clean_text_series(
+                    analysis_df[player_dismissed_column]
+                )
+                .ne("")
+                .astype(int)
+            )
+
+    summary_df = (
+        analysis_df
+        .groupby(
+            "Season",
+            dropna=False,
+        )["_is_team_wicket"]
+        .sum()
+        .reset_index(
+            name="Wickets Taken"
+        )
+    )
+
+    summary_df["Wickets Taken"] = (
+        pd.to_numeric(
+            summary_df["Wickets Taken"],
+            errors="coerce",
+        )
+        .fillna(0)
+        .astype(int)
+    )
+
+    return (
+        sort_season_dataframe(
+            dataframe=summary_df[
+                output_columns
+            ],
+            season_column="Season",
+        )
+        .reset_index(drop=True)
+    )
+
+
 # ==========================================================
 # Team selection
 # ==========================================================
@@ -736,7 +1061,6 @@ def get_team_season_options(
             key=lambda value: str(value),
         )
 
-
 def get_team_venue_options(
     matches_df: pd.DataFrame,
     team: str,
@@ -772,3 +1096,490 @@ def get_team_venue_options(
     venues.discard("")
 
     return sorted(venues)
+
+# ==========================================================
+# Season-level team performance
+# ==========================================================
+
+def create_team_season_match_summary(
+    team: str,
+    matches_df: pd.DataFrame,
+) -> pd.DataFrame:
+    """
+    Calculate season-by-season match results for a team.
+
+    Returns
+    -------
+    pd.DataFrame
+        Columns:
+        - Season
+        - Matches
+        - Wins
+        - Losses
+        - No Results
+        - Decided Matches
+        - Win Percentage
+    """
+
+    output_columns = [
+        "Season",
+        "Matches",
+        "Wins",
+        "Losses",
+        "No Results",
+        "Decided Matches",
+        "Win Percentage",
+    ]
+
+    if matches_df.empty or not team:
+        return pd.DataFrame(columns=output_columns)
+
+    season_column = get_optional_column(
+        dataframe=matches_df,
+        candidate_columns=SEASON_COLUMNS,
+    )
+
+    winner_column = get_optional_column(
+        dataframe=matches_df,
+        candidate_columns=WINNER_COLUMNS,
+    )
+
+    if season_column is None:
+        return pd.DataFrame(columns=output_columns)
+
+    analysis_df = matches_df.copy()
+
+    analysis_df["Season"] = (
+        analysis_df[season_column]
+        .fillna("Unknown")
+        .astype(str)
+        .str.strip()
+    )
+
+    analysis_df = analysis_df[
+        analysis_df["Season"].ne("")
+    ].copy()
+
+    if analysis_df.empty:
+        return pd.DataFrame(columns=output_columns)
+
+    if winner_column is not None:
+
+        analysis_df["_winner"] = clean_text_series(
+            analysis_df[winner_column]
+        )
+
+        analysis_df["_is_win"] = (
+            analysis_df["_winner"]
+            .eq(team)
+            .astype(int)
+        )
+
+        analysis_df["_is_no_result"] = (
+            analysis_df["_winner"]
+            .eq("")
+            .astype(int)
+        )
+
+        analysis_df["_is_loss"] = (
+            (
+                analysis_df["_winner"].ne("")
+                & analysis_df["_winner"].ne(team)
+            )
+            .astype(int)
+        )
+
+    else:
+
+        analysis_df["_is_win"] = 0
+        analysis_df["_is_loss"] = 0
+        analysis_df["_is_no_result"] = 1
+
+    summary_df = (
+        analysis_df
+        .groupby(
+            "Season",
+            dropna=False,
+        )
+        .agg(
+            Matches=(
+                "Season",
+                "size",
+            ),
+            Wins=(
+                "_is_win",
+                "sum",
+            ),
+            Losses=(
+                "_is_loss",
+                "sum",
+            ),
+            **{
+                "No Results": (
+                    "_is_no_result",
+                    "sum",
+                ),
+            },
+        )
+        .reset_index()
+    )
+
+    integer_columns = [
+        "Matches",
+        "Wins",
+        "Losses",
+        "No Results",
+    ]
+
+    for column in integer_columns:
+
+        summary_df[column] = (
+            pd.to_numeric(
+                summary_df[column],
+                errors="coerce",
+            )
+            .fillna(0)
+            .astype(int)
+        )
+
+    summary_df["Decided Matches"] = (
+        summary_df["Wins"]
+        + summary_df["Losses"]
+    )
+
+    summary_df["Win Percentage"] = (
+        summary_df.apply(
+            lambda row: round(
+                safe_divide(
+                    numerator=row["Wins"],
+                    denominator=row["Decided Matches"],
+                )
+                * 100,
+                1,
+            ),
+            axis=1,
+        )
+    )
+
+    return (
+        sort_season_dataframe(
+            dataframe=summary_df[
+                output_columns
+            ],
+            season_column="Season",
+        )
+        .reset_index(drop=True)
+    )
+
+def create_team_season_delivery_summary(
+    team: str,
+    matches_df: pd.DataFrame,
+    deliveries_df: pd.DataFrame,
+) -> pd.DataFrame:
+    """
+    Calculate runs scored and wickets taken by season.
+
+    Match season information is joined to deliveries using
+    the match ID.
+
+    Returns
+    -------
+    pd.DataFrame
+        Columns:
+        - Season
+        - Runs Scored
+        - Wickets Taken
+    """
+
+    output_columns = [
+        "Season",
+        "Runs Scored",
+        "Wickets Taken",
+    ]
+
+    if (
+        matches_df.empty
+        or deliveries_df.empty
+        or not team
+    ):
+        return pd.DataFrame(columns=output_columns)
+
+    match_id_column = get_optional_column(
+        dataframe=matches_df,
+        candidate_columns=MATCH_ID_COLUMNS,
+    )
+
+    delivery_match_id_column = get_optional_column(
+        dataframe=deliveries_df,
+        candidate_columns=DELIVERY_MATCH_ID_COLUMNS,
+    )
+
+    season_column = get_optional_column(
+        dataframe=matches_df,
+        candidate_columns=SEASON_COLUMNS,
+    )
+
+    if (
+        match_id_column is None
+        or delivery_match_id_column is None
+        or season_column is None
+    ):
+        return pd.DataFrame(columns=output_columns)
+
+    match_season_df = (
+        matches_df[
+            [
+                match_id_column,
+                season_column,
+            ]
+        ]
+        .drop_duplicates(
+            subset=[match_id_column]
+        )
+        .rename(
+            columns={
+                match_id_column: "_match_id",
+                season_column: "Season",
+            }
+        )
+    )
+
+    match_season_df["Season"] = (
+        match_season_df["Season"]
+        .fillna("Unknown")
+        .astype(str)
+        .str.strip()
+    )
+
+    delivery_analysis_df = (
+        deliveries_df
+        .copy()
+        .rename(
+            columns={
+                delivery_match_id_column: "_match_id",
+            }
+        )
+    )
+
+    merged_df = delivery_analysis_df.merge(
+        match_season_df,
+        on="_match_id",
+        how="inner",
+    )
+
+    if merged_df.empty:
+        return pd.DataFrame(columns=output_columns)
+
+    runs_summary_df = create_team_runs_by_season(
+        team=team,
+        deliveries_df=merged_df,
+    )
+
+    wickets_summary_df = create_team_wickets_by_season(
+        team=team,
+        deliveries_df=merged_df,
+    )
+
+    season_values = sorted(
+        set(
+            runs_summary_df.get(
+                "Season",
+                pd.Series(dtype=str),
+            ).tolist()
+            + wickets_summary_df.get(
+                "Season",
+                pd.Series(dtype=str),
+            ).tolist()
+        )
+    )
+
+    if not season_values:
+        return pd.DataFrame(columns=output_columns)
+
+    summary_df = pd.DataFrame(
+        {
+            "Season": season_values,
+        }
+    )
+
+    if not runs_summary_df.empty:
+
+        summary_df = summary_df.merge(
+            runs_summary_df,
+            on="Season",
+            how="left",
+        )
+
+    else:
+
+        summary_df["Runs Scored"] = 0
+
+    if not wickets_summary_df.empty:
+
+        summary_df = summary_df.merge(
+            wickets_summary_df,
+            on="Season",
+            how="left",
+        )
+
+    else:
+
+        summary_df["Wickets Taken"] = 0
+
+    for column in [
+        "Runs Scored",
+        "Wickets Taken",
+    ]:
+
+        if column not in summary_df.columns:
+            summary_df[column] = 0
+
+        summary_df[column] = (
+            pd.to_numeric(
+                summary_df[column],
+                errors="coerce",
+            )
+            .fillna(0)
+            .round()
+            .astype(int)
+        )
+
+    return (
+        sort_season_dataframe(
+            dataframe=summary_df[
+                output_columns
+            ],
+            season_column="Season",
+        )
+        .reset_index(drop=True)
+    )
+
+def create_team_season_performance_summary(
+    team: str,
+    matches_df: pd.DataFrame,
+    deliveries_df: pd.DataFrame,
+) -> pd.DataFrame:
+    """
+    Combine team match and delivery statistics by season.
+
+    Returns
+    -------
+    pd.DataFrame
+        Columns:
+        - Season
+        - Matches
+        - Wins
+        - Losses
+        - No Results
+        - Win Percentage
+        - Runs Scored
+        - Average Runs per Match
+        - Wickets Taken
+        - Average Wickets per Match
+    """
+
+    output_columns = [
+        "Season",
+        "Matches",
+        "Wins",
+        "Losses",
+        "No Results",
+        "Win Percentage",
+        "Runs Scored",
+        "Average Runs per Match",
+        "Wickets Taken",
+        "Average Wickets per Match",
+    ]
+
+    match_summary_df = (
+        create_team_season_match_summary(
+            team=team,
+            matches_df=matches_df,
+        )
+    )
+
+    delivery_summary_df = (
+        create_team_season_delivery_summary(
+            team=team,
+            matches_df=matches_df,
+            deliveries_df=deliveries_df,
+        )
+    )
+
+    if match_summary_df.empty:
+        return pd.DataFrame(columns=output_columns)
+
+    summary_df = match_summary_df.copy()
+
+    summary_df = summary_df.drop(
+        columns=["Decided Matches"],
+        errors="ignore",
+    )
+
+    if not delivery_summary_df.empty:
+
+        summary_df = summary_df.merge(
+            delivery_summary_df,
+            on="Season",
+            how="left",
+        )
+
+    else:
+
+        summary_df["Runs Scored"] = 0
+        summary_df["Wickets Taken"] = 0
+
+    for column in [
+        "Runs Scored",
+        "Wickets Taken",
+    ]:
+
+        if column not in summary_df.columns:
+            summary_df[column] = 0
+
+        summary_df[column] = (
+            pd.to_numeric(
+                summary_df[column],
+                errors="coerce",
+            )
+            .fillna(0)
+            .round()
+            .astype(int)
+        )
+
+    summary_df["Average Runs per Match"] = (
+        summary_df.apply(
+            lambda row: round(
+                safe_divide(
+                    numerator=row["Runs Scored"],
+                    denominator=row["Matches"],
+                ),
+                1,
+            ),
+            axis=1,
+        )
+    )
+
+    summary_df["Average Wickets per Match"] = (
+        summary_df.apply(
+            lambda row: round(
+                safe_divide(
+                    numerator=row["Wickets Taken"],
+                    denominator=row["Matches"],
+                ),
+                1,
+            ),
+            axis=1,
+        )
+    )
+
+    return (
+        sort_season_dataframe(
+            dataframe=summary_df[
+                output_columns
+            ],
+            season_column="Season",
+        )
+        .reset_index(drop=True)
+    )
+
