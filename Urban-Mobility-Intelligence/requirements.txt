@@ -1,0 +1,45 @@
+# Core Data Science
+
+pandas
+numpy
+
+# Parquet Data Processing
+
+pyarrow
+
+# Jupyter
+
+jupyter
+ipykernel
+
+# Data Visualization
+
+matplotlib
+seaborn
+plotly
+
+# Machine Learning
+
+scikit-learn
+
+# Gradient Boosting
+
+xgboost
+
+# Model Explainability
+
+shap
+
+# Dashboard
+
+streamlit
+
+# API
+
+fastapi
+uvicorn
+
+# Utilities
+
+joblib
+python-dotenv
